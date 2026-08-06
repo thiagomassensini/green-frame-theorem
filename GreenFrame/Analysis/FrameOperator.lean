@@ -32,7 +32,8 @@ theorem fullAnalysis_injective {T : H →L[ℝ] K} (hT : FrameCertificate T) :
   have hmap : T (x - y) = 0 := by
     rw [map_sub, hxy, sub_self]
   have hlower := hT.lower (x - y)
-  rw [hmap, norm_zero, zero_pow] at hlower
+  rw [hmap, norm_zero] at hlower
+  norm_num at hlower
   have hnorm : ‖x - y‖ = 0 := by
     nlinarith [norm_nonneg (x - y)]
   exact sub_eq_zero.mp (norm_eq_zero.mp hnorm)
