@@ -1,6 +1,7 @@
 name: Green Frame Actions diagnostics
 
 on:
+  pull_request:
   push:
     branches:
       - actions-diagnostics-trigger
