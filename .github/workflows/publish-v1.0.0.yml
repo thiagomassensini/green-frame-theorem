@@ -10,15 +10,13 @@ on:
       - opened
       - edited
   workflow_dispatch:
-  schedule:
-    - cron: '*/5 * * * *'
 
 permissions:
   contents: write
   issues: write
 
 concurrency:
-  group: publish-green-frame-v1.0.0
+  group: publish-green-frame-v1.0.0-${{ github.event_name }}
   cancel-in-progress: true
 
 jobs:
@@ -26,7 +24,6 @@ jobs:
     if: >-
       github.event_name == 'push' ||
       github.event_name == 'workflow_dispatch' ||
-      github.event_name == 'schedule' ||
       (github.event_name == 'create' && github.event.ref_type == 'branch' && github.event.ref == 'release-v1.0.0-trigger') ||
       (github.event_name == 'issues' && contains(github.event.issue.title, 'PUBLISH GREEN FRAME V1.0.0'))
     name: Audit, tag, and release v1.0.0
