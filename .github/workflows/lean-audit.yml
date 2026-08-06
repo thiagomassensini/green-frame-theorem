@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - main
-      - agent/formalize-all-bases-green-frame
   workflow_dispatch:
 
 permissions:
