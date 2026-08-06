@@ -14,9 +14,11 @@ def main() -> int:
         print("usage: check_axiom_output.py AXIOM_LOG", file=sys.stderr)
         return 2
     text = Path(sys.argv[1]).read_text(encoding="utf-8")
-    blocks = re.findall(r"axioms:\s*\[([^\]]*)\]", text)
-    if len(blocks) != 41:
-        print(f"ERROR: expected 41 axiom reports, found {len(blocks)}", file=sys.stderr)
+    no_axiom_reports = len(re.findall(r" does not depend on any axioms", text))
+    blocks = re.findall(r" depends on axioms:\s*\[([^\]]*)\]", text)
+    report_count = no_axiom_reports + len(blocks)
+    if report_count != 41:
+        print(f"ERROR: expected 41 axiom reports, found {report_count}", file=sys.stderr)
         return 1
     used: set[str] = set()
     for block in blocks:
@@ -25,7 +27,10 @@ def main() -> int:
     if forbidden:
         print(f"ERROR: forbidden axioms: {sorted(forbidden)}", file=sys.stderr)
         return 1
-    print(f"PASS: 41 axiom reports; used={sorted(used)}; allowlist={sorted(ALLOWED)}")
+    print(
+        f"PASS: 41 axiom reports; used={sorted(used)}; "
+        f"allowlist={sorted(ALLOWED)}"
+    )
     return 0
 
 
