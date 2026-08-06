@@ -36,7 +36,7 @@ theorem admissible_weight_le_one (i : ι) : ω.weight i ≤ 1 := by
     _ = 1 := ω.sum_eq_one
 
 /-- The finite support used by the abstract atlas. -/
-def support : Finset ι :=
+noncomputable def support : Finset ι :=
   Finset.univ.filter fun i => ω.weight i ≠ 0
 
 /-- Membership in the support is exactly nonvanishing of the weight. -/
