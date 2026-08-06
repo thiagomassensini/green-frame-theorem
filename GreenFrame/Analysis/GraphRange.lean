@@ -35,7 +35,7 @@ theorem coherentRange_eq_graph :
   rintro y ⟨⟨x, hx⟩, hy⟩
   refine ⟨x, ?_⟩
   apply Prod.ext
-  · exact hx.symm
+  · exact hx
   · calc
       P.bulk x = P.poissonOperator (P.external x) := (P.poisson_apply_external x).symm
       _ = P.poissonOperator y.1 := by rw [hx]
