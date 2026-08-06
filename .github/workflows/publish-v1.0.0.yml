@@ -1,0 +1,129 @@
+name: Publish Green Frame v1.0.0
+
+on:
+  push:
+    branches:
+      - main
+  create:
+  issues:
+    types:
+      - opened
+      - edited
+  workflow_dispatch:
+  schedule:
+    - cron: '*/5 * * * *'
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: publish-green-frame-v1.0.0
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: >-
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'schedule' ||
+      (github.event_name == 'create' && github.event.ref_type == 'branch' && github.event.ref == 'release-v1.0.0-trigger') ||
+      (github.event_name == 'issues' && contains(github.event.issue.title, 'PUBLISH GREEN FRAME V1.0.0'))
+    name: Audit, tag, and release v1.0.0
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: v1.0.0
+    steps:
+      - name: Check out immutable main publication target
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Detect an existing release
+        id: guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo 'already=true' >> "$GITHUB_OUTPUT"
+            echo "Release $TAG already exists; publication is idempotently complete."
+          else
+            echo 'already=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up pinned Lean and Mathlib cache
+        if: steps.guard.outputs.already != 'true'
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
+        with:
+          use-github-cache: true
+          use-mathlib-cache: true
+
+      - name: Run the complete publication gate
+        if: steps.guard.outputs.already != 'true'
+        shell: bash
+        run: bash scripts/run_audits.sh
+
+      - name: Build immutable release bundle
+        if: steps.guard.outputs.already != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist/audit
+          cp audit/axioms.txt dist/audit/axioms.txt
+          cp audit/AXIOM_POLICY.md audit/CLAIM_LEDGER.md audit/SOURCE_PROVENANCE.md \
+            audit/THEOREM_REGISTRY.md audit/theorem-registry.json dist/audit/
+          cp docs/90_PAPER_SPECIFICATION.md dist/TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md
+          cp .release/v1.0.0.md dist/RELEASE_NOTES.md
+          git archive --format=tar.gz \
+            --prefix=green-frame-theorem-v1.0.0/ \
+            --output=dist/green-frame-theorem-v1.0.0.tar.gz HEAD
+          (
+            cd dist
+            sha256sum \
+              green-frame-theorem-v1.0.0.tar.gz \
+              TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md \
+              audit/axioms.txt \
+              audit/theorem-registry.json > SHA256SUMS.txt
+          )
+
+      - name: Create annotated tag and GitHub release
+        if: steps.guard.outputs.already != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch --force --tags origin
+          if ! git rev-parse "$TAG" >/dev/null 2>&1; then
+            git tag -a "$TAG" -F .release/v1.0.0.md
+            git push origin "$TAG"
+          fi
+          gh release create "$TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --verify-tag \
+            --title 'Green Frame Theorem v1.0.0' \
+            --notes-file .release/v1.0.0.md \
+            dist/green-frame-theorem-v1.0.0.tar.gz \
+            dist/TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md \
+            dist/audit/axioms.txt \
+            dist/audit/theorem-registry.json \
+            dist/SHA256SUMS.txt
+
+      - name: Record issue-triggered publication result
+        if: github.event_name == 'issues' && always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh issue comment "${{ github.event.issue.number }}" \
+              --repo "$GITHUB_REPOSITORY" \
+              --body "GREEN: audited tag and release \`$TAG\` are published from \`main\`."
+          else
+            gh issue comment "${{ github.event.issue.number }}" \
+              --repo "$GITHUB_REPOSITORY" \
+              --body "RED: publication did not complete. Inspect the workflow run before retrying."
+            exit 1
+          fi
