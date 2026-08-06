@@ -19,7 +19,7 @@ permissions:
 
 concurrency:
   group: publish-green-frame-v1.0.0
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   publish:
