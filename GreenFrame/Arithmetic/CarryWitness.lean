@@ -14,7 +14,7 @@ namespace GreenFrame
 def carryFourActivity : Fin 2 → ℝ := fun _ => 1
 
 /-- The normalized two-camera weight at `n = 4`. -/
-def carryFourWeight (i : Fin 2) : ℝ :=
+noncomputable def carryFourWeight (i : Fin 2) : ℝ :=
   normalizedWeight Finset.univ carryFourActivity i
 
 /-- The two equal activities have total mass two. -/
