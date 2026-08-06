@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "Green Frame Theorem"
+message: "Please cite this software and formalization using the metadata below."
+type: software
+authors:
+  - family-names: Motta
+    given-names: Thiago
+repository-code: "https://github.com/thiagomassensini/green-frame-theorem"
+version: 1.0.0
+date-released: 2026-08-06
+license: MIT
+keywords:
+  - Lean 4
+  - frame theory
+  - discrete Green operator
+  - carry geometry
+  - Poisson reconstruction

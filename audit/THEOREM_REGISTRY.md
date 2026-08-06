@@ -1,0 +1,47 @@
+# Theorem Registry
+
+The registry contains exactly **41** named Lean theorems reachable from `GreenFrame.lean`.
+
+| ID | Declaration | Source |
+|---|---|---|
+| `GF-001` | `GreenFrame.AdmissibleCameraPartition.admissible_weight_nonneg` | `GreenFrame/Arithmetic/AdmissiblePartition.lean:23` |
+| `GF-002` | `GreenFrame.AdmissibleCameraPartition.admissible_weight_sum_eq_one` | `GreenFrame/Arithmetic/AdmissiblePartition.lean:27` |
+| `GF-003` | `GreenFrame.AdmissibleCameraPartition.admissible_weight_le_one` | `GreenFrame/Arithmetic/AdmissiblePartition.lean:31` |
+| `GF-004` | `GreenFrame.AdmissibleCameraPartition.mem_support_iff` | `GreenFrame/Arithmetic/AdmissiblePartition.lean:43` |
+| `GF-005` | `GreenFrame.AdmissibleCameraPartition.admissible_weight_eq_zero_of_not_mem_support` | `GreenFrame/Arithmetic/AdmissiblePartition.lean:47` |
+| `GF-006` | `GreenFrame.activityNormalizer_nonneg` | `GreenFrame/Arithmetic/NormalizedWeights.lean:22` |
+| `GF-007` | `GreenFrame.normalizedWeight_nonneg` | `GreenFrame/Arithmetic/NormalizedWeights.lean:28` |
+| `GF-008` | `GreenFrame.normalizedWeight_eq_zero_of_not_mem` | `GreenFrame/Arithmetic/NormalizedWeights.lean:37` |
+| `GF-009` | `GreenFrame.normalizedWeight_sum_eq_one` | `GreenFrame/Arithmetic/NormalizedWeights.lean:43` |
+| `GF-010` | `GreenFrame.normalizedWeight_le_one` | `GreenFrame/Arithmetic/NormalizedWeights.lean:49` |
+| `GF-011` | `GreenFrame.carryActivity_four_normalizer` | `GreenFrame/Arithmetic/CarryWitness.lean:21` |
+| `GF-012` | `GreenFrame.carryWeight_two_four` | `GreenFrame/Arithmetic/CarryWitness.lean:26` |
+| `GF-013` | `GreenFrame.carryWeight_four_four` | `GreenFrame/Arithmetic/CarryWitness.lean:31` |
+| `GF-014` | `GreenFrame.greenMass_nonneg` | `GreenFrame/Analysis/PythagoreanSplit.lean:16` |
+| `GF-015` | `GreenFrame.residualMass_nonneg` | `GreenFrame/Analysis/PythagoreanSplit.lean:21` |
+| `GF-016` | `GreenFrame.green_residual_split` | `GreenFrame/Analysis/PythagoreanSplit.lean:30` |
+| `GF-017` | `GreenFrame.residualMass_ge_half_weight` | `GreenFrame/Analysis/PythagoreanSplit.lean:36` |
+| `GF-018` | `GreenFrame.greenMass_le_half_weight` | `GreenFrame/Analysis/PythagoreanSplit.lean:49` |
+| `GF-019` | `GreenFrame.sum_three_sq_le` | `GreenFrame/Analysis/GreenBounds.lean:14` |
+| `GF-020` | `GreenFrame.greenStencil_sq_le` | `GreenFrame/Analysis/GreenBounds.lean:19` |
+| `GF-021` | `GreenFrame.greenStencil_sq_nonneg` | `GreenFrame/Analysis/GreenBounds.lean:27` |
+| `GF-022` | `GreenFrame.greenAnalysis_norm_sq_le` | `GreenFrame/Analysis/GreenBounds.lean:32` |
+| `GF-023` | `GreenFrame.residual_seed_norm_sq_bounds` | `GreenFrame/Analysis/FullFrame.lean:22` |
+| `GF-024` | `GreenFrame.fullEnergy_lower` | `GreenFrame/Analysis/FullFrame.lean:29` |
+| `GF-025` | `GreenFrame.fullEnergy_upper` | `GreenFrame/Analysis/FullFrame.lean:37` |
+| `GF-026` | `GreenFrame.allBasesGreenAnalysis_bounds` | `GreenFrame/Analysis/FullFrame.lean:45` |
+| `GF-027` | `GreenFrame.frameOperator_lower` | `GreenFrame/Analysis/FrameOperator.lean:19` |
+| `GF-028` | `GreenFrame.frameOperator_upper` | `GreenFrame/Analysis/FrameOperator.lean:24` |
+| `GF-029` | `GreenFrame.fullAnalysis_injective` | `GreenFrame/Analysis/FrameOperator.lean:29` |
+| `GF-030` | `GreenFrame.normalizedAnalysis_isometry` | `GreenFrame/Analysis/CanonicalParseval.lean:17` |
+| `GF-031` | `GreenFrame.normalizedAnalysis_norm` | `GreenFrame/Analysis/CanonicalParseval.lean:22` |
+| `GF-032` | `GreenFrame.PoissonData.external_leftInverse` | `GreenFrame/Analysis/PoissonCompletion.lean:34` |
+| `GF-033` | `GreenFrame.PoissonData.poisson_intertwining` | `GreenFrame/Analysis/PoissonCompletion.lean:40` |
+| `GF-034` | `GreenFrame.PoissonData.poisson_apply_external` | `GreenFrame/Analysis/PoissonCompletion.lean:46` |
+| `GF-035` | `GreenFrame.PoissonData.poisson_eq_zero_of_leftInverse_eq_zero` | `GreenFrame/Analysis/PoissonCompletion.lean:51` |
+| `GF-036` | `GreenFrame.PoissonData.coherentRange_subset_graph` | `GreenFrame/Analysis/GraphRange.lean:26` |
+| `GF-037` | `GreenFrame.PoissonData.coherentRange_eq_graph` | `GreenFrame/Analysis/GraphRange.lean:32` |
+| `GF-038` | `GreenFrame.PoissonData.rawBulk_nonzero` | `GreenFrame/Analysis/NontrivialBulk.lean:18` |
+| `GF-039` | `GreenFrame.PoissonData.poisson_nonzero` | `GreenFrame/Analysis/NontrivialBulk.lean:26` |
+| `GF-040` | `GreenFrame.uniform_section_bounds` | `GreenFrame/Finite/Sections.lean:10` |
+| `GF-041` | `GreenFrame.strong_limit_preserves_bounds` | `GreenFrame/Finite/StrongLimit.lean:12` |
