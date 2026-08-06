@@ -5,40 +5,28 @@ on:
   push:
     branches:
       - main
-  issues:
-    types:
-      - opened
-      - edited
+      - audit/v1.0.0-publication-gate
   workflow_dispatch:
-  schedule:
-    - cron: '17 3 * * *'
 
 permissions:
   contents: read
-  issues: write
 
 concurrency:
-  group: green-frame-audit-${{ github.workflow }}-${{ github.ref }}
+  group: green-frame-audit-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   audit:
-    if: github.event_name != 'issues' || contains(github.event.issue.title, 'RUN GREEN FRAME AUDIT')
     name: Lean kernel and trust audit
     runs-on: ubuntu-latest
     timeout-minutes: 90
-    env:
-      TARGET_REF: ${{ (github.event_name == 'schedule' || github.event_name == 'issues') && 'main' || github.sha }}
-      GH_TOKEN: ${{ github.token }}
-      AUDIT_OUTPUT: ${{ runner.temp }}/green-frame-audit
     steps:
-      - name: Check out exact target revision
+      - name: Check out exact revision
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
-          ref: ${{ env.TARGET_REF }}
           fetch-depth: 0
 
-      - name: Install pinned Lean toolchain without workspace auto-configuration
+      - name: Install pinned Lean without Lake auto-configuration
         uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
         with:
           auto-config: false
@@ -48,101 +36,28 @@ jobs:
           use-github-cache: false
           use-mathlib-cache: false
 
-      - name: Resolve the pinned Lake workspace and fetch Mathlib cache
+      - name: Resolve pinned dependencies and fetch Mathlib cache
         shell: bash
         run: |
           set -euo pipefail
           lake update
           lake exe cache get
 
-      - name: Run complete reproducibility, kernel, and axiom audit
-        id: kernel
+      - name: Run complete publication audit
         shell: bash
-        run: |
-          set +e
-          mkdir -p "${AUDIT_OUTPUT}"
-          bash scripts/run_audits.sh 2>&1 | tee "${AUDIT_OUTPUT}/complete-audit.log"
-          status=${PIPESTATUS[0]}
-          {
-            echo "commit=$(git rev-parse HEAD)"
-            lean --version | head -n 1
-            lake --version
-          } > "${AUDIT_OUTPUT}/build-environment.txt"
-          cp audit/axioms.txt "${AUDIT_OUTPUT}/axioms.txt" 2>/dev/null || true
-          cp lake-manifest.json "${AUDIT_OUTPUT}/lake-manifest.json" 2>/dev/null || true
-          cp audit/theorem-registry.json "${AUDIT_OUTPUT}/theorem-registry.json"
-          cp audit/CLAIM_LEDGER.md "${AUDIT_OUTPUT}/CLAIM_LEDGER.md"
-          cp audit/SOURCE_PROVENANCE.md "${AUDIT_OUTPUT}/SOURCE_PROVENANCE.md"
-          cp docs/90_PAPER_SPECIFICATION.md "${AUDIT_OUTPUT}/TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md" 2>/dev/null || true
-          echo "status=${status}" >> "${GITHUB_OUTPUT}"
-          exit 0
+        run: bash scripts/run_audits.sh
 
       - name: Upload audit evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: green-frame-audit-${{ github.run_id }}
-          path: ${{ env.AUDIT_OUTPUT }}
-          if-no-files-found: error
+          path: |
+            audit/axioms.txt
+            audit/theorem-registry.json
+            audit/CLAIM_LEDGER.md
+            audit/SOURCE_PROVENANCE.md
+            docs/90_PAPER_SPECIFICATION.md
+            lake-manifest.json
+          if-no-files-found: warn
           retention-days: 30
-
-      - name: Prepare audit ledger
-        if: (github.event_name == 'schedule' || github.event_name == 'issues') && always()
-        id: ledger
-        shell: bash
-        env:
-          KERNEL_STATUS: ${{ steps.kernel.outputs.status }}
-        run: |
-          set -euo pipefail
-          head_sha="$(git rev-parse HEAD)"
-          if [[ "${KERNEL_STATUS}" == "0" ]]; then
-            conclusion="GREEN"
-          else
-            conclusion="RED"
-          fi
-          log_tail="$(tail -n 220 "${AUDIT_OUTPUT}/complete-audit.log" 2>/dev/null || true)"
-          body_file="${RUNNER_TEMP}/green-frame-audit.md"
-          {
-            echo "# Green Frame kernel and trust audit"
-            echo
-            echo "- Target ref: \`${TARGET_REF}\`"
-            echo "- Exact commit: \`${head_sha}\`"
-            echo "- Conclusion: **${conclusion}**"
-            echo "- Gate: source SHA + static trust + \`lake build --wfail GreenFrame\` + 41-theorem axiom audit"
-            echo "- Workflow run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-            echo
-            echo '```text'
-            printf '%s\n' "${log_tail}"
-            echo '```'
-          } > "${body_file}"
-          echo "body_file=${body_file}" >> "${GITHUB_OUTPUT}"
-
-      - name: Publish scheduled audit ledger
-        if: github.event_name == 'schedule' && always()
-        shell: bash
-        env:
-          BODY_FILE: ${{ steps.ledger.outputs.body_file }}
-        run: |
-          set -euo pipefail
-          issue_number="$(gh issue list --repo "${GITHUB_REPOSITORY}" --state open --search 'Scheduled Green Frame kernel audit in:title' --json number --jq '.[0].number // empty')"
-          if [[ -z "${issue_number}" ]]; then
-            gh issue create --repo "${GITHUB_REPOSITORY}" --title "Scheduled Green Frame kernel audit" --body-file "${BODY_FILE}"
-          else
-            gh issue edit "${issue_number}" --repo "${GITHUB_REPOSITORY}" --body-file "${BODY_FILE}"
-          fi
-
-      - name: Comment issue-triggered audit ledger
-        if: github.event_name == 'issues' && always()
-        shell: bash
-        env:
-          BODY_FILE: ${{ steps.ledger.outputs.body_file }}
-        run: |
-          gh issue comment "${{ github.event.issue.number }}" --repo "${GITHUB_REPOSITORY}" --body-file "${BODY_FILE}"
-
-      - name: Enforce audit result
-        if: always()
-        shell: bash
-        env:
-          KERNEL_STATUS: ${{ steps.kernel.outputs.status }}
-        run: |
-          test "${KERNEL_STATUS}" = "0"
