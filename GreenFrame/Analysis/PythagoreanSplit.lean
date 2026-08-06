@@ -7,10 +7,10 @@ import GreenFrame.Arithmetic.CarryWitness
 namespace GreenFrame
 
 /-- Mass transmitted through the Green channel. -/
-def greenMass (weight base : ℝ) : ℝ := weight / base
+noncomputable def greenMass (weight base : ℝ) : ℝ := weight / base
 
 /-- Mass retained in the orthogonal residual/return channel. -/
-def residualMass (weight base : ℝ) : ℝ := weight * (1 - 1 / base)
+noncomputable def residualMass (weight base : ℝ) : ℝ := weight * (1 - 1 / base)
 
 /-- Green mass is nonnegative for a nonnegative weight and positive base. -/
 theorem greenMass_nonneg {weight base : ℝ} (hw : 0 ≤ weight) (hb : 0 < base) :
