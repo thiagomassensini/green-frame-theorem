@@ -11,7 +11,7 @@ on:
       - edited
   workflow_dispatch:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: '17 3 * * *'
 
 permissions:
   contents: read
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
-      TARGET_REF: ${{ (github.event_name == 'schedule' || github.event_name == 'issues') && 'agent/formalize-all-bases-green-frame' || github.sha }}
+      TARGET_REF: ${{ (github.event_name == 'schedule' || github.event_name == 'issues') && 'main' || github.sha }}
       GH_TOKEN: ${{ github.token }}
       AUDIT_OUTPUT: ${{ runner.temp }}/green-frame-audit
     steps:
@@ -38,11 +38,22 @@ jobs:
           ref: ${{ env.TARGET_REF }}
           fetch-depth: 0
 
-      - name: Set up Lean and Mathlib cache
+      - name: Install pinned Lean toolchain without workspace auto-configuration
         uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
         with:
-          use-github-cache: true
-          use-mathlib-cache: true
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+
+      - name: Resolve the pinned Lake workspace and fetch Mathlib cache
+        shell: bash
+        run: |
+          set -euo pipefail
+          lake update
+          lake exe cache get
 
       - name: Run complete reproducibility, kernel, and axiom audit
         id: kernel
@@ -58,6 +69,7 @@ jobs:
             lake --version
           } > "${AUDIT_OUTPUT}/build-environment.txt"
           cp audit/axioms.txt "${AUDIT_OUTPUT}/axioms.txt" 2>/dev/null || true
+          cp lake-manifest.json "${AUDIT_OUTPUT}/lake-manifest.json" 2>/dev/null || true
           cp audit/theorem-registry.json "${AUDIT_OUTPUT}/theorem-registry.json"
           cp audit/CLAIM_LEDGER.md "${AUDIT_OUTPUT}/CLAIM_LEDGER.md"
           cp audit/SOURCE_PROVENANCE.md "${AUDIT_OUTPUT}/SOURCE_PROVENANCE.md"
@@ -88,7 +100,7 @@ jobs:
           else
             conclusion="RED"
           fi
-          log_tail="$(tail -n 220 "${AUDIT_OUTPUT}/complete-audit.log" || true)"
+          log_tail="$(tail -n 220 "${AUDIT_OUTPUT}/complete-audit.log" 2>/dev/null || true)"
           body_file="${RUNNER_TEMP}/green-frame-audit.md"
           {
             echo "# Green Frame kernel and trust audit"
