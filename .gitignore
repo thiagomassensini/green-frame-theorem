@@ -1,0 +1,5 @@
+.lake/
+lake-manifest.json
+build/
+audit/axioms.txt
+docs/90_PAPER_SPECIFICATION.md
