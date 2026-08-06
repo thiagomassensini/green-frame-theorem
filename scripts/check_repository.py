@@ -8,7 +8,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-LEAN_FILES = sorted(ROOT.rglob("*.lean"))
+LEAN_FILES = sorted(
+    path
+    for path in ROOT.rglob("*.lean")
+    if ".lake" not in path.parts and "build" not in path.parts
+)
 FORBIDDEN = {
     "sorry": re.compile(r"\bsorry\b"),
     "admit": re.compile(r"\badmit\b"),
@@ -55,7 +59,7 @@ def main() -> int:
     if "import GreenFrame.PublicAPI" not in public_root:
         fail("GreenFrame.lean does not import GreenFrame.PublicAPI")
 
-    print(f"PASS: {len(LEAN_FILES)} Lean files; 41 registered theorems; no placeholders or project axioms")
+    print(f"PASS: {len(LEAN_FILES)} project Lean files; 41 registered theorems; no placeholders or project axioms")
     return 0
 
 
