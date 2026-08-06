@@ -5,6 +5,10 @@ on:
   push:
     branches:
       - main
+  issues:
+    types:
+      - opened
+      - edited
   workflow_dispatch:
   schedule:
     - cron: "*/5 * * * *"
@@ -19,11 +23,12 @@ concurrency:
 
 jobs:
   audit:
+    if: github.event_name != 'issues' || contains(github.event.issue.title, 'RUN GREEN FRAME AUDIT')
     name: Lean kernel build
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
-      TARGET_REF: ${{ github.event_name == 'schedule' && 'agent/formalize-all-bases-green-frame' || github.sha }}
+      TARGET_REF: ${{ (github.event_name == 'schedule' || github.event_name == 'issues') && 'agent/formalize-all-bases-green-frame' || github.sha }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - name: Check out exact target revision
@@ -48,8 +53,9 @@ jobs:
           echo "status=${status}" >> "${GITHUB_OUTPUT}"
           exit 0
 
-      - name: Publish scheduled audit ledger
-        if: github.event_name == 'schedule' && always()
+      - name: Prepare audit ledger
+        if: (github.event_name == 'schedule' || github.event_name == 'issues') && always()
+        id: ledger
         shell: bash
         env:
           KERNEL_STATUS: ${{ steps.kernel.outputs.status }}
@@ -61,10 +67,10 @@ jobs:
           else
             conclusion="RED"
           fi
-          log_tail="$(tail -n 120 "${RUNNER_TEMP}/green-frame-build.log" || true)"
-          body_file="${RUNNER_TEMP}/scheduled-audit.md"
+          log_tail="$(tail -n 160 "${RUNNER_TEMP}/green-frame-build.log" || true)"
+          body_file="${RUNNER_TEMP}/green-frame-audit.md"
           {
-            echo "# Scheduled Green Frame kernel audit"
+            echo "# Green Frame kernel audit"
             echo
             echo "- Target ref: \`${TARGET_REF}\`"
             echo "- Exact commit: \`${head_sha}\`"
@@ -76,12 +82,29 @@ jobs:
             printf '%s\n' "${log_tail}"
             echo '```'
           } > "${body_file}"
+          echo "body_file=${body_file}" >> "${GITHUB_OUTPUT}"
+
+      - name: Publish scheduled audit ledger
+        if: github.event_name == 'schedule' && always()
+        shell: bash
+        env:
+          BODY_FILE: ${{ steps.ledger.outputs.body_file }}
+        run: |
+          set -euo pipefail
           issue_number="$(gh issue list --repo "${GITHUB_REPOSITORY}" --state open --search 'Scheduled Green Frame kernel audit in:title' --json number --jq '.[0].number // empty')"
           if [[ -z "${issue_number}" ]]; then
-            gh issue create --repo "${GITHUB_REPOSITORY}" --title "Scheduled Green Frame kernel audit" --body-file "${body_file}"
+            gh issue create --repo "${GITHUB_REPOSITORY}" --title "Scheduled Green Frame kernel audit" --body-file "${BODY_FILE}"
           else
-            gh issue edit "${issue_number}" --repo "${GITHUB_REPOSITORY}" --body-file "${body_file}"
+            gh issue edit "${issue_number}" --repo "${GITHUB_REPOSITORY}" --body-file "${BODY_FILE}"
           fi
+
+      - name: Comment issue-triggered audit ledger
+        if: github.event_name == 'issues' && always()
+        shell: bash
+        env:
+          BODY_FILE: ${{ steps.ledger.outputs.body_file }}
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" --repo "${GITHUB_REPOSITORY}" --body-file "${BODY_FILE}"
 
       - name: Enforce kernel result
         if: always()
