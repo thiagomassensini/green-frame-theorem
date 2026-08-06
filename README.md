@@ -10,6 +10,7 @@ The preserved mathematical specification proves the full paper theorem on the al
 ## Reproduce
 
 ```bash
+python3 scripts/materialize_source.py
 lake build --wfail GreenFrame
 lake env lean GreenFrame/Audit.lean
 ./scripts/run_audits.sh
@@ -45,7 +46,7 @@ finite admissible camera partition
 - `GreenFrame/Analysis`: Pythagorean split, Green estimate, frame certificate, Parseval and Poisson layers.
 - `GreenFrame/Finite`: cutoff-uniform inequalities and limit preservation.
 - `GreenFrame/Audit.lean`: kernel axiom report for all 41 public theorems.
-- `docs/90_PAPER_SPECIFICATION.md`: byte-preserved mathematical source used to define the project scope.
+- [`docs/source`](docs/source): checksummed, byte-preserved paper specification and reconstruction instructions.
 - `audit`: theorem registry, claim ledger, provenance, and generated evidence.
 
 ## Scope firewall
