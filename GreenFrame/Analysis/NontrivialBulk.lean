@@ -26,10 +26,10 @@ theorem rawBulk_nonzero (h : ∃ x, P.bulk x ≠ 0) : P.bulk ≠ 0 := by
 theorem poisson_nonzero (h : ∃ x, P.bulk x ≠ 0) : P.poissonOperator ≠ 0 := by
   rintro hzero
   obtain ⟨x, hx⟩ := h
-  have hintertwine := P.poisson_apply_external x
-  rw [hzero] at hintertwine
-  simp at hintertwine
-  exact hx hintertwine.symm
+  apply hx
+  calc
+    P.bulk x = P.poissonOperator (P.external x) := (P.poisson_apply_external x).symm
+    _ = 0 := by rw [hzero]; rfl
 
 end PoissonData
 
