@@ -33,7 +33,7 @@ def poissonOperator : E →ₗ[ℝ] B :=
 /-- The chosen external synthesis is a left inverse pointwise. -/
 theorem external_leftInverse (x : H) :
     P.leftInverse (P.external x) = x := by
-  have h := LinearMap.congr_fun P.leftInverse_external x
+  have h := congrArg (fun f : H →ₗ[ℝ] H => f x) P.leftInverse_external
   simpa using h
 
 /-- Exact operator intertwining `M E = B`. -/
