@@ -31,13 +31,13 @@ theorem greenStencil_sq_nonneg (x parent grandparent : ℝ) :
 /-- Summing the local estimate gives the finite Green Bessel estimate. -/
 theorem greenAnalysis_norm_sq_le {ι : Type*} [DecidableEq ι]
     (s : Finset ι) (x parent grandparent : ι → ℝ) :
-    (∑ i in s, greenStencil (x i) (parent i) (grandparent i) ^ 2)
-      ≤ 12 * ∑ i in s, (x i ^ 2 + parent i ^ 2 + grandparent i ^ 2) := by
+    s.sum (fun i => greenStencil (x i) (parent i) (grandparent i) ^ 2)
+      ≤ 12 * s.sum (fun i => x i ^ 2 + parent i ^ 2 + grandparent i ^ 2) := by
   calc
-    (∑ i in s, greenStencil (x i) (parent i) (grandparent i) ^ 2)
-        ≤ ∑ i in s, 12 * (x i ^ 2 + parent i ^ 2 + grandparent i ^ 2) := by
+    s.sum (fun i => greenStencil (x i) (parent i) (grandparent i) ^ 2)
+        ≤ s.sum (fun i => 12 * (x i ^ 2 + parent i ^ 2 + grandparent i ^ 2)) := by
           exact Finset.sum_le_sum fun i _ => greenStencil_sq_le (x i) (parent i) (grandparent i)
-    _ = 12 * ∑ i in s, (x i ^ 2 + parent i ^ 2 + grandparent i ^ 2) := by
+    _ = 12 * s.sum (fun i => x i ^ 2 + parent i ^ 2 + grandparent i ^ 2) := by
           rw [Finset.mul_sum]
 
 end GreenFrame
