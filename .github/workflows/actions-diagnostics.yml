@@ -1,0 +1,79 @@
+name: Green Frame Actions diagnostics
+
+on:
+  push:
+    branches:
+      - actions-diagnostics-trigger
+  issues:
+    types:
+      - opened
+      - edited
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+  issues: write
+
+concurrency:
+  group: green-frame-actions-diagnostics
+  cancel-in-progress: true
+
+jobs:
+  diagnose:
+    if: github.event_name != 'issues' || contains(github.event.issue.title, 'DIAGNOSE GREEN FRAME ACTIONS')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Inspect recent workflow runs and the latest publisher failure
+        shell: bash
+        run: |
+          set -euo pipefail
+          repo="$GITHUB_REPOSITORY"
+          runs_json="${RUNNER_TEMP}/runs.json"
+          runs_txt="${RUNNER_TEMP}/runs.txt"
+          failed_log="${RUNNER_TEMP}/failed.log"
+          body_file="${RUNNER_TEMP}/diagnostics.md"
+
+          gh api "repos/${repo}/actions/runs?per_page=30" > "$runs_json"
+          jq -r '.workflow_runs[] | [.id, .name, .event, .status, (.conclusion // "-"), .head_sha, .html_url] | @tsv' \
+            "$runs_json" > "$runs_txt"
+
+          publisher_run_id="$(jq -r '.workflow_runs[] | select(.name == "Publish Green Frame v1.0.0") | .id' "$runs_json" | head -n 1)"
+          if [[ -n "$publisher_run_id" ]]; then
+            gh run view "$publisher_run_id" --repo "$repo" --log-failed > "$failed_log" 2>&1 || true
+          else
+            echo 'No publisher workflow run was found.' > "$failed_log"
+          fi
+
+          {
+            echo '# Green Frame Actions diagnostics'
+            echo
+            echo "- Diagnostic run: ${GITHUB_SERVER_URL}/${repo}/actions/runs/${GITHUB_RUN_ID}"
+            echo "- Latest publisher run ID: \`${publisher_run_id:-none}\`"
+            echo
+            echo '## Recent runs'
+            echo
+            echo '```text'
+            head -n 30 "$runs_txt"
+            echo '```'
+            echo
+            echo '## Latest publisher failed log'
+            echo
+            echo '```text'
+            tail -n 240 "$failed_log"
+            echo '```'
+          } > "$body_file"
+
+          if [[ "$GITHUB_EVENT_NAME" == 'issues' ]]; then
+            gh issue comment "${{ github.event.issue.number }}" --repo "$repo" --body-file "$body_file"
+          else
+            issue_number="$(gh issue list --repo "$repo" --state open --search 'Green Frame Actions diagnostics in:title' --json number --jq '.[0].number // empty')"
+            if [[ -z "$issue_number" ]]; then
+              gh issue create --repo "$repo" --title 'Green Frame Actions diagnostics' --body-file "$body_file"
+            else
+              gh issue edit "$issue_number" --repo "$repo" --body-file "$body_file"
+            fi
+          fi
