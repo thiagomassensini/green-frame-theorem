@@ -27,9 +27,9 @@ theorem residualMass_nonneg {weight base : ℝ} (hw : 0 ≤ weight) (hb : 2 ≤ 
   exact mul_nonneg hw (sub_nonneg.mpr hone)
 
 /-- The Green and residual channels conserve the complete camera mass. -/
-theorem green_residual_split {weight base : ℝ} (hb : base ≠ 0) :
+theorem green_residual_split {weight base : ℝ} (_hb : base ≠ 0) :
     greenMass weight base + residualMass weight base = weight := by
-  field_simp [greenMass, residualMass, hb]
+  simp only [greenMass, residualMass]
   ring
 
 /-- At least half of every camera weight remains in the residual channel. -/
