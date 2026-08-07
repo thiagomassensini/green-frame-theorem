@@ -6,6 +6,8 @@ import GreenFrame.Analysis.CanonicalParseval
 
 namespace GreenFrame
 
+section PoissonDataDefinition
+
 variable (H E B : Type*)
   [AddCommGroup H] [Module ℝ H]
   [AddCommGroup E] [Module ℝ E]
@@ -18,9 +20,11 @@ structure PoissonData where
   leftInverse : E →ₗ[ℝ] H
   leftInverse_external : leftInverse.comp external = LinearMap.id
 
+end PoissonDataDefinition
+
 namespace PoissonData
 
-variable {H E B}
+variable {H E B : Type*}
   [AddCommGroup H] [Module ℝ H]
   [AddCommGroup E] [Module ℝ E]
   [AddCommGroup B] [Module ℝ B]
