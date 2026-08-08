@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 320,
+  "count": 326,
   "theorems": [
     {
       "id": "GF-001",
@@ -1601,6 +1601,36 @@
       "id": "GF-320",
       "name": "restrictedPoisson_ne_zero_of_rawBulk_witness",
       "qualified": "GreenFrame.Concrete.restrictedPoisson_ne_zero_of_rawBulk_witness"
+    },
+    {
+      "id": "GF-321",
+      "name": "sqrtFrame_nonneg",
+      "qualified": "GreenFrame.Concrete.sqrtFrame_nonneg"
+    },
+    {
+      "id": "GF-322",
+      "name": "sqrtFrame_isSelfAdjoint",
+      "qualified": "GreenFrame.Concrete.sqrtFrame_isSelfAdjoint"
+    },
+    {
+      "id": "GF-323",
+      "name": "sqrtFrame_adjoint",
+      "qualified": "GreenFrame.Concrete.sqrtFrame_adjoint"
+    },
+    {
+      "id": "GF-324",
+      "name": "sqrtFrame_comp_self",
+      "qualified": "GreenFrame.Concrete.sqrtFrame_comp_self"
+    },
+    {
+      "id": "GF-325",
+      "name": "sqrtFrame_norm_sq_eq_analysis_norm_sq",
+      "qualified": "GreenFrame.Concrete.sqrtFrame_norm_sq_eq_analysis_norm_sq"
+    },
+    {
+      "id": "GF-326",
+      "name": "normalizedBulk_opNorm_sq_lower_of_raw_witness",
+      "qualified": "GreenFrame.Concrete.normalizedBulk_opNorm_sq_lower_of_raw_witness"
     }
   ]
 }

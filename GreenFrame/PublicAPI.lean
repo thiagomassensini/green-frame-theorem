@@ -45,6 +45,8 @@ import GreenFrame.Concrete.Analysis.StaticPoisson
 import GreenFrame.Concrete.Analysis.RestrictedGraph
 import GreenFrame.Concrete.Analysis.NontrivialPoissonQualitative
 
+import GreenFrame.Concrete.Analysis.NontrivialPoissonQuantitative
+
 /-!
 # Public API — All-Bases Green Frame Theorem
 

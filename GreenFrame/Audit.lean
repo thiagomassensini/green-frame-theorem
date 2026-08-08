@@ -337,3 +337,10 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.normalizedBulk_nonzero_of_rawBulk_witness
 #print axioms GreenFrame.Concrete.restrictedPoisson_ne_zero
 #print axioms GreenFrame.Concrete.restrictedPoisson_ne_zero_of_rawBulk_witness
+
+#print axioms GreenFrame.Concrete.sqrtFrame_nonneg
+#print axioms GreenFrame.Concrete.sqrtFrame_isSelfAdjoint
+#print axioms GreenFrame.Concrete.sqrtFrame_adjoint
+#print axioms GreenFrame.Concrete.sqrtFrame_comp_self
+#print axioms GreenFrame.Concrete.sqrtFrame_norm_sq_eq_analysis_norm_sq
+#print axioms GreenFrame.Concrete.normalizedBulk_opNorm_sq_lower_of_raw_witness
