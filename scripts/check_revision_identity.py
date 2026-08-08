@@ -175,9 +175,20 @@ def main() -> int:
         if os.environ.get("GITHUB_WORKFLOW_SHA", "") != commit:
             die("publisher workflow definition SHA differs from the audited commit")
         if os.environ.get("GITHUB_SHA", "") != commit:
-            die("publisher dispatch SHA differs from the audited commit")
-        if os.environ.get("GITHUB_REF", "") != "refs/heads/main":
-            die("publisher was not dispatched from refs/heads/main")
+            die("publisher event SHA differs from the audited commit")
+        event_name = os.environ.get("GITHUB_EVENT_NAME", "")
+        expected_refs = {
+            "workflow_dispatch": "refs/heads/main",
+            "push": "refs/heads/publish-v2.0.0-trigger",
+        }
+        wanted_ref = expected_refs.get(event_name)
+        if wanted_ref is None:
+            die(f"unsupported publisher event: {event_name!r}")
+        if os.environ.get("GITHUB_REF", "") != wanted_ref:
+            die(
+                f"publisher ref differs from the allowed ref for "
+                f"{event_name}: {wanted_ref}"
+            )
         for variable in ("GITHUB_RUN_ID", "GITHUB_RUN_ATTEMPT"):
             if not re.fullmatch(r"[0-9]+", os.environ.get(variable, "")):
                 die(f"publisher evidence {variable} is not numeric")
@@ -188,7 +199,7 @@ def main() -> int:
             die("publisher repository identity is empty or malformed")
         publisher_name = f"publish-v{release['version']}.yml"
         wanted_workflow_ref = (
-            f"{repository}/.github/workflows/{publisher_name}@refs/heads/main"
+            f"{repository}/.github/workflows/{publisher_name}@{wanted_ref}"
         )
         if os.environ.get("GITHUB_WORKFLOW_REF", "") != wanted_workflow_ref:
             die(f"publisher workflow ref is not {publisher_name} on main")
