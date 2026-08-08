@@ -29,7 +29,7 @@ FORBIDDEN = {
 }
 PUBLIC_THEOREM = re.compile(
     r"^\s*(?:@\[[^\n]*\]\s*)*(?!private\s+)"
-    r"(?:(?:noncomputable|protected|nonrec)\s+)*(?:theorem|lemma)\s+([A-Za-z0-9_']+)",
+    r"(?:(?:noncomputable|protected|nonrec)\s+)*(?:theorem|lemma)\s+([A-Za-z0-9_.']+)",
     re.MULTILINE,
 )
 CLAIM_ROW = re.compile(
@@ -110,7 +110,9 @@ def main() -> int:
             if line.rstrip() != line:
                 die(f"trailing whitespace in {path.relative_to(ROOT)}:{number}")
         if path != audit_file:
-            declarations.extend(PUBLIC_THEOREM.findall(text))
+            declarations.extend(
+                name.rsplit(".", 1)[-1] for name in PUBLIC_THEOREM.findall(text)
+            )
         scanned.append(
             {"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)}
         )
