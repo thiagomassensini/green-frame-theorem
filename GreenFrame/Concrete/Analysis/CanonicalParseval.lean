@@ -40,7 +40,7 @@ theorem inverseSqrtFrame_adjoint (T : H →L[ℂ] K) :
 theorem inverseSqrt_frameOperator_inverseSqrt {T : H →L[ℂ] K}
     (bounds : ComplexFrameBounds T) :
     inverseSqrtFrame T ∘L frameOperator T ∘L inverseSqrtFrame T = 1 := by
-  simpa only [inverseSqrtFrame, ContinuousLinearMap.mul_def] using
+  simpa only [inverseSqrtFrame, CFC.rpow_eq_pow, ContinuousLinearMap.mul_def] using
     CFC.conjugate_rpow_neg_one_half
       (frameOperator T) (frameOperator_strictlyPositive bounds)
 
