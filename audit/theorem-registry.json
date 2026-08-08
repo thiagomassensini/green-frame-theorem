@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 404,
+  "count": 419,
   "theorems": [
     {
       "id": "GF-001",
@@ -2021,6 +2021,81 @@
       "id": "GF-404",
       "name": "canonicalCarryElementaryAtlas_isometry",
       "qualified": "GreenFrame.Concrete.canonicalCarryElementaryAtlas_isometry"
+    },
+    {
+      "id": "GF-405",
+      "name": "mem_horizontalStateAtBase_iff",
+      "qualified": "GreenFrame.Concrete.mem_horizontalStateAtBase_iff"
+    },
+    {
+      "id": "GF-406",
+      "name": "mem_horizontalState_iff",
+      "qualified": "GreenFrame.Concrete.mem_horizontalState_iff"
+    },
+    {
+      "id": "GF-407",
+      "name": "horizontalState_vanishes_on_base",
+      "qualified": "GreenFrame.Concrete.horizontalState_vanishes_on_base"
+    },
+    {
+      "id": "GF-408",
+      "name": "horizontalState_own_base_eq_zero",
+      "qualified": "GreenFrame.Concrete.horizontalState_own_base_eq_zero"
+    },
+    {
+      "id": "GF-409",
+      "name": "ownCamera_coordinate_eq_zero_on_horizontal",
+      "qualified": "GreenFrame.Concrete.ownCamera_coordinate_eq_zero_on_horizontal"
+    },
+    {
+      "id": "GF-410",
+      "name": "offBaseAtlasEnergyTerm_nonneg",
+      "qualified": "GreenFrame.Concrete.offBaseAtlasEnergyTerm_nonneg"
+    },
+    {
+      "id": "GF-411",
+      "name": "offBaseAtlasEnergyTerm_le",
+      "qualified": "GreenFrame.Concrete.offBaseAtlasEnergyTerm_le"
+    },
+    {
+      "id": "GF-412",
+      "name": "offBaseAtlasEnergyTerm_summable",
+      "qualified": "GreenFrame.Concrete.offBaseAtlasEnergyTerm_summable"
+    },
+    {
+      "id": "GF-413",
+      "name": "offBaseAtlasEnergyTerm_ownCamera_eq_zero",
+      "qualified": "GreenFrame.Concrete.offBaseAtlasEnergyTerm_ownCamera_eq_zero"
+    },
+    {
+      "id": "GF-414",
+      "name": "offBaseAtlasEnergyTerm_seed_eq_zero",
+      "qualified": "GreenFrame.Concrete.offBaseAtlasEnergyTerm_seed_eq_zero"
+    },
+    {
+      "id": "GF-415",
+      "name": "elementaryAtlasEnergyTerm_eq_offBase_on_horizontal",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasEnergyTerm_eq_offBase_on_horizontal"
+    },
+    {
+      "id": "GF-416",
+      "name": "horizontal_offBase_resolution_event",
+      "qualified": "GreenFrame.Concrete.horizontal_offBase_resolution_event"
+    },
+    {
+      "id": "GF-417",
+      "name": "horizontal_offBase_resolution_allPNat",
+      "qualified": "GreenFrame.Concrete.horizontal_offBase_resolution_allPNat"
+    },
+    {
+      "id": "GF-418",
+      "name": "horizontal_offBase_resolution",
+      "qualified": "GreenFrame.Concrete.horizontal_offBase_resolution"
+    },
+    {
+      "id": "GF-419",
+      "name": "canonicalCarry_horizontal_offBase_resolution",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_horizontal_offBase_resolution"
     }
   ]
 }

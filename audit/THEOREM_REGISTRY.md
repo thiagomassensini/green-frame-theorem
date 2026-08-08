@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **404** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **419** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -408,3 +408,18 @@ The registry contains exactly **404** named Lean theorems reachable from `GreenF
 | `GF-402` | `GreenFrame.Concrete.elementaryAtlas_isometryMap` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:114` |
 | `GF-403` | `GreenFrame.Concrete.canonicalCarryElementaryAtlas_apply` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:132` |
 | `GF-404` | `GreenFrame.Concrete.canonicalCarryElementaryAtlas_isometry` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:138` |
+| `GF-405` | `GreenFrame.Concrete.mem_horizontalStateAtBase_iff` | `GreenFrame/Concrete/Analysis/HorizontalResolutionSubspace.lean:28` |
+| `GF-406` | `GreenFrame.Concrete.mem_horizontalState_iff` | `GreenFrame/Concrete/Analysis/HorizontalResolutionSubspace.lean:38` |
+| `GF-407` | `GreenFrame.Concrete.horizontalState_vanishes_on_base` | `GreenFrame/Concrete/Analysis/HorizontalResolutionSubspace.lean:44` |
+| `GF-408` | `GreenFrame.Concrete.horizontalState_own_base_eq_zero` | `GreenFrame/Concrete/Analysis/HorizontalResolutionSubspace.lean:52` |
+| `GF-409` | `GreenFrame.Concrete.ownCamera_coordinate_eq_zero_on_horizontal` | `GreenFrame/Concrete/Analysis/HorizontalResolutionSubspace.lean:58` |
+| `GF-410` | `GreenFrame.Concrete.offBaseAtlasEnergyTerm_nonneg` | `GreenFrame/Concrete/Analysis/HorizontalResolutionEnergy.lean:23` |
+| `GF-411` | `GreenFrame.Concrete.offBaseAtlasEnergyTerm_le` | `GreenFrame/Concrete/Analysis/HorizontalResolutionEnergy.lean:33` |
+| `GF-412` | `GreenFrame.Concrete.offBaseAtlasEnergyTerm_summable` | `GreenFrame/Concrete/Analysis/HorizontalResolutionEnergy.lean:46` |
+| `GF-413` | `GreenFrame.Concrete.offBaseAtlasEnergyTerm_ownCamera_eq_zero` | `GreenFrame/Concrete/Analysis/HorizontalResolutionEnergy.lean:57` |
+| `GF-414` | `GreenFrame.Concrete.offBaseAtlasEnergyTerm_seed_eq_zero` | `GreenFrame/Concrete/Analysis/HorizontalResolutionEnergy.lean:65` |
+| `GF-415` | `GreenFrame.Concrete.elementaryAtlasEnergyTerm_eq_offBase_on_horizontal` | `GreenFrame/Concrete/Analysis/HorizontalResolutionEnergy.lean:71` |
+| `GF-416` | `GreenFrame.Concrete.horizontal_offBase_resolution_event` | `GreenFrame/Concrete/Analysis/HorizontalResolution.lean:17` |
+| `GF-417` | `GreenFrame.Concrete.horizontal_offBase_resolution_allPNat` | `GreenFrame/Concrete/Analysis/HorizontalResolution.lean:55` |
+| `GF-418` | `GreenFrame.Concrete.horizontal_offBase_resolution` | `GreenFrame/Concrete/Analysis/HorizontalResolution.lean:82` |
+| `GF-419` | `GreenFrame.Concrete.canonicalCarry_horizontal_offBase_resolution` | `GreenFrame/Concrete/Analysis/HorizontalResolution.lean:110` |

@@ -62,6 +62,8 @@ import GreenFrame.Concrete.Arithmetic.DepthOneActivity
 
 import GreenFrame.Concrete.Analysis.ElementaryAtlas
 
+import GreenFrame.Concrete.Analysis.HorizontalResolution
+
 /-!
 # Public API — All-Bases Green Frame Theorem
 

@@ -429,3 +429,19 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.elementaryAtlas_isometryMap
 #print axioms GreenFrame.Concrete.canonicalCarryElementaryAtlas_apply
 #print axioms GreenFrame.Concrete.canonicalCarryElementaryAtlas_isometry
+
+#print axioms GreenFrame.Concrete.mem_horizontalStateAtBase_iff
+#print axioms GreenFrame.Concrete.mem_horizontalState_iff
+#print axioms GreenFrame.Concrete.horizontalState_vanishes_on_base
+#print axioms GreenFrame.Concrete.horizontalState_own_base_eq_zero
+#print axioms GreenFrame.Concrete.ownCamera_coordinate_eq_zero_on_horizontal
+#print axioms GreenFrame.Concrete.offBaseAtlasEnergyTerm_nonneg
+#print axioms GreenFrame.Concrete.offBaseAtlasEnergyTerm_le
+#print axioms GreenFrame.Concrete.offBaseAtlasEnergyTerm_summable
+#print axioms GreenFrame.Concrete.offBaseAtlasEnergyTerm_ownCamera_eq_zero
+#print axioms GreenFrame.Concrete.offBaseAtlasEnergyTerm_seed_eq_zero
+#print axioms GreenFrame.Concrete.elementaryAtlasEnergyTerm_eq_offBase_on_horizontal
+#print axioms GreenFrame.Concrete.horizontal_offBase_resolution_event
+#print axioms GreenFrame.Concrete.horizontal_offBase_resolution_allPNat
+#print axioms GreenFrame.Concrete.horizontal_offBase_resolution
+#print axioms GreenFrame.Concrete.canonicalCarry_horizontal_offBase_resolution
