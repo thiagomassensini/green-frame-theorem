@@ -39,29 +39,6 @@ theorem greenCoordinate_normSq_le_majorant
       carryRatio e.1 ^ 4 = (carryRatio e.1 ^ 2) ^ 2 := by ring
       _ = (baseReal e.1)⁻¹ ^ 2 := by rw [carryRatio_sq]
   have hb : baseReal e.1 ≠ 0 := ne_of_gt (baseReal_pos e.1)
-  have hcancel : baseReal e.1 * (baseReal e.1)⁻¹ = 1 := by
-    field_simp [hb]
-  have h1 : baseReal e.1 * (baseReal e.1)⁻¹ ^ 2 =
-      (baseReal e.1)⁻¹ := by
-    calc
-      baseReal e.1 * (baseReal e.1)⁻¹ ^ 2 =
-          (baseReal e.1 * (baseReal e.1)⁻¹) *
-            (baseReal e.1)⁻¹ := by ring
-      _ = (baseReal e.1)⁻¹ := by rw [hcancel]; ring
-  have h2 : baseReal e.1 * (baseReal e.1)⁻¹ ^ 3 =
-      (baseReal e.1)⁻¹ ^ 2 := by
-    calc
-      baseReal e.1 * (baseReal e.1)⁻¹ ^ 3 =
-          (baseReal e.1 * (baseReal e.1)⁻¹) *
-            (baseReal e.1)⁻¹ ^ 2 := by ring
-      _ = (baseReal e.1)⁻¹ ^ 2 := by rw [hcancel]; ring
-  have h3 : baseReal e.1 ^ 2 * (baseReal e.1)⁻¹ ^ 3 =
-      (baseReal e.1)⁻¹ := by
-    calc
-      baseReal e.1 ^ 2 * (baseReal e.1)⁻¹ ^ 3 =
-          (baseReal e.1 * (baseReal e.1)⁻¹) ^ 2 *
-            (baseReal e.1)⁻¹ := by ring
-      _ = (baseReal e.1)⁻¹ := by rw [hcancel]; ring
   calc
     Complex.normSq (greenCoordinate omega e f) ≤
         3 * (omega.weight e.1 (eventNumber e) / baseReal e.1) *
@@ -77,13 +54,11 @@ theorem greenCoordinate_normSq_le_majorant
           currentCameraMajorant, parentGreenMajorant, grandparentGreenMajorant,
           h, ↓reduceIte, carryRatio_sq, hq4]
         field_simp [inv_pow, hb]
-        rw [h3, h2]
         ring
       · simp only [greenCoordinateMajorant, currentGreenMajorant,
           currentCameraMajorant, parentGreenMajorant, grandparentGreenMajorant,
           h, ↓reduceIte, carryRatio_sq]
         field_simp [inv_pow, hb]
-        rw [h1]
         ring
 
 end GreenFrame.Concrete
