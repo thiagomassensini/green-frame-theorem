@@ -176,3 +176,6 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.greenAnalysis_apply
 #print axioms GreenFrame.Concrete.greenAnalysis_norm_sq_eq
 #print axioms GreenFrame.Concrete.greenAnalysis_norm_sq_le
+#print axioms GreenFrame.Concrete.greenAnalysis_norm_le
+#print axioms GreenFrame.Concrete.greenAnalysisOperator_apply
+#print axioms GreenFrame.Concrete.greenAnalysisOperator_norm_le

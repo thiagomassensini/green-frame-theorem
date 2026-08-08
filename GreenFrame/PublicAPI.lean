@@ -25,6 +25,7 @@ import GreenFrame.Concrete.Analysis.GreenCoordinateMajorant
 
 import GreenFrame.Concrete.Analysis.GreenBesselAssembly
 import GreenFrame.Concrete.Analysis.GreenAnalysisVector
+import GreenFrame.Concrete.Analysis.GreenAnalysisOperator
 
 /-!
 # Public API — All-Bases Green Frame Theorem
