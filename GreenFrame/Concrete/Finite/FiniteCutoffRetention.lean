@@ -55,7 +55,7 @@ theorem seedResidualCoordinateCutoff_fixes_analysis
         (seedResidualAnalysis omega (f : State)) =
       seedResidualAnalysis omega (f : State) := by
   simp only [seedResidualCoordinateCutoff, l2ProductMap_apply,
-    seedResidualAnalysis, WithLp.ofLp_toLp,
+    seedResidualAnalysis,
     ContinuousLinearMap.id_apply,
     residualCoordinateCutoff_fixes_analysis omega f]
 
@@ -85,8 +85,8 @@ theorem concreteCutoff_retains_seedResidual
   simp only [concreteAnalysisOperator_apply,
     concreteExternalAnalysisOperator_apply,
     concreteCoefficientCutoff, externalCoordinateCutoff,
-    concreteSeedResidualProjection, l2ProductMap_apply,
-    l2FirstProjection_apply, WithLp.ofLp_toLp]
+    concreteSeedResidualProjection,
+    l2ProductMap_apply]
   exact seedResidualCoordinateCutoff_fixes_analysis omega f
 
 /-- The literal finite analysis, with domain bundled as `H_N`. -/
@@ -163,7 +163,12 @@ theorem concreteFiniteAnalysisOperator_norm_sq_bounds
         ‖concreteFiniteAnalysisOperator omega N f‖ ^ 2 ∧
       ‖concreteFiniteAnalysisOperator omega N f‖ ^ 2 ≤
         (1 + greenBesselConstant) * ‖f‖ ^ 2 := by
-  simpa only [concreteFiniteAnalysisOperator_apply] using
-    concreteEmbeddedFiniteAnalysis_norm_sq_bounds omega f
+  rw [concreteFiniteAnalysisOperator_apply]
+  change
+    (1 / 2 : ℝ) * ‖(f : State)‖ ^ 2 ≤
+        ‖concreteEmbeddedFiniteAnalysis omega N (f : State)‖ ^ 2 ∧
+      ‖concreteEmbeddedFiniteAnalysis omega N (f : State)‖ ^ 2 ≤
+        (1 + greenBesselConstant) * ‖(f : State)‖ ^ 2
+  exact concreteEmbeddedFiniteAnalysis_norm_sq_bounds omega f
 
 end GreenFrame.Concrete
