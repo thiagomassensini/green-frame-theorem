@@ -26,14 +26,19 @@ theorem currentGreenMajorant_nonneg
 theorem currentGreenMajorant_summable
     (omega : AdmissibleInfinitePartition) (f : State) :
     Summable (currentGreenMajorant omega f) := by
+  have hraw :=
+    (currentCameraMajorant_prod_summable omega f).comp_injective
+      (Subtype.val_injective : Function.Injective
+        (fun q : DivisibilityPair => q.1))
   have hsub : Summable (fun q : DivisibilityPair =>
       currentCameraMajorant omega f q.1.1 q.1.2) := by
-    simpa only [Function.comp_apply] using
-      (currentCameraMajorant_prod_summable omega f).comp_injective
-        Subtype.val_injective
+    apply hraw.congr
+    intro q
+    rfl
   have hpull := (eventDivisibilityEquiv.summable_iff).mpr hsub
-  simpa only [Function.comp_apply, currentGreenMajorant,
-    eventDivisibilityEquiv_apply_val] using hpull
+  apply hpull.congr
+  intro e
+  rfl
 
 /-- The global current contribution has the sharp elementary bound `3/2`. -/
 theorem currentGreenMajorant_tsum_le
