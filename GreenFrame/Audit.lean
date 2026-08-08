@@ -275,3 +275,6 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.greenBulkSectorAnalysis_norm_le
 #print axioms GreenFrame.Concrete.greenDepthOneSectorAnalysisOperator_apply
 #print axioms GreenFrame.Concrete.greenBulkSectorAnalysisOperator_apply
+
+#print axioms GreenFrame.Concrete.rawExternal_apply
+#print axioms GreenFrame.Concrete.rawBulk_apply

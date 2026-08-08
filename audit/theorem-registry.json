@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 268,
+  "count": 270,
   "theorems": [
     {
       "id": "GF-001",
@@ -1341,6 +1341,16 @@
       "id": "GF-268",
       "name": "greenBulkSectorAnalysisOperator_apply",
       "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-269",
+      "name": "rawExternal_apply",
+      "qualified": "GreenFrame.Concrete.rawExternal_apply"
+    },
+    {
+      "id": "GF-270",
+      "name": "rawBulk_apply",
+      "qualified": "GreenFrame.Concrete.rawBulk_apply"
     }
   ]
 }

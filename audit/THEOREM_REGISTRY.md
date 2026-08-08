@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **268** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **270** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -272,3 +272,5 @@ The registry contains exactly **268** named Lean theorems reachable from `GreenF
 | `GF-266` | `GreenFrame.Concrete.greenBulkSectorAnalysis_norm_le` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
 | `GF-267` | `GreenFrame.Concrete.greenDepthOneSectorAnalysisOperator_apply` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
 | `GF-268` | `GreenFrame.Concrete.greenBulkSectorAnalysisOperator_apply` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
+| `GF-269` | `GreenFrame.Concrete.rawExternal_apply` | `GreenFrame/Concrete/Analysis/ComplexFrameBounds.lean` |
+| `GF-270` | `GreenFrame.Concrete.rawBulk_apply` | `GreenFrame/Concrete/Analysis/ComplexFrameBounds.lean` |
