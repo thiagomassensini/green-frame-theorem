@@ -55,4 +55,4 @@ This repository does not assert a zero theorem, a special-function identity, a f
 
 ## Citation and release
 
-Citation metadata is in [`CITATION.cff`](CITATION.cff) and [`.zenodo.json`](.zenodo.json). Release `v1.0.0` is the first audited publication of the recovered formal core and source bundle.
+Citation metadata is in [`CITATION.cff`](CITATION.cff) and [`.zenodo.json`](.zenodo.json). Release `v1.0.0` is the first audited publication of the recovered formal core and source bundle. Release `v1.0.1` is a maintenance publication that aligns the package, citation, and Zenodo metadata; replaces ambiguous paper-to-kernel mappings with a conservative exact/partial/abstract/interface/source-boundary ledger; and removes temporary publication diagnostics. It does not change the 41 Lean theorem statements, the public API, or the preserved paper specification.

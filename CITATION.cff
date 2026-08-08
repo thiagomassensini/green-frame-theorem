@@ -6,8 +6,8 @@ authors:
   - family-names: Motta
     given-names: Thiago
 repository-code: "https://github.com/thiagomassensini/green-frame-theorem"
-version: 1.0.0
-date-released: 2026-08-06
+version: 1.0.1
+date-released: 2026-08-08
 license: MIT
 keywords:
   - Lean 4

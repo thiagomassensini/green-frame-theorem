@@ -1,0 +1,218 @@
+name: Publish Green Frame v1.0.1
+
+on:
+  push:
+    branches:
+      - publish-v1.0.1-trigger
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-green-frame-v1.0.1
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Audit, tag, and release v1.0.1
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: v1.0.1
+    steps:
+      - name: Check out the release trigger
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Resolve and lock the main publication target
+        id: target
+        shell: bash
+        run: |
+          set -euo pipefail
+          trigger_commit="$(git rev-parse "$GITHUB_SHA")"
+          read -r -a commit_line <<< "$(git rev-list --parents -n 1 "$trigger_commit")"
+          test "${#commit_line[@]}" -eq 2
+          target_commit="${commit_line[1]}"
+          changed_paths="$(git diff --name-only "$target_commit" "$trigger_commit")"
+          test "$changed_paths" = '.release/TRIGGER_v1.0.1.md'
+          marker_content="$(cat .release/TRIGGER_v1.0.1.md)"
+          expected_marker="$(printf '# Green Frame v1.0.1 publication trigger\n\ntarget_commit=%s' "$target_commit")"
+          test "$marker_content" = "$expected_marker"
+          git fetch --force origin main
+          test "$(git rev-parse origin/main)" = "$target_commit"
+          echo "sha=$target_commit" >> "$GITHUB_OUTPUT"
+
+      - name: Check out the immutable main publication target
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ steps.target.outputs.sha }}
+          fetch-depth: 0
+
+      - name: Classify any existing exact release
+        id: guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --force --tags origin
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            test "$(git rev-list -n 1 "$TAG")" = "$(git rev-parse HEAD)"
+            is_draft="$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json isDraft --jq '.isDraft')"
+            if [[ "$is_draft" == 'true' ]]; then
+              echo "state=draft" >> "$GITHUB_OUTPUT"
+            else
+              echo "state=published" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "state=absent" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up pinned Lean, dependencies, and caches
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
+        with:
+          build: false
+          test: false
+          lint: false
+          use-github-cache: true
+          use-mathlib-cache: true
+
+      - name: Run the complete publication gate
+        shell: bash
+        run: bash scripts/run_audits.sh
+
+      - name: Build the checksummed release bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          cp audit/axioms.txt dist/axioms.txt
+          cp audit/theorem-registry.json dist/theorem-registry.json
+          cp docs/90_PAPER_SPECIFICATION.md dist/TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md
+          git archive --format=tar.gz \
+            --prefix=green-frame-theorem-v1.0.1/ \
+            --output=dist/green-frame-theorem-v1.0.1.tar.gz HEAD
+          (
+            cd dist
+            sha256sum \
+              green-frame-theorem-v1.0.1.tar.gz \
+              TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md \
+              axioms.txt \
+              theorem-registry.json > SHA256SUMS.txt
+          )
+
+      - name: Create the exact annotated tag
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch --force --tags origin
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            test "$(git rev-list -n 1 "$TAG")" = "$(git rev-parse HEAD)"
+          else
+            git tag -a "$TAG" -F .release/v1.0.1.md
+            git push origin "$TAG"
+          fi
+
+      - name: Create or refresh the draft release
+        if: steps.guard.outputs.state != 'published'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ steps.guard.outputs.state }}" == 'absent' ]]; then
+            gh release create "$TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --verify-tag \
+              --draft \
+              --title 'Green Frame Theorem v1.0.1' \
+              --notes-file .release/v1.0.1.md \
+              dist/green-frame-theorem-v1.0.1.tar.gz \
+              dist/TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md \
+              dist/axioms.txt \
+              dist/theorem-registry.json \
+              dist/SHA256SUMS.txt
+          else
+            gh release edit "$TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --draft \
+              --title 'Green Frame Theorem v1.0.1' \
+              --notes-file .release/v1.0.1.md
+            gh release upload "$TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --clobber \
+              dist/green-frame-theorem-v1.0.1.tar.gz \
+              dist/TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md \
+              dist/axioms.txt \
+              dist/theorem-registry.json \
+              dist/SHA256SUMS.txt
+          fi
+
+      - name: Verify the remote draft tag, asset set, and checksums
+        if: steps.guard.outputs.state != 'published'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --force --tags origin
+          test "$(git rev-list -n 1 "$TAG")" = "$(git rev-parse HEAD)"
+          test "$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json isDraft --jq '.isDraft')" = 'true'
+          test "$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json name --jq '.name')" = 'Green Frame Theorem v1.0.1'
+          remote_notes="$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json body --jq '.body')"
+          expected_notes="$(cat .release/v1.0.1.md)"
+          test "$remote_notes" = "$expected_notes"
+          expected_assets="$(printf '%s\n' \
+            SHA256SUMS.txt \
+            TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md \
+            axioms.txt \
+            green-frame-theorem-v1.0.1.tar.gz \
+            theorem-registry.json | sort)"
+          actual_assets="$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | sort)"
+          test "$actual_assets" = "$expected_assets"
+          rm -rf verify-release
+          mkdir verify-release
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --dir verify-release
+          cmp dist/SHA256SUMS.txt verify-release/SHA256SUMS.txt
+          (
+            cd verify-release
+            sha256sum --check SHA256SUMS.txt
+          )
+
+      - name: Publish the verified release
+        if: steps.guard.outputs.state != 'published'
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release edit "$TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --draft=false \
+            --latest
+
+      - name: Verify the published release
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --force --tags origin
+          test "$(git rev-list -n 1 "$TAG")" = "$(git rev-parse HEAD)"
+          test "$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json isDraft,isPrerelease --jq '[.isDraft, .isPrerelease] | @tsv')" = $'false\tfalse'
+          test "$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json name --jq '.name')" = 'Green Frame Theorem v1.0.1'
+          remote_notes="$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json body --jq '.body')"
+          expected_notes="$(cat .release/v1.0.1.md)"
+          test "$remote_notes" = "$expected_notes"
+          expected_assets="$(printf '%s\n' \
+            SHA256SUMS.txt \
+            TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md \
+            axioms.txt \
+            green-frame-theorem-v1.0.1.tar.gz \
+            theorem-registry.json | sort)"
+          actual_assets="$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | sort)"
+          test "$actual_assets" = "$expected_assets"
+          rm -rf verify-published-release
+          mkdir verify-published-release
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --dir verify-published-release
+          cmp dist/SHA256SUMS.txt verify-published-release/SHA256SUMS.txt
+          (
+            cd verify-published-release
+            sha256sum --check SHA256SUMS.txt
+          )
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY"

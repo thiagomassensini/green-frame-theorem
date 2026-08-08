@@ -1,4 +1,6 @@
 .lake/
 build/
+__pycache__/
+*.pyc
 audit/axioms.txt
 docs/90_PAPER_SPECIFICATION.md

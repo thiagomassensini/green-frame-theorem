@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 python3 scripts/check_reproducibility.py
+python3 scripts/check_release_metadata.py
 python3 scripts/check_repository.py
 python3 scripts/check_source_provenance.py
 lake build --wfail GreenFrame
