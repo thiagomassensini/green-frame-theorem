@@ -95,8 +95,10 @@ theorem normalizedBulk_opNorm_sq_lower_of_raw_witness
     calc
       c ≤ ‖rawBulk T x‖ ^ 2 := hwitness
       _ = ‖normalizedBulk T u‖ ^ 2 := by
-        dsimp [u]
-        rw [normalizedBulk_sqrtFrame_apply bounds x]
+        change ‖rawBulk T x‖ ^ 2 =
+          ‖normalizedBulk T (sqrtFrame T x)‖ ^ 2
+        exact congrArg (fun z : B => ‖z‖ ^ 2)
+          (normalizedBulk_sqrtFrame_apply bounds x).symm
       _ ≤ (‖normalizedBulk T‖ * ‖u‖) ^ 2 := happlySq
       _ = ‖normalizedBulk T‖ ^ 2 * ‖u‖ ^ 2 := by ring
       _ ≤ ‖normalizedBulk T‖ ^ 2 * bounds.upper :=
