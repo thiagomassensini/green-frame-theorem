@@ -23,16 +23,24 @@ theorem stateEnergy_nonneg (f : State) (n : PNat) :
 /-- The coordinate-energy series of an `ℓ²` state is summable. -/
 theorem stateEnergy_summable (f : State) :
     Summable (stateEnergy f) := by
-  simpa only [stateEnergy, ENNReal.toReal_ofNat, Complex.sq_norm] using
-    (lp.memℓp f).summable
-      (by norm_num : 0 < (2 : ℝ≥0∞).toReal)
+  apply ((lp.memℓp f).summable
+    (by norm_num : 0 < (2 : ℝ≥0∞).toReal)).congr
+  intro n
+  simpa only [stateEnergy, ENNReal.toReal_ofNat] using
+    Complex.sq_norm (f n)
 
 /-- The total coordinate energy is the Hilbert norm squared. -/
 theorem stateEnergy_tsum_eq_norm_sq (f : State) :
     (∑' n : PNat, stateEnergy f n) = ‖f‖ ^ 2 := by
-  simpa only [stateEnergy, ENNReal.toReal_ofNat, Complex.sq_norm] using
-    (lp.norm_rpow_eq_tsum
-      (by norm_num : 0 < (2 : ℝ≥0∞).toReal) f).symm
+  calc
+    (∑' n : PNat, stateEnergy f n) =
+        ∑' n : PNat, ‖f n‖ ^ 2 := by
+      apply tsum_congr
+      intro n
+      simpa only [stateEnergy] using (Complex.sq_norm (f n)).symm
+    _ = ‖f‖ ^ 2 :=
+      (lp.norm_rpow_eq_tsum
+        (by norm_num : 0 < (2 : ℝ≥0∞).toReal) f).symm
 
 /-- The camera-weight sum is at most one at every state coordinate. -/
 theorem weight_tsum_le_one (omega : AdmissibleInfinitePartition) (n : PNat) :
