@@ -83,4 +83,3 @@ theorem twoFourWitnessState_norm :
       (4 : PNat) (1 : ℂ))
 
 end GreenFrame.Concrete
-78c800eeedf4a595389b7acb0168f58143f64a0d34879f79a7d9be55b7e1bf0c  design_drafts/parseval_poisson/GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean
