@@ -80,7 +80,7 @@ theorem tsum_greenEvent_reindex
 
 /-- Positive multiples of one coded base. -/
 abbrev BaseMultiple (r : ℕ) :=
-  {m : PNat | basePNat r ∣ m}
+  {m : PNat // basePNat r ∣ m}
 
 /-- Multiplication by a coded base, with codomain restricted to its multiples. -/
 def multiplyIntoBaseMultiple (r : ℕ) (m : PNat) : BaseMultiple r :=
@@ -120,20 +120,20 @@ theorem divisiblePullback_summable (r : ℕ) {a : PNat → ℝ}
     (ha : Summable a) :
     Summable (divisiblePullback r a) := by
   classical
-  let f0 : PNat → ℝ := fun m => a (PNat.divExact m (basePNat r))
-  have hsub : Summable
-      (fun m : BaseMultiple r => f0 m.1) := by
-    apply (baseMultipleEquiv r).summable_iff.mp
-    change Summable (fun m : PNat => f0 (baseMultipleEquiv r m).1)
-    simpa only [f0, baseMultipleEquiv_apply_val, divExact_base_mul] using ha
-  have hind : Summable
-      (Set.indicator {m : PNat | basePNat r ∣ m} f0) := by
-    apply (summable_subtype_iff_indicator
-      (f := f0) (s := {m : PNat | basePNat r ∣ m})).mp
-    simpa only [BaseMultiple, Function.comp_apply, Set.mem_setOf_eq] using hsub
-  exact hind.congr fun m => by
-    by_cases hm : basePNat r ∣ m <;>
-      simp [Set.indicator, divisiblePullback, f0, hm]
+  let g : PNat → PNat := fun k => basePNat r * k
+  have hg : Function.Injective g := by
+    intro x y hxy
+    exact mul_left_cancel hxy
+  have hzero : ∀ m ∉ Set.range g, divisiblePullback r a m = 0 := by
+    intro m hm
+    by_cases hdiv : basePNat r ∣ m
+    · exfalso
+      apply hm
+      rcases hdiv with ⟨k, hk⟩
+      exact ⟨k, hk.symm⟩
+    · simp [divisiblePullback, hdiv]
+  apply (Function.Injective.summable_iff hg hzero).mp
+  simpa [Function.comp_apply, g, divisiblePullback] using ha
 
 /-- Pullback by exact division preserves the value of the infinite sum. -/
 theorem tsum_divisiblePullback (r : ℕ) (a : PNat → ℝ) :
@@ -156,7 +156,8 @@ theorem tsum_divisiblePullback (r : ℕ) (a : PNat → ℝ) :
           a (PNat.divExact m.1 (basePNat r)) := by
       apply tsum_congr
       intro m
-      simp [divisiblePullback, m.property]
+      have hm : basePNat r ∣ (m.1 : PNat) := m.property
+      simp [divisiblePullback, hm]
     _ = ∑' k : PNat, a k := by
       symm
       have heq := (baseMultipleEquiv r).tsum_eq
