@@ -47,11 +47,11 @@ equivalence.
 
 /-- Literal paper depth-one event type. -/
 abbrev DepthOneGreenEvent :=
-  {e : GreenEvent // ¬ HasGrandparent e}
+  ↥({e : GreenEvent | ¬ HasGrandparent e} : Set GreenEvent)
 
 /-- Literal paper depth-at-least-two event type. -/
 abbrev BulkGreenEvent :=
-  {e : GreenEvent // HasGrandparent e}
+  ↥({e : GreenEvent | HasGrandparent e} : Set GreenEvent)
 
 /-- Literal depth-one Green coefficient Hilbert space. -/
 abbrev DepthOneGreenSpace := ℓ²(DepthOneGreenEvent, ℂ)
