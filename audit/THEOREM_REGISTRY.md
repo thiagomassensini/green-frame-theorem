@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **242** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **250** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -246,3 +246,11 @@ The registry contains exactly **242** named Lean theorems reachable from `GreenF
 | `GF-240` | `GreenFrame.Concrete.greenDepthOneAnalysis_norm_sq_le_green` | `GreenFrame/Concrete/Analysis/GreenDepthMaskedEnergy.lean` |
 | `GF-241` | `GreenFrame.Concrete.greenBulkAnalysis_norm_sq_le_green` | `GreenFrame/Concrete/Analysis/GreenDepthMaskedEnergy.lean` |
 | `GF-242` | `GreenFrame.Concrete.greenDepthOneAnalysis_norm_sq_le` | `GreenFrame/Concrete/Analysis/GreenDepthMaskedEnergy.lean` |
+| `GF-243` | `GreenFrame.Concrete.greenBulkAnalysis_norm_sq_le` | `GreenFrame/Concrete/Analysis/GreenDepthMaskedOperator.lean` |
+| `GF-244` | `GreenFrame.Concrete.greenDepthOneAnalysis_add` | `GreenFrame/Concrete/Analysis/GreenDepthMaskedOperator.lean` |
+| `GF-245` | `GreenFrame.Concrete.greenDepthOneAnalysis_smul` | `GreenFrame/Concrete/Analysis/GreenDepthMaskedOperator.lean` |
+| `GF-246` | `GreenFrame.Concrete.greenBulkAnalysis_add` | `GreenFrame/Concrete/Analysis/GreenDepthMaskedOperator.lean` |
+| `GF-247` | `GreenFrame.Concrete.greenBulkAnalysis_smul` | `GreenFrame/Concrete/Analysis/GreenDepthMaskedOperator.lean` |
+| `GF-248` | `GreenFrame.Concrete.greenDepthOneAnalysis_norm_le` | `GreenFrame/Concrete/Analysis/GreenDepthMaskedOperator.lean` |
+| `GF-249` | `GreenFrame.Concrete.greenBulkAnalysis_norm_le` | `GreenFrame/Concrete/Analysis/GreenDepthMaskedOperator.lean` |
+| `GF-250` | `GreenFrame.Concrete.greenDepthOneAnalysisOperator_apply` | `GreenFrame/Concrete/Analysis/GreenDepthMaskedOperator.lean` |
