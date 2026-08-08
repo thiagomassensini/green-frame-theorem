@@ -1,0 +1,154 @@
+{
+  "schema": "org.green-frame.release-contract/v2",
+  "release": {
+    "version": "2.0.0",
+    "tag": "v2.0.0",
+    "date": "2026-08-08",
+    "notes": ".release/v2.0.0.md",
+    "tagger": {
+      "name": "github-actions[bot]",
+      "email": "41898282+github-actions[bot]@users.noreply.github.com",
+      "date_source": "target_committer_timestamp"
+    }
+  },
+  "toolchain": {
+    "lean_version": "4.32.0",
+    "lean_toolchain": "leanprover/lean4:v4.32.0",
+    "mathlib_url": "https://github.com/leanprover-community/mathlib4.git",
+    "mathlib_input_revision": "v4.32.0",
+    "mathlib_commit": "81a5d257c8e410db227a6665ed08f64fea08e997"
+  },
+  "lean": {
+    "root_module": "GreenFrame",
+    "root_file": "GreenFrame.lean",
+    "audit_file": "GreenFrame/Audit.lean",
+    "excluded_library_modules": [
+      "GreenFrame.Audit"
+    ]
+  },
+  "research": {
+    "directory": "research/inputs",
+    "manifest": "research/source-manifest.json",
+    "expected_count": 16,
+    "primary": "TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md",
+    "materialized_copy": "docs/90_PAPER_SPECIFICATION.md"
+  },
+  "audit": {
+    "theorem_registry": "audit/theorem-registry.json",
+    "claim_ledger": "audit/claim-ledger.json",
+    "axiom_allowlist": "audit/axiom-allowlist.json",
+    "gate_ids": [
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "G6",
+      "G7"
+    ]
+  },
+  "claims": {
+    "ledger_schema": "org.green-frame.claim-ledger/v2",
+    "ledger_sha256": "b87b2cf83abeac5d467f4786a88a3c31f56faf949a03fe78e9074f8cf10ad794",
+    "registry_count": 494,
+    "status_counts": {
+      "KERNEL_CHECKED": 20,
+      "CONDITIONAL": 1,
+      "OPEN": 1,
+      "FUTURE_LAYER": 1
+    },
+    "coefficient_split": {
+      "external": "seed + residual + G1",
+      "bulk": "G>=2",
+      "analysis": "((seed, residual, G1), G>=2)"
+    },
+    "canonical_bulk_witness": "(base,n)=(2,4) on twoFourWitnessState=e4",
+    "expected_counts": {
+      "paper": 23,
+      "kernel": 20,
+      "conditional": 1,
+      "open": 1,
+      "future": 1
+    },
+    "expected_ids": [
+      "ABGF-AR-001",
+      "ABGF-AR-002",
+      "ABGF-AR-003",
+      "ABGF-AN-001",
+      "ABGF-AN-002",
+      "ABGF-GR-001",
+      "ABGF-GR-002",
+      "ABGF-GR-003",
+      "ABGF-GR-004",
+      "ABGF-FR-001",
+      "ABGF-FR-002",
+      "ABGF-FR-003",
+      "ABGF-PO-001",
+      "ABGF-PO-002",
+      "ABGF-PO-003",
+      "ABGF-PO-004",
+      "ABGF-BK-001",
+      "ABGF-BK-002",
+      "ABGF-FS-001",
+      "ABGF-FS-002",
+      "ABGF-FS-003",
+      "ABGF-FS-004",
+      "ABGF-WEYL-001"
+    ],
+    "kernel_required": [
+      "ABGF-AR-001",
+      "ABGF-AR-002",
+      "ABGF-AR-003",
+      "ABGF-AN-001",
+      "ABGF-AN-002",
+      "ABGF-GR-001",
+      "ABGF-GR-002",
+      "ABGF-GR-003",
+      "ABGF-GR-004",
+      "ABGF-FR-001",
+      "ABGF-FR-002",
+      "ABGF-FR-003",
+      "ABGF-PO-001",
+      "ABGF-PO-002",
+      "ABGF-PO-003",
+      "ABGF-PO-004",
+      "ABGF-BK-001",
+      "ABGF-BK-002",
+      "ABGF-FS-001",
+      "ABGF-FS-002"
+    ],
+    "conditional_required": [
+      "ABGF-FS-003"
+    ],
+    "open_required": [
+      "ABGF-FS-004"
+    ],
+    "future_required": [
+      "ABGF-WEYL-001"
+    ],
+    "kernel_statuses": [
+      "KERNEL_CHECKED"
+    ]
+  },
+  "documentation": {
+    "required": [
+      "README.md",
+      "audit/AXIOM_POLICY.md",
+      "audit/CLAIM_LEDGER.md",
+      "audit/SOURCE_PROVENANCE.md",
+      "audit/THEOREM_REGISTRY.md",
+      "docs/00_SCOPE.md",
+      "docs/10_ARITHMETIC_PARTITION.md",
+      "docs/20_GREEN_ANALYSIS.md",
+      "docs/30_FRAME_THEOREM.md",
+      "docs/40_POISSON_COMPLETION.md",
+      "docs/50_FINITE_SECTIONS.md",
+      "docs/60_CONSTANT_OPTIMIZATION.md",
+      "docs/70_FUTURE_WEYL_LAYER.md",
+      "docs/RELEASE_AUDIT_V2.md",
+      "docs/RECONSTRUCTION_CONTRACT.md",
+      "research/README.md",
+      "research/SOURCE_MANIFEST.md"
+    ]
+  }
+}

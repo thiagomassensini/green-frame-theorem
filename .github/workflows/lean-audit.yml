@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - main
-      - audit/v1.0.0-publication-gate
   workflow_dispatch:
 
 permissions:
@@ -15,32 +14,31 @@ env:
   AUDITED_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
 
 concurrency:
-  group: green-frame-audit-${{ github.ref }}
-  cancel-in-progress: true
+  group: green-frame-audit-${{ github.event_name }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   audit:
-    name: Lean kernel and trust audit
+    name: Seven-gate Lean and release audit
     runs-on: ubuntu-24.04
-    timeout-minutes: 90
+    timeout-minutes: 120
     steps:
-      - name: Check out audited head
+      - name: Check out the exact audited commit
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           ref: ${{ env.AUDITED_SHA }}
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Verify audited revision
+      - name: Reject a synthetic or dirty checkout
         shell: bash
         run: |
           set -euo pipefail
-          actual_sha="$(git rev-parse HEAD)"
-          test "$actual_sha" = "$AUDITED_SHA"
-          test -z "$(git status --porcelain --untracked-files=no)"
-          mkdir -p audit/evidence
-          printf '%s\n' "$actual_sha" > audit/evidence/audited-sha.txt
-          git rev-parse 'HEAD^{tree}' > audit/evidence/audited-tree.txt
+          test "$(git rev-parse HEAD)" = "$AUDITED_SHA"
+          test -z "$(git status --porcelain --untracked-files=all)"
+          if test "$GITHUB_EVENT_NAME" = push && test "$GITHUB_REF" = refs/heads/main; then
+            test "$GITHUB_WORKFLOW_SHA" = "$AUDITED_SHA"
+          fi
 
       - name: Set up pinned Lean and Mathlib cache
         uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
@@ -51,11 +49,31 @@ jobs:
           use-github-cache: false
           use-mathlib-cache: true
 
-      - name: Run complete reconstruction audit
+      - name: Run all seven gates and package the evidence
         shell: bash
         run: bash scripts/run_audits.sh
 
-      - name: Upload audit evidence
+      - name: Publish audit summary
+        if: always()
+        shell: bash
+        run: |
+          if test -f audit/evidence/audit-manifest.json; then
+            python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+          manifest = json.loads(Path("audit/evidence/audit-manifest.json").read_text())
+          print("# Green Frame audit")
+          print()
+          print(f"- commit: `{manifest['git']['commit']}`")
+          print(f"- tree: `{manifest['git']['tree']}`")
+          print(f"- gates: `{sum(g['status'] == 'PASS' for g in manifest['gates'])}/7 PASS`")
+          for key, value in manifest["counts"].items():
+              print(f"- {key}: `{value}`")
+          print(f"- used axioms: `{', '.join(manifest['trust']['used_axioms'])}`")
+          PY
+          fi
+
+      - name: Upload exact-SHA audit evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
@@ -63,10 +81,6 @@ jobs:
           path: |
             audit/evidence/
             audit/axioms.txt
-            audit/theorem-registry.json
-            audit/CLAIM_LEDGER.md
-            audit/SOURCE_PROVENANCE.md
-            docs/90_PAPER_SPECIFICATION.md
-            lake-manifest.json
+            dist/
           if-no-files-found: error
           retention-days: 90

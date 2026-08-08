@@ -1,33 +1,41 @@
-# Claim ledger
+# ABGF claim ledger — v2 GF-494 closure
 
-Status vocabulary:
+This ledger maps all 23 primary claims to the contiguous registry `GF-001`
+through `GF-494`. The 20 `KERNEL_CHECKED` rows are release evidence only in
+conjunction with the exact-SHA audit manifest that records successful
+reachability, build, named-axiom and seven-gate checks. The machine-readable
+ledger is byte-anchored by the v2 release contract.
 
-- `PAPER_PROVED`: proved in `docs/90_PAPER_SPECIFICATION.md`.
-- `KERNEL_TARGET`: represented by a named Lean theorem, awaiting the exact CI head result.
-- `KERNEL_CHECKED`: may be used only after the pinned build and axiom audit pass.
-- `FINITE_EXACT`: independently implemented as an exact finite identity.
-- `NUMERIC_AUDITED`: numerical evidence only.
-- `FUTURE_LAYER`: deliberately excluded from this release.
+The coefficient convention is exact: external = seed + residual + G1,
+bulk = G>=2, and T = ((seed, residual, G1), G>=2). The canonical bulk
+witness is `(base,n)=(2,4)` on `twoFourWitnessState=e4`.
 
-| ID | Claim | Paper | Lean v1.0.0 target |
-|---|---|---:|---:|
-| ABGF-AR-001 | Active camera support is finite | PAPER_PROVED | source boundary |
-| ABGF-AR-002 | Nonnegative normalized activities sum to one | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-AR-003 | Every admissible weight is at most one | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-GR-001 | `μ_G + μ_R = ω` | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-GR-002 | Residual mass is at least one half | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-GR-003 | Green mass is at most one half | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-GR-004 | Finite Green analysis obeys a Bessel estimate | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-FR-001 | Scalar full-energy frame ledger | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-FR-002 | A certified full analysis is injective | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-FR-003 | Parseval-normalized analysis preserves norm | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-PO-001 | External synthesis is a left inverse | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-PO-002 | Exact Poisson intertwining `ME=B` | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-PO-003 | Coherent range equals the Poisson graph | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-BK-001 | Canonical weight `ω₂(4)=1/2` | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-BK-002 | Nonzero bulk implies nonzero Poisson return | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-FS-001 | Cutoff frame bounds are uniform | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-FS-002 | Closed bounds pass to convergent limits | PAPER_PROVED | KERNEL_TARGET |
-| ABGF-CAN-001 | Full canonical all-base positional-depth instance | PAPER_PROVED | source boundary |
-| ABGF-CAN-002 | Sharp paper constant `C_F≈10.8453795` | PAPER_PROVED | documented; conservative kernel bound 13 |
-| ABGF-WEYL-001 | Spectral Weyl family | FUTURE_LAYER | excluded |
+The release partition is exactly 23 = 20 kernel + 1 conditional + 1 open +
+1 future. FS-003 cites the named conditional implication `GF-494`; FS-004
+has no theorem evidence and remains open; only the Weyl row is future.
+
+| Paper ID | Exact paper claim | Status | Exact theorem evidence or boundary |
+|---|---|---|---|
+| `ABGF-AR-001` | Active canonical camera support of each coordinate is finite | `KERNEL_CHECKED` | `GF-061 GreenFrame.Concrete.carryCameraWeight_support_finite`; `GF-089 GreenFrame.Concrete.AdmissibleInfinitePartition.weight_hasFiniteSupport`; `GF-095 GreenFrame.Concrete.carryCameraWeightByCode_support_dvd` |
+| `ABGF-AR-002` | Canonical log-depth weights over all integer bases are nonnegative finitely supported and sum to one | `KERNEL_CHECKED` | `GF-056 GreenFrame.Concrete.carryCameraWeight_sum_eq_one`; `GF-062 GreenFrame.Concrete.carryCameraWeight_finsum_eq_one`; `GF-096 GreenFrame.Concrete.carryCameraWeightByCode_finite_sum_eq_one`; `GF-097 GreenFrame.Concrete.canonicalCarryInfinitePartition_weight` |
+| `ABGF-AR-003` | Canonical bulk activity is at most twice depth-one activity and the depth-one share is at least one third | `KERNEL_CHECKED` | `GF-374 GreenFrame.Concrete.canonical_bulkActivity_le_two_mul_depthOneActivity`; `GF-377 GreenFrame.Concrete.canonical_one_third_le_depthOneActivity_div_normalizer` |
+| `ABGF-AN-001` | The elementary seed-plus-camera atlas is an isometry | `KERNEL_CHECKED` | `GF-399 GreenFrame.Concrete.elementaryAtlas_norm_sq_eq`; `GF-400 GreenFrame.Concrete.elementaryAtlas_isometry`; `GF-402 GreenFrame.Concrete.elementaryAtlas_isometryMap`; `GF-404 GreenFrame.Concrete.canonicalCarryElementaryAtlas_isometry` |
+| `ABGF-AN-002` | One base horizontal subspace is resolved exactly by the seed and the remaining vertical cameras | `KERNEL_CHECKED` | `GF-409 GreenFrame.Concrete.ownCamera_coordinate_eq_zero_on_horizontal`; `GF-419 GreenFrame.Concrete.canonicalCarry_horizontal_offBase_resolution` |
+| `ABGF-GR-001` | The Green and return masses sum pointwise to the camera weight | `KERNEL_CHECKED` | `GF-063 GreenFrame.Concrete.greenMass_add_residualMass` |
+| `ABGF-GR-002` | For every nonseed coordinate total residual mass lies between one half and one | `KERNEL_CHECKED` | `GF-191 GreenFrame.Concrete.residualCameraMass_half_le`; `GF-192 GreenFrame.Concrete.residualCameraMass_le_one`; `GF-225 GreenFrame.Concrete.seedResidualAnalysis_norm_sq_bounds` |
+| `ABGF-GR-003` | The global stencil equals the normalized-tower TFVD including its depth-one truncation | `KERNEL_CHECKED` | `GF-428 GreenFrame.Concrete.eventParent_decomposition_unique`; `GF-438 GreenFrame.Concrete.verticalGreenStencil_eq_canonicalNormalizedTowerTFVD`; `GF-439 GreenFrame.Concrete.greenCoordinate_eq_canonicalNormalizedTowerTFVD`; `GF-441 GreenFrame.Concrete.verticalGreenStencil_depth_one_eq_canonicalTowerTruncation` |
+| `ABGF-GR-004` | The global Green analysis satisfies norm(G f)^2 at most C_G times norm(f)^2 with explicit C_G | `KERNEL_CHECKED` | `GF-171 GreenFrame.Concrete.greenCoordinate_tsum_normSq_le`; `GF-174 GreenFrame.Concrete.greenAnalysis_norm_sq_le`; `GF-177 GreenFrame.Concrete.greenAnalysisOperator_norm_le` |
+| `ABGF-FR-001` | The concrete analysis T with external seed residual G1 and bulk G_ge2 has frame bounds one half and C_F | `KERNEL_CHECKED` | `GF-280 GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_bounds`; `GF-281 GreenFrame.Concrete.concreteSplitFrameBounds_lower`; `GF-282 GreenFrame.Concrete.concreteSplitFrameBounds_upper` |
+| `ABGF-FR-002` | For the concrete T the frame operator F=T* T is positive strictly positive and invertible | `KERNEL_CHECKED` | `GF-286 GreenFrame.Concrete.frameOperator_positive`; `GF-288 GreenFrame.Concrete.frameOperator_isUnit`; `GF-289 GreenFrame.Concrete.frameOperator_bijective`; `GF-290 GreenFrame.Concrete.frameOperator_strictlyPositive` |
+| `ABGF-FR-003` | For the concrete T the canonical normalization V=T F^(-1/2) is an isometry | `KERNEL_CHECKED` | `GF-294 GreenFrame.Concrete.inverseSqrt_frameOperator_inverseSqrt`; `GF-295 GreenFrame.Concrete.canonicalAnalysis_adjoint_comp_self`; `GF-296 GreenFrame.Concrete.canonicalAnalysis_isometry`; `GF-298 GreenFrame.Concrete.canonicalParseval_norm` |
+| `ABGF-PO-001` | The normalized exact external component E0 has squared-norm lower bound one over two C_F | `KERNEL_CHECKED` | `GF-303 GreenFrame.Concrete.normalizedExternal_lower_norm_sq`; `GF-282 GreenFrame.Concrete.concreteSplitFrameBounds_upper`; `GF-283 GreenFrame.Concrete.concreteSplitFrameBounds_externalLower` |
+| `ABGF-PO-002` | The range of the exact normalized external component E0 is closed | `KERNEL_CHECKED` | `GF-305 GreenFrame.Concrete.normalizedExternal_antilipschitz`; `GF-307 GreenFrame.Concrete.normalizedExternal_range_closed` |
+| `ABGF-PO-003` | The static Poisson operator satisfies M_AB E0=B0 for the exact external and bulk maps | `KERNEL_CHECKED` | `GF-310 GreenFrame.Concrete.restrictedPoisson_intertwining`; `GF-357 GreenFrame.Concrete.ambientPoisson_intertwining` |
+| `ABGF-PO-004` | The coherent normalized image is exactly the closed graph of M_AB over range(E0) | `KERNEL_CHECKED` | `GF-313 GreenFrame.Concrete.coherentPair_range_eq_graph`; `GF-314 GreenFrame.Concrete.restrictedPoissonGraph_isClosed` |
+| `ABGF-BK-001` | The canonical depth-at-least-two bulk is nonzero at the base two coordinate four witness on e4 | `KERNEL_CHECKED` | `GF-328 GreenFrame.Concrete.twoFourGreenEvent_hasGrandparent`; `GF-344 GreenFrame.Concrete.canonicalCarry_twoFour_bulkCoordinate_normSq`; `GF-347 GreenFrame.Concrete.canonicalCarry_rawBulk_twoFour_ne_zero`; `GF-348 GreenFrame.Concrete.canonicalCarry_rawBulk_ne_zero` |
+| `ABGF-BK-002` | The normalized canonical bulk has squared operator norm at least one over four C_F | `KERNEL_CHECKED` | `GF-349 GreenFrame.Concrete.canonicalCarry_normalizedBulk_twoFour_norm_sq_lower`; `GF-350 GreenFrame.Concrete.canonicalCarry_normalizedBulk_operator_norm_sq_lower` |
+| `ABGF-FS-001` | Concrete finite sections T_N have uniform frame bounds one half and C_F | `KERNEL_CHECKED` | `GF-476 GreenFrame.Concrete.stateCoordinateCutoff_range`; `GF-474 GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_norm_sq_bounds`; `GF-475 GreenFrame.Concrete.concreteFiniteAnalysisOperator_norm_sq_bounds` |
+| `ABGF-FS-002` | The embedded concrete finite sections Q_N T P_N converge strongly to T | `KERNEL_CHECKED` | `GF-493 GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_tendsto` |
+| `ABGF-FS-003` | The embedded normalized finite analyses V_N converge strongly to the canonical analysis V | `CONDITIONAL` | `GF-494 GreenFrame.Concrete.concreteEmbeddedCanonicalAnalysis_tendsto_of_extendedInverseSqrt_tendsto` For every state f, the common-space CFC inverse square roots extendedFiniteInverseSqrt omega N converge strongly to inverseSqrtFrame (concreteAnalysisOperator omega) on f. The finite extension extendedFiniteFrameOperator omega N is frameOperator (concreteEmbeddedFiniteAnalysis omega N) + (1 - stateCoordinateCutoff N). In this row V_N denotes the common-space map concreteEmbeddedFiniteAnalysis omega N composed with extendedFiniteInverseSqrt omega N; no separate bundled finite-domain identification is asserted. |
+| `ABGF-FS-004` | Finite Poisson operators converge strongly to M_AB | `OPEN` | No theorem IDs. No finite normalized external pseudoinverse or finite Poisson convergence theorem is constructed in v2; the primary source defers this step until after FS-003. |
+| `ABGF-WEYL-001` | A Weyl family is obtained from the Schur complement of the log n generator | `FUTURE_LAYER` | No theorem IDs. Deliberately outside the v2 theorem surface. |

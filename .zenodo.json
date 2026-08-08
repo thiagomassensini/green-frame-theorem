@@ -1,6 +1,6 @@
 {
   "title": "Green Frame Theorem",
-  "description": "Lean 4 formal core and preserved mathematical specification for the All-Bases Green Frame Theorem: admissible carry partitions, Pythagorean Green-return splitting, frame bounds, Parseval normalization interface, and Poisson reconstruction.",
+  "description": "Lean 4 kernel-checked core and preserved research corpus for the concrete All-Bases Green Frame project, with an explicit 23-claim boundary and exact-SHA kernel and source-integrity evidence.",
   "creators": [
     {
       "name": "Motta, Thiago"
@@ -8,7 +8,8 @@
   ],
   "license": "MIT",
   "upload_type": "software",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "publication_date": "2026-08-08",
   "keywords": [
     "Lean 4",
     "frame theory",
