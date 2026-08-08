@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 310,
+  "count": 314,
   "theorems": [
     {
       "id": "GF-001",
@@ -1551,6 +1551,26 @@
       "id": "GF-310",
       "name": "restrictedPoisson_intertwining",
       "qualified": "GreenFrame.Concrete.restrictedPoisson_intertwining"
+    },
+    {
+      "id": "GF-311",
+      "name": "coherentPair_range_subset_graph",
+      "qualified": "GreenFrame.Concrete.coherentPair_range_subset_graph"
+    },
+    {
+      "id": "GF-312",
+      "name": "graph_subset_coherentPair_range",
+      "qualified": "GreenFrame.Concrete.graph_subset_coherentPair_range"
+    },
+    {
+      "id": "GF-313",
+      "name": "coherentPair_range_eq_graph",
+      "qualified": "GreenFrame.Concrete.coherentPair_range_eq_graph"
+    },
+    {
+      "id": "GF-314",
+      "name": "restrictedPoissonGraph_isClosed",
+      "qualified": "GreenFrame.Concrete.restrictedPoissonGraph_isClosed"
     }
   ]
 }

@@ -325,3 +325,8 @@ import GreenFrame
 
 #print axioms GreenFrame.Concrete.restrictedPoisson_apply_external
 #print axioms GreenFrame.Concrete.restrictedPoisson_intertwining
+
+#print axioms GreenFrame.Concrete.coherentPair_range_subset_graph
+#print axioms GreenFrame.Concrete.graph_subset_coherentPair_range
+#print axioms GreenFrame.Concrete.coherentPair_range_eq_graph
+#print axioms GreenFrame.Concrete.restrictedPoissonGraph_isClosed

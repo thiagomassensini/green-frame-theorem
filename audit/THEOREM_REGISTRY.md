@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **310** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **314** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -314,3 +314,7 @@ The registry contains exactly **310** named Lean theorems reachable from `GreenF
 | `GF-308` | `GreenFrame.Concrete.normalizedExternalRangeInverse_apply` | `GreenFrame/Concrete/Analysis/ExternalRange.lean:75` |
 | `GF-309` | `GreenFrame.Concrete.restrictedPoisson_apply_external` | `GreenFrame/Concrete/Analysis/StaticPoisson.lean:31` |
 | `GF-310` | `GreenFrame.Concrete.restrictedPoisson_intertwining` | `GreenFrame/Concrete/Analysis/StaticPoisson.lean:43` |
+| `GF-311` | `GreenFrame.Concrete.coherentPair_range_subset_graph` | `GreenFrame/Concrete/Analysis/RestrictedGraph.lean:26` |
+| `GF-312` | `GreenFrame.Concrete.graph_subset_coherentPair_range` | `GreenFrame/Concrete/Analysis/RestrictedGraph.lean:36` |
+| `GF-313` | `GreenFrame.Concrete.coherentPair_range_eq_graph` | `GreenFrame/Concrete/Analysis/RestrictedGraph.lean:58` |
+| `GF-314` | `GreenFrame.Concrete.restrictedPoissonGraph_isClosed` | `GreenFrame/Concrete/Analysis/RestrictedGraph.lean:68` |
