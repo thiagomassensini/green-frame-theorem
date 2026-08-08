@@ -256,6 +256,7 @@ theorem grandparentTerm_normSq (e : GreenEvent) (f : State) :
   by_cases h : HasGrandparent e
   · simp [grandparentTerm, h, Complex.normSq_mul, Complex.normSq_ofReal]
     ring_nf
+    exact Or.inl True.intro
   · simp [grandparentTerm, h]
 
 /-- The unweighted stencil satisfies the pointwise three-term norm-square
