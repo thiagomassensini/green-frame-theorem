@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **144** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **149** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -148,3 +148,8 @@ The registry contains exactly **144** named Lean theorems reachable from `GreenF
 | `GF-142` | `GreenFrame.Concrete.stateEnergy_summable` | `GreenFrame/Concrete/Analysis/GreenStateEnergy.lean` |
 | `GF-143` | `GreenFrame.Concrete.stateEnergy_tsum_eq_norm_sq` | `GreenFrame/Concrete/Analysis/GreenStateEnergy.lean` |
 | `GF-144` | `GreenFrame.Concrete.weight_tsum_le_one` | `GreenFrame/Concrete/Analysis/GreenStateEnergy.lean` |
+| `GF-145` | `GreenFrame.Concrete.currentCameraMajorant_nonneg` | `GreenFrame/Concrete/Analysis/GreenCurrentCameraBound.lean` |
+| `GF-146` | `GreenFrame.Concrete.currentCameraMajorant_le` | `GreenFrame/Concrete/Analysis/GreenCurrentCameraBound.lean` |
+| `GF-147` | `GreenFrame.Concrete.currentCameraMajorant_summable` | `GreenFrame/Concrete/Analysis/GreenCurrentCameraBound.lean` |
+| `GF-148` | `GreenFrame.Concrete.currentCameraMajorant_tsum_le` | `GreenFrame/Concrete/Analysis/GreenCurrentCameraBound.lean` |
+| `GF-149` | `GreenFrame.Concrete.currentCameraMajorant_prod_summable` | `GreenFrame/Concrete/Analysis/GreenCurrentCameraBound.lean` |

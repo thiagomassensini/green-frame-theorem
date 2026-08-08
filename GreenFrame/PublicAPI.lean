@@ -17,6 +17,7 @@ import GreenFrame.Concrete.Analysis.GreenStencilComplex
 import GreenFrame.Concrete.Analysis.GreenReindexing
 import GreenFrame.Concrete.Analysis.GreenBesselConstants
 import GreenFrame.Concrete.Analysis.GreenStateEnergy
+import GreenFrame.Concrete.Analysis.GreenCurrentCameraBound
 
 /-!
 # Public API — All-Bases Green Frame Theorem

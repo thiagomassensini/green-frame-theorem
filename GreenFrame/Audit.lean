@@ -146,3 +146,8 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.stateEnergy_summable
 #print axioms GreenFrame.Concrete.stateEnergy_tsum_eq_norm_sq
 #print axioms GreenFrame.Concrete.weight_tsum_le_one
+#print axioms GreenFrame.Concrete.currentCameraMajorant_nonneg
+#print axioms GreenFrame.Concrete.currentCameraMajorant_le
+#print axioms GreenFrame.Concrete.currentCameraMajorant_summable
+#print axioms GreenFrame.Concrete.currentCameraMajorant_tsum_le
+#print axioms GreenFrame.Concrete.currentCameraMajorant_prod_summable

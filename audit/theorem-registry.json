@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 144,
+  "count": 149,
   "theorems": [
     {
       "id": "GF-001",
@@ -721,6 +721,31 @@
       "id": "GF-144",
       "name": "weight_tsum_le_one",
       "qualified": "GreenFrame.Concrete.weight_tsum_le_one"
+    },
+    {
+      "id": "GF-145",
+      "name": "currentCameraMajorant_nonneg",
+      "qualified": "GreenFrame.Concrete.currentCameraMajorant_nonneg"
+    },
+    {
+      "id": "GF-146",
+      "name": "currentCameraMajorant_le",
+      "qualified": "GreenFrame.Concrete.currentCameraMajorant_le"
+    },
+    {
+      "id": "GF-147",
+      "name": "currentCameraMajorant_summable",
+      "qualified": "GreenFrame.Concrete.currentCameraMajorant_summable"
+    },
+    {
+      "id": "GF-148",
+      "name": "currentCameraMajorant_tsum_le",
+      "qualified": "GreenFrame.Concrete.currentCameraMajorant_tsum_le"
+    },
+    {
+      "id": "GF-149",
+      "name": "currentCameraMajorant_prod_summable",
+      "qualified": "GreenFrame.Concrete.currentCameraMajorant_prod_summable"
     }
   ]
 }
