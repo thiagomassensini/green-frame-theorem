@@ -52,12 +52,12 @@ theorem greenCoordinate_normSq_le_majorant
       · simp only [greenCoordinateMajorant, currentGreenMajorant,
           currentCameraMajorant, parentGreenMajorant, grandparentGreenMajorant,
           h, ↓reduceIte, carryRatio_sq, hq4]
-        field_simp [ne_of_gt (baseReal_pos e.1)]
+        field_simp [inv_pow, ne_of_gt (baseReal_pos e.1)]
         ring
       · simp only [greenCoordinateMajorant, currentGreenMajorant,
           currentCameraMajorant, parentGreenMajorant, grandparentGreenMajorant,
           h, ↓reduceIte, carryRatio_sq]
-        field_simp [ne_of_gt (baseReal_pos e.1)]
+        field_simp [inv_pow, ne_of_gt (baseReal_pos e.1)]
         ring
 
 end GreenFrame.Concrete
