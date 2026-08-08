@@ -133,7 +133,9 @@ theorem divisiblePullback_summable (r : ℕ) {a : PNat → ℝ}
       exact ⟨k, hk.symm⟩
     · simp [divisiblePullback, hdiv]
   apply (Function.Injective.summable_iff hg hzero).mp
-  simpa [Function.comp_apply, g, divisiblePullback] using ha
+  apply ha.congr
+  intro k
+  simp [Function.comp_apply, g, divisiblePullback]
 
 /-- Pullback by exact division preserves the value of the infinite sum. -/
 theorem tsum_divisiblePullback (r : ℕ) (a : PNat → ℝ) :
@@ -161,7 +163,9 @@ theorem tsum_divisiblePullback (r : ℕ) (a : PNat → ℝ) :
       intro h
       apply ha
       have hcomp := (hg.summable_iff hzero).mpr h
-      simpa [Function.comp_apply, g, divisiblePullback] using hcomp
+      apply hcomp.congr
+      intro k
+      simp [Function.comp_apply, g, divisiblePullback]
     rw [tsum_eq_zero_of_not_summable hpull,
       tsum_eq_zero_of_not_summable ha]
 
