@@ -17,35 +17,35 @@ def stateIndexRetained (N : ℕ) (n : PNat) : Prop :=
   (n : ℕ) ≤ N
 
 instance stateIndexRetainedDecidable (N : ℕ) (n : PNat) :
-    Decidable (stateIndexRetained N n) := inferInstance
+    Decidable (stateIndexRetained N n) := by unfold stateIndexRetained; infer_instance
 
 /-- Residual rows retained at cutoff `N`. -/
 def residualEventRetained (N : ℕ) (e : ResidualEvent) : Prop :=
   (e.1 : ℕ) ≤ N ∧ baseNat e.2 ≤ N
 
 instance residualEventRetainedDecidable (N : ℕ) (e : ResidualEvent) :
-    Decidable (residualEventRetained N e) := inferInstance
+    Decidable (residualEventRetained N e) := by unfold residualEventRetained; infer_instance
 
 /-- Green rows retained at cutoff `N`. -/
 def greenEventRetained (N : ℕ) (e : GreenEvent) : Prop :=
   (eventNumber e : ℕ) ≤ N ∧ baseNat e.1 ≤ N
 
 instance greenEventRetainedDecidable (N : ℕ) (e : GreenEvent) :
-    Decidable (greenEventRetained N e) := inferInstance
+    Decidable (greenEventRetained N e) := by unfold greenEventRetained; infer_instance
 
 /-- Literal depth-one rows retained by the finite Green cutoff. -/
 def depthOneEventRetained (N : ℕ) (e : DepthOneGreenEvent) : Prop :=
   greenEventRetained N e.1
 
 instance depthOneEventRetainedDecidable (N : ℕ) (e : DepthOneGreenEvent) :
-    Decidable (depthOneEventRetained N e) := inferInstance
+    Decidable (depthOneEventRetained N e) := by unfold depthOneEventRetained; infer_instance
 
 /-- Literal bulk rows retained by the finite Green cutoff. -/
 def bulkEventRetained (N : ℕ) (e : BulkGreenEvent) : Prop :=
   greenEventRetained N e.1
 
 instance bulkEventRetainedDecidable (N : ℕ) (e : BulkGreenEvent) :
-    Decidable (bulkEventRetained N e) := inferInstance
+    Decidable (bulkEventRetained N e) := by unfold bulkEventRetained; infer_instance
 
 /-! Literal retained index types.  `FiniteIndexSets` proves all five are
 finite without choosing an enumeration for the ambient masks. -/
@@ -105,7 +105,7 @@ def FiniteGreenSpace (N : ℕ) : Submodule ℂ (ℓ²(GreenEvent, ℂ)) where
 def FiniteDepthOneSpace (N : ℕ) : Submodule ℂ DepthOneGreenSpace where
   carrier := {y | ∀ e : DepthOneGreenEvent,
     ¬ depthOneEventRetained N e → y e = 0}
-  zero_mem' := by simp
+  zero_mem' := by intro e _; rfl
   add_mem' := by
     intro x y hx hy e he
     simp [hx e he, hy e he]
@@ -117,7 +117,7 @@ def FiniteDepthOneSpace (N : ℕ) : Submodule ℂ DepthOneGreenSpace where
 def FiniteBulkSpace (N : ℕ) : Submodule ℂ BulkGreenSpace where
   carrier := {y | ∀ e : BulkGreenEvent,
     ¬ bulkEventRetained N e → y e = 0}
-  zero_mem' := by simp
+  zero_mem' := by intro e _; rfl
   add_mem' := by
     intro x y hx hy e he
     simp [hx e he, hy e he]
@@ -134,7 +134,7 @@ theorem active_camera_base_le_cutoff
   have hle : basePNat r ≤ n := PNat.le_of_dvd hdvd
   have hleNat : baseNat r ≤ (n : ℕ) := by
     simpa only [basePNat_coe] using
-      (PNat.coe_le_coe (basePNat r) n).mp hle
+      (PNat.coe_le_coe (basePNat r) n).mpr hle
   exact hleNat.trans hn
 
 /-- Every nonzero camera at `n ≤ N` lies in the finite code interval for `N`. -/

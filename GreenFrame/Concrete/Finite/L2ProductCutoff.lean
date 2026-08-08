@@ -25,7 +25,7 @@ noncomputable def l2ProductMap
     (A : E →L[ℂ] E) (C : B →L[ℂ] B) :
     L2Product E B →L[ℂ] L2Product E B :=
   (WithLp.prodContinuousLinearEquiv 2 ℂ E B).symm.toContinuousLinearMap.comp
-    ((A.prod C).comp
+    ((A.prodMap C).comp
       (WithLp.prodContinuousLinearEquiv 2 ℂ E B).toContinuousLinearMap)
 
 @[simp]
@@ -42,9 +42,9 @@ theorem l2ProductMap_norm_le
     (hA : ∀ x, ‖A x‖ ≤ ‖x‖) (hC : ∀ z, ‖C z‖ ≤ ‖z‖)
     (y : L2Product E B) :
     ‖l2ProductMap A C y‖ ≤ ‖y‖ := by
-  have hAsq : ‖A (WithLp.ofLp y).1‖ ^ 2 ≤ ‖(WithLp.ofLp y).1‖ ^ 2 :=
+  have hAsq : ‖A (WithLp.fst y)‖ ^ 2 ≤ ‖WithLp.fst y‖ ^ 2 :=
     (sq_le_sq₀ (norm_nonneg _) (norm_nonneg _)).mpr (hA _)
-  have hCsq : ‖C (WithLp.ofLp y).2‖ ^ 2 ≤ ‖(WithLp.ofLp y).2‖ ^ 2 :=
+  have hCsq : ‖C (WithLp.snd y)‖ ^ 2 ≤ ‖WithLp.snd y‖ ^ 2 :=
     (sq_le_sq₀ (norm_nonneg _) (norm_nonneg _)).mpr (hC _)
   have hout := WithLp.prod_norm_sq_eq_of_L2 (l2ProductMap A C y)
   have hin := WithLp.prod_norm_sq_eq_of_L2 y
@@ -58,7 +58,7 @@ theorem l2ProductMap_idempotent
     (A : E →L[ℂ] E) (C : B →L[ℂ] B)
     (hA : A.comp A = A) (hC : C.comp C = C) :
     (l2ProductMap A C).comp (l2ProductMap A C) = l2ProductMap A C := by
-  ext y <;> simp [l2ProductMap_apply, hA, hC]
+  ext y; simpa only [ContinuousLinearMap.comp_apply, l2ProductMap_apply, WithLp.toLp_fst, WithLp.toLp_snd] using congrArg (WithLp.toLp 2) (Prod.ext (by simpa only [ContinuousLinearMap.comp_apply] using DFunLike.congr_fun hA (WithLp.fst y)) (by simpa only [ContinuousLinearMap.comp_apply] using DFunLike.congr_fun hC (WithLp.snd y)))
 
 /-- First orthogonal coordinate as a bounded projection. -/
 noncomputable def l2FirstProjection : L2Product E B →L[ℂ] E :=
@@ -87,9 +87,10 @@ theorem l2ProductMap_tendsto
       Filter.atTop (nhds y) := by
   have hpair := (hA (WithLp.ofLp y).1).prodMk
     (hC (WithLp.ofLp y).2)
-  have hmap :=
-    (WithLp.prodContinuousLinearEquiv 2 ℂ E B).symm.continuous.continuousAt.tendsto.comp
-      hpair
-  simpa [l2ProductMap_apply] using hmap
+  rw [← nhds_prod_eq] at hpair
+  have hmap := (WithLp.prodContinuousLinearEquiv 2 ℂ E B).symm.continuous.continuousAt.tendsto.comp
+    hpair
+  simpa only [l2ProductMap_apply, WithLp.prodContinuousLinearEquiv_symm_apply,
+    Prod.eta, WithLp.toLp_ofLp] using hmap
 
 end GreenFrame.Concrete
