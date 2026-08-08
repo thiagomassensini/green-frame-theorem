@@ -60,6 +60,8 @@ import GreenFrame.Concrete.Analysis.AmbientPoisson
 
 import GreenFrame.Concrete.Arithmetic.DepthOneActivity
 
+import GreenFrame.Concrete.Analysis.ElementaryAtlas
+
 /-!
 # Public API — All-Bases Green Frame Theorem
 

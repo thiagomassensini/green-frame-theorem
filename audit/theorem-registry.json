@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 377,
+  "count": 404,
   "theorems": [
     {
       "id": "GF-001",
@@ -1886,6 +1886,141 @@
       "id": "GF-377",
       "name": "canonical_one_third_le_depthOneActivity_div_normalizer",
       "qualified": "GreenFrame.Concrete.canonical_one_third_le_depthOneActivity_div_normalizer"
+    },
+    {
+      "id": "GF-378",
+      "name": "elementaryAtlasAmplitude_nonneg",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasAmplitude_nonneg"
+    },
+    {
+      "id": "GF-379",
+      "name": "elementaryAtlasAmplitude_sq",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasAmplitude_sq"
+    },
+    {
+      "id": "GF-380",
+      "name": "elementaryAtlasCoordinate_zero",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCoordinate_zero"
+    },
+    {
+      "id": "GF-381",
+      "name": "elementaryAtlasCoordinate_add",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCoordinate_add"
+    },
+    {
+      "id": "GF-382",
+      "name": "elementaryAtlasCoordinate_smul",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCoordinate_smul"
+    },
+    {
+      "id": "GF-383",
+      "name": "elementaryAtlasCoordinate_normSq_eq",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCoordinate_normSq_eq"
+    },
+    {
+      "id": "GF-384",
+      "name": "elementaryAtlasEnergyTerm_nonneg",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasEnergyTerm_nonneg"
+    },
+    {
+      "id": "GF-385",
+      "name": "elementaryAtlasCameraDensity_eq",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCameraDensity_eq"
+    },
+    {
+      "id": "GF-386",
+      "name": "elementaryAtlasCameraDensity_nonneg",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCameraDensity_nonneg"
+    },
+    {
+      "id": "GF-387",
+      "name": "elementaryAtlasCameraDensity_le",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCameraDensity_le"
+    },
+    {
+      "id": "GF-388",
+      "name": "elementaryAtlasCameraDensity_summable",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCameraDensity_summable"
+    },
+    {
+      "id": "GF-389",
+      "name": "elementaryAtlasEnergyTerm_summable",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasEnergyTerm_summable"
+    },
+    {
+      "id": "GF-390",
+      "name": "elementaryAtlasCoordinate_normSq_summable",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCoordinate_normSq_summable"
+    },
+    {
+      "id": "GF-391",
+      "name": "elementaryAtlasCamera_apply",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCamera_apply"
+    },
+    {
+      "id": "GF-392",
+      "name": "elementaryAtlasCamera_add",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCamera_add"
+    },
+    {
+      "id": "GF-393",
+      "name": "elementaryAtlasCamera_smul",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCamera_smul"
+    },
+    {
+      "id": "GF-394",
+      "name": "elementaryAtlasCamera_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCamera_norm_sq_eq"
+    },
+    {
+      "id": "GF-395",
+      "name": "elementaryAtlas_add",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_add"
+    },
+    {
+      "id": "GF-396",
+      "name": "elementaryAtlas_smul",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_smul"
+    },
+    {
+      "id": "GF-397",
+      "name": "seed_add_elementaryAtlasCameraDensity",
+      "qualified": "GreenFrame.Concrete.seed_add_elementaryAtlasCameraDensity"
+    },
+    {
+      "id": "GF-398",
+      "name": "elementaryAtlas_norm_sq_eq_components",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_norm_sq_eq_components"
+    },
+    {
+      "id": "GF-399",
+      "name": "elementaryAtlas_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_norm_sq_eq"
+    },
+    {
+      "id": "GF-400",
+      "name": "elementaryAtlas_isometry",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_isometry"
+    },
+    {
+      "id": "GF-401",
+      "name": "elementaryAtlasLinearIsometry_apply",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasLinearIsometry_apply"
+    },
+    {
+      "id": "GF-402",
+      "name": "elementaryAtlas_isometryMap",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_isometryMap"
+    },
+    {
+      "id": "GF-403",
+      "name": "canonicalCarryElementaryAtlas_apply",
+      "qualified": "GreenFrame.Concrete.canonicalCarryElementaryAtlas_apply"
+    },
+    {
+      "id": "GF-404",
+      "name": "canonicalCarryElementaryAtlas_isometry",
+      "qualified": "GreenFrame.Concrete.canonicalCarryElementaryAtlas_isometry"
     }
   ]
 }

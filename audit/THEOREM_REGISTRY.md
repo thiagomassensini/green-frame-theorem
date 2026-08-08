@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **377** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **404** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -381,3 +381,30 @@ The registry contains exactly **377** named Lean theorems reachable from `GreenF
 | `GF-375` | `GreenFrame.Concrete.allBaseNormalizer_eq_depthOneActivity_add_bulkActivity` | `GreenFrame/Concrete/Arithmetic/DepthOneActivityShare.lean:16` |
 | `GF-376` | `GreenFrame.Concrete.one_third_le_depthOneActivity_div_normalizer_of_bulk_bound` | `GreenFrame/Concrete/Arithmetic/DepthOneActivityShare.lean:32` |
 | `GF-377` | `GreenFrame.Concrete.canonical_one_third_le_depthOneActivity_div_normalizer` | `GreenFrame/Concrete/Arithmetic/DepthOneActivityShare.lean:41` |
+| `GF-378` | `GreenFrame.Concrete.elementaryAtlasAmplitude_nonneg` | `GreenFrame/Concrete/Analysis/ElementaryAtlasCoordinates.lean:31` |
+| `GF-379` | `GreenFrame.Concrete.elementaryAtlasAmplitude_sq` | `GreenFrame/Concrete/Analysis/ElementaryAtlasCoordinates.lean:37` |
+| `GF-380` | `GreenFrame.Concrete.elementaryAtlasCoordinate_zero` | `GreenFrame/Concrete/Analysis/ElementaryAtlasCoordinates.lean:50` |
+| `GF-381` | `GreenFrame.Concrete.elementaryAtlasCoordinate_add` | `GreenFrame/Concrete/Analysis/ElementaryAtlasCoordinates.lean:56` |
+| `GF-382` | `GreenFrame.Concrete.elementaryAtlasCoordinate_smul` | `GreenFrame/Concrete/Analysis/ElementaryAtlasCoordinates.lean:65` |
+| `GF-383` | `GreenFrame.Concrete.elementaryAtlasCoordinate_normSq_eq` | `GreenFrame/Concrete/Analysis/ElementaryAtlasCoordinates.lean:74` |
+| `GF-384` | `GreenFrame.Concrete.elementaryAtlasEnergyTerm_nonneg` | `GreenFrame/Concrete/Analysis/ElementaryAtlasCoordinates.lean:96` |
+| `GF-385` | `GreenFrame.Concrete.elementaryAtlasCameraDensity_eq` | `GreenFrame/Concrete/Analysis/ElementaryAtlasSummability.lean:20` |
+| `GF-386` | `GreenFrame.Concrete.elementaryAtlasCameraDensity_nonneg` | `GreenFrame/Concrete/Analysis/ElementaryAtlasSummability.lean:31` |
+| `GF-387` | `GreenFrame.Concrete.elementaryAtlasCameraDensity_le` | `GreenFrame/Concrete/Analysis/ElementaryAtlasSummability.lean:40` |
+| `GF-388` | `GreenFrame.Concrete.elementaryAtlasCameraDensity_summable` | `GreenFrame/Concrete/Analysis/ElementaryAtlasSummability.lean:49` |
+| `GF-389` | `GreenFrame.Concrete.elementaryAtlasEnergyTerm_summable` | `GreenFrame/Concrete/Analysis/ElementaryAtlasSummability.lean:58` |
+| `GF-390` | `GreenFrame.Concrete.elementaryAtlasCoordinate_normSq_summable` | `GreenFrame/Concrete/Analysis/ElementaryAtlasSummability.lean:73` |
+| `GF-391` | `GreenFrame.Concrete.elementaryAtlasCamera_apply` | `GreenFrame/Concrete/Analysis/ElementaryAtlasCamera.lean:27` |
+| `GF-392` | `GreenFrame.Concrete.elementaryAtlasCamera_add` | `GreenFrame/Concrete/Analysis/ElementaryAtlasCamera.lean:35` |
+| `GF-393` | `GreenFrame.Concrete.elementaryAtlasCamera_smul` | `GreenFrame/Concrete/Analysis/ElementaryAtlasCamera.lean:44` |
+| `GF-394` | `GreenFrame.Concrete.elementaryAtlasCamera_norm_sq_eq` | `GreenFrame/Concrete/Analysis/ElementaryAtlasCamera.lean:53` |
+| `GF-395` | `GreenFrame.Concrete.elementaryAtlas_add` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:23` |
+| `GF-396` | `GreenFrame.Concrete.elementaryAtlas_smul` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:34` |
+| `GF-397` | `GreenFrame.Concrete.seed_add_elementaryAtlasCameraDensity` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:44` |
+| `GF-398` | `GreenFrame.Concrete.elementaryAtlas_norm_sq_eq_components` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:54` |
+| `GF-399` | `GreenFrame.Concrete.elementaryAtlas_norm_sq_eq` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:63` |
+| `GF-400` | `GreenFrame.Concrete.elementaryAtlas_isometry` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:87` |
+| `GF-401` | `GreenFrame.Concrete.elementaryAtlasLinearIsometry_apply` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:108` |
+| `GF-402` | `GreenFrame.Concrete.elementaryAtlas_isometryMap` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:114` |
+| `GF-403` | `GreenFrame.Concrete.canonicalCarryElementaryAtlas_apply` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:132` |
+| `GF-404` | `GreenFrame.Concrete.canonicalCarryElementaryAtlas_isometry` | `GreenFrame/Concrete/Analysis/ElementaryAtlasIsometry.lean:138` |
