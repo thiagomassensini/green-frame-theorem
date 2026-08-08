@@ -362,3 +362,9 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.canonicalCarry_twoFour_greenEventMass
 #print axioms GreenFrame.Concrete.canonicalCarry_twoFour_greenAmplitude
 #print axioms GreenFrame.Concrete.canonicalCarry_twoFour_greenCoordinate
+
+#print axioms GreenFrame.Concrete.canonicalCarry_twoFour_bulkCoordinate
+#print axioms GreenFrame.Concrete.canonicalCarry_twoFour_bulkCoordinate_normSq
+#print axioms GreenFrame.Concrete.canonicalCarry_greenBulkAnalysis_norm_sq_lower
+#print axioms GreenFrame.Concrete.canonicalCarry_rawBulk_twoFour_norm_sq_lower
+#print axioms GreenFrame.Concrete.canonicalCarry_rawBulk_twoFour_ne_zero
