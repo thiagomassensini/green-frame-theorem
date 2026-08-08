@@ -346,7 +346,8 @@ theorem allBaseNormalizer_four :
   rw [hIcc]
   simp [allBaseActivity_two_four,
     allBaseActivity_three_four,
-    allBaseActivity_four_four] <;> ring
+    allBaseActivity_four_four]
+  ring
 
 /-- Exact canonical witness `ω₂(4)=1/2`. -/
 theorem carryCameraWeight_two_four :
