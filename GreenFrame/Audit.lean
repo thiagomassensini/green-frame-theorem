@@ -237,3 +237,12 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.greenBulkCoordinate_normSq_le
 #print axioms GreenFrame.Concrete.greenDepthOneCoordinate_normSq_summable
 #print axioms GreenFrame.Concrete.greenBulkCoordinate_normSq_summable
+
+#print axioms GreenFrame.Concrete.greenDepthOneAnalysis_apply
+#print axioms GreenFrame.Concrete.greenBulkAnalysis_apply
+#print axioms GreenFrame.Concrete.greenDepthOneAnalysis_norm_sq_eq
+#print axioms GreenFrame.Concrete.greenBulkAnalysis_norm_sq_eq
+#print axioms GreenFrame.Concrete.greenAnalysis_norm_sq_eq_depthOne_add_bulk
+#print axioms GreenFrame.Concrete.greenDepthOneAnalysis_norm_sq_le_green
+#print axioms GreenFrame.Concrete.greenBulkAnalysis_norm_sq_le_green
+#print axioms GreenFrame.Concrete.greenDepthOneAnalysis_norm_sq_le
