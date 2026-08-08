@@ -56,15 +56,22 @@ the audit is not rebuilt under a different run identity, and the write job may
 only finish the already-verified publication.
 The GitHub release assets are the permanent audit bundle.
 
-## Publication inputs
+## Publication authorization
 
-The manual publisher accepts only:
+The publisher has two fail-closed entry paths:
 
-- `target_sha`: the exact current `main` head;
-- `expected_parent_sha`: its exact first parent;
-- `audit_run_id`: a successful run of `lean-audit.yml` at `target_sha`.
+- a manual dispatch from `refs/heads/main`, carrying the exact target SHA,
+  first parent SHA, and successful `lean-audit.yml` run ID;
+- creation or fast-forward update of `publish-v2.0.0-trigger` so it
+  points directly at the exact current `main` SHA, with no marker commit.
 
-The dispatch itself must run from `refs/heads/main`, and both its workflow
-definition SHA and dispatch SHA must equal `target_sha`. Branch-selected
-workflow definitions, merge refs, unverified tags, and Actions evidence from
-another SHA are rejected.
+For the trigger path, the read-only job derives the target's first parent and
+selects the newest successful `push/main` run of `lean-audit.yml` whose head
+is that same SHA. It waits for that audit when necessary. The trigger ref,
+`main`, checkout, event SHA, workflow-definition SHA, first parent, and
+upstream audit head must all agree before any write-capable job can start.
+
+The manual path additionally compares all three supplied inputs with the same
+derived identities. Branch-selected workflow definitions, marker commits,
+merge refs, unverified tags, and Actions evidence from another SHA are
+rejected.
