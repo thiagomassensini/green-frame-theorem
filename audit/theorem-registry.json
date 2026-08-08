@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 314,
+  "count": 320,
   "theorems": [
     {
       "id": "GF-001",
@@ -1571,6 +1571,36 @@
       "id": "GF-314",
       "name": "restrictedPoissonGraph_isClosed",
       "qualified": "GreenFrame.Concrete.restrictedPoissonGraph_isClosed"
+    },
+    {
+      "id": "GF-315",
+      "name": "inverseSqrtFrame_comp_sqrtFrame",
+      "qualified": "GreenFrame.Concrete.inverseSqrtFrame_comp_sqrtFrame"
+    },
+    {
+      "id": "GF-316",
+      "name": "inverseSqrtFrame_sqrtFrame_apply",
+      "qualified": "GreenFrame.Concrete.inverseSqrtFrame_sqrtFrame_apply"
+    },
+    {
+      "id": "GF-317",
+      "name": "normalizedBulk_sqrtFrame_apply",
+      "qualified": "GreenFrame.Concrete.normalizedBulk_sqrtFrame_apply"
+    },
+    {
+      "id": "GF-318",
+      "name": "normalizedBulk_nonzero_of_rawBulk_witness",
+      "qualified": "GreenFrame.Concrete.normalizedBulk_nonzero_of_rawBulk_witness"
+    },
+    {
+      "id": "GF-319",
+      "name": "restrictedPoisson_ne_zero",
+      "qualified": "GreenFrame.Concrete.restrictedPoisson_ne_zero"
+    },
+    {
+      "id": "GF-320",
+      "name": "restrictedPoisson_ne_zero_of_rawBulk_witness",
+      "qualified": "GreenFrame.Concrete.restrictedPoisson_ne_zero_of_rawBulk_witness"
     }
   ]
 }

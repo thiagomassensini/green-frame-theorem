@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **314** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **320** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -318,3 +318,9 @@ The registry contains exactly **314** named Lean theorems reachable from `GreenF
 | `GF-312` | `GreenFrame.Concrete.graph_subset_coherentPair_range` | `GreenFrame/Concrete/Analysis/RestrictedGraph.lean:36` |
 | `GF-313` | `GreenFrame.Concrete.coherentPair_range_eq_graph` | `GreenFrame/Concrete/Analysis/RestrictedGraph.lean:58` |
 | `GF-314` | `GreenFrame.Concrete.restrictedPoissonGraph_isClosed` | `GreenFrame/Concrete/Analysis/RestrictedGraph.lean:68` |
+| `GF-315` | `GreenFrame.Concrete.inverseSqrtFrame_comp_sqrtFrame` | `GreenFrame/Concrete/Analysis/NontrivialPoissonQualitative.lean:25` |
+| `GF-316` | `GreenFrame.Concrete.inverseSqrtFrame_sqrtFrame_apply` | `GreenFrame/Concrete/Analysis/NontrivialPoissonQualitative.lean:35` |
+| `GF-317` | `GreenFrame.Concrete.normalizedBulk_sqrtFrame_apply` | `GreenFrame/Concrete/Analysis/NontrivialPoissonQualitative.lean:45` |
+| `GF-318` | `GreenFrame.Concrete.normalizedBulk_nonzero_of_rawBulk_witness` | `GreenFrame/Concrete/Analysis/NontrivialPoissonQualitative.lean:51` |
+| `GF-319` | `GreenFrame.Concrete.restrictedPoisson_ne_zero` | `GreenFrame/Concrete/Analysis/NontrivialPoissonQualitative.lean:62` |
+| `GF-320` | `GreenFrame.Concrete.restrictedPoisson_ne_zero_of_rawBulk_witness` | `GreenFrame/Concrete/Analysis/NontrivialPoissonQualitative.lean:77` |

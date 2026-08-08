@@ -330,3 +330,10 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.graph_subset_coherentPair_range
 #print axioms GreenFrame.Concrete.coherentPair_range_eq_graph
 #print axioms GreenFrame.Concrete.restrictedPoissonGraph_isClosed
+
+#print axioms GreenFrame.Concrete.inverseSqrtFrame_comp_sqrtFrame
+#print axioms GreenFrame.Concrete.inverseSqrtFrame_sqrtFrame_apply
+#print axioms GreenFrame.Concrete.normalizedBulk_sqrtFrame_apply
+#print axioms GreenFrame.Concrete.normalizedBulk_nonzero_of_rawBulk_witness
+#print axioms GreenFrame.Concrete.restrictedPoisson_ne_zero
+#print axioms GreenFrame.Concrete.restrictedPoisson_ne_zero_of_rawBulk_witness
