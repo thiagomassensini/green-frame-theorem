@@ -58,6 +58,8 @@ import GreenFrame.Concrete.Analysis.ConcreteBulkWitness
 
 import GreenFrame.Concrete.Analysis.AmbientPoisson
 
+import GreenFrame.Concrete.Arithmetic.DepthOneActivity
+
 /-!
 # Public API — All-Bases Green Frame Theorem
 

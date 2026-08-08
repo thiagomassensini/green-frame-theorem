@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 357,
+  "count": 377,
   "theorems": [
     {
       "id": "GF-001",
@@ -1786,6 +1786,106 @@
       "id": "GF-357",
       "name": "ambientPoisson_intertwining",
       "qualified": "GreenFrame.Concrete.ambientPoisson_intertwining"
+    },
+    {
+      "id": "GF-358",
+      "name": "mem_depthOneBases",
+      "qualified": "GreenFrame.Concrete.mem_depthOneBases"
+    },
+    {
+      "id": "GF-359",
+      "name": "mem_bulkBases",
+      "qualified": "GreenFrame.Concrete.mem_bulkBases"
+    },
+    {
+      "id": "GF-360",
+      "name": "depthOneActivity_nonneg",
+      "qualified": "GreenFrame.Concrete.depthOneActivity_nonneg"
+    },
+    {
+      "id": "GF-361",
+      "name": "bulkActivity_nonneg",
+      "qualified": "GreenFrame.Concrete.bulkActivity_nonneg"
+    },
+    {
+      "id": "GF-362",
+      "name": "endpointCharge_of_square",
+      "qualified": "GreenFrame.Concrete.endpointCharge_of_square"
+    },
+    {
+      "id": "GF-363",
+      "name": "endpointCharge_of_not_square",
+      "qualified": "GreenFrame.Concrete.endpointCharge_of_not_square"
+    },
+    {
+      "id": "GF-364",
+      "name": "bulkActivity_le_two_mul_depthOneActivity_of_certificate",
+      "qualified": "GreenFrame.Concrete.bulkActivity_le_two_mul_depthOneActivity_of_certificate"
+    },
+    {
+      "id": "GF-365",
+      "name": "bulkActivity_le_two_mul_depthOneActivity_of_charge_exists",
+      "qualified": "GreenFrame.Concrete.bulkActivity_le_two_mul_depthOneActivity_of_charge_exists"
+    },
+    {
+      "id": "GF-366",
+      "name": "bulk_base_sq_dvd",
+      "qualified": "GreenFrame.Concrete.bulk_base_sq_dvd"
+    },
+    {
+      "id": "GF-367",
+      "name": "bulk_base_sq_le",
+      "qualified": "GreenFrame.Concrete.bulk_base_sq_le"
+    },
+    {
+      "id": "GF-368",
+      "name": "endpointCharge_mem_depthOneBases",
+      "qualified": "GreenFrame.Concrete.endpointCharge_mem_depthOneBases"
+    },
+    {
+      "id": "GF-369",
+      "name": "endpointCharge_injectiveOn_bulkBases",
+      "qualified": "GreenFrame.Concrete.endpointCharge_injectiveOn_bulkBases"
+    },
+    {
+      "id": "GF-370",
+      "name": "allBaseActivity_le_log_number",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_le_log_number"
+    },
+    {
+      "id": "GF-371",
+      "name": "log_number_le_two_endpointActivity",
+      "qualified": "GreenFrame.Concrete.log_number_le_two_endpointActivity"
+    },
+    {
+      "id": "GF-372",
+      "name": "allBaseActivity_le_two_chargedActivity",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_le_two_chargedActivity"
+    },
+    {
+      "id": "GF-373",
+      "name": "canonicalDepthOneChargeExists",
+      "qualified": "GreenFrame.Concrete.canonicalDepthOneChargeExists"
+    },
+    {
+      "id": "GF-374",
+      "name": "canonical_bulkActivity_le_two_mul_depthOneActivity",
+      "qualified": "GreenFrame.Concrete.canonical_bulkActivity_le_two_mul_depthOneActivity"
+    },
+    {
+      "id": "GF-375",
+      "name": "allBaseNormalizer_eq_depthOneActivity_add_bulkActivity",
+      "qualified": "GreenFrame.Concrete.allBaseNormalizer_eq_depthOneActivity_add_bulkActivity"
+    },
+    {
+      "id": "GF-376",
+      "name": "one_third_le_depthOneActivity_div_normalizer_of_bulk_bound",
+      "qualified": "GreenFrame.Concrete.one_third_le_depthOneActivity_div_normalizer_of_bulk_bound"
+    },
+    {
+      "id": "GF-377",
+      "name": "canonical_one_third_le_depthOneActivity_div_normalizer",
+      "qualified": "GreenFrame.Concrete.canonical_one_third_le_depthOneActivity_div_normalizer"
     }
   ]
 }

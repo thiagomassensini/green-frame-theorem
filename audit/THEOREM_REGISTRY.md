@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **357** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **377** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -361,3 +361,23 @@ The registry contains exactly **357** named Lean theorems reachable from `GreenF
 | `GF-355` | `GreenFrame.Concrete.externalGram_strictlyPositive` | `GreenFrame/Concrete/Analysis/AmbientPoisson.lean:55` |
 | `GF-356` | `GreenFrame.Concrete.ambientExternalSynthesis_comp_external` | `GreenFrame/Concrete/Analysis/AmbientPoisson.lean:72` |
 | `GF-357` | `GreenFrame.Concrete.ambientPoisson_intertwining` | `GreenFrame/Concrete/Analysis/AmbientPoisson.lean:93` |
+| `GF-358` | `GreenFrame.Concrete.mem_depthOneBases` | `GreenFrame/Concrete/Arithmetic/DepthOneChargeFramework.lean:24` |
+| `GF-359` | `GreenFrame.Concrete.mem_bulkBases` | `GreenFrame/Concrete/Arithmetic/DepthOneChargeFramework.lean:30` |
+| `GF-360` | `GreenFrame.Concrete.depthOneActivity_nonneg` | `GreenFrame/Concrete/Arithmetic/DepthOneChargeFramework.lean:43` |
+| `GF-361` | `GreenFrame.Concrete.bulkActivity_nonneg` | `GreenFrame/Concrete/Arithmetic/DepthOneChargeFramework.lean:50` |
+| `GF-362` | `GreenFrame.Concrete.endpointCharge_of_square` | `GreenFrame/Concrete/Arithmetic/DepthOneChargeFramework.lean:62` |
+| `GF-363` | `GreenFrame.Concrete.endpointCharge_of_not_square` | `GreenFrame/Concrete/Arithmetic/DepthOneChargeFramework.lean:68` |
+| `GF-364` | `GreenFrame.Concrete.bulkActivity_le_two_mul_depthOneActivity_of_certificate` | `GreenFrame/Concrete/Arithmetic/DepthOneChargeFramework.lean:81` |
+| `GF-365` | `GreenFrame.Concrete.bulkActivity_le_two_mul_depthOneActivity_of_charge_exists` | `GreenFrame/Concrete/Arithmetic/DepthOneChargeFramework.lean:117` |
+| `GF-366` | `GreenFrame.Concrete.bulk_base_sq_dvd` | `GreenFrame/Concrete/Arithmetic/EndpointChargeLanding.lean:15` |
+| `GF-367` | `GreenFrame.Concrete.bulk_base_sq_le` | `GreenFrame/Concrete/Arithmetic/EndpointChargeLanding.lean:23` |
+| `GF-368` | `GreenFrame.Concrete.endpointCharge_mem_depthOneBases` | `GreenFrame/Concrete/Arithmetic/EndpointChargeLanding.lean:31` |
+| `GF-369` | `GreenFrame.Concrete.endpointCharge_injectiveOn_bulkBases` | `GreenFrame/Concrete/Arithmetic/EndpointChargeInjection.lean:15` |
+| `GF-370` | `GreenFrame.Concrete.allBaseActivity_le_log_number` | `GreenFrame/Concrete/Arithmetic/EndpointChargeActivity.lean:14` |
+| `GF-371` | `GreenFrame.Concrete.log_number_le_two_endpointActivity` | `GreenFrame/Concrete/Arithmetic/EndpointChargeActivity.lean:37` |
+| `GF-372` | `GreenFrame.Concrete.allBaseActivity_le_two_chargedActivity` | `GreenFrame/Concrete/Arithmetic/EndpointChargeActivity.lean:77` |
+| `GF-373` | `GreenFrame.Concrete.canonicalDepthOneChargeExists` | `GreenFrame/Concrete/Arithmetic/CanonicalDepthOneCharge.lean:23` |
+| `GF-374` | `GreenFrame.Concrete.canonical_bulkActivity_le_two_mul_depthOneActivity` | `GreenFrame/Concrete/Arithmetic/CanonicalDepthOneCharge.lean:28` |
+| `GF-375` | `GreenFrame.Concrete.allBaseNormalizer_eq_depthOneActivity_add_bulkActivity` | `GreenFrame/Concrete/Arithmetic/DepthOneActivityShare.lean:16` |
+| `GF-376` | `GreenFrame.Concrete.one_third_le_depthOneActivity_div_normalizer_of_bulk_bound` | `GreenFrame/Concrete/Arithmetic/DepthOneActivityShare.lean:32` |
+| `GF-377` | `GreenFrame.Concrete.canonical_one_third_le_depthOneActivity_div_normalizer` | `GreenFrame/Concrete/Arithmetic/DepthOneActivityShare.lean:41` |

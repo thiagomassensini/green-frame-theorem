@@ -380,3 +380,24 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.externalGram_strictlyPositive
 #print axioms GreenFrame.Concrete.ambientExternalSynthesis_comp_external
 #print axioms GreenFrame.Concrete.ambientPoisson_intertwining
+
+#print axioms GreenFrame.Concrete.mem_depthOneBases
+#print axioms GreenFrame.Concrete.mem_bulkBases
+#print axioms GreenFrame.Concrete.depthOneActivity_nonneg
+#print axioms GreenFrame.Concrete.bulkActivity_nonneg
+#print axioms GreenFrame.Concrete.endpointCharge_of_square
+#print axioms GreenFrame.Concrete.endpointCharge_of_not_square
+#print axioms GreenFrame.Concrete.bulkActivity_le_two_mul_depthOneActivity_of_certificate
+#print axioms GreenFrame.Concrete.bulkActivity_le_two_mul_depthOneActivity_of_charge_exists
+#print axioms GreenFrame.Concrete.bulk_base_sq_dvd
+#print axioms GreenFrame.Concrete.bulk_base_sq_le
+#print axioms GreenFrame.Concrete.endpointCharge_mem_depthOneBases
+#print axioms GreenFrame.Concrete.endpointCharge_injectiveOn_bulkBases
+#print axioms GreenFrame.Concrete.allBaseActivity_le_log_number
+#print axioms GreenFrame.Concrete.log_number_le_two_endpointActivity
+#print axioms GreenFrame.Concrete.allBaseActivity_le_two_chargedActivity
+#print axioms GreenFrame.Concrete.canonicalDepthOneChargeExists
+#print axioms GreenFrame.Concrete.canonical_bulkActivity_le_two_mul_depthOneActivity
+#print axioms GreenFrame.Concrete.allBaseNormalizer_eq_depthOneActivity_add_bulkActivity
+#print axioms GreenFrame.Concrete.one_third_le_depthOneActivity_div_normalizer_of_bulk_bound
+#print axioms GreenFrame.Concrete.canonical_one_third_le_depthOneActivity_div_normalizer
