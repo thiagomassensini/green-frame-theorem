@@ -15,7 +15,7 @@ operator bound supplied directly by the contractive state/coefficient masks.
 
 noncomputable section
 
-open scoped ENNReal InnerProductSpace lp Topology
+open scoped ENNReal InnerProduct InnerProductSpace lp Topology
 open Filter
 
 namespace GreenFrame.Concrete
@@ -74,7 +74,9 @@ theorem concreteEmbeddedCanonicalAnalysis_tendsto_of_extendedInverseSqrt_tendsto
       Tendsto
         (fun N => extendedFiniteInverseSqrt omega N f - R f)
         atTop (𝓝 0) := by
-    simpa only [T, R, sub_self] using (hCFC f).sub tendsto_const_nhds
+    have hconst : Tendsto (fun _ : ℕ => R f) atTop (𝓝 (R f)) :=
+      tendsto_const_nhds
+    simpa only [T, R, sub_self] using (hCFC f).sub hconst
   have hmajorant :
       Tendsto
         (fun N => ‖T‖ *
