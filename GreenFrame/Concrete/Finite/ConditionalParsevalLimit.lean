@@ -1,6 +1,6 @@
 import GreenFrame.Concrete.Finite.ConcreteStrongAnalysisLimit
 import GreenFrame.Concrete.Analysis.CanonicalParseval
-
+import Mathlib.Analysis.CStarAlgebra.ContinuousLinearMap
 /-!
 # Conditional strong limit of the normalized finite analyses
 
