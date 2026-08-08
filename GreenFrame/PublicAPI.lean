@@ -31,6 +31,7 @@ import GreenFrame.Concrete.Analysis.ResidualAnalysis
 import GreenFrame.Concrete.Analysis.GreenDepthCoordinates
 import GreenFrame.Concrete.Analysis.GreenDepthMaskedEnergy
 import GreenFrame.Concrete.Analysis.GreenDepthMaskedOperator
+import GreenFrame.Concrete.Analysis.GreenDepthSectorEnergy
 
 /-!
 # Public API — All-Bases Green Frame Theorem
