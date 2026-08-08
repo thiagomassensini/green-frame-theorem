@@ -58,21 +58,21 @@ theorem twoFourWitnessState_at_four :
     twoFourWitnessState (4 : PNat) = (1 : ℂ) := by
   change lp.single (E := fun _ : PNat => ℂ) 2 (4 : PNat) (1 : ℂ)
       (4 : PNat) = (1 : ℂ)
-  exact lp.single_apply_self 2 (4 : PNat) (1 : ℂ)
+  exact lp.single_apply_self (E := fun _ : PNat => ℂ) 2 (4 : PNat) (1 : ℂ)
 
 @[simp]
 theorem twoFourWitnessState_at_two :
     twoFourWitnessState (2 : PNat) = (0 : ℂ) := by
   change lp.single (E := fun _ : PNat => ℂ) 2 (4 : PNat) (1 : ℂ)
       (2 : PNat) = (0 : ℂ)
-  exact lp.single_apply_ne 2 (4 : PNat) (1 : ℂ) (by norm_num)
+  exact lp.single_apply_ne (E := fun _ : PNat => ℂ) 2 (4 : PNat) (1 : ℂ) (by norm_num)
 
 @[simp]
 theorem twoFourWitnessState_at_one :
     twoFourWitnessState (1 : PNat) = (0 : ℂ) := by
   change lp.single (E := fun _ : PNat => ℂ) 2 (4 : PNat) (1 : ℂ)
       (1 : PNat) = (0 : ℂ)
-  exact lp.single_apply_ne 2 (4 : PNat) (1 : ℂ) (by norm_num)
+  exact lp.single_apply_ne (E := fun _ : PNat => ℂ) 2 (4 : PNat) (1 : ℂ) (by norm_num)
 
 @[simp]
 theorem twoFourWitnessState_norm :
@@ -83,3 +83,4 @@ theorem twoFourWitnessState_norm :
       (4 : PNat) (1 : ℂ))
 
 end GreenFrame.Concrete
+78c800eeedf4a595389b7acb0168f58143f64a0d34879f79a7d9be55b7e1bf0c  design_drafts/parseval_poisson/GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean
