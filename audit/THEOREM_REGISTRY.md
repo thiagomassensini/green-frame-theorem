@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **166** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **168** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -170,3 +170,5 @@ The registry contains exactly **166** named Lean theorems reachable from `GreenF
 | `GF-164` | `GreenFrame.Concrete.grandparentGreenDominant_summable` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |
 | `GF-165` | `GreenFrame.Concrete.grandparentGreenMajorant_summable` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |
 | `GF-166` | `GreenFrame.Concrete.grandparentGreenMajorant_tsum_le` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |
+| `GF-167` | `GreenFrame.Concrete.greenCoordinateMajorant_nonneg` | `GreenFrame/Concrete/Analysis/GreenCoordinateMajorant.lean` |
+| `GF-168` | `GreenFrame.Concrete.greenCoordinate_normSq_le_majorant` | `GreenFrame/Concrete/Analysis/GreenCoordinateMajorant.lean` |

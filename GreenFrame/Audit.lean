@@ -168,3 +168,5 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.grandparentGreenDominant_summable
 #print axioms GreenFrame.Concrete.grandparentGreenMajorant_summable
 #print axioms GreenFrame.Concrete.grandparentGreenMajorant_tsum_le
+#print axioms GreenFrame.Concrete.greenCoordinateMajorant_nonneg
+#print axioms GreenFrame.Concrete.greenCoordinate_normSq_le_majorant

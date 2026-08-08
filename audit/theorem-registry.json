@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 166,
+  "count": 168,
   "theorems": [
     {
       "id": "GF-001",
@@ -831,6 +831,16 @@
       "id": "GF-166",
       "name": "grandparentGreenMajorant_tsum_le",
       "qualified": "GreenFrame.Concrete.grandparentGreenMajorant_tsum_le"
+    },
+    {
+      "id": "GF-167",
+      "name": "greenCoordinateMajorant_nonneg",
+      "qualified": "GreenFrame.Concrete.greenCoordinateMajorant_nonneg"
+    },
+    {
+      "id": "GF-168",
+      "name": "greenCoordinate_normSq_le_majorant",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_le_majorant"
     }
   ]
 }
