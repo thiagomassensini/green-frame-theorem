@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 326,
+  "count": 334,
   "theorems": [
     {
       "id": "GF-001",
@@ -1631,6 +1631,46 @@
       "id": "GF-326",
       "name": "normalizedBulk_opNorm_sq_lower_of_raw_witness",
       "qualified": "GreenFrame.Concrete.normalizedBulk_opNorm_sq_lower_of_raw_witness"
+    },
+    {
+      "id": "GF-327",
+      "name": "twoFourGreenEvent_eventNumber",
+      "qualified": "GreenFrame.Concrete.twoFourGreenEvent_eventNumber"
+    },
+    {
+      "id": "GF-328",
+      "name": "twoFourGreenEvent_hasGrandparent",
+      "qualified": "GreenFrame.Concrete.twoFourGreenEvent_hasGrandparent"
+    },
+    {
+      "id": "GF-329",
+      "name": "twoFourBulkEvent_val",
+      "qualified": "GreenFrame.Concrete.twoFourBulkEvent_val"
+    },
+    {
+      "id": "GF-330",
+      "name": "twoFourGreenEvent_grandparentIndex",
+      "qualified": "GreenFrame.Concrete.twoFourGreenEvent_grandparentIndex"
+    },
+    {
+      "id": "GF-331",
+      "name": "twoFourWitnessState_at_four",
+      "qualified": "GreenFrame.Concrete.twoFourWitnessState_at_four"
+    },
+    {
+      "id": "GF-332",
+      "name": "twoFourWitnessState_at_two",
+      "qualified": "GreenFrame.Concrete.twoFourWitnessState_at_two"
+    },
+    {
+      "id": "GF-333",
+      "name": "twoFourWitnessState_at_one",
+      "qualified": "GreenFrame.Concrete.twoFourWitnessState_at_one"
+    },
+    {
+      "id": "GF-334",
+      "name": "twoFourWitnessState_norm",
+      "qualified": "GreenFrame.Concrete.twoFourWitnessState_norm"
     }
   ]
 }

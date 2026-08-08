@@ -47,6 +47,9 @@ import GreenFrame.Concrete.Analysis.NontrivialPoissonQualitative
 
 import GreenFrame.Concrete.Analysis.NontrivialPoissonQuantitative
 
+import GreenFrame.Concrete.Analysis.NontrivialPoisson
+import GreenFrame.Concrete.Analysis.ConcreteBulkWitnessArithmetic
+
 /-!
 # Public API — All-Bases Green Frame Theorem
 

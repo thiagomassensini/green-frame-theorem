@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **326** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **334** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -330,3 +330,11 @@ The registry contains exactly **326** named Lean theorems reachable from `GreenF
 | `GF-324` | `GreenFrame.Concrete.sqrtFrame_comp_self` | `GreenFrame/Concrete/Analysis/NontrivialPoissonQuantitative.lean:34` |
 | `GF-325` | `GreenFrame.Concrete.sqrtFrame_norm_sq_eq_analysis_norm_sq` | `GreenFrame/Concrete/Analysis/NontrivialPoissonQuantitative.lean:55` |
 | `GF-326` | `GreenFrame.Concrete.normalizedBulk_opNorm_sq_lower_of_raw_witness` | `GreenFrame/Concrete/Analysis/NontrivialPoissonQuantitative.lean:72` |
+| `GF-327` | `GreenFrame.Concrete.twoFourGreenEvent_eventNumber` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:26` |
+| `GF-328` | `GreenFrame.Concrete.twoFourGreenEvent_hasGrandparent` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:32` |
+| `GF-329` | `GreenFrame.Concrete.twoFourBulkEvent_val` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:41` |
+| `GF-330` | `GreenFrame.Concrete.twoFourGreenEvent_grandparentIndex` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:46` |
+| `GF-331` | `GreenFrame.Concrete.twoFourWitnessState_at_four` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:55` |
+| `GF-332` | `GreenFrame.Concrete.twoFourWitnessState_at_two` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:60` |
+| `GF-333` | `GreenFrame.Concrete.twoFourWitnessState_at_one` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:65` |
+| `GF-334` | `GreenFrame.Concrete.twoFourWitnessState_norm` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:70` |

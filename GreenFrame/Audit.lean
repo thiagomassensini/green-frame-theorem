@@ -344,3 +344,12 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.sqrtFrame_comp_self
 #print axioms GreenFrame.Concrete.sqrtFrame_norm_sq_eq_analysis_norm_sq
 #print axioms GreenFrame.Concrete.normalizedBulk_opNorm_sq_lower_of_raw_witness
+
+#print axioms GreenFrame.Concrete.twoFourGreenEvent_eventNumber
+#print axioms GreenFrame.Concrete.twoFourGreenEvent_hasGrandparent
+#print axioms GreenFrame.Concrete.twoFourBulkEvent_val
+#print axioms GreenFrame.Concrete.twoFourGreenEvent_grandparentIndex
+#print axioms GreenFrame.Concrete.twoFourWitnessState_at_four
+#print axioms GreenFrame.Concrete.twoFourWitnessState_at_two
+#print axioms GreenFrame.Concrete.twoFourWitnessState_at_one
+#print axioms GreenFrame.Concrete.twoFourWitnessState_norm
