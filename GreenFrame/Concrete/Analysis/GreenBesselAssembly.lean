@@ -26,7 +26,7 @@ theorem greenCoordinate_normSq_summable
     (omega : AdmissibleInfinitePartition) (f : State) :
     Summable (fun e : GreenEvent => Complex.normSq (greenCoordinate omega e f)) :=
   Summable.of_nonneg_of_le
-    (fun e => Complex.normSq_nonneg _)
+    (fun _e => Complex.normSq_nonneg _)
     (greenCoordinate_normSq_le_majorant omega f)
     (greenCoordinateMajorant_summable omega f)
 
