@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 198,
+  "count": 226,
   "theorems": [
     {
       "id": "GF-001",
@@ -991,6 +991,146 @@
       "id": "GF-198",
       "name": "residualCoordinate_normSq_eq",
       "qualified": "GreenFrame.Concrete.residualCoordinate_normSq_eq"
+    },
+    {
+      "id": "GF-199",
+      "name": "residualL2_normSq_summable",
+      "qualified": "GreenFrame.Concrete.residualL2_normSq_summable"
+    },
+    {
+      "id": "GF-200",
+      "name": "residualL2_normSq_tsum_eq_norm_sq",
+      "qualified": "GreenFrame.Concrete.residualL2_normSq_tsum_eq_norm_sq"
+    },
+    {
+      "id": "GF-201",
+      "name": "residualEnergyTerm_nonneg",
+      "qualified": "GreenFrame.Concrete.residualEnergyTerm_nonneg"
+    },
+    {
+      "id": "GF-202",
+      "name": "residualEnergyDensity_nonneg",
+      "qualified": "GreenFrame.Concrete.residualEnergyDensity_nonneg"
+    },
+    {
+      "id": "GF-203",
+      "name": "residualEnergyDensity_le",
+      "qualified": "GreenFrame.Concrete.residualEnergyDensity_le"
+    },
+    {
+      "id": "GF-204",
+      "name": "residualEnergyDensity_summable",
+      "qualified": "GreenFrame.Concrete.residualEnergyDensity_summable"
+    },
+    {
+      "id": "GF-205",
+      "name": "residualEnergyTerm_summable",
+      "qualified": "GreenFrame.Concrete.residualEnergyTerm_summable"
+    },
+    {
+      "id": "GF-206",
+      "name": "residualCoordinate_normSq_summable",
+      "qualified": "GreenFrame.Concrete.residualCoordinate_normSq_summable"
+    },
+    {
+      "id": "GF-207",
+      "name": "residualAnalysis_apply",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_apply"
+    },
+    {
+      "id": "GF-208",
+      "name": "residualAnalysis_add",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_add"
+    },
+    {
+      "id": "GF-209",
+      "name": "residualAnalysis_smul",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_smul"
+    },
+    {
+      "id": "GF-210",
+      "name": "residualAnalysis_norm_sq_eq_camera_tsum",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_norm_sq_eq_camera_tsum"
+    },
+    {
+      "id": "GF-211",
+      "name": "residualAnalysis_norm_sq_le",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_norm_sq_le"
+    },
+    {
+      "id": "GF-212",
+      "name": "residualAnalysis_norm_le",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_norm_le"
+    },
+    {
+      "id": "GF-213",
+      "name": "seedEnergyDensity_summable",
+      "qualified": "GreenFrame.Concrete.seedEnergyDensity_summable"
+    },
+    {
+      "id": "GF-214",
+      "name": "seedEnergyDensity_tsum_eq",
+      "qualified": "GreenFrame.Concrete.seedEnergyDensity_tsum_eq"
+    },
+    {
+      "id": "GF-215",
+      "name": "seedResidualEnergyDensity_summable",
+      "qualified": "GreenFrame.Concrete.seedResidualEnergyDensity_summable"
+    },
+    {
+      "id": "GF-216",
+      "name": "seedResidualEnergy_eq_seed_add_residual_norm_sq",
+      "qualified": "GreenFrame.Concrete.seedResidualEnergy_eq_seed_add_residual_norm_sq"
+    },
+    {
+      "id": "GF-217",
+      "name": "half_state_density_le_seedResidual_density",
+      "qualified": "GreenFrame.Concrete.half_state_density_le_seedResidual_density"
+    },
+    {
+      "id": "GF-218",
+      "name": "seedResidual_density_le_state_density",
+      "qualified": "GreenFrame.Concrete.seedResidual_density_le_state_density"
+    },
+    {
+      "id": "GF-219",
+      "name": "seedResidualEnergy_lower",
+      "qualified": "GreenFrame.Concrete.seedResidualEnergy_lower"
+    },
+    {
+      "id": "GF-220",
+      "name": "seedResidualEnergy_upper",
+      "qualified": "GreenFrame.Concrete.seedResidualEnergy_upper"
+    },
+    {
+      "id": "GF-221",
+      "name": "residual_seed_norm_sq_bounds_concrete",
+      "qualified": "GreenFrame.Concrete.residual_seed_norm_sq_bounds_concrete"
+    },
+    {
+      "id": "GF-222",
+      "name": "seedResidualAnalysis_add",
+      "qualified": "GreenFrame.Concrete.seedResidualAnalysis_add"
+    },
+    {
+      "id": "GF-223",
+      "name": "seedResidualAnalysis_smul",
+      "qualified": "GreenFrame.Concrete.seedResidualAnalysis_smul"
+    },
+    {
+      "id": "GF-224",
+      "name": "seedResidualAnalysis_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.seedResidualAnalysis_norm_sq_eq"
+    },
+    {
+      "id": "GF-225",
+      "name": "seedResidualAnalysis_norm_sq_bounds",
+      "qualified": "GreenFrame.Concrete.seedResidualAnalysis_norm_sq_bounds"
+    },
+    {
+      "id": "GF-226",
+      "name": "seedResidualAnalysis_norm_le",
+      "qualified": "GreenFrame.Concrete.seedResidualAnalysis_norm_le"
     }
   ]
 }
