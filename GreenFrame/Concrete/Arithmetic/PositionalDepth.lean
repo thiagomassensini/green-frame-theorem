@@ -317,7 +317,7 @@ theorem positionalDepth_three_four :
 
 theorem positionalDepth_four_four :
     positionalDepth 4 4 = 1 := by
-  simpa using positionalDepth_self (b := 4) (by norm_num)
+  exact positionalDepth_self (b := 4) (by norm_num)
 
 theorem allBaseActivity_two_four :
     allBaseActivity 2 4 = 2 * Real.log (2 : ℝ) := by
@@ -330,14 +330,18 @@ theorem allBaseActivity_three_four :
 theorem allBaseActivity_four_four :
     allBaseActivity 4 4 = 2 * Real.log (2 : ℝ) := by
   rw [allBaseActivity_self (by norm_num)]
-  simpa using (Real.log_pow (2 : ℝ) 2)
+  calc
+    Real.log (4 : ℝ) = Real.log ((2 : ℝ) ^ 2) := by norm_num
+    _ = 2 * Real.log (2 : ℝ) := Real.log_pow (2 : ℝ) 2
 
 /-- At `n=4`, only bases `2` and `4` contribute equal activity. -/
 theorem allBaseNormalizer_four :
     allBaseNormalizer 4 = 4 * Real.log (2 : ℝ) := by
   have hIcc :
       Finset.Icc 2 4 = ({2, 3, 4} : Finset ℕ) := by
-    norm_num
+    ext x
+    simp only [Finset.mem_Icc, Finset.mem_insert, Finset.mem_singleton]
+    omega
   unfold allBaseNormalizer
   rw [hIcc]
   simp [allBaseActivity_two_four,
@@ -352,7 +356,7 @@ theorem carryCameraWeight_two_four :
     norm_num
   have hlog2 : Real.log (2 : ℝ) ≠ 0 :=
     (Real.log_pos (by norm_num)).ne'
-  simp only [carryCameraWeight, hguard, if_true]
+  simp only [carryCameraWeight, hguard]
   rw [allBaseActivity_two_four, allBaseNormalizer_four]
   rw [mul_div_mul_right (2 : ℝ) 4 hlog2]
   norm_num
@@ -371,7 +375,7 @@ theorem carryCameraWeight_four_four :
     norm_num
   have hlog2 : Real.log (2 : ℝ) ≠ 0 :=
     (Real.log_pos (by norm_num)).ne'
-  simp only [carryCameraWeight, hguard, if_true]
+  simp only [carryCameraWeight, hguard]
   rw [allBaseActivity_four_four, allBaseNormalizer_four]
   rw [mul_div_mul_right (2 : ℝ) 4 hlog2]
   norm_num
