@@ -1,6 +1,9 @@
 name: Publish Green Frame v2.0.0
 
 on:
+  push:
+    branches:
+      - publish-v2.0.0-trigger
   workflow_dispatch:
     inputs:
       target_sha:
@@ -26,8 +29,8 @@ concurrency:
 
 env:
   GH_TOKEN: ${{ github.token }}
-  AUDITED_SHA: ${{ inputs.target_sha }}
-  TARGET_SHA: ${{ inputs.target_sha }}
+  AUDITED_SHA: ${{ github.event_name == 'push' && github.sha || inputs.target_sha }}
+  TARGET_SHA: ${{ github.event_name == 'push' && github.sha || inputs.target_sha }}
   EXPECTED_PARENT_SHA: ${{ inputs.expected_parent_sha }}
   UPSTREAM_AUDIT_RUN_ID: ${{ inputs.audit_run_id }}
   WORKFLOW_DEFINITION_SHA: ${{ github.workflow_sha }}
@@ -51,13 +54,119 @@ jobs:
       already_published: ${{ steps.release_state.outputs.already_published }}
       bound_draft: ${{ steps.release_state.outputs.bound_draft }}
       release_id: ${{ steps.release_state.outputs.release_id }}
+      target_sha: ${{ steps.resolve.outputs.target_sha }}
+      expected_parent_sha: ${{ steps.resolve.outputs.expected_parent_sha }}
+      upstream_audit_run_id: ${{ steps.resolve.outputs.upstream_audit_run_id }}
     steps:
       - name: Check out only the supplied publication target
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
-          ref: ${{ inputs.target_sha }}
+          ref: ${{ github.event_name == 'push' && github.sha || inputs.target_sha }}
           fetch-depth: 0
           persist-credentials: false
+
+      - name: Resolve exact target, first parent, and successful main audit
+        id: resolve
+        shell: bash
+        env:
+          DISPATCH_TARGET_SHA: ${{ inputs.target_sha }}
+          DISPATCH_PARENT_SHA: ${{ inputs.expected_parent_sha }}
+          DISPATCH_AUDIT_RUN_ID: ${{ inputs.audit_run_id }}
+        run: |
+          set -euo pipefail
+
+          case "$GITHUB_EVENT_NAME" in
+            workflow_dispatch)
+              test "$GITHUB_REF" = refs/heads/main
+              target_sha="$DISPATCH_TARGET_SHA"
+              ;;
+            push)
+              test "$GITHUB_REF" = refs/heads/publish-v2.0.0-trigger
+              target_sha="$GITHUB_SHA"
+              ;;
+            *)
+              echo "Unsupported publisher event: $GITHUB_EVENT_NAME" >&2
+              exit 1
+              ;;
+          esac
+
+          [[ "$target_sha" =~ ^[0-9a-f]{40}$ ]]
+          test "$(git rev-parse HEAD)" = "$target_sha"
+          test "$GITHUB_SHA" = "$target_sha"
+          test "$WORKFLOW_DEFINITION_SHA" = "$target_sha"
+          test "$GITHUB_WORKFLOW_REF" = \
+            "$GITHUB_REPOSITORY/$PUBLISH_WORKFLOW_PATH@$GITHUB_REF"
+
+          main_sha="$(gh api \
+            "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
+          test "$main_sha" = "$target_sha"
+
+          if test "$GITHUB_EVENT_NAME" = push; then
+            trigger_sha="$(gh api \
+              "repos/$GITHUB_REPOSITORY/git/ref/heads/publish-v2.0.0-trigger" \
+              --jq .object.sha)"
+            test "$trigger_sha" = "$target_sha"
+          fi
+
+          expected_parent_sha="$(git rev-parse "$target_sha^1")"
+          [[ "$expected_parent_sha" =~ ^[0-9a-f]{40}$ ]]
+
+          latest_run=""
+          for attempt in $(seq 1 120); do
+            runs_json="$(
+              gh api --method GET --paginate --slurp \
+                "repos/$GITHUB_REPOSITORY/actions/workflows/lean-audit.yml/runs" \
+                -f branch=main \
+                -f event=push \
+                -f status=success \
+                -f head_sha="$target_sha" \
+                -f per_page=100
+            )"
+            latest_run="$(
+              jq -c --arg target "$target_sha" '
+                [
+                  .[].workflow_runs[]
+                  | select(
+                      .head_sha == $target and
+                      .head_branch == "main" and
+                      .event == "push" and
+                      .status == "completed" and
+                      .conclusion == "success"
+                    )
+                ]
+                | if length == 0
+                  then empty
+                  else max_by([.run_number, .run_attempt, .id])
+                  end
+              ' <<<"$runs_json"
+            )"
+            if test -n "$latest_run"; then
+              break
+            fi
+            echo "Waiting for a successful push/main lean-audit run at $target_sha ($attempt/120)."
+            sleep 10
+          done
+          test -n "$latest_run"
+
+          upstream_audit_run_id="$(jq -er '.id | tostring' <<<"$latest_run")"
+          [[ "$upstream_audit_run_id" =~ ^[0-9]+$ ]]
+
+          if test "$GITHUB_EVENT_NAME" = workflow_dispatch; then
+            test "$DISPATCH_PARENT_SHA" = "$expected_parent_sha"
+            test "$DISPATCH_AUDIT_RUN_ID" = "$upstream_audit_run_id"
+          fi
+
+          {
+            echo "target_sha=$target_sha"
+            echo "expected_parent_sha=$expected_parent_sha"
+            echo "upstream_audit_run_id=$upstream_audit_run_id"
+          } >> "$GITHUB_OUTPUT"
+          {
+            echo "AUDITED_SHA=$target_sha"
+            echo "TARGET_SHA=$target_sha"
+            echo "EXPECTED_PARENT_SHA=$expected_parent_sha"
+            echo "UPSTREAM_AUDIT_RUN_ID=$upstream_audit_run_id"
+          } >> "$GITHUB_ENV"
 
       - name: Verify exact target, main head, first parent, and upstream audit
         shell: bash
@@ -66,12 +175,24 @@ jobs:
           [[ "$TARGET_SHA" =~ ^[0-9a-f]{40}$ ]]
           [[ "$EXPECTED_PARENT_SHA" =~ ^[0-9a-f]{40}$ ]]
           [[ "$UPSTREAM_AUDIT_RUN_ID" =~ ^[0-9]+$ ]]
-          test "$GITHUB_EVENT_NAME" = workflow_dispatch
-          test "$GITHUB_REF" = refs/heads/main
+          case "$GITHUB_EVENT_NAME" in
+            workflow_dispatch) expected_ref=refs/heads/main ;;
+            push) expected_ref=refs/heads/publish-v2.0.0-trigger ;;
+            *)
+              echo "Unsupported publisher event: $GITHUB_EVENT_NAME" >&2
+              exit 1
+              ;;
+          esac
+          test "$GITHUB_REF" = "$expected_ref"
           test "$GITHUB_SHA" = "$TARGET_SHA"
           test "$WORKFLOW_DEFINITION_SHA" = "$TARGET_SHA"
           test "$GITHUB_WORKFLOW_REF" = \
-            "$GITHUB_REPOSITORY/$PUBLISH_WORKFLOW_PATH@refs/heads/main"
+            "$GITHUB_REPOSITORY/$PUBLISH_WORKFLOW_PATH@$expected_ref"
+          if test "$GITHUB_EVENT_NAME" = push; then
+            test "$(gh api \
+              "repos/$GITHUB_REPOSITORY/git/ref/heads/publish-v2.0.0-trigger" \
+              --jq .object.sha)" = "$TARGET_SHA"
+          fi
           test "$(git rev-parse HEAD)" = "$TARGET_SHA"
           test -z "$(git status --porcelain --untracked-files=all)"
           main_sha="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
@@ -229,6 +350,9 @@ jobs:
                 --arg upstream "$UPSTREAM_AUDIT_RUN_ID" \
                 --arg repository "$GITHUB_REPOSITORY" \
                 --arg workflow_path "$PUBLISH_WORKFLOW_PATH" \
+                --arg event_name "$GITHUB_EVENT_NAME" \
+                --arg ref "$GITHUB_REF" \
+                --arg workflow_ref "$GITHUB_WORKFLOW_REF" \
                 --arg claim_ledger_sha "$claim_ledger_sha" \
                 --arg theorem_registry_sha "$theorem_registry_sha" \
                 --arg source_manifest_sha "$source_manifest_sha" \
@@ -239,11 +363,11 @@ jobs:
                   .git.parents[0] == $parent and
                   .execution.github_sha == $target and
                   .execution.workflow_sha == $target and
-                  .execution.event_name == "workflow_dispatch" and
-                  .execution.ref == "refs/heads/main" and
+                  .execution.event_name == $event_name and
+                  .execution.ref == $ref and
                   .execution.repository == $repository and
                   .execution.job == "audit" and
-                  .execution.workflow_ref == ($repository + "/" + $workflow_path + "@refs/heads/main") and
+                  .execution.workflow_ref == $workflow_ref and
                   .execution.expected_parent_sha == $parent and
                   .execution.upstream_audit_run_id == $upstream and
                   .execution.upstream_audit.head_sha == $target and
@@ -316,7 +440,7 @@ jobs:
           steps.release_state.outputs.bound_draft != 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
-          name: green-frame-publisher-${{ inputs.target_sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          name: green-frame-publisher-${{ steps.resolve.outputs.target_sha }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: dist/
           if-no-files-found: error
           retention-days: 1
@@ -330,11 +454,16 @@ jobs:
     permissions:
       contents: write
       actions: read
+    env:
+      AUDITED_SHA: ${{ needs.audit.outputs.target_sha }}
+      TARGET_SHA: ${{ needs.audit.outputs.target_sha }}
+      EXPECTED_PARENT_SHA: ${{ needs.audit.outputs.expected_parent_sha }}
+      UPSTREAM_AUDIT_RUN_ID: ${{ needs.audit.outputs.upstream_audit_run_id }}
     steps:
       - name: Check out metadata at the exact publication target
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
-          ref: ${{ inputs.target_sha }}
+          ref: ${{ needs.audit.outputs.target_sha }}
           fetch-depth: 0
           persist-credentials: false
 
@@ -342,7 +471,7 @@ jobs:
         if: needs.audit.outputs.bound_draft != 'true'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
-          name: green-frame-publisher-${{ inputs.target_sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          name: green-frame-publisher-${{ needs.audit.outputs.target_sha }}-${{ github.run_id }}-${{ github.run_attempt }}
           path: dist/
 
       - name: Recover the immutable tag-bound draft assets read-only
@@ -377,12 +506,24 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$GITHUB_EVENT_NAME" = workflow_dispatch
-          test "$GITHUB_REF" = refs/heads/main
+          case "$GITHUB_EVENT_NAME" in
+            workflow_dispatch) expected_ref=refs/heads/main ;;
+            push) expected_ref=refs/heads/publish-v2.0.0-trigger ;;
+            *)
+              echo "Unsupported publisher event: $GITHUB_EVENT_NAME" >&2
+              exit 1
+              ;;
+          esac
+          test "$GITHUB_REF" = "$expected_ref"
           test "$GITHUB_SHA" = "$TARGET_SHA"
           test "$WORKFLOW_DEFINITION_SHA" = "$TARGET_SHA"
           test "$GITHUB_WORKFLOW_REF" = \
-            "$GITHUB_REPOSITORY/$PUBLISH_WORKFLOW_PATH@refs/heads/main"
+            "$GITHUB_REPOSITORY/$PUBLISH_WORKFLOW_PATH@$expected_ref"
+          if test "$GITHUB_EVENT_NAME" = push; then
+            test "$(gh api \
+              "repos/$GITHUB_REPOSITORY/git/ref/heads/publish-v2.0.0-trigger" \
+              --jq .object.sha)" = "$TARGET_SHA"
+          fi
           test "$(git rev-parse HEAD)" = "$TARGET_SHA"
           test -z "$(git status --porcelain --untracked-files=all)"
           test "$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)" = "$TARGET_SHA"
@@ -425,6 +566,9 @@ jobs:
             --arg bound_draft "${{ needs.audit.outputs.bound_draft }}" \
             --arg repository "$GITHUB_REPOSITORY" \
             --arg workflow_path "$PUBLISH_WORKFLOW_PATH" \
+            --arg event_name "$GITHUB_EVENT_NAME" \
+            --arg ref "$GITHUB_REF" \
+            --arg workflow_ref "$GITHUB_WORKFLOW_REF" \
             --arg claim_ledger_sha "$claim_ledger_sha" \
             --arg theorem_registry_sha "$theorem_registry_sha" \
             --arg source_manifest_sha "$source_manifest_sha" \
@@ -435,11 +579,11 @@ jobs:
               .git.parents[0] == $parent and
               .execution.github_sha == $target and
               .execution.workflow_sha == $target and
-              .execution.event_name == "workflow_dispatch" and
-              .execution.ref == "refs/heads/main" and
+              .execution.event_name == $event_name and
+              .execution.ref == $ref and
               .execution.repository == $repository and
               .execution.job == "audit" and
-              .execution.workflow_ref == ($repository + "/" + $workflow_path + "@refs/heads/main") and
+              .execution.workflow_ref == $workflow_ref and
               ($bound_draft == "true" or (
                 .execution.run_id == $run_id and
                 .execution.run_attempt == $run_attempt
