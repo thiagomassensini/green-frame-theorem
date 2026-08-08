@@ -163,12 +163,7 @@ theorem concreteFiniteAnalysisOperator_norm_sq_bounds
         ‖concreteFiniteAnalysisOperator omega N f‖ ^ 2 ∧
       ‖concreteFiniteAnalysisOperator omega N f‖ ^ 2 ≤
         (1 + greenBesselConstant) * ‖f‖ ^ 2 := by
-  rw [concreteFiniteAnalysisOperator_apply]
-  change
-    (1 / 2 : ℝ) * ‖(f : State)‖ ^ 2 ≤
-        ‖concreteEmbeddedFiniteAnalysis omega N (f : State)‖ ^ 2 ∧
-      ‖concreteEmbeddedFiniteAnalysis omega N (f : State)‖ ^ 2 ≤
-        (1 + greenBesselConstant) * ‖(f : State)‖ ^ 2
-  exact concreteEmbeddedFiniteAnalysis_norm_sq_bounds omega f
+  simpa only [concreteFiniteAnalysisOperator_apply, Submodule.coe_norm] using
+    concreteEmbeddedFiniteAnalysis_norm_sq_bounds omega f
 
 end GreenFrame.Concrete
