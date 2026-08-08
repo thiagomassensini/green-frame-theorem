@@ -78,7 +78,7 @@ theorem greenDepthOneCoordinate_normSq_summable
     Summable (fun e : GreenEvent =>
       Complex.normSq (greenDepthOneCoordinate omega e f)) :=
   Summable.of_nonneg_of_le
-    (fun e => Complex.normSq_nonneg _)
+    (fun _ => Complex.normSq_nonneg _)
     (fun e => greenDepthOneCoordinate_normSq_le omega e f)
     (greenCoordinate_normSq_summable omega f)
 
@@ -88,7 +88,7 @@ theorem greenBulkCoordinate_normSq_summable
     Summable (fun e : GreenEvent =>
       Complex.normSq (greenBulkCoordinate omega e f)) :=
   Summable.of_nonneg_of_le
-    (fun e => Complex.normSq_nonneg _)
+    (fun _ => Complex.normSq_nonneg _)
     (fun e => greenBulkCoordinate_normSq_le omega e f)
     (greenCoordinate_normSq_summable omega f)
 
