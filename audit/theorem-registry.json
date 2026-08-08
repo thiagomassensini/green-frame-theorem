@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 56,
+  "count": 77,
   "theorems": [
     {
       "id": "GF-001",
@@ -281,6 +281,111 @@
       "id": "GF-056",
       "name": "carryCameraWeight_sum_eq_one",
       "qualified": "GreenFrame.Concrete.carryCameraWeight_sum_eq_one"
+    },
+    {
+      "id": "GF-057",
+      "name": "support_subset_Icc",
+      "qualified": "GreenFrame.Concrete.AdmissiblePartition.support_subset_Icc"
+    },
+    {
+      "id": "GF-058",
+      "name": "support_finite",
+      "qualified": "GreenFrame.Concrete.AdmissiblePartition.support_finite"
+    },
+    {
+      "id": "GF-059",
+      "name": "weight_le_one",
+      "qualified": "GreenFrame.Concrete.AdmissiblePartition.weight_le_one"
+    },
+    {
+      "id": "GF-060",
+      "name": "finsum_eq_one",
+      "qualified": "GreenFrame.Concrete.AdmissiblePartition.finsum_eq_one"
+    },
+    {
+      "id": "GF-061",
+      "name": "carryCameraWeight_support_finite",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_support_finite"
+    },
+    {
+      "id": "GF-062",
+      "name": "carryCameraWeight_finsum_eq_one",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_finsum_eq_one"
+    },
+    {
+      "id": "GF-063",
+      "name": "greenMass_add_residualMass",
+      "qualified": "GreenFrame.Concrete.greenMass_add_residualMass"
+    },
+    {
+      "id": "GF-064",
+      "name": "positionalDepth_four_sixtyFour",
+      "qualified": "GreenFrame.Concrete.positionalDepth_four_sixtyFour"
+    },
+    {
+      "id": "GF-065",
+      "name": "positionalDepth_two_four",
+      "qualified": "GreenFrame.Concrete.positionalDepth_two_four"
+    },
+    {
+      "id": "GF-066",
+      "name": "positionalDepth_three_four",
+      "qualified": "GreenFrame.Concrete.positionalDepth_three_four"
+    },
+    {
+      "id": "GF-067",
+      "name": "positionalDepth_four_four",
+      "qualified": "GreenFrame.Concrete.positionalDepth_four_four"
+    },
+    {
+      "id": "GF-068",
+      "name": "allBaseActivity_two_four",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_two_four"
+    },
+    {
+      "id": "GF-069",
+      "name": "allBaseActivity_three_four",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_three_four"
+    },
+    {
+      "id": "GF-070",
+      "name": "allBaseActivity_four_four",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_four_four"
+    },
+    {
+      "id": "GF-071",
+      "name": "allBaseNormalizer_four",
+      "qualified": "GreenFrame.Concrete.allBaseNormalizer_four"
+    },
+    {
+      "id": "GF-072",
+      "name": "carryCameraWeight_two_four",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_two_four"
+    },
+    {
+      "id": "GF-073",
+      "name": "carryCameraWeight_three_four",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_three_four"
+    },
+    {
+      "id": "GF-074",
+      "name": "carryCameraWeight_four_four",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_four_four"
+    },
+    {
+      "id": "GF-075",
+      "name": "greenMass_two_four",
+      "qualified": "GreenFrame.Concrete.greenMass_two_four"
+    },
+    {
+      "id": "GF-076",
+      "name": "residualMass_two_four",
+      "qualified": "GreenFrame.Concrete.residualMass_two_four"
+    },
+    {
+      "id": "GF-077",
+      "name": "twoFourCarryWitness",
+      "qualified": "GreenFrame.Concrete.twoFourCarryWitness"
     }
   ]
 }

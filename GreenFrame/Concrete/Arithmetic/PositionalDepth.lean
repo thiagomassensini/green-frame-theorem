@@ -166,4 +166,244 @@ theorem carryCameraWeight_sum_eq_one {n : ℕ} (hn : 1 < n) :
           rfl
     _ = 1 := div_self (allBaseNormalizer_pos hn).ne'
 
+/-! ## Admissible all-bases partitions and exact `(2,4)` witness -/
+
+/--
+Abstract arithmetic interface consumed by the concrete frame layer.
+
+Every nonzero coefficient is a genuine divisibility event, and the finite
+camera interval is a partition of unity for every non-seed coordinate.
+-/
+structure AdmissiblePartition where
+  weight : ℕ → ℕ → ℝ
+  nonneg : ∀ b n, 0 ≤ weight b n
+  support_event :
+    ∀ {b n}, weight b n ≠ 0 →
+      2 ≤ b ∧ 0 < n ∧ b ∣ n
+  sum_eq_one :
+    ∀ {n}, 1 < n →
+      ∑ b ∈ Finset.Icc 2 n, weight b n = 1
+
+namespace AdmissiblePartition
+
+/-- The support at `n` lies in the finite all-bases camera interval. -/
+theorem support_subset_Icc
+    (ω : AdmissiblePartition) (n : ℕ) :
+    Function.support (fun b => ω.weight b n)
+      ⊆ (Finset.Icc 2 n : Set ℕ) := by
+  intro b hb
+  change ω.weight b n ≠ 0 at hb
+  obtain ⟨hbase, hnum, hdvd⟩ := ω.support_event hb
+  exact Finset.mem_Icc.mpr
+    ⟨hbase, active_base_le_number hnum hdvd⟩
+
+/-- Every coordinate has only finitely many nonzero cameras. -/
+theorem support_finite
+    (ω : AdmissiblePartition) (n : ℕ) :
+    (Function.support (fun b => ω.weight b n)).Finite :=
+  (Finset.Icc 2 n).finite_toSet.subset
+    (ω.support_subset_Icc n)
+
+/-- No admissible camera carries more than the full unit mass. -/
+theorem weight_le_one
+    (ω : AdmissiblePartition) (b n : ℕ) :
+    ω.weight b n ≤ 1 := by
+  by_cases hz : ω.weight b n = 0
+  · simp [hz]
+  · obtain ⟨hbase, hnum, hdvd⟩ := ω.support_event hz
+    have hbn : b ≤ n := active_base_le_number hnum hdvd
+    have hn : 1 < n := by omega
+    have hmem : b ∈ Finset.Icc 2 n :=
+      Finset.mem_Icc.mpr ⟨hbase, hbn⟩
+    calc
+      ω.weight b n ≤
+          ∑ c ∈ Finset.Icc 2 n, ω.weight c n := by
+        exact Finset.single_le_sum
+          (fun c _ => ω.nonneg c n) hmem
+      _ = 1 := ω.sum_eq_one hn
+
+/-- The literal finite-support sum over every natural base equals one. -/
+theorem finsum_eq_one
+    (ω : AdmissiblePartition) {n : ℕ} (hn : 1 < n) :
+    (∑ᶠ b : ℕ, ω.weight b n) = 1 := by
+  rw [finsum_eq_sum_of_support_subset _
+    (ω.support_subset_Icc n)]
+  exact ω.sum_eq_one hn
+
+end AdmissiblePartition
+
+/-- Canonical admissible partition produced by the log-depth carry weights. -/
+noncomputable def carryPartition : AdmissiblePartition where
+  weight := carryCameraWeight
+  nonneg := carryCameraWeight_nonneg
+  support_event := by
+    intro b n h
+    obtain ⟨hn, hb, _hbn, hdvd⟩ :=
+      carryCameraWeight_support h
+    exact ⟨hb, by omega, hdvd⟩
+  sum_eq_one := by
+    intro n hn
+    exact carryCameraWeight_sum_eq_one hn
+
+/-- Canonical carry-camera support is finite at every coordinate. -/
+theorem carryCameraWeight_support_finite (n : ℕ) :
+    (Function.support (fun b => carryCameraWeight b n)).Finite := by
+  simpa [carryPartition] using
+    (AdmissiblePartition.support_finite carryPartition n)
+
+/-- Canonical weights sum to one over literally all natural bases. -/
+theorem carryCameraWeight_finsum_eq_one {n : ℕ} (hn : 1 < n) :
+    (∑ᶠ b : ℕ, carryCameraWeight b n) = 1 := by
+  simpa [carryPartition] using
+    (AdmissiblePartition.finsum_eq_one carryPartition hn)
+
+/-- Green-transmitted mass `ω_b(n)/b`. -/
+noncomputable def greenMass
+    (ω : AdmissiblePartition) (b n : ℕ) : ℝ :=
+  ω.weight b n / (b : ℝ)
+
+/-- Residual/return mass `ω_b(n)(1-1/b)`. -/
+noncomputable def residualMass
+    (ω : AdmissiblePartition) (b n : ℕ) : ℝ :=
+  ω.weight b n * (1 - 1 / (b : ℝ))
+
+/-- Exact pointwise conservative split `μ_G + μ_R = ω`. -/
+theorem greenMass_add_residualMass
+    (ω : AdmissiblePartition) (b n : ℕ) :
+    greenMass ω b n + residualMass ω b n =
+      ω.weight b n := by
+  unfold greenMass residualMass
+  ring
+
+/-! ### Composite-base regressions -/
+
+/-- The composite camera `4` sees `64=4³` at depth three. -/
+theorem positionalDepth_four_sixtyFour :
+    positionalDepth 4 64 = 3 := by
+  change padicValNat 4 64 = 3
+  apply Nat.le_antisymm
+  · have hnext : ¬4 ^ 4 ∣ 64 := by norm_num
+    have hnot : ¬4 ≤ padicValNat 4 64 := by
+      intro hle
+      exact hnext <|
+        (Nat.pow_dvd_iff_le_padicValNat
+          (by norm_num) (by norm_num)).2 hle
+    omega
+  · exact
+      (Nat.pow_dvd_iff_le_padicValNat
+        (by norm_num) (by norm_num)).1 (by norm_num)
+
+/-! ### Exact `(2,4)` arithmetic witness -/
+
+theorem positionalDepth_two_four :
+    positionalDepth 2 4 = 2 := by
+  change padicValNat 2 4 = 2
+  apply Nat.le_antisymm
+  · have hnext : ¬2 ^ 3 ∣ 4 := by norm_num
+    have hnot : ¬3 ≤ padicValNat 2 4 := by
+      intro hle
+      exact hnext <|
+        (Nat.pow_dvd_iff_le_padicValNat
+          (by norm_num) (by norm_num)).2 hle
+    omega
+  · exact
+      (Nat.pow_dvd_iff_le_padicValNat
+        (by norm_num) (by norm_num)).1 (by norm_num)
+
+theorem positionalDepth_three_four :
+    positionalDepth 3 4 = 0 := by
+  exact positionalDepth_eq_zero_of_not_dvd
+    (b := 3) (n := 4) (by norm_num) (by norm_num) (by norm_num)
+
+theorem positionalDepth_four_four :
+    positionalDepth 4 4 = 1 := by
+  simpa using positionalDepth_self (b := 4) (by norm_num)
+
+theorem allBaseActivity_two_four :
+    allBaseActivity 2 4 = 2 * Real.log (2 : ℝ) := by
+  simp [allBaseActivity, positionalDepth_two_four]
+
+theorem allBaseActivity_three_four :
+    allBaseActivity 3 4 = 0 := by
+  simp [allBaseActivity, positionalDepth_three_four]
+
+theorem allBaseActivity_four_four :
+    allBaseActivity 4 4 = 2 * Real.log (2 : ℝ) := by
+  rw [allBaseActivity_self (by norm_num)]
+  simpa using (Real.log_pow (2 : ℝ) 2)
+
+/-- At `n=4`, only bases `2` and `4` contribute equal activity. -/
+theorem allBaseNormalizer_four :
+    allBaseNormalizer 4 = 4 * Real.log (2 : ℝ) := by
+  have hIcc :
+      Finset.Icc 2 4 = ({2, 3, 4} : Finset ℕ) := by
+    norm_num
+  unfold allBaseNormalizer
+  rw [hIcc]
+  simp [allBaseActivity_two_four,
+    allBaseActivity_three_four,
+    allBaseActivity_four_four] <;> ring
+
+/-- Exact canonical witness `ω₂(4)=1/2`. -/
+theorem carryCameraWeight_two_four :
+    carryCameraWeight 2 4 = (1 : ℝ) / 2 := by
+  have hguard :
+      (1 : ℕ) < 4 ∧ 2 ≤ 2 ∧ 2 ≤ 4 := by
+    norm_num
+  have hlog2 : Real.log (2 : ℝ) ≠ 0 :=
+    (Real.log_pos (by norm_num)).ne'
+  simp only [carryCameraWeight, hguard, if_true]
+  rw [allBaseActivity_two_four, allBaseNormalizer_four]
+  rw [mul_div_mul_right (2 : ℝ) 4 hlog2]
+  norm_num
+
+/-- The inactive base `3` has zero weight at `4`. -/
+theorem carryCameraWeight_three_four :
+    carryCameraWeight 3 4 = 0 := by
+  exact carryCameraWeight_eq_zero_of_not_dvd
+    (b := 3) (n := 4) (by norm_num) (by norm_num)
+
+/-- The composite camera receives the complementary half. -/
+theorem carryCameraWeight_four_four :
+    carryCameraWeight 4 4 = (1 : ℝ) / 2 := by
+  have hguard :
+      (1 : ℕ) < 4 ∧ 2 ≤ 4 ∧ 4 ≤ 4 := by
+    norm_num
+  have hlog2 : Real.log (2 : ℝ) ≠ 0 :=
+    (Real.log_pos (by norm_num)).ne'
+  simp only [carryCameraWeight, hguard, if_true]
+  rw [allBaseActivity_four_four, allBaseNormalizer_four]
+  rw [mul_div_mul_right (2 : ℝ) 4 hlog2]
+  norm_num
+
+/-- Exact Green-transmitted mass `μ_G(2,4)=1/4`. -/
+theorem greenMass_two_four :
+    greenMass carryPartition 2 4 = (1 : ℝ) / 4 := by
+  change carryCameraWeight 2 4 / (2 : ℝ) = (1 : ℝ) / 4
+  rw [carryCameraWeight_two_four]
+  norm_num
+
+/-- Exact residual/return mass `μ_R(2,4)=1/4`. -/
+theorem residualMass_two_four :
+    residualMass carryPartition 2 4 = (1 : ℝ) / 4 := by
+  change
+    carryCameraWeight 2 4 * (1 - 1 / (2 : ℝ)) =
+      (1 : ℝ) / 4
+  rw [carryCameraWeight_two_four]
+  norm_num
+
+/-- Bundled kernel witness for the canonical bulk event `(b,n)=(2,4)`. -/
+theorem twoFourCarryWitness :
+    positionalDepth 2 4 = 2 ∧
+    allBaseNormalizer 4 = 4 * Real.log (2 : ℝ) ∧
+    carryCameraWeight 2 4 = (1 : ℝ) / 2 ∧
+    carryCameraWeight 4 4 = (1 : ℝ) / 2 ∧
+    greenMass carryPartition 2 4 = (1 : ℝ) / 4 ∧
+    residualMass carryPartition 2 4 = (1 : ℝ) / 4 :=
+  ⟨positionalDepth_two_four,
+    allBaseNormalizer_four,
+    carryCameraWeight_two_four,
+    carryCameraWeight_four_four,
+    greenMass_two_four,
+    residualMass_two_four⟩
 end GreenFrame.Concrete

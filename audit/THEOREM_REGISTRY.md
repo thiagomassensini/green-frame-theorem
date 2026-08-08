@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **56** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **77** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -60,3 +60,24 @@ The registry contains exactly **56** named Lean theorems reachable from `GreenFr
 | `GF-054` | `GreenFrame.Concrete.carryCameraWeight_eq_zero_of_not_dvd` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
 | `GF-055` | `GreenFrame.Concrete.carryCameraWeight_support` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
 | `GF-056` | `GreenFrame.Concrete.carryCameraWeight_sum_eq_one` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-057` | `GreenFrame.Concrete.AdmissiblePartition.support_subset_Icc` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-058` | `GreenFrame.Concrete.AdmissiblePartition.support_finite` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-059` | `GreenFrame.Concrete.AdmissiblePartition.weight_le_one` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-060` | `GreenFrame.Concrete.AdmissiblePartition.finsum_eq_one` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-061` | `GreenFrame.Concrete.carryCameraWeight_support_finite` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-062` | `GreenFrame.Concrete.carryCameraWeight_finsum_eq_one` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-063` | `GreenFrame.Concrete.greenMass_add_residualMass` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-064` | `GreenFrame.Concrete.positionalDepth_four_sixtyFour` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-065` | `GreenFrame.Concrete.positionalDepth_two_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-066` | `GreenFrame.Concrete.positionalDepth_three_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-067` | `GreenFrame.Concrete.positionalDepth_four_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-068` | `GreenFrame.Concrete.allBaseActivity_two_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-069` | `GreenFrame.Concrete.allBaseActivity_three_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-070` | `GreenFrame.Concrete.allBaseActivity_four_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-071` | `GreenFrame.Concrete.allBaseNormalizer_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-072` | `GreenFrame.Concrete.carryCameraWeight_two_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-073` | `GreenFrame.Concrete.carryCameraWeight_three_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-074` | `GreenFrame.Concrete.carryCameraWeight_four_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-075` | `GreenFrame.Concrete.greenMass_two_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-076` | `GreenFrame.Concrete.residualMass_two_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-077` | `GreenFrame.Concrete.twoFourCarryWitness` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
