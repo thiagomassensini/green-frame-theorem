@@ -165,7 +165,7 @@ theorem residualAnalysis_norm_sq_eq_camera_tsum
     _ = ∑' e : ResidualEvent, residualEnergyTerm omega f e := by
       apply tsum_congr
       intro e
-      simpa only [residualAnalysis_apply] using
+      simpa only [residualAnalysis_apply, residualEnergyTerm] using
         residualCoordinate_normSq_eq omega e f
     _ = ∑' n : PNat, ∑' r : ℕ,
         residualEnergyTerm omega f (n, r) :=
@@ -201,6 +201,7 @@ noncomputable def residualAnalysisCLM
     (omega : AdmissibleInfinitePartition) :
     State →L[ℂ] ResidualSpace :=
   (residualAnalysisLinearMap omega).mkContinuous 1 fun f => by
+    change ‖residualAnalysis omega f‖ ≤ 1 * ‖f‖
     simpa using residualAnalysis_norm_le omega f
 
 /-- Seed contribution, supported only at `n = 1`. -/
@@ -353,14 +354,21 @@ theorem seedResidualAnalysis_add
     (omega : AdmissibleInfinitePartition) (f g : State) :
     seedResidualAnalysis omega (f + g) =
       seedResidualAnalysis omega f + seedResidualAnalysis omega g := by
-  simp [seedResidualAnalysis, residualAnalysis_add]
+  simpa only [seedResidualAnalysis, Pi.add_apply,
+    residualAnalysis_add] using
+    (WithLp.toLp_add 2
+      (f (1 : PNat), residualAnalysis omega f)
+      (g (1 : PNat), residualAnalysis omega g))
 
 /-- Seed-residual analysis is complex homogeneous. -/
 theorem seedResidualAnalysis_smul
     (omega : AdmissibleInfinitePartition) (c : ℂ) (f : State) :
     seedResidualAnalysis omega (c • f) =
       c • seedResidualAnalysis omega f := by
-  simp [seedResidualAnalysis, residualAnalysis_smul]
+  simpa only [seedResidualAnalysis, Pi.smul_apply,
+    residualAnalysis_smul, smul_eq_mul] using
+    (WithLp.toLp_smul 2 c
+      (f (1 : PNat), residualAnalysis omega f))
 
 /-- Seed-residual analysis packaged as a complex linear map. -/
 noncomputable def seedResidualAnalysisLinearMap
@@ -401,6 +409,7 @@ noncomputable def seedResidualAnalysisCLM
     (omega : AdmissibleInfinitePartition) :
     State →L[ℂ] SeedResidualSpace :=
   (seedResidualAnalysisLinearMap omega).mkContinuous 1 fun f => by
+    change ‖seedResidualAnalysis omega f‖ ≤ 1 * ‖f‖
     simpa using seedResidualAnalysis_norm_le omega f
 
 end GreenFrame.Concrete
