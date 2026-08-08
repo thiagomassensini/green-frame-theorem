@@ -134,9 +134,16 @@ theorem grandparentGreenMajorant_tsum_le
       simp_rw [grandparentGreenDominant_camera_tsum]
       calc
         (∑' r : ℕ, 3 / baseReal r ^ 3 * ‖f‖ ^ 2) =
-            (∑' r : ℕ, 3 * (1 / baseReal r ^ 3)) * ‖f‖ ^ 2 := by
+            (∑' r : ℕ, 3 / baseReal r ^ 3) * ‖f‖ ^ 2 := by
           rw [tsum_mul_right]
-        _ = (3 * S₃) * ‖f‖ ^ 2 := by rw [tsum_mul_left]
+        _ = (∑' r : ℕ, 3 * (1 / baseReal r ^ 3)) * ‖f‖ ^ 2 := by
+          congr 1
+          apply tsum_congr
+          intro r
+          ring
+        _ = (3 * S₃) * ‖f‖ ^ 2 := by
+          rw [tsum_mul_left]
+          rfl
         _ = 3 * S₃ * ‖f‖ ^ 2 := rfl
 
 end GreenFrame.Concrete
