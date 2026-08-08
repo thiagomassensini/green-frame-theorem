@@ -34,8 +34,7 @@ theorem l2CoordinateMask_energy_tendsto_zero
       ‖Complex.normSq (l2CoordinateMask (keep N) x i - x i)‖ ≤
         Complex.normSq (x i) := by
     apply Filter.Eventually.of_forall
-    intro N
-    intro i
+    intro N i
     by_cases hN : keep N i
     · simp [hN, Complex.normSq_nonneg]
     · simp [hN, Complex.normSq_neg, abs_of_nonneg (Complex.normSq_nonneg (x i))]
@@ -43,6 +42,7 @@ theorem l2CoordinateMask_energy_tendsto_zero
     (residualL2_normSq_summable x) hpoint hbound
   simpa only [← residualL2_normSq_tsum_eq_norm_sq, lp.coeFn_sub,
     Pi.sub_apply, tsum_zero] using htsum
+
 theorem l2CoordinateMask_tendsto
     {iota : Type*} (keep : ℕ → iota → Prop)
     [∀ N, DecidablePred (keep N)]
