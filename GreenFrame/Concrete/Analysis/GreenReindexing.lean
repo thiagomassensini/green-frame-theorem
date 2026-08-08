@@ -80,7 +80,7 @@ theorem tsum_greenEvent_reindex
 
 /-- Positive multiples of one coded base. -/
 abbrev BaseMultiple (r : ℕ) :=
-  {m : PNat // basePNat r ∣ m}
+  {m : PNat | basePNat r ∣ m}
 
 /-- Multiplication by a coded base, with codomain restricted to its multiples. -/
 def multiplyIntoBaseMultiple (r : ℕ) (m : PNat) : BaseMultiple r :=
