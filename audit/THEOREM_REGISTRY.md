@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **277** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **283** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -281,3 +281,9 @@ The registry contains exactly **277** named Lean theorems reachable from `GreenF
 | `GF-275` | `GreenFrame.Concrete.concreteExternalAnalysisOperator_norm_sq_eq` | `GreenFrame/Concrete/Analysis/ConcreteSplitOperators.lean` |
 | `GF-276` | `GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_eq_external_add_bulk` | `GreenFrame/Concrete/Analysis/ConcreteSplitOperators.lean` |
 | `GF-277` | `GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_eq_seedResidual_add_green` | `GreenFrame/Concrete/Analysis/ConcreteSplitOperators.lean` |
+| `GF-278` | `GreenFrame.Concrete.concreteExternalAnalysisOperator_lower` | `GreenFrame/Concrete/Analysis/ConcreteSplitBounds.lean` |
+| `GF-279` | `GreenFrame.Concrete.concreteBulkAnalysisOperator_upper` | `GreenFrame/Concrete/Analysis/ConcreteSplitBounds.lean` |
+| `GF-280` | `GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_bounds` | `GreenFrame/Concrete/Analysis/ConcreteSplitBounds.lean` |
+| `GF-281` | `GreenFrame.Concrete.concreteSplitFrameBounds_lower` | `GreenFrame/Concrete/Analysis/ConcreteSplitBounds.lean` |
+| `GF-282` | `GreenFrame.Concrete.concreteSplitFrameBounds_upper` | `GreenFrame/Concrete/Analysis/ConcreteSplitBounds.lean` |
+| `GF-283` | `GreenFrame.Concrete.concreteSplitFrameBounds_externalLower` | `GreenFrame/Concrete/Analysis/ConcreteSplitBounds.lean` |

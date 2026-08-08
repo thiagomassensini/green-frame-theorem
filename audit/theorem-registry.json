@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 277,
+  "count": 283,
   "theorems": [
     {
       "id": "GF-001",
@@ -1386,6 +1386,36 @@
       "id": "GF-277",
       "name": "concreteAnalysisOperator_norm_sq_eq_seedResidual_add_green",
       "qualified": "GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_eq_seedResidual_add_green"
+    },
+    {
+      "id": "GF-278",
+      "name": "concreteExternalAnalysisOperator_lower",
+      "qualified": "GreenFrame.Concrete.concreteExternalAnalysisOperator_lower"
+    },
+    {
+      "id": "GF-279",
+      "name": "concreteBulkAnalysisOperator_upper",
+      "qualified": "GreenFrame.Concrete.concreteBulkAnalysisOperator_upper"
+    },
+    {
+      "id": "GF-280",
+      "name": "concreteAnalysisOperator_norm_sq_bounds",
+      "qualified": "GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_bounds"
+    },
+    {
+      "id": "GF-281",
+      "name": "concreteSplitFrameBounds_lower",
+      "qualified": "GreenFrame.Concrete.concreteSplitFrameBounds_lower"
+    },
+    {
+      "id": "GF-282",
+      "name": "concreteSplitFrameBounds_upper",
+      "qualified": "GreenFrame.Concrete.concreteSplitFrameBounds_upper"
+    },
+    {
+      "id": "GF-283",
+      "name": "concreteSplitFrameBounds_externalLower",
+      "qualified": "GreenFrame.Concrete.concreteSplitFrameBounds_externalLower"
     }
   ]
 }
