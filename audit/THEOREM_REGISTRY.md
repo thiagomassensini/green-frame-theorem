@@ -172,3 +172,6 @@ The registry contains exactly **168** named Lean theorems reachable from `GreenF
 | `GF-166` | `GreenFrame.Concrete.grandparentGreenMajorant_tsum_le` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |
 | `GF-167` | `GreenFrame.Concrete.greenCoordinateMajorant_nonneg` | `GreenFrame/Concrete/Analysis/GreenCoordinateMajorant.lean` |
 | `GF-168` | `GreenFrame.Concrete.greenCoordinate_normSq_le_majorant` | `GreenFrame/Concrete/Analysis/GreenCoordinateMajorant.lean` |
+| `GF-169` | `GreenFrame.Concrete.greenCoordinateMajorant_summable` | `GreenFrame/Concrete/Analysis/GreenBesselAssembly.lean` |
+| `GF-170` | `GreenFrame.Concrete.greenCoordinate_normSq_summable` | `GreenFrame/Concrete/Analysis/GreenBesselAssembly.lean` |
+| `GF-171` | `GreenFrame.Concrete.greenCoordinate_tsum_normSq_le` | `GreenFrame/Concrete/Analysis/GreenBesselAssembly.lean` |

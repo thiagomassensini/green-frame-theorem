@@ -30,3 +30,4 @@ The public root currently exports the historical abstract layer and the new
 remote-first concrete reconstruction. Concrete modules are added only after
 their exact GitHub Actions SHA passes the pinned Lean audit.
 -/
+import GreenFrame.Concrete.Analysis.GreenBesselAssembly
