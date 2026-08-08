@@ -128,3 +128,10 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.verticalGreenStencil_normSq_le
 #print axioms GreenFrame.Concrete.greenCoordinate_normSq_le
 #print axioms GreenFrame.Concrete.greenCoordinate_normSq_le_explicit
+#print axioms GreenFrame.Concrete.divExact_eventNumber
+#print axioms GreenFrame.Concrete.eventDivisibilityEquiv_apply_val
+#print axioms GreenFrame.Concrete.tsum_greenEvent_reindex
+#print axioms GreenFrame.Concrete.divExact_base_mul
+#print axioms GreenFrame.Concrete.baseMultipleEquiv_apply_val
+#print axioms GreenFrame.Concrete.divisiblePullback_summable
+#print axioms GreenFrame.Concrete.tsum_divisiblePullback

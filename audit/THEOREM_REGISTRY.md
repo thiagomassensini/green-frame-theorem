@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **126** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **133** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -130,3 +130,10 @@ The registry contains exactly **126** named Lean theorems reachable from `GreenF
 | `GF-124` | `GreenFrame.Concrete.verticalGreenStencil_normSq_le` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
 | `GF-125` | `GreenFrame.Concrete.greenCoordinate_normSq_le` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
 | `GF-126` | `GreenFrame.Concrete.greenCoordinate_normSq_le_explicit` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-127` | `GreenFrame.Concrete.divExact_eventNumber` | `GreenFrame/Concrete/Analysis/GreenReindexing.lean` |
+| `GF-128` | `GreenFrame.Concrete.eventDivisibilityEquiv_apply_val` | `GreenFrame/Concrete/Analysis/GreenReindexing.lean` |
+| `GF-129` | `GreenFrame.Concrete.tsum_greenEvent_reindex` | `GreenFrame/Concrete/Analysis/GreenReindexing.lean` |
+| `GF-130` | `GreenFrame.Concrete.divExact_base_mul` | `GreenFrame/Concrete/Analysis/GreenReindexing.lean` |
+| `GF-131` | `GreenFrame.Concrete.baseMultipleEquiv_apply_val` | `GreenFrame/Concrete/Analysis/GreenReindexing.lean` |
+| `GF-132` | `GreenFrame.Concrete.divisiblePullback_summable` | `GreenFrame/Concrete/Analysis/GreenReindexing.lean` |
+| `GF-133` | `GreenFrame.Concrete.tsum_divisiblePullback` | `GreenFrame/Concrete/Analysis/GreenReindexing.lean` |

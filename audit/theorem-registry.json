@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 126,
+  "count": 133,
   "theorems": [
     {
       "id": "GF-001",
@@ -631,6 +631,41 @@
       "id": "GF-126",
       "name": "greenCoordinate_normSq_le_explicit",
       "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_le_explicit"
+    },
+    {
+      "id": "GF-127",
+      "name": "divExact_eventNumber",
+      "qualified": "GreenFrame.Concrete.divExact_eventNumber"
+    },
+    {
+      "id": "GF-128",
+      "name": "eventDivisibilityEquiv_apply_val",
+      "qualified": "GreenFrame.Concrete.eventDivisibilityEquiv_apply_val"
+    },
+    {
+      "id": "GF-129",
+      "name": "tsum_greenEvent_reindex",
+      "qualified": "GreenFrame.Concrete.tsum_greenEvent_reindex"
+    },
+    {
+      "id": "GF-130",
+      "name": "divExact_base_mul",
+      "qualified": "GreenFrame.Concrete.divExact_base_mul"
+    },
+    {
+      "id": "GF-131",
+      "name": "baseMultipleEquiv_apply_val",
+      "qualified": "GreenFrame.Concrete.baseMultipleEquiv_apply_val"
+    },
+    {
+      "id": "GF-132",
+      "name": "divisiblePullback_summable",
+      "qualified": "GreenFrame.Concrete.divisiblePullback_summable"
+    },
+    {
+      "id": "GF-133",
+      "name": "tsum_divisiblePullback",
+      "qualified": "GreenFrame.Concrete.tsum_divisiblePullback"
     }
   ]
 }
