@@ -26,7 +26,7 @@ theorem allBaseNormalizer_eq_depthOneActivity_add_bulkActivity (n : ℕ) :
   · by_cases hbulk : 2 ≤ positionalDepth b n
     · simp [hone, hbulk]
     · have hzero : positionalDepth b n = 0 := by omega
-      simp [hone, hbulk, allBaseActivity, hzero]
+      simp [allBaseActivity, hzero]
 
 /-- Algebraic one-third consequence of a positive normalizer and the bulk bound. -/
 theorem one_third_le_depthOneActivity_div_normalizer_of_bulk_bound

@@ -70,7 +70,7 @@ theorem log_number_le_two_endpointActivity
     rw [allBaseActivity, hdepth, Nat.cast_one, one_mul]
     rw [Real.log_pow] at hloglt
     dsimp [c] at hloglt
-    norm_num at hloglt ⊢
+    -- The preceding rewrites already put both sides in the required normal form.
     exact hloglt.le
 
 /-- The canonical endpoint satisfies the certificate's termwise bound. -/
