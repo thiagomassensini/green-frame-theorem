@@ -12,6 +12,7 @@ import GreenFrame.Analysis.NontrivialBulk
 import GreenFrame.Finite.Sections
 import GreenFrame.Finite.StrongLimit
 import GreenFrame.Concrete.Arithmetic.PositionalDepth
+import GreenFrame.Concrete.Analysis.InfinitePartition
 
 /-!
 # Public API — All-Bases Green Frame Theorem

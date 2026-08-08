@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **77** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **97** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -81,3 +81,23 @@ The registry contains exactly **77** named Lean theorems reachable from `GreenFr
 | `GF-075` | `GreenFrame.Concrete.greenMass_two_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
 | `GF-076` | `GreenFrame.Concrete.residualMass_two_four` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
 | `GF-077` | `GreenFrame.Concrete.twoFourCarryWitness` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-078` | `GreenFrame.Concrete.baseNat_ge_two` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-079` | `GreenFrame.Concrete.baseReal_pos` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-080` | `GreenFrame.Concrete.baseReal_nonneg` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-081` | `GreenFrame.Concrete.eventNumber_eq` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-082` | `GreenFrame.Concrete.eventNumber_coe` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-083` | `GreenFrame.Concrete.pnat_one_lt_iff_ne_one` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-084` | `GreenFrame.Concrete.mem_cameraCodes_iff` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-085` | `GreenFrame.Concrete.sum_cameraCodes_shift_two` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-086` | `GreenFrame.Concrete.AdmissibleInfinitePartition.mem_cameraCodes_of_weight_ne_zero` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-087` | `GreenFrame.Concrete.AdmissibleInfinitePartition.weight_eq_zero_of_not_mem_cameraCodes` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-088` | `GreenFrame.Concrete.AdmissibleInfinitePartition.weight_support_subset_cameraCodes` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-089` | `GreenFrame.Concrete.AdmissibleInfinitePartition.weight_hasFiniteSupport` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-090` | `GreenFrame.Concrete.AdmissibleInfinitePartition.weight_summable` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-091` | `GreenFrame.Concrete.AdmissibleInfinitePartition.weight_tsum_eq_one` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-092` | `GreenFrame.Concrete.AdmissibleInfinitePartition.weight_one_eq_zero` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-093` | `GreenFrame.Concrete.AdmissibleInfinitePartition.weight_le_one` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-094` | `GreenFrame.Concrete.carryCameraWeightByCode_nonneg` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-095` | `GreenFrame.Concrete.carryCameraWeightByCode_support_dvd` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-096` | `GreenFrame.Concrete.carryCameraWeightByCode_finite_sum_eq_one` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-097` | `GreenFrame.Concrete.canonicalCarryInfinitePartition_weight` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |

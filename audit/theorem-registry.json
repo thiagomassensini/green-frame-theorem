@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 77,
+  "count": 97,
   "theorems": [
     {
       "id": "GF-001",
@@ -386,6 +386,106 @@
       "id": "GF-077",
       "name": "twoFourCarryWitness",
       "qualified": "GreenFrame.Concrete.twoFourCarryWitness"
+    },
+    {
+      "id": "GF-078",
+      "name": "baseNat_ge_two",
+      "qualified": "GreenFrame.Concrete.baseNat_ge_two"
+    },
+    {
+      "id": "GF-079",
+      "name": "baseReal_pos",
+      "qualified": "GreenFrame.Concrete.baseReal_pos"
+    },
+    {
+      "id": "GF-080",
+      "name": "baseReal_nonneg",
+      "qualified": "GreenFrame.Concrete.baseReal_nonneg"
+    },
+    {
+      "id": "GF-081",
+      "name": "eventNumber_eq",
+      "qualified": "GreenFrame.Concrete.eventNumber_eq"
+    },
+    {
+      "id": "GF-082",
+      "name": "eventNumber_coe",
+      "qualified": "GreenFrame.Concrete.eventNumber_coe"
+    },
+    {
+      "id": "GF-083",
+      "name": "pnat_one_lt_iff_ne_one",
+      "qualified": "GreenFrame.Concrete.pnat_one_lt_iff_ne_one"
+    },
+    {
+      "id": "GF-084",
+      "name": "mem_cameraCodes_iff",
+      "qualified": "GreenFrame.Concrete.mem_cameraCodes_iff"
+    },
+    {
+      "id": "GF-085",
+      "name": "sum_cameraCodes_shift_two",
+      "qualified": "GreenFrame.Concrete.sum_cameraCodes_shift_two"
+    },
+    {
+      "id": "GF-086",
+      "name": "mem_cameraCodes_of_weight_ne_zero",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.mem_cameraCodes_of_weight_ne_zero"
+    },
+    {
+      "id": "GF-087",
+      "name": "weight_eq_zero_of_not_mem_cameraCodes",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_eq_zero_of_not_mem_cameraCodes"
+    },
+    {
+      "id": "GF-088",
+      "name": "weight_support_subset_cameraCodes",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_support_subset_cameraCodes"
+    },
+    {
+      "id": "GF-089",
+      "name": "weight_hasFiniteSupport",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_hasFiniteSupport"
+    },
+    {
+      "id": "GF-090",
+      "name": "weight_summable",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_summable"
+    },
+    {
+      "id": "GF-091",
+      "name": "weight_tsum_eq_one",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_tsum_eq_one"
+    },
+    {
+      "id": "GF-092",
+      "name": "weight_one_eq_zero",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_one_eq_zero"
+    },
+    {
+      "id": "GF-093",
+      "name": "weight_le_one",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_le_one"
+    },
+    {
+      "id": "GF-094",
+      "name": "carryCameraWeightByCode_nonneg",
+      "qualified": "GreenFrame.Concrete.carryCameraWeightByCode_nonneg"
+    },
+    {
+      "id": "GF-095",
+      "name": "carryCameraWeightByCode_support_dvd",
+      "qualified": "GreenFrame.Concrete.carryCameraWeightByCode_support_dvd"
+    },
+    {
+      "id": "GF-096",
+      "name": "carryCameraWeightByCode_finite_sum_eq_one",
+      "qualified": "GreenFrame.Concrete.carryCameraWeightByCode_finite_sum_eq_one"
+    },
+    {
+      "id": "GF-097",
+      "name": "canonicalCarryInfinitePartition_weight",
+      "qualified": "GreenFrame.Concrete.canonicalCarryInfinitePartition_weight"
     }
   ]
 }

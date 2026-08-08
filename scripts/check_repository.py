@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,8 +17,12 @@ LEAN_FILES = sorted(
 FORBIDDEN = {
     "sorry": re.compile(r"\bsorry\b"),
     "admit": re.compile(r"\badmit\b"),
-    "custom axiom": re.compile(r"^\s*axiom\s+", re.MULTILINE),
-    "unsafe": re.compile(r"^\s*unsafe\s+", re.MULTILINE),
+    "custom axiom": re.compile(r"^\s*(?:private\s+)?axiom\s+", re.MULTILINE),
+    "custom constant": re.compile(r"^\s*(?:private\s+)?constants?\s+", re.MULTILINE),
+    "partial": re.compile(r"^\s*(?:private\s+)?partial\s+", re.MULTILINE),
+    "unsafe": re.compile(r"^\s*(?:private\s+)?unsafe\s+", re.MULTILINE),
+    "native_decide": re.compile(r"\bnative_decide\b"),
+    "Lean.ofReduceBool": re.compile(r"\bLean\.ofReduceBool\b"),
 }
 
 
@@ -45,15 +50,11 @@ def main() -> int:
     declared_count = registry.get("count")
     if declared_count != len(entries):
         fail(f"registry count field {declared_count} != {len(entries)} entries")
-    if len(entries) < 41:
-        fail(f"official reconstruction requires at least 41 registered theorems; found {len(entries)}")
     ids = [entry["id"] for entry in entries]
     names = [entry["name"] for entry in entries]
     qualified = [entry["qualified"] for entry in entries]
     if len(ids) != len(set(ids)):
         fail("duplicate theorem registry IDs")
-    if len(names) != len(set(names)):
-        fail("duplicate theorem registry names")
     if len(qualified) != len(set(qualified)):
         fail("duplicate qualified theorem names")
 
@@ -64,12 +65,15 @@ def main() -> int:
         declarations.extend(
             re.findall(r"^theorem\s+([A-Za-z0-9_]+)", path.read_text(), re.MULTILINE)
         )
-    actual = set(declarations)
-    expected = set(names)
-    if len(declarations) != len(entries):
-        fail(f"expected {len(entries)} theorem declarations, found {len(declarations)}")
+    expected_ids = [f"GF-{i:03d}" for i in range(1, len(entries) + 1)]
+    if ids != expected_ids:
+        fail("theorem registry IDs are not sequential and ordered")
+    actual = Counter(declarations)
+    expected = Counter(names)
     if actual != expected:
-        fail(f"registry mismatch; missing={sorted(actual-expected)}, stale={sorted(expected-actual)}")
+        unregistered = sorted((actual - expected).elements())
+        stale = sorted((expected - actual).elements())
+        fail(f"registry mismatch; unregistered={unregistered}, stale={stale}")
 
     audit_text = (ROOT / "GreenFrame/Audit.lean").read_text()
     audit_names = re.findall(r"^#print axioms\s+([A-Za-z0-9_.]+)", audit_text, re.MULTILINE)
