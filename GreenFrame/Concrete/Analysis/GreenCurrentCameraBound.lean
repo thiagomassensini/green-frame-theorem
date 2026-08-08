@@ -31,7 +31,9 @@ theorem currentCameraMajorant_le
     currentCameraMajorant omega f n r ≤
       ((3 : ℝ) / 2 * stateEnergy f n) * omega.weight r n := by
   have hb : (2 : ℝ) ≤ baseReal r := by
-    exact_mod_cast baseNat_ge_two r
+    have hcast : (2 : ℝ) ≤ (baseNat r : ℝ) := by
+      exact_mod_cast baseNat_ge_two r
+    simpa only [baseReal_def] using hcast
   have hinv : 1 / baseReal r ≤ (1 : ℝ) / 2 :=
     one_div_le_one_div_of_le (by norm_num) hb
   calc
