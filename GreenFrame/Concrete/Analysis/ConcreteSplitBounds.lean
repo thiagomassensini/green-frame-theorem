@@ -5,7 +5,7 @@ import GreenFrame.Concrete.Analysis.ConcreteSplitOperators
 
 This checkpoint derives the exact lower/upper ledger for the canonical split
 and packages it as a `SplitComplexFrameBounds` certificate.  The global Green
-constant occurs once because `G₁ ⊕ G≥2` is first recombined exactly.
+coefficient occurs once because `G₁ ⊕ G≥2` is first recombined exactly.
 -/
 
 noncomputable section
@@ -67,7 +67,7 @@ theorem concreteAnalysisOperator_norm_sq_bounds
 
 /-- Concrete split-frame certificate for the exact paper split.  Unlike the
 component-sum helper, this constructor uses the `G₁ ⊕ G≥2 = G` identity and
-therefore does not duplicate the global Green constant. -/
+therefore does not duplicate the global Green bound. -/
 noncomputable def concreteSplitFrameBounds
     (omega : AdmissibleInfinitePartition) :
     SplitComplexFrameBounds (concreteAnalysisOperator omega) where
@@ -86,14 +86,14 @@ noncomputable def concreteSplitFrameBounds
     simpa only [rawExternal_concreteAnalysisOperator_apply] using
       concreteExternalAnalysisOperator_lower omega f
 
-/-- The concrete lower constant is exactly one half. -/
+/-- The concrete lower bound is exactly one half. -/
 @[simp]
 theorem concreteSplitFrameBounds_lower
     (omega : AdmissibleInfinitePartition) :
     (concreteSplitFrameBounds omega).lower = (1 / 2 : ℝ) :=
   rfl
 
-/-- The exact full upper constant is not doubled by the row split. -/
+/-- The exact full upper bound is not doubled by the row split. -/
 @[simp]
 theorem concreteSplitFrameBounds_upper
     (omega : AdmissibleInfinitePartition) :
