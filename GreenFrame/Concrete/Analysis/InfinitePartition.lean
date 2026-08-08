@@ -10,6 +10,8 @@ Summability is deliberately not a field of AdmissibleInfinitePartition.
 It is derived from the arithmetic support condition.
 -/
 
+open scoped BigOperators
+
 namespace GreenFrame.Concrete
 
 /-- Natural base represented by camera code r. -/
@@ -24,7 +26,7 @@ theorem baseNat_ge_two (r : ℕ) :
 /-- Every coded base is positive. -/
 theorem baseNat_pos (r : ℕ) :
     0 < baseNat r := by
-  omega
+  simp [baseNat]
 
 /-- Positive-natural realization of a coded base. -/
 def basePNat (r : ℕ) : PNat :=
@@ -47,6 +49,7 @@ theorem baseReal_def (r : ℕ) :
 /-- Real coded bases are strictly positive. -/
 theorem baseReal_pos (r : ℕ) :
     0 < baseReal r := by
+  unfold baseReal
   exact_mod_cast baseNat_pos r
 
 /-- Real coded bases are nonnegative. -/
