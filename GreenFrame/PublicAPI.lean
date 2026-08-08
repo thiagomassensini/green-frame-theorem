@@ -24,6 +24,7 @@ import GreenFrame.Concrete.Analysis.GreenGrandparentBound
 import GreenFrame.Concrete.Analysis.GreenCoordinateMajorant
 
 import GreenFrame.Concrete.Analysis.GreenBesselAssembly
+import GreenFrame.Concrete.Analysis.GreenAnalysisVector
 
 /-!
 # Public API — All-Bases Green Frame Theorem

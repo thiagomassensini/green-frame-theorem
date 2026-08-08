@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 171,
+  "count": 174,
   "theorems": [
     {
       "id": "GF-001",
@@ -856,6 +856,21 @@
       "id": "GF-171",
       "name": "greenCoordinate_tsum_normSq_le",
       "qualified": "GreenFrame.Concrete.greenCoordinate_tsum_normSq_le"
+    },
+    {
+      "id": "GF-172",
+      "name": "greenAnalysis_apply",
+      "qualified": "GreenFrame.Concrete.greenAnalysis_apply"
+    },
+    {
+      "id": "GF-173",
+      "name": "greenAnalysis_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.greenAnalysis_norm_sq_eq"
+    },
+    {
+      "id": "GF-174",
+      "name": "greenAnalysis_norm_sq_le",
+      "qualified": "GreenFrame.Concrete.greenAnalysis_norm_sq_le"
     }
   ]
 }
