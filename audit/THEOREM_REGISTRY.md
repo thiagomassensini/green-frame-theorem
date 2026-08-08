@@ -334,7 +334,7 @@ The registry contains exactly **334** named Lean theorems reachable from `GreenF
 | `GF-328` | `GreenFrame.Concrete.twoFourGreenEvent_hasGrandparent` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:32` |
 | `GF-329` | `GreenFrame.Concrete.twoFourBulkEvent_val` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:41` |
 | `GF-330` | `GreenFrame.Concrete.twoFourGreenEvent_grandparentIndex` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:46` |
-| `GF-331` | `GreenFrame.Concrete.twoFourWitnessState_at_four` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:55` |
-| `GF-332` | `GreenFrame.Concrete.twoFourWitnessState_at_two` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:60` |
-| `GF-333` | `GreenFrame.Concrete.twoFourWitnessState_at_one` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:65` |
-| `GF-334` | `GreenFrame.Concrete.twoFourWitnessState_norm` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:70` |
+| `GF-331` | `GreenFrame.Concrete.twoFourWitnessState_at_four` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:57` |
+| `GF-332` | `GreenFrame.Concrete.twoFourWitnessState_at_two` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:64` |
+| `GF-333` | `GreenFrame.Concrete.twoFourWitnessState_at_one` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:71` |
+| `GF-334` | `GreenFrame.Concrete.twoFourWitnessState_norm` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:78` |

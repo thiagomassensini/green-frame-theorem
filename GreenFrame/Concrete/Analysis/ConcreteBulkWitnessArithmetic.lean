@@ -49,28 +49,37 @@ theorem twoFourGreenEvent_grandparentIndex :
   have hnat := congrArg (fun n : PNat => (n : ℕ))
     (base_mul_grandparentIndex twoFourGreenEvent_hasGrandparent)
   change 2 * (grandparentIndex twoFourGreenEvent : ℕ) = 2 at hnat
-  omega
+  have hnat' : 2 * (grandparentIndex twoFourGreenEvent : ℕ) = 2 * 1 := by
+    simpa using hnat
+  exact Nat.eq_of_mul_eq_mul_left (by norm_num) hnat'
 
 @[simp]
 theorem twoFourWitnessState_at_four :
     twoFourWitnessState (4 : PNat) = (1 : ℂ) := by
+  change lp.single (E := fun _ : PNat => ℂ) 2 (4 : PNat) (1 : ℂ)
+      (4 : PNat) = (1 : ℂ)
   exact lp.single_apply_self 2 (4 : PNat) (1 : ℂ)
 
 @[simp]
 theorem twoFourWitnessState_at_two :
     twoFourWitnessState (2 : PNat) = (0 : ℂ) := by
+  change lp.single (E := fun _ : PNat => ℂ) 2 (4 : PNat) (1 : ℂ)
+      (2 : PNat) = (0 : ℂ)
   exact lp.single_apply_ne 2 (4 : PNat) (1 : ℂ) (by norm_num)
 
 @[simp]
 theorem twoFourWitnessState_at_one :
     twoFourWitnessState (1 : PNat) = (0 : ℂ) := by
+  change lp.single (E := fun _ : PNat => ℂ) 2 (4 : PNat) (1 : ℂ)
+      (1 : PNat) = (0 : ℂ)
   exact lp.single_apply_ne 2 (4 : PNat) (1 : ℂ) (by norm_num)
 
 @[simp]
 theorem twoFourWitnessState_norm :
     ‖twoFourWitnessState‖ = 1 := by
   simpa only [twoFourWitnessState, norm_one] using
-    (lp.norm_single (p := (2 : ℝ≥0∞)) (by norm_num)
+    (lp.norm_single (E := fun _ : PNat => ℂ)
+      (p := (2 : ℝ≥0∞)) (by norm_num)
       (4 : PNat) (1 : ℂ))
 
 end GreenFrame.Concrete
