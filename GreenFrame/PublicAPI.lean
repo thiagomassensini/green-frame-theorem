@@ -23,6 +23,8 @@ import GreenFrame.Concrete.Analysis.GreenParentBound
 import GreenFrame.Concrete.Analysis.GreenGrandparentBound
 import GreenFrame.Concrete.Analysis.GreenCoordinateMajorant
 
+import GreenFrame.Concrete.Analysis.GreenBesselAssembly
+
 /-!
 # Public API — All-Bases Green Frame Theorem
 
@@ -30,4 +32,3 @@ The public root currently exports the historical abstract layer and the new
 remote-first concrete reconstruction. Concrete modules are added only after
 their exact GitHub Actions SHA passes the pinned Lean audit.
 -/
-import GreenFrame.Concrete.Analysis.GreenBesselAssembly
