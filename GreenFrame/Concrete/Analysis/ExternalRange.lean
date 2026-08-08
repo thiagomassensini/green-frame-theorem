@@ -78,7 +78,8 @@ theorem normalizedExternalRangeInverse_apply
     normalizedExternalRangeInverse bounds
       ((normalizedExternal T).rangeRestrict x) = x := by
   simpa only [normalizedExternalRangeInverse,
-    ContinuousLinearMap.coe_equivRange] using
+    ContinuousLinearMap.coe_equivRange,
+    ContinuousLinearEquiv.coe_coe] using
     ((normalizedExternal T).equivRange
       (normalizedExternal_injective bounds)
       (normalizedExternal_range_closed bounds)).symm_apply_apply x
