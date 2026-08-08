@@ -316,3 +316,9 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.normalized_split_energy
 #print axioms GreenFrame.Concrete.normalizedExternalLower_pos
 #print axioms GreenFrame.Concrete.normalizedExternal_lower_norm_sq
+
+#print axioms GreenFrame.Concrete.antilipschitz_of_norm_sq_lower
+#print axioms GreenFrame.Concrete.normalizedExternal_antilipschitz
+#print axioms GreenFrame.Concrete.normalizedExternal_injective
+#print axioms GreenFrame.Concrete.normalizedExternal_range_closed
+#print axioms GreenFrame.Concrete.normalizedExternalRangeInverse_apply

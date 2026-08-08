@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 303,
+  "count": 308,
   "theorems": [
     {
       "id": "GF-001",
@@ -1516,6 +1516,31 @@
       "id": "GF-303",
       "name": "normalizedExternal_lower_norm_sq",
       "qualified": "GreenFrame.Concrete.normalizedExternal_lower_norm_sq"
+    },
+    {
+      "id": "GF-304",
+      "name": "antilipschitz_of_norm_sq_lower",
+      "qualified": "GreenFrame.Concrete.antilipschitz_of_norm_sq_lower"
+    },
+    {
+      "id": "GF-305",
+      "name": "normalizedExternal_antilipschitz",
+      "qualified": "GreenFrame.Concrete.normalizedExternal_antilipschitz"
+    },
+    {
+      "id": "GF-306",
+      "name": "normalizedExternal_injective",
+      "qualified": "GreenFrame.Concrete.normalizedExternal_injective"
+    },
+    {
+      "id": "GF-307",
+      "name": "normalizedExternal_range_closed",
+      "qualified": "GreenFrame.Concrete.normalizedExternal_range_closed"
+    },
+    {
+      "id": "GF-308",
+      "name": "normalizedExternalRangeInverse_apply",
+      "qualified": "GreenFrame.Concrete.normalizedExternalRangeInverse_apply"
     }
   ]
 }
