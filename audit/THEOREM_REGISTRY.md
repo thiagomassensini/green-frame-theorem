@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **347** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **352** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -351,3 +351,8 @@ The registry contains exactly **347** named Lean theorems reachable from `GreenF
 | `GF-345` | `GreenFrame.Concrete.canonicalCarry_greenBulkAnalysis_norm_sq_lower` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessRaw.lean:34` |
 | `GF-346` | `GreenFrame.Concrete.canonicalCarry_rawBulk_twoFour_norm_sq_lower` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessRaw.lean:60` |
 | `GF-347` | `GreenFrame.Concrete.canonicalCarry_rawBulk_twoFour_ne_zero` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessRaw.lean:69` |
+| `GF-348` | `GreenFrame.Concrete.canonicalCarry_rawBulk_ne_zero` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessTransfer.lean:19` |
+| `GF-349` | `GreenFrame.Concrete.canonicalCarry_normalizedBulk_twoFour_norm_sq_lower` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessTransfer.lean:28` |
+| `GF-350` | `GreenFrame.Concrete.canonicalCarry_normalizedBulk_operator_norm_sq_lower` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessTransfer.lean:42` |
+| `GF-351` | `GreenFrame.Concrete.canonicalCarry_normalizedBulk_ne_zero` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessTransfer.lean:62` |
+| `GF-352` | `GreenFrame.Concrete.canonicalCarry_restrictedPoisson_ne_zero` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessTransfer.lean:75` |

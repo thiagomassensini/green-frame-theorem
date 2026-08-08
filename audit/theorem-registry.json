@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 347,
+  "count": 352,
   "theorems": [
     {
       "id": "GF-001",
@@ -1736,6 +1736,31 @@
       "id": "GF-347",
       "name": "canonicalCarry_rawBulk_twoFour_ne_zero",
       "qualified": "GreenFrame.Concrete.canonicalCarry_rawBulk_twoFour_ne_zero"
+    },
+    {
+      "id": "GF-348",
+      "name": "canonicalCarry_rawBulk_ne_zero",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_rawBulk_ne_zero"
+    },
+    {
+      "id": "GF-349",
+      "name": "canonicalCarry_normalizedBulk_twoFour_norm_sq_lower",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_normalizedBulk_twoFour_norm_sq_lower"
+    },
+    {
+      "id": "GF-350",
+      "name": "canonicalCarry_normalizedBulk_operator_norm_sq_lower",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_normalizedBulk_operator_norm_sq_lower"
+    },
+    {
+      "id": "GF-351",
+      "name": "canonicalCarry_normalizedBulk_ne_zero",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_normalizedBulk_ne_zero"
+    },
+    {
+      "id": "GF-352",
+      "name": "canonicalCarry_restrictedPoisson_ne_zero",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_restrictedPoisson_ne_zero"
     }
   ]
 }

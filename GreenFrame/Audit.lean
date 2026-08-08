@@ -368,3 +368,9 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.canonicalCarry_greenBulkAnalysis_norm_sq_lower
 #print axioms GreenFrame.Concrete.canonicalCarry_rawBulk_twoFour_norm_sq_lower
 #print axioms GreenFrame.Concrete.canonicalCarry_rawBulk_twoFour_ne_zero
+
+#print axioms GreenFrame.Concrete.canonicalCarry_rawBulk_ne_zero
+#print axioms GreenFrame.Concrete.canonicalCarry_normalizedBulk_twoFour_norm_sq_lower
+#print axioms GreenFrame.Concrete.canonicalCarry_normalizedBulk_operator_norm_sq_lower
+#print axioms GreenFrame.Concrete.canonicalCarry_normalizedBulk_ne_zero
+#print axioms GreenFrame.Concrete.canonicalCarry_restrictedPoisson_ne_zero
