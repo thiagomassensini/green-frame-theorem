@@ -43,14 +43,14 @@ theorem canonicalCarry_twoFour_weight :
       (eventNumber twoFourGreenEvent) = (1 / 2 : ℝ) := by
   rw [canonicalCarryInfinitePartition_weight,
     twoFourGreenEvent_eventNumber]
-  simpa only [baseNat] using carryCameraWeight_two_four
+  simpa [baseNat] using carryCameraWeight_two_four
 
 /-- Exact transmitted Green mass `μ_G(2,4)=1/4`. -/
 theorem canonicalCarry_twoFour_greenEventMass :
     greenEventMass canonicalCarryInfinitePartition twoFourGreenEvent =
       (1 / 4 : ℝ) := by
-  rw [greenEventMass, canonicalCarry_twoFour_weight]
-  norm_num [twoFourGreenEvent, baseReal, baseNat]
+  change canonicalCarryInfinitePartition.weight 0 (eventNumber twoFourGreenEvent) / baseReal 0 = (1 / 4 : ℝ)
+  rw [canonicalCarry_twoFour_weight]; norm_num [baseReal, baseNat]
 
 /-- Exact canonical Green amplitude at the paper-bulk witness. -/
 theorem canonicalCarry_twoFour_greenAmplitude :
