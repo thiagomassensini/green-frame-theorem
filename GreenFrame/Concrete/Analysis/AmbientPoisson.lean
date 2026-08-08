@@ -79,7 +79,7 @@ theorem ambientExternalSynthesis_comp_external
       simp only [ambientExternalSynthesis, externalGram,
         ContinuousLinearMap.comp_assoc]
     _ = 1 := by
-      simpa only [externalGramInverse, ContinuousLinearMap.mul_def,
+      simpa only [externalGramInverse, CFC.rpow_eq_pow, ContinuousLinearMap.mul_def,
         CFC.rpow_one (externalGram T)
           (externalGram_strictlyPositive bounds).nonneg] using
         CFC.rpow_neg_mul_rpow (a := externalGram T) 1
