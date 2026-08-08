@@ -510,3 +510,14 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.concreteCoefficientCutoff_residual_mem
 #print axioms GreenFrame.Concrete.concreteCoefficientCutoff_depthOne_mem
 #print axioms GreenFrame.Concrete.concreteCoefficientCutoff_bulk_mem
+#print axioms GreenFrame.Concrete.l2CoordinateMask_energy_tendsto_zero
+#print axioms GreenFrame.Concrete.l2CoordinateMask_tendsto
+#print axioms GreenFrame.Concrete.stateCoordinateCutoff_tendsto
+#print axioms GreenFrame.Concrete.residualCoordinateCutoff_tendsto
+#print axioms GreenFrame.Concrete.depthOneCoordinateCutoff_tendsto
+#print axioms GreenFrame.Concrete.bulkCoordinateCutoff_tendsto
+#print axioms GreenFrame.Concrete.seedResidualCoordinateCutoff_tendsto
+#print axioms GreenFrame.Concrete.externalCoordinateCutoff_tendsto
+#print axioms GreenFrame.Concrete.concreteCoefficientCutoff_tendsto
+#print axioms GreenFrame.Concrete.embeddedAnalysisSection_tendsto
+#print axioms GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_tendsto

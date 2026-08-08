@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 482,
+  "count": 493,
   "theorems": [
     {
       "id": "GF-001",
@@ -2411,6 +2411,61 @@
       "id": "GF-482",
       "name": "concreteCoefficientCutoff_bulk_mem",
       "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_bulk_mem"
+    },
+    {
+      "id": "GF-483",
+      "name": "l2CoordinateMask_energy_tendsto_zero",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_energy_tendsto_zero"
+    },
+    {
+      "id": "GF-484",
+      "name": "l2CoordinateMask_tendsto",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_tendsto"
+    },
+    {
+      "id": "GF-485",
+      "name": "stateCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.stateCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-486",
+      "name": "residualCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.residualCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-487",
+      "name": "depthOneCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.depthOneCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-488",
+      "name": "bulkCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.bulkCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-489",
+      "name": "seedResidualCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.seedResidualCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-490",
+      "name": "externalCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.externalCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-491",
+      "name": "concreteCoefficientCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_tendsto"
+    },
+    {
+      "id": "GF-492",
+      "name": "embeddedAnalysisSection_tendsto",
+      "qualified": "GreenFrame.Concrete.embeddedAnalysisSection_tendsto"
+    },
+    {
+      "id": "GF-493",
+      "name": "concreteEmbeddedFiniteAnalysis_tendsto",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_tendsto"
     }
   ]
 }

@@ -66,7 +66,7 @@ import GreenFrame.Concrete.Analysis.HorizontalResolution
 
 import GreenFrame.Concrete.Analysis.NormalizedTowerTFVD
 
-import GreenFrame.Concrete.Finite.ConcreteCutoffRanges
+import GreenFrame.Concrete.Finite.FiniteSections
 
 /-!
 # Public API — All-Bases Green Frame Theorem

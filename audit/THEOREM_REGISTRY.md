@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **482** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **493** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -486,3 +486,14 @@ The registry contains exactly **482** named Lean theorems reachable from `GreenF
 | `GF-480` | `GreenFrame.Concrete.concreteCoefficientCutoff_residual_mem` | `GreenFrame/Concrete/Finite/ConcreteCutoffRanges.lean:79` |
 | `GF-481` | `GreenFrame.Concrete.concreteCoefficientCutoff_depthOne_mem` | `GreenFrame/Concrete/Finite/ConcreteCutoffRanges.lean:91` |
 | `GF-482` | `GreenFrame.Concrete.concreteCoefficientCutoff_bulk_mem` | `GreenFrame/Concrete/Finite/ConcreteCutoffRanges.lean:101` |
+| `GF-483` | `GreenFrame.Concrete.l2CoordinateMask_energy_tendsto_zero` | `GreenFrame/Concrete/Finite/L2CoordinateMaskLimit.lean:17` |
+| `GF-484` | `GreenFrame.Concrete.l2CoordinateMask_tendsto` | `GreenFrame/Concrete/Finite/L2CoordinateMaskLimit.lean:46` |
+| `GF-485` | `GreenFrame.Concrete.stateCoordinateCutoff_tendsto` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffLimits.lean:18` |
+| `GF-486` | `GreenFrame.Concrete.residualCoordinateCutoff_tendsto` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffLimits.lean:28` |
+| `GF-487` | `GreenFrame.Concrete.depthOneCoordinateCutoff_tendsto` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffLimits.lean:40` |
+| `GF-488` | `GreenFrame.Concrete.bulkCoordinateCutoff_tendsto` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffLimits.lean:52` |
+| `GF-489` | `GreenFrame.Concrete.seedResidualCoordinateCutoff_tendsto` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffLimits.lean:64` |
+| `GF-490` | `GreenFrame.Concrete.externalCoordinateCutoff_tendsto` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffLimits.lean:72` |
+| `GF-491` | `GreenFrame.Concrete.concreteCoefficientCutoff_tendsto` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffLimits.lean:79` |
+| `GF-492` | `GreenFrame.Concrete.embeddedAnalysisSection_tendsto` | `GreenFrame/Concrete/Finite/StrongAnalysisLimit.lean:20` |
+| `GF-493` | `GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_tendsto` | `GreenFrame/Concrete/Finite/ConcreteStrongAnalysisLimit.lean:21` |
