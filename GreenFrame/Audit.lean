@@ -353,3 +353,12 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.twoFourWitnessState_at_two
 #print axioms GreenFrame.Concrete.twoFourWitnessState_at_one
 #print axioms GreenFrame.Concrete.twoFourWitnessState_norm
+
+#print axioms GreenFrame.Concrete.currentTerm_twoFourWitness
+#print axioms GreenFrame.Concrete.parentTerm_twoFourWitness
+#print axioms GreenFrame.Concrete.grandparentTerm_twoFourWitness
+#print axioms GreenFrame.Concrete.verticalGreenStencil_twoFourWitness
+#print axioms GreenFrame.Concrete.canonicalCarry_twoFour_weight
+#print axioms GreenFrame.Concrete.canonicalCarry_twoFour_greenEventMass
+#print axioms GreenFrame.Concrete.canonicalCarry_twoFour_greenAmplitude
+#print axioms GreenFrame.Concrete.canonicalCarry_twoFour_greenCoordinate

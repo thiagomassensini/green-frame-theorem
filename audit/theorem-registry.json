@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 334,
+  "count": 342,
   "theorems": [
     {
       "id": "GF-001",
@@ -1671,6 +1671,46 @@
       "id": "GF-334",
       "name": "twoFourWitnessState_norm",
       "qualified": "GreenFrame.Concrete.twoFourWitnessState_norm"
+    },
+    {
+      "id": "GF-335",
+      "name": "currentTerm_twoFourWitness",
+      "qualified": "GreenFrame.Concrete.currentTerm_twoFourWitness"
+    },
+    {
+      "id": "GF-336",
+      "name": "parentTerm_twoFourWitness",
+      "qualified": "GreenFrame.Concrete.parentTerm_twoFourWitness"
+    },
+    {
+      "id": "GF-337",
+      "name": "grandparentTerm_twoFourWitness",
+      "qualified": "GreenFrame.Concrete.grandparentTerm_twoFourWitness"
+    },
+    {
+      "id": "GF-338",
+      "name": "verticalGreenStencil_twoFourWitness",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_twoFourWitness"
+    },
+    {
+      "id": "GF-339",
+      "name": "canonicalCarry_twoFour_weight",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_twoFour_weight"
+    },
+    {
+      "id": "GF-340",
+      "name": "canonicalCarry_twoFour_greenEventMass",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_twoFour_greenEventMass"
+    },
+    {
+      "id": "GF-341",
+      "name": "canonicalCarry_twoFour_greenAmplitude",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_twoFour_greenAmplitude"
+    },
+    {
+      "id": "GF-342",
+      "name": "canonicalCarry_twoFour_greenCoordinate",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_twoFour_greenCoordinate"
     }
   ]
 }

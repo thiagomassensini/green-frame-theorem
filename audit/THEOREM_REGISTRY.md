@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **334** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **342** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -338,3 +338,11 @@ The registry contains exactly **334** named Lean theorems reachable from `GreenF
 | `GF-332` | `GreenFrame.Concrete.twoFourWitnessState_at_two` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:64` |
 | `GF-333` | `GreenFrame.Concrete.twoFourWitnessState_at_one` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:71` |
 | `GF-334` | `GreenFrame.Concrete.twoFourWitnessState_norm` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessArithmetic.lean:78` |
+| `GF-335` | `GreenFrame.Concrete.currentTerm_twoFourWitness` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessCoordinates.lean:18` |
+| `GF-336` | `GreenFrame.Concrete.parentTerm_twoFourWitness` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessCoordinates.lean:24` |
+| `GF-337` | `GreenFrame.Concrete.grandparentTerm_twoFourWitness` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessCoordinates.lean:29` |
+| `GF-338` | `GreenFrame.Concrete.verticalGreenStencil_twoFourWitness` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessCoordinates.lean:36` |
+| `GF-339` | `GreenFrame.Concrete.canonicalCarry_twoFour_weight` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessCoordinates.lean:41` |
+| `GF-340` | `GreenFrame.Concrete.canonicalCarry_twoFour_greenEventMass` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessCoordinates.lean:49` |
+| `GF-341` | `GreenFrame.Concrete.canonicalCarry_twoFour_greenAmplitude` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessCoordinates.lean:56` |
+| `GF-342` | `GreenFrame.Concrete.canonicalCarry_twoFour_greenCoordinate` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessCoordinates.lean:63` |
