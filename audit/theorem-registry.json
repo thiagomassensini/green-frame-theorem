@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 177,
+  "count": 198,
   "theorems": [
     {
       "id": "GF-001",
@@ -886,6 +886,111 @@
       "id": "GF-177",
       "name": "greenAnalysisOperator_norm_le",
       "qualified": "GreenFrame.Concrete.greenAnalysisOperator_norm_le"
+    },
+    {
+      "id": "GF-178",
+      "name": "baseReciprocal_pos",
+      "qualified": "GreenFrame.Concrete.baseReciprocal_pos"
+    },
+    {
+      "id": "GF-179",
+      "name": "baseReciprocal_nonneg",
+      "qualified": "GreenFrame.Concrete.baseReciprocal_nonneg"
+    },
+    {
+      "id": "GF-180",
+      "name": "baseReciprocal_le_half",
+      "qualified": "GreenFrame.Concrete.baseReciprocal_le_half"
+    },
+    {
+      "id": "GF-181",
+      "name": "residualFactor_nonneg",
+      "qualified": "GreenFrame.Concrete.residualFactor_nonneg"
+    },
+    {
+      "id": "GF-182",
+      "name": "residualFactor_half_le",
+      "qualified": "GreenFrame.Concrete.residualFactor_half_le"
+    },
+    {
+      "id": "GF-183",
+      "name": "residualFactor_le_one",
+      "qualified": "GreenFrame.Concrete.residualFactor_le_one"
+    },
+    {
+      "id": "GF-184",
+      "name": "residualEventMass_nonneg",
+      "qualified": "GreenFrame.Concrete.residualEventMass_nonneg"
+    },
+    {
+      "id": "GF-185",
+      "name": "residualEventMass_half_weight_le",
+      "qualified": "GreenFrame.Concrete.residualEventMass_half_weight_le"
+    },
+    {
+      "id": "GF-186",
+      "name": "residualEventMass_le_weight",
+      "qualified": "GreenFrame.Concrete.residualEventMass_le_weight"
+    },
+    {
+      "id": "GF-187",
+      "name": "residualEventMass_one",
+      "qualified": "GreenFrame.Concrete.residualEventMass_one"
+    },
+    {
+      "id": "GF-188",
+      "name": "residualEventMass_summable",
+      "qualified": "GreenFrame.Concrete.residualEventMass_summable"
+    },
+    {
+      "id": "GF-189",
+      "name": "residualCameraMass_nonneg",
+      "qualified": "GreenFrame.Concrete.residualCameraMass_nonneg"
+    },
+    {
+      "id": "GF-190",
+      "name": "residualCameraMass_one",
+      "qualified": "GreenFrame.Concrete.residualCameraMass_one"
+    },
+    {
+      "id": "GF-191",
+      "name": "residualCameraMass_half_le",
+      "qualified": "GreenFrame.Concrete.residualCameraMass_half_le"
+    },
+    {
+      "id": "GF-192",
+      "name": "residualCameraMass_le_one",
+      "qualified": "GreenFrame.Concrete.residualCameraMass_le_one"
+    },
+    {
+      "id": "GF-193",
+      "name": "residualAmplitude_nonneg",
+      "qualified": "GreenFrame.Concrete.residualAmplitude_nonneg"
+    },
+    {
+      "id": "GF-194",
+      "name": "residualAmplitude_sq",
+      "qualified": "GreenFrame.Concrete.residualAmplitude_sq"
+    },
+    {
+      "id": "GF-195",
+      "name": "residualCoordinate_zero",
+      "qualified": "GreenFrame.Concrete.residualCoordinate_zero"
+    },
+    {
+      "id": "GF-196",
+      "name": "residualCoordinate_add",
+      "qualified": "GreenFrame.Concrete.residualCoordinate_add"
+    },
+    {
+      "id": "GF-197",
+      "name": "residualCoordinate_smul",
+      "qualified": "GreenFrame.Concrete.residualCoordinate_smul"
+    },
+    {
+      "id": "GF-198",
+      "name": "residualCoordinate_normSq_eq",
+      "qualified": "GreenFrame.Concrete.residualCoordinate_normSq_eq"
     }
   ]
 }
