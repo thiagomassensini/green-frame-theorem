@@ -13,7 +13,7 @@ open scoped ENNReal lp
 namespace GreenFrame.Concrete
 
 /-- The complex state space on the positive integers. -/
-abbrev State := ℓ²(PositiveIndex, ℂ)
+noncomputable abbrev State := ℓ²(PNat, ℂ)
 
 /-- The carry-normalizing ratio `b⁻¹⁄²`, written in a form convenient
 for exact square-root algebra. -/
@@ -53,6 +53,11 @@ divisible by the same base. -/
 def HasGrandparent (e : GreenEvent) : Prop :=
   (basePNat e.1 : ℕ) ∣ (e.2 : ℕ)
 
+instance hasGrandparentDecidable (e : GreenEvent) :
+    Decidable (HasGrandparent e) := by
+  unfold HasGrandparent
+  infer_instance
+
 /-- The parent-divisibility test is exactly the global indicator `b² ∣ n`
 at the current event number. -/
 theorem hasGrandparent_iff_base_sq_dvd_event (e : GreenEvent) :
@@ -62,7 +67,7 @@ theorem hasGrandparent_iff_base_sq_dvd_event (e : GreenEvent) :
     (mul_dvd_mul_iff_left hb).symm
 
 /-- The exact positive quotient used for the second ancestor. -/
-def grandparentIndex (e : GreenEvent) : PositiveIndex :=
+def grandparentIndex (e : GreenEvent) : PNat :=
   PNat.divExact e.2 (basePNat e.1)
 
 /-- On a depth-at-least-two event, multiplying the grandparent by the base
@@ -105,7 +110,7 @@ theorem verticalGreenStencil_add (e : GreenEvent) (f g : State) :
   by_cases h : HasGrandparent e <;>
     simp [verticalGreenStencil, currentTerm, parentTerm, grandparentTerm, h,
       mul_add] <;>
-    ring
+    ring_nf
 
 /-- The vertical stencil is complex homogeneous. -/
 theorem verticalGreenStencil_smul (e : GreenEvent) (c : ℂ) (f : State) :
@@ -113,7 +118,7 @@ theorem verticalGreenStencil_smul (e : GreenEvent) (c : ℂ) (f : State) :
   by_cases h : HasGrandparent e <;>
     simp [verticalGreenStencil, currentTerm, parentTerm, grandparentTerm, h,
       smul_eq_mul, mul_add] <;>
-    ring
+    ring_nf
 
 /-- The pointwise vertical stencil packaged as a complex linear map. -/
 noncomputable def verticalGreenStencilLinearMap (e : GreenEvent) :
@@ -220,7 +225,7 @@ theorem complex_sum_three_normSq_le (x y z : ℂ) :
   have hnorm : ‖x + y + z‖ ≤ ‖x‖ + ‖y‖ + ‖z‖ := by
     calc
       ‖x + y + z‖ ≤ ‖x + y‖ + ‖z‖ := norm_add_le _ _
-      _ ≤ (‖x‖ + ‖y‖) + ‖z‖ := add_le_add_right (norm_add_le _ _) _
+      _ ≤ (‖x‖ + ‖y‖) + ‖z‖ := add_le_add (norm_add_le _ _) le_rfl
       _ = ‖x‖ + ‖y‖ + ‖z‖ := rfl
   have hsquare :
       ‖x + y + z‖ ^ 2 ≤ (‖x‖ + ‖y‖ + ‖z‖) ^ 2 := by
@@ -250,7 +255,7 @@ theorem grandparentTerm_normSq (e : GreenEvent) (f : State) :
         0 := by
   by_cases h : HasGrandparent e
   · simp [grandparentTerm, h, Complex.normSq_mul, Complex.normSq_ofReal]
-    ring
+    ring_nf
   · simp [grandparentTerm, h]
 
 /-- The unweighted stencil satisfies the pointwise three-term norm-square
