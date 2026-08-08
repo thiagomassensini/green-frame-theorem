@@ -154,8 +154,7 @@ theorem greenAnalysis_norm_sq_eq_depthOneSector_add_bulkSector
   rw [greenAnalysis_norm_sq_eq, greenDepthOneSectorAnalysis_norm_sq_eq,
     greenBulkSectorAnalysis_norm_sq_eq]
   have hsplit :=
-    (greenCoordinate_normSq_summable omega f).
-      tsum_subtype_add_tsum_subtype_compl
+    (greenCoordinate_normSq_summable omega f).tsum_subtype_add_tsum_subtype_compl
         {e : GreenEvent | HasGrandparent e}
   simpa only [Set.mem_setOf_eq, add_comm] using hsplit.symm
 
