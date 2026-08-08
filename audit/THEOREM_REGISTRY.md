@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **259** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **268** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -263,3 +263,12 @@ The registry contains exactly **259** named Lean theorems reachable from `GreenF
 | `GF-257` | `GreenFrame.Concrete.greenBulkSectorAnalysis_norm_sq_eq` | `GreenFrame/Concrete/Analysis/GreenDepthSectorEnergy.lean` |
 | `GF-258` | `GreenFrame.Concrete.greenAnalysis_norm_sq_eq_depthOneSector_add_bulkSector` | `GreenFrame/Concrete/Analysis/GreenDepthSectorEnergy.lean` |
 | `GF-259` | `GreenFrame.Concrete.greenDepthOneSectorAnalysis_norm_sq_le` | `GreenFrame/Concrete/Analysis/GreenDepthSectorEnergy.lean` |
+| `GF-260` | `GreenFrame.Concrete.greenBulkSectorAnalysis_norm_sq_le` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
+| `GF-261` | `GreenFrame.Concrete.greenDepthOneSectorAnalysis_add` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
+| `GF-262` | `GreenFrame.Concrete.greenDepthOneSectorAnalysis_smul` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
+| `GF-263` | `GreenFrame.Concrete.greenBulkSectorAnalysis_add` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
+| `GF-264` | `GreenFrame.Concrete.greenBulkSectorAnalysis_smul` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
+| `GF-265` | `GreenFrame.Concrete.greenDepthOneSectorAnalysis_norm_le` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
+| `GF-266` | `GreenFrame.Concrete.greenBulkSectorAnalysis_norm_le` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
+| `GF-267` | `GreenFrame.Concrete.greenDepthOneSectorAnalysisOperator_apply` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
+| `GF-268` | `GreenFrame.Concrete.greenBulkSectorAnalysisOperator_apply` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |

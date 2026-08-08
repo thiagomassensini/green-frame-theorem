@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 259,
+  "count": 268,
   "theorems": [
     {
       "id": "GF-001",
@@ -1296,6 +1296,51 @@
       "id": "GF-259",
       "name": "greenDepthOneSectorAnalysis_norm_sq_le",
       "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysis_norm_sq_le"
+    },
+    {
+      "id": "GF-260",
+      "name": "greenBulkSectorAnalysis_norm_sq_le",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysis_norm_sq_le"
+    },
+    {
+      "id": "GF-261",
+      "name": "greenDepthOneSectorAnalysis_add",
+      "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysis_add"
+    },
+    {
+      "id": "GF-262",
+      "name": "greenDepthOneSectorAnalysis_smul",
+      "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysis_smul"
+    },
+    {
+      "id": "GF-263",
+      "name": "greenBulkSectorAnalysis_add",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysis_add"
+    },
+    {
+      "id": "GF-264",
+      "name": "greenBulkSectorAnalysis_smul",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysis_smul"
+    },
+    {
+      "id": "GF-265",
+      "name": "greenDepthOneSectorAnalysis_norm_le",
+      "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysis_norm_le"
+    },
+    {
+      "id": "GF-266",
+      "name": "greenBulkSectorAnalysis_norm_le",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysis_norm_le"
+    },
+    {
+      "id": "GF-267",
+      "name": "greenDepthOneSectorAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-268",
+      "name": "greenBulkSectorAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysisOperator_apply"
     }
   ]
 }
