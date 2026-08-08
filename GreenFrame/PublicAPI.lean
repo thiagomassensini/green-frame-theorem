@@ -11,12 +11,12 @@ import GreenFrame.Analysis.GraphRange
 import GreenFrame.Analysis.NontrivialBulk
 import GreenFrame.Finite.Sections
 import GreenFrame.Finite.StrongLimit
+import GreenFrame.Concrete.Arithmetic.PositionalDepth
 
 /-!
 # Public API — All-Bases Green Frame Theorem
 
-The public root exports the arithmetic partition, Pythagorean Green-return
-split, finite Green Bessel estimate, frame ledger, Parseval interface, exact
-Poisson completion, graph theorem, nontrivial-bulk criterion, and uniform
-finite-section/strong-limit transport.
+The public root currently exports the historical abstract layer and the new
+remote-first concrete reconstruction. Concrete modules are added only after
+their exact GitHub Actions SHA passes the pinned Lean audit.
 -/
