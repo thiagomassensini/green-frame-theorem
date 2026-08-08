@@ -1,6 +1,6 @@
 import GreenFrame.Concrete.Finite.ConcreteStrongAnalysisLimit
 import GreenFrame.Concrete.Analysis.CanonicalParseval
-import Mathlib.Analysis.CStarAlgebra.ContinuousLinearMap
+import GreenFrame.Concrete.Analysis.OperatorInverseSqrt
 /-!
 # Conditional strong limit of the normalized finite analyses
 
@@ -33,7 +33,7 @@ finite frame operator. -/
 noncomputable def extendedFiniteInverseSqrt
     (omega : AdmissibleInfinitePartition) (N : ℕ) :
     State →L[ℂ] State :=
-  CFC.rpow (extendedFiniteFrameOperator omega N) (-(1 / 2 : ℝ))
+  operatorInverseSqrt (extendedFiniteFrameOperator omega N)
 
 /-- Embedded normalized finite analysis `S_N R_N` in the fixed coefficient
 space. -/
