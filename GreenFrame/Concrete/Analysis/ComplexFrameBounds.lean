@@ -43,11 +43,13 @@ def rawExternal (T : H →L[ℂ] HilbertSum E B) : H →L[ℂ] E :=
 def rawBulk (T : H →L[ℂ] HilbertSum E B) : H →L[ℂ] B :=
   (WithLp.sndL 2 ℂ E B).comp T
 
+omit [CompleteSpace H] [CompleteSpace E] [CompleteSpace B] in
 @[simp]
 theorem rawExternal_apply (T : H →L[ℂ] HilbertSum E B) (x : H) :
     rawExternal T x = (T x).fst :=
   rfl
 
+omit [CompleteSpace H] [CompleteSpace E] [CompleteSpace B] in
 @[simp]
 theorem rawBulk_apply (T : H →L[ℂ] HilbertSum E B) (x : H) :
     rawBulk T x = (T x).snd :=
