@@ -151,3 +151,6 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.currentCameraMajorant_summable
 #print axioms GreenFrame.Concrete.currentCameraMajorant_tsum_le
 #print axioms GreenFrame.Concrete.currentCameraMajorant_prod_summable
+#print axioms GreenFrame.Concrete.currentGreenMajorant_nonneg
+#print axioms GreenFrame.Concrete.currentGreenMajorant_summable
+#print axioms GreenFrame.Concrete.currentGreenMajorant_tsum_le

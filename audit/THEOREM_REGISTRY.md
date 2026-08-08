@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **149** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **152** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -153,3 +153,6 @@ The registry contains exactly **149** named Lean theorems reachable from `GreenF
 | `GF-147` | `GreenFrame.Concrete.currentCameraMajorant_summable` | `GreenFrame/Concrete/Analysis/GreenCurrentCameraBound.lean` |
 | `GF-148` | `GreenFrame.Concrete.currentCameraMajorant_tsum_le` | `GreenFrame/Concrete/Analysis/GreenCurrentCameraBound.lean` |
 | `GF-149` | `GreenFrame.Concrete.currentCameraMajorant_prod_summable` | `GreenFrame/Concrete/Analysis/GreenCurrentCameraBound.lean` |
+| `GF-150` | `GreenFrame.Concrete.currentGreenMajorant_nonneg` | `GreenFrame/Concrete/Analysis/GreenCurrentBound.lean` |
+| `GF-151` | `GreenFrame.Concrete.currentGreenMajorant_summable` | `GreenFrame/Concrete/Analysis/GreenCurrentBound.lean` |
+| `GF-152` | `GreenFrame.Concrete.currentGreenMajorant_tsum_le` | `GreenFrame/Concrete/Analysis/GreenCurrentBound.lean` |
