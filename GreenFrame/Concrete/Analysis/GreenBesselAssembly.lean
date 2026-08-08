@@ -50,7 +50,6 @@ theorem greenCoordinate_tsum_normSq_le
           (grandparentGreenMajorant_summable omega f),
         (currentGreenMajorant_summable omega f).tsum_add
           (parentGreenMajorant_summable omega f)]
-      rfl
     _ ≤ ((3 : ℝ) / 2 * ‖f‖ ^ 2) +
           (12 * S₂ * ‖f‖ ^ 2) +
           (3 * S₃ * ‖f‖ ^ 2) := by
