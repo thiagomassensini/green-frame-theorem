@@ -99,3 +99,6 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.carryCameraWeightByCode_support_dvd
 #print axioms GreenFrame.Concrete.carryCameraWeightByCode_finite_sum_eq_one
 #print axioms GreenFrame.Concrete.canonicalCarryInfinitePartition_weight
+#print axioms GreenFrame.Concrete.baseNat_pos
+#print axioms GreenFrame.Concrete.basePNat_coe
+#print axioms GreenFrame.Concrete.baseReal_def

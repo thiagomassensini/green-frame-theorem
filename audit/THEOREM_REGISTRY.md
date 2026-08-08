@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **97** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **100** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -101,3 +101,6 @@ The registry contains exactly **97** named Lean theorems reachable from `GreenFr
 | `GF-095` | `GreenFrame.Concrete.carryCameraWeightByCode_support_dvd` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
 | `GF-096` | `GreenFrame.Concrete.carryCameraWeightByCode_finite_sum_eq_one` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
 | `GF-097` | `GreenFrame.Concrete.canonicalCarryInfinitePartition_weight` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-098` | `GreenFrame.Concrete.baseNat_pos` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-099` | `GreenFrame.Concrete.basePNat_coe` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-100` | `GreenFrame.Concrete.baseReal_def` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |

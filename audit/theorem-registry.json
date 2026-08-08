@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 97,
+  "count": 100,
   "theorems": [
     {
       "id": "GF-001",
@@ -486,6 +486,21 @@
       "id": "GF-097",
       "name": "canonicalCarryInfinitePartition_weight",
       "qualified": "GreenFrame.Concrete.canonicalCarryInfinitePartition_weight"
+    },
+    {
+      "id": "GF-098",
+      "name": "baseNat_pos",
+      "qualified": "GreenFrame.Concrete.baseNat_pos"
+    },
+    {
+      "id": "GF-099",
+      "name": "basePNat_coe",
+      "qualified": "GreenFrame.Concrete.basePNat_coe"
+    },
+    {
+      "id": "GF-100",
+      "name": "baseReal_def",
+      "qualified": "GreenFrame.Concrete.baseReal_def"
     }
   ]
 }
