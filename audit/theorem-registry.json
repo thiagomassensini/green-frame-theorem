@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 493,
+  "count": 494,
   "theorems": [
     {
       "id": "GF-001",
@@ -2466,6 +2466,11 @@
       "id": "GF-493",
       "name": "concreteEmbeddedFiniteAnalysis_tendsto",
       "qualified": "GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_tendsto"
+    },
+    {
+      "id": "GF-494",
+      "name": "concreteEmbeddedCanonicalAnalysis_tendsto_of_extendedInverseSqrt_tendsto",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedCanonicalAnalysis_tendsto_of_extendedInverseSqrt_tendsto"
     }
   ]
 }

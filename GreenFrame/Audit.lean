@@ -521,3 +521,4 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.concreteCoefficientCutoff_tendsto
 #print axioms GreenFrame.Concrete.embeddedAnalysisSection_tendsto
 #print axioms GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_tendsto
+#print axioms GreenFrame.Concrete.concreteEmbeddedCanonicalAnalysis_tendsto_of_extendedInverseSqrt_tendsto

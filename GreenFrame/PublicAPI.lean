@@ -67,6 +67,7 @@ import GreenFrame.Concrete.Analysis.HorizontalResolution
 import GreenFrame.Concrete.Analysis.NormalizedTowerTFVD
 
 import GreenFrame.Concrete.Finite.FiniteSections
+import GreenFrame.Concrete.Finite.ConditionalParsevalLimit
 
 /-!
 # Public API — All-Bases Green Frame Theorem

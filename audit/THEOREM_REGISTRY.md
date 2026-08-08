@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **493** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **494** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -497,3 +497,4 @@ The registry contains exactly **493** named Lean theorems reachable from `GreenF
 | `GF-491` | `GreenFrame.Concrete.concreteCoefficientCutoff_tendsto` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffLimits.lean:79` |
 | `GF-492` | `GreenFrame.Concrete.embeddedAnalysisSection_tendsto` | `GreenFrame/Concrete/Finite/StrongAnalysisLimit.lean:20` |
 | `GF-493` | `GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_tendsto` | `GreenFrame/Concrete/Finite/ConcreteStrongAnalysisLimit.lean:21` |
+| `GF-494` | `GreenFrame.Concrete.concreteEmbeddedCanonicalAnalysis_tendsto_of_extendedInverseSqrt_tendsto` | `GreenFrame/Concrete/Finite/ConditionalParsevalLimit.lean:50` |
