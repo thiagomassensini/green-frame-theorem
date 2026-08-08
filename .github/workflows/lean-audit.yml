@@ -1,0 +1,72 @@
+name: Lean kernel and repository audit
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - audit/v1.0.0-publication-gate
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  AUDITED_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+
+concurrency:
+  group: green-frame-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Lean kernel and trust audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - name: Check out audited head
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ env.AUDITED_SHA }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Verify audited revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          actual_sha="$(git rev-parse HEAD)"
+          test "$actual_sha" = "$AUDITED_SHA"
+          test -z "$(git status --porcelain --untracked-files=no)"
+          mkdir -p audit/evidence
+          printf '%s\n' "$actual_sha" > audit/evidence/audited-sha.txt
+          git rev-parse 'HEAD^{tree}' > audit/evidence/audited-tree.txt
+
+      - name: Set up pinned Lean and Mathlib cache
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
+        with:
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: true
+
+      - name: Run complete reconstruction audit
+        shell: bash
+        run: bash scripts/run_audits.sh
+
+      - name: Upload audit evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: green-frame-audit-${{ env.AUDITED_SHA }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            audit/evidence/
+            audit/axioms.txt
+            audit/theorem-registry.json
+            audit/CLAIM_LEDGER.md
+            audit/SOURCE_PROVENANCE.md
+            docs/90_PAPER_SPECIFICATION.md
+            lake-manifest.json
+          if-no-files-found: error
+          retention-days: 90
