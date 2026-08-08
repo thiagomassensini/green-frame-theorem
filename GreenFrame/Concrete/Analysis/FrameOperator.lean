@@ -26,7 +26,7 @@ def frameOperator (T : H →L[ℂ] K) : H →L[ℂ] H :=
 /-- Quadratic form of the frame operator. -/
 theorem frameOperator_inner (T : H →L[ℂ] K) (x : H) :
     ⟪frameOperator T x, x⟫_ℂ = ⟪T x, T x⟫_ℂ := by
-  change ⟪T† (T x), x⟫_ℂ = ⟪T x, T x⟫_ℂ
+  change ⟪(T†) (T x), x⟫_ℂ = ⟪T x, T x⟫_ℂ
   exact T.adjoint_inner_left x (T x)
 
 /-- Real quadratic form is exactly the analysis energy. -/
