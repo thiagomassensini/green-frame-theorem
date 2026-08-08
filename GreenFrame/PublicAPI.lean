@@ -15,6 +15,7 @@ import GreenFrame.Concrete.Arithmetic.PositionalDepth
 import GreenFrame.Concrete.Analysis.InfinitePartition
 import GreenFrame.Concrete.Analysis.GreenStencilComplex
 import GreenFrame.Concrete.Analysis.GreenReindexing
+import GreenFrame.Concrete.Analysis.GreenBesselConstants
 
 /-!
 # Public API — All-Bases Green Frame Theorem

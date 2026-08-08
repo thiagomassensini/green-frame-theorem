@@ -135,3 +135,10 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.baseMultipleEquiv_apply_val
 #print axioms GreenFrame.Concrete.divisiblePullback_summable
 #print axioms GreenFrame.Concrete.tsum_divisiblePullback
+#print axioms GreenFrame.Concrete.greenBesselConstant_eq
+#print axioms GreenFrame.Concrete.inverseBasePower_summable
+#print axioms GreenFrame.Concrete.inverseBaseSquare_summable
+#print axioms GreenFrame.Concrete.inverseBaseCube_summable
+#print axioms GreenFrame.Concrete.S2_nonneg
+#print axioms GreenFrame.Concrete.S3_nonneg
+#print axioms GreenFrame.Concrete.greenBesselConstant_nonneg

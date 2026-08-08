@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **133** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **140** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -137,3 +137,10 @@ The registry contains exactly **133** named Lean theorems reachable from `GreenF
 | `GF-131` | `GreenFrame.Concrete.baseMultipleEquiv_apply_val` | `GreenFrame/Concrete/Analysis/GreenReindexing.lean` |
 | `GF-132` | `GreenFrame.Concrete.divisiblePullback_summable` | `GreenFrame/Concrete/Analysis/GreenReindexing.lean` |
 | `GF-133` | `GreenFrame.Concrete.tsum_divisiblePullback` | `GreenFrame/Concrete/Analysis/GreenReindexing.lean` |
+| `GF-134` | `GreenFrame.Concrete.greenBesselConstant_eq` | `GreenFrame/Concrete/Analysis/GreenBesselConstants.lean` |
+| `GF-135` | `GreenFrame.Concrete.inverseBasePower_summable` | `GreenFrame/Concrete/Analysis/GreenBesselConstants.lean` |
+| `GF-136` | `GreenFrame.Concrete.inverseBaseSquare_summable` | `GreenFrame/Concrete/Analysis/GreenBesselConstants.lean` |
+| `GF-137` | `GreenFrame.Concrete.inverseBaseCube_summable` | `GreenFrame/Concrete/Analysis/GreenBesselConstants.lean` |
+| `GF-138` | `GreenFrame.Concrete.S2_nonneg` | `GreenFrame/Concrete/Analysis/GreenBesselConstants.lean` |
+| `GF-139` | `GreenFrame.Concrete.S3_nonneg` | `GreenFrame/Concrete/Analysis/GreenBesselConstants.lean` |
+| `GF-140` | `GreenFrame.Concrete.greenBesselConstant_nonneg` | `GreenFrame/Concrete/Analysis/GreenBesselConstants.lean` |

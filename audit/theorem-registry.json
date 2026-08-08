@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 133,
+  "count": 140,
   "theorems": [
     {
       "id": "GF-001",
@@ -666,6 +666,41 @@
       "id": "GF-133",
       "name": "tsum_divisiblePullback",
       "qualified": "GreenFrame.Concrete.tsum_divisiblePullback"
+    },
+    {
+      "id": "GF-134",
+      "name": "greenBesselConstant_eq",
+      "qualified": "GreenFrame.Concrete.greenBesselConstant_eq"
+    },
+    {
+      "id": "GF-135",
+      "name": "inverseBasePower_summable",
+      "qualified": "GreenFrame.Concrete.inverseBasePower_summable"
+    },
+    {
+      "id": "GF-136",
+      "name": "inverseBaseSquare_summable",
+      "qualified": "GreenFrame.Concrete.inverseBaseSquare_summable"
+    },
+    {
+      "id": "GF-137",
+      "name": "inverseBaseCube_summable",
+      "qualified": "GreenFrame.Concrete.inverseBaseCube_summable"
+    },
+    {
+      "id": "GF-138",
+      "name": "S2_nonneg",
+      "qualified": "GreenFrame.Concrete.S2_nonneg"
+    },
+    {
+      "id": "GF-139",
+      "name": "S3_nonneg",
+      "qualified": "GreenFrame.Concrete.S3_nonneg"
+    },
+    {
+      "id": "GF-140",
+      "name": "greenBesselConstant_nonneg",
+      "qualified": "GreenFrame.Concrete.greenBesselConstant_nonneg"
     }
   ]
 }
