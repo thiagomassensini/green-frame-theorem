@@ -40,7 +40,9 @@ def eventDivisibilityEquiv : GreenEvent ≃ DivisibilityPair where
   invFun q := (q.1.2, PNat.divExact q.1.1 (basePNat q.1.2))
   left_inv e := by
     change (e.1, PNat.divExact (eventNumber e) (basePNat e.1)) = e
-    exact Prod.ext rfl (divExact_eventNumber e)
+    apply Prod.ext
+    · rfl
+    · exact divExact_eventNumber e
   right_inv q := by
     apply Subtype.ext
     apply Prod.ext
@@ -69,11 +71,12 @@ theorem tsum_greenEvent_reindex
         (eventDivisibilityEquiv.tsum_eq
           (fun q : DivisibilityPair => a q.1.1 q.1.2))
     _ = ∑' p : PNat × ℕ, a p.1 p.2 := by
-      apply tsum_subtype_eq_of_support_subset
+      exact tsum_subtype_eq_of_support_subset
         (f := fun p : PNat × ℕ => a p.1 p.2)
         (s := {p : PNat × ℕ | basePNat p.2 ∣ p.1})
-      intro p hp
-      exact ha p.1 p.2 hp
+        (by
+          intro p hp
+          exact ha p.1 p.2 hp)
 
 /-- Positive multiples of one coded base. -/
 abbrev BaseMultiple (r : ℕ) :=
@@ -105,8 +108,9 @@ theorem baseMultipleEquiv_apply_val (r : ℕ) (m : PNat) :
   rfl
 
 /-- A function pulled back by exact division and extended by zero off the multiples. -/
-noncomputable def divisiblePullback (r : ℕ) (a : PNat → ℝ) (m : PNat) : ℝ :=
-  if basePNat r ∣ m then
+noncomputable def divisiblePullback (r : ℕ) (a : PNat → ℝ) (m : PNat) : ℝ := by
+  classical
+  exact if basePNat r ∣ m then
     a (PNat.divExact m (basePNat r))
   else
     0
@@ -116,20 +120,20 @@ theorem divisiblePullback_summable (r : ℕ) {a : PNat → ℝ}
     (ha : Summable a) :
     Summable (divisiblePullback r a) := by
   classical
+  let f0 : PNat → ℝ := fun m => a (PNat.divExact m (basePNat r))
   have hsub : Summable
-      (fun m : BaseMultiple r => a (PNat.divExact m.1 (basePNat r))) := by
+      (fun m : BaseMultiple r => f0 m.1) := by
     rw [← (baseMultipleEquiv r).summable_iff]
-    simpa only [Function.comp_apply, baseMultipleEquiv_apply_val,
+    simpa only [Function.comp_apply, f0, baseMultipleEquiv_apply_val,
       divExact_base_mul] using ha
   have hind : Summable
-      ({m : PNat | basePNat r ∣ m}.indicator
-        (fun m : PNat => a (PNat.divExact m (basePNat r)))) := by
-    exact (summable_subtype_iff_indicator
-      (s := {m : PNat | basePNat r ∣ m})
-      (f := fun m : PNat => a (PNat.divExact m (basePNat r)))).mp hsub
+      (Set.indicator {m : PNat | basePNat r ∣ m} f0) := by
+    apply (summable_subtype_iff_indicator
+      (f := f0) (s := {m : PNat | basePNat r ∣ m})).mp
+    simpa only [Function.comp_apply] using hsub
   exact hind.congr fun m => by
     by_cases hm : basePNat r ∣ m <;>
-      simp [divisiblePullback, Set.indicator, hm]
+      simp [Set.indicator, divisiblePullback, f0, hm]
 
 /-- Pullback by exact division preserves the value of the infinite sum. -/
 theorem tsum_divisiblePullback (r : ℕ) (a : PNat → ℝ) :
@@ -139,19 +143,20 @@ theorem tsum_divisiblePullback (r : ℕ) (a : PNat → ℝ) :
     (∑' m : PNat, divisiblePullback r a m) =
         ∑' m : BaseMultiple r, divisiblePullback r a m.1 := by
       symm
-      apply tsum_subtype_eq_of_support_subset
+      exact tsum_subtype_eq_of_support_subset
         (f := divisiblePullback r a)
         (s := {m : PNat | basePNat r ∣ m})
-      intro m hm
-      by_contra hdiv
-      apply hm
-      simp [divisiblePullback, hdiv]
+        (by
+          intro m hm
+          by_contra hdiv
+          apply hm
+          simp [divisiblePullback, hdiv])
     _ =
         ∑' m : BaseMultiple r,
           a (PNat.divExact m.1 (basePNat r)) := by
       apply tsum_congr
       intro m
-      rw [divisiblePullback, if_pos m.property]
+      simp [divisiblePullback, m.property]
     _ = ∑' k : PNat, a k := by
       symm
       simpa only [Function.comp_apply, baseMultipleEquiv_apply_val,
