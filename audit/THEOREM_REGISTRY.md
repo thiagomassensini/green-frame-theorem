@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **290** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **298** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -294,3 +294,11 @@ The registry contains exactly **290** named Lean theorems reachable from `GreenF
 | `GF-288` | `GreenFrame.Concrete.frameOperator_isUnit` | `GreenFrame/Concrete/Analysis/FrameOperator.lean` |
 | `GF-289` | `GreenFrame.Concrete.frameOperator_bijective` | `GreenFrame/Concrete/Analysis/FrameOperator.lean` |
 | `GF-290` | `GreenFrame.Concrete.frameOperator_strictlyPositive` | `GreenFrame/Concrete/Analysis/FrameOperator.lean` |
+| `GF-291` | `GreenFrame.Concrete.inverseSqrtFrame_nonneg` | `GreenFrame/Concrete/Analysis/CanonicalParseval.lean:25` |
+| `GF-292` | `GreenFrame.Concrete.inverseSqrtFrame_isSelfAdjoint` | `GreenFrame/Concrete/Analysis/CanonicalParseval.lean:30` |
+| `GF-293` | `GreenFrame.Concrete.inverseSqrtFrame_adjoint` | `GreenFrame/Concrete/Analysis/CanonicalParseval.lean:35` |
+| `GF-294` | `GreenFrame.Concrete.inverseSqrt_frameOperator_inverseSqrt` | `GreenFrame/Concrete/Analysis/CanonicalParseval.lean:40` |
+| `GF-295` | `GreenFrame.Concrete.canonicalAnalysis_adjoint_comp_self` | `GreenFrame/Concrete/Analysis/CanonicalParseval.lean:52` |
+| `GF-296` | `GreenFrame.Concrete.canonicalAnalysis_isometry` | `GreenFrame/Concrete/Analysis/CanonicalParseval.lean:67` |
+| `GF-297` | `GreenFrame.Concrete.canonicalParseval_apply` | `GreenFrame/Concrete/Analysis/CanonicalParseval.lean:79` |
+| `GF-298` | `GreenFrame.Concrete.canonicalParseval_norm` | `GreenFrame/Concrete/Analysis/CanonicalParseval.lean:84` |

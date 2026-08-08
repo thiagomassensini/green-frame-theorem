@@ -301,3 +301,12 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.frameOperator_isUnit
 #print axioms GreenFrame.Concrete.frameOperator_bijective
 #print axioms GreenFrame.Concrete.frameOperator_strictlyPositive
+
+#print axioms GreenFrame.Concrete.inverseSqrtFrame_nonneg
+#print axioms GreenFrame.Concrete.inverseSqrtFrame_isSelfAdjoint
+#print axioms GreenFrame.Concrete.inverseSqrtFrame_adjoint
+#print axioms GreenFrame.Concrete.inverseSqrt_frameOperator_inverseSqrt
+#print axioms GreenFrame.Concrete.canonicalAnalysis_adjoint_comp_self
+#print axioms GreenFrame.Concrete.canonicalAnalysis_isometry
+#print axioms GreenFrame.Concrete.canonicalParseval_apply
+#print axioms GreenFrame.Concrete.canonicalParseval_norm

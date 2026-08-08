@@ -1451,6 +1451,46 @@
       "id": "GF-290",
       "name": "frameOperator_strictlyPositive",
       "qualified": "GreenFrame.Concrete.frameOperator_strictlyPositive"
+    },
+    {
+      "id": "GF-291",
+      "name": "inverseSqrtFrame_nonneg",
+      "qualified": "GreenFrame.Concrete.inverseSqrtFrame_nonneg"
+    },
+    {
+      "id": "GF-292",
+      "name": "inverseSqrtFrame_isSelfAdjoint",
+      "qualified": "GreenFrame.Concrete.inverseSqrtFrame_isSelfAdjoint"
+    },
+    {
+      "id": "GF-293",
+      "name": "inverseSqrtFrame_adjoint",
+      "qualified": "GreenFrame.Concrete.inverseSqrtFrame_adjoint"
+    },
+    {
+      "id": "GF-294",
+      "name": "inverseSqrt_frameOperator_inverseSqrt",
+      "qualified": "GreenFrame.Concrete.inverseSqrt_frameOperator_inverseSqrt"
+    },
+    {
+      "id": "GF-295",
+      "name": "canonicalAnalysis_adjoint_comp_self",
+      "qualified": "GreenFrame.Concrete.canonicalAnalysis_adjoint_comp_self"
+    },
+    {
+      "id": "GF-296",
+      "name": "canonicalAnalysis_isometry",
+      "qualified": "GreenFrame.Concrete.canonicalAnalysis_isometry"
+    },
+    {
+      "id": "GF-297",
+      "name": "canonicalParseval_apply",
+      "qualified": "GreenFrame.Concrete.canonicalParseval_apply"
+    },
+    {
+      "id": "GF-298",
+      "name": "canonicalParseval_norm",
+      "qualified": "GreenFrame.Concrete.canonicalParseval_norm"
     }
   ]
 }
