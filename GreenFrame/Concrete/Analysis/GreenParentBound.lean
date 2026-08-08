@@ -65,6 +65,7 @@ theorem parentGreenDominant_summable (f : State) :
         fun r => by ring
     apply (hcoeff.mul_right (‖f‖ ^ 2)).congr
     intro r
+    simp only [parentGreenDominant]
     rw [tsum_mul_left, stateEnergy_tsum_eq_norm_sq]
 
 /-- The first-ancestor majorant is summable. -/
@@ -92,9 +93,16 @@ theorem parentGreenMajorant_tsum_le
       simp_rw [parentGreenDominant, tsum_mul_left, stateEnergy_tsum_eq_norm_sq]
       calc
         (∑' r : ℕ, 12 / baseReal r ^ 2 * ‖f‖ ^ 2) =
-            (∑' r : ℕ, 12 * (1 / baseReal r ^ 2)) * ‖f‖ ^ 2 := by
+            (∑' r : ℕ, 12 / baseReal r ^ 2) * ‖f‖ ^ 2 := by
           rw [tsum_mul_right]
-        _ = (12 * S₂) * ‖f‖ ^ 2 := by rw [tsum_mul_left]
+        _ = (∑' r : ℕ, 12 * (1 / baseReal r ^ 2)) * ‖f‖ ^ 2 := by
+          congr 1
+          apply tsum_congr
+          intro r
+          ring
+        _ = (12 * S₂) * ‖f‖ ^ 2 := by
+          rw [tsum_mul_left]
+          rfl
         _ = 12 * S₂ * ‖f‖ ^ 2 := rfl
 
 end GreenFrame.Concrete
