@@ -354,7 +354,7 @@ theorem seedResidualAnalysis_add
     (omega : AdmissibleInfinitePartition) (f g : State) :
     seedResidualAnalysis omega (f + g) =
       seedResidualAnalysis omega f + seedResidualAnalysis omega g := by
-  simpa only [seedResidualAnalysis, Pi.add_apply,
+  simpa only [seedResidualAnalysis, lp.coeFn_add, Pi.add_apply,
     residualAnalysis_add] using
     (WithLp.toLp_add 2
       (f (1 : PNat), residualAnalysis omega f)
@@ -365,7 +365,7 @@ theorem seedResidualAnalysis_smul
     (omega : AdmissibleInfinitePartition) (c : ℂ) (f : State) :
     seedResidualAnalysis omega (c • f) =
       c • seedResidualAnalysis omega f := by
-  simpa only [seedResidualAnalysis, Pi.smul_apply,
+  simpa only [seedResidualAnalysis, lp.coeFn_smul, Pi.smul_apply,
     residualAnalysis_smul, smul_eq_mul] using
     (WithLp.toLp_smul 2 c
       (f (1 : PNat), residualAnalysis omega f))
