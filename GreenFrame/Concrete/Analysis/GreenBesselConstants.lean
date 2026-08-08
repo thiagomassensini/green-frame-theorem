@@ -35,7 +35,7 @@ theorem greenBesselConstant_eq :
 theorem inverseBasePower_summable {k : ℕ} (hk : 1 < k) :
     Summable (fun r : ℕ => 1 / baseReal r ^ k) := by
   have hfull : Summable (fun n : ℕ => 1 / (n : ℝ) ^ k) :=
-    summable_one_div_nat_pow.mpr hk
+    Real.summable_one_div_nat_pow.mpr hk
   have hshift := (summable_nat_add_iff 2).mpr hfull
   simpa only [baseReal, baseNat, Nat.cast_add, Nat.cast_ofNat] using hshift
 
