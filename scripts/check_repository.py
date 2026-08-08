@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static trust audit for the Green Frame Lean repository."""
+"""Static trust and public-registry audit for the Green Frame Lean repository."""
 from __future__ import annotations
 
 import json
@@ -41,7 +41,22 @@ def main() -> int:
                 fail(f"trailing whitespace in {path.relative_to(ROOT)}:{number}")
 
     registry = json.loads((ROOT / "audit/theorem-registry.json").read_text())
-    expected = {entry["name"] for entry in registry["theorems"]}
+    entries = registry["theorems"]
+    declared_count = registry.get("count")
+    if declared_count != len(entries):
+        fail(f"registry count field {declared_count} != {len(entries)} entries")
+    if len(entries) < 41:
+        fail(f"official reconstruction requires at least 41 registered theorems; found {len(entries)}")
+    ids = [entry["id"] for entry in entries]
+    names = [entry["name"] for entry in entries]
+    qualified = [entry["qualified"] for entry in entries]
+    if len(ids) != len(set(ids)):
+        fail("duplicate theorem registry IDs")
+    if len(names) != len(set(names)):
+        fail("duplicate theorem registry names")
+    if len(qualified) != len(set(qualified)):
+        fail("duplicate qualified theorem names")
+
     declarations: list[str] = []
     for path in LEAN_FILES:
         if path.name == "Audit.lean":
@@ -50,16 +65,25 @@ def main() -> int:
             re.findall(r"^theorem\s+([A-Za-z0-9_]+)", path.read_text(), re.MULTILINE)
         )
     actual = set(declarations)
-    if len(declarations) != 41:
-        fail(f"expected 41 theorem declarations, found {len(declarations)}")
+    expected = set(names)
+    if len(declarations) != len(entries):
+        fail(f"expected {len(entries)} theorem declarations, found {len(declarations)}")
     if actual != expected:
         fail(f"registry mismatch; missing={sorted(actual-expected)}, stale={sorted(expected-actual)}")
+
+    audit_text = (ROOT / "GreenFrame/Audit.lean").read_text()
+    audit_names = re.findall(r"^#print axioms\s+([A-Za-z0-9_.]+)", audit_text, re.MULTILINE)
+    if audit_names != qualified:
+        fail("Audit.lean #print axioms order/content differs from theorem registry")
 
     public_root = (ROOT / "GreenFrame.lean").read_text()
     if "import GreenFrame.PublicAPI" not in public_root:
         fail("GreenFrame.lean does not import GreenFrame.PublicAPI")
 
-    print(f"PASS: {len(LEAN_FILES)} project Lean files; 41 registered theorems; no placeholders or project axioms")
+    print(
+        f"PASS: {len(LEAN_FILES)} project Lean files; {len(entries)} registered theorems; "
+        "no placeholders or project axioms"
+    )
     return 0
 
 

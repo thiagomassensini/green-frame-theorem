@@ -1,47 +1,286 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 41,
+  "count": 56,
   "theorems": [
-    {"id":"GF-001","name":"admissible_weight_nonneg","qualified":"GreenFrame.AdmissibleCameraPartition.admissible_weight_nonneg"},
-    {"id":"GF-002","name":"admissible_weight_sum_eq_one","qualified":"GreenFrame.AdmissibleCameraPartition.admissible_weight_sum_eq_one"},
-    {"id":"GF-003","name":"admissible_weight_le_one","qualified":"GreenFrame.AdmissibleCameraPartition.admissible_weight_le_one"},
-    {"id":"GF-004","name":"mem_support_iff","qualified":"GreenFrame.AdmissibleCameraPartition.mem_support_iff"},
-    {"id":"GF-005","name":"admissible_weight_eq_zero_of_not_mem_support","qualified":"GreenFrame.AdmissibleCameraPartition.admissible_weight_eq_zero_of_not_mem_support"},
-    {"id":"GF-006","name":"activityNormalizer_nonneg","qualified":"GreenFrame.activityNormalizer_nonneg"},
-    {"id":"GF-007","name":"normalizedWeight_nonneg","qualified":"GreenFrame.normalizedWeight_nonneg"},
-    {"id":"GF-008","name":"normalizedWeight_eq_zero_of_not_mem","qualified":"GreenFrame.normalizedWeight_eq_zero_of_not_mem"},
-    {"id":"GF-009","name":"normalizedWeight_sum_eq_one","qualified":"GreenFrame.normalizedWeight_sum_eq_one"},
-    {"id":"GF-010","name":"normalizedWeight_le_one","qualified":"GreenFrame.normalizedWeight_le_one"},
-    {"id":"GF-011","name":"carryActivity_four_normalizer","qualified":"GreenFrame.carryActivity_four_normalizer"},
-    {"id":"GF-012","name":"carryWeight_two_four","qualified":"GreenFrame.carryWeight_two_four"},
-    {"id":"GF-013","name":"carryWeight_four_four","qualified":"GreenFrame.carryWeight_four_four"},
-    {"id":"GF-014","name":"greenMass_nonneg","qualified":"GreenFrame.greenMass_nonneg"},
-    {"id":"GF-015","name":"residualMass_nonneg","qualified":"GreenFrame.residualMass_nonneg"},
-    {"id":"GF-016","name":"green_residual_split","qualified":"GreenFrame.green_residual_split"},
-    {"id":"GF-017","name":"residualMass_ge_half_weight","qualified":"GreenFrame.residualMass_ge_half_weight"},
-    {"id":"GF-018","name":"greenMass_le_half_weight","qualified":"GreenFrame.greenMass_le_half_weight"},
-    {"id":"GF-019","name":"sum_three_sq_le","qualified":"GreenFrame.sum_three_sq_le"},
-    {"id":"GF-020","name":"greenStencil_sq_le","qualified":"GreenFrame.greenStencil_sq_le"},
-    {"id":"GF-021","name":"greenStencil_sq_nonneg","qualified":"GreenFrame.greenStencil_sq_nonneg"},
-    {"id":"GF-022","name":"greenAnalysis_norm_sq_le","qualified":"GreenFrame.greenAnalysis_norm_sq_le"},
-    {"id":"GF-023","name":"residual_seed_norm_sq_bounds","qualified":"GreenFrame.residual_seed_norm_sq_bounds"},
-    {"id":"GF-024","name":"fullEnergy_lower","qualified":"GreenFrame.fullEnergy_lower"},
-    {"id":"GF-025","name":"fullEnergy_upper","qualified":"GreenFrame.fullEnergy_upper"},
-    {"id":"GF-026","name":"allBasesGreenAnalysis_bounds","qualified":"GreenFrame.allBasesGreenAnalysis_bounds"},
-    {"id":"GF-027","name":"frameOperator_lower","qualified":"GreenFrame.frameOperator_lower"},
-    {"id":"GF-028","name":"frameOperator_upper","qualified":"GreenFrame.frameOperator_upper"},
-    {"id":"GF-029","name":"fullAnalysis_injective","qualified":"GreenFrame.fullAnalysis_injective"},
-    {"id":"GF-030","name":"normalizedAnalysis_isometry","qualified":"GreenFrame.normalizedAnalysis_isometry"},
-    {"id":"GF-031","name":"normalizedAnalysis_norm","qualified":"GreenFrame.normalizedAnalysis_norm"},
-    {"id":"GF-032","name":"external_leftInverse","qualified":"GreenFrame.PoissonData.external_leftInverse"},
-    {"id":"GF-033","name":"poisson_intertwining","qualified":"GreenFrame.PoissonData.poisson_intertwining"},
-    {"id":"GF-034","name":"poisson_apply_external","qualified":"GreenFrame.PoissonData.poisson_apply_external"},
-    {"id":"GF-035","name":"poisson_eq_zero_of_leftInverse_eq_zero","qualified":"GreenFrame.PoissonData.poisson_eq_zero_of_leftInverse_eq_zero"},
-    {"id":"GF-036","name":"coherentRange_subset_graph","qualified":"GreenFrame.PoissonData.coherentRange_subset_graph"},
-    {"id":"GF-037","name":"coherentRange_eq_graph","qualified":"GreenFrame.PoissonData.coherentRange_eq_graph"},
-    {"id":"GF-038","name":"rawBulk_nonzero","qualified":"GreenFrame.PoissonData.rawBulk_nonzero"},
-    {"id":"GF-039","name":"poisson_nonzero","qualified":"GreenFrame.PoissonData.poisson_nonzero"},
-    {"id":"GF-040","name":"uniform_section_bounds","qualified":"GreenFrame.uniform_section_bounds"},
-    {"id":"GF-041","name":"strong_limit_preserves_bounds","qualified":"GreenFrame.strong_limit_preserves_bounds"}
+    {
+      "id": "GF-001",
+      "name": "admissible_weight_nonneg",
+      "qualified": "GreenFrame.AdmissibleCameraPartition.admissible_weight_nonneg"
+    },
+    {
+      "id": "GF-002",
+      "name": "admissible_weight_sum_eq_one",
+      "qualified": "GreenFrame.AdmissibleCameraPartition.admissible_weight_sum_eq_one"
+    },
+    {
+      "id": "GF-003",
+      "name": "admissible_weight_le_one",
+      "qualified": "GreenFrame.AdmissibleCameraPartition.admissible_weight_le_one"
+    },
+    {
+      "id": "GF-004",
+      "name": "mem_support_iff",
+      "qualified": "GreenFrame.AdmissibleCameraPartition.mem_support_iff"
+    },
+    {
+      "id": "GF-005",
+      "name": "admissible_weight_eq_zero_of_not_mem_support",
+      "qualified": "GreenFrame.AdmissibleCameraPartition.admissible_weight_eq_zero_of_not_mem_support"
+    },
+    {
+      "id": "GF-006",
+      "name": "activityNormalizer_nonneg",
+      "qualified": "GreenFrame.activityNormalizer_nonneg"
+    },
+    {
+      "id": "GF-007",
+      "name": "normalizedWeight_nonneg",
+      "qualified": "GreenFrame.normalizedWeight_nonneg"
+    },
+    {
+      "id": "GF-008",
+      "name": "normalizedWeight_eq_zero_of_not_mem",
+      "qualified": "GreenFrame.normalizedWeight_eq_zero_of_not_mem"
+    },
+    {
+      "id": "GF-009",
+      "name": "normalizedWeight_sum_eq_one",
+      "qualified": "GreenFrame.normalizedWeight_sum_eq_one"
+    },
+    {
+      "id": "GF-010",
+      "name": "normalizedWeight_le_one",
+      "qualified": "GreenFrame.normalizedWeight_le_one"
+    },
+    {
+      "id": "GF-011",
+      "name": "carryActivity_four_normalizer",
+      "qualified": "GreenFrame.carryActivity_four_normalizer"
+    },
+    {
+      "id": "GF-012",
+      "name": "carryWeight_two_four",
+      "qualified": "GreenFrame.carryWeight_two_four"
+    },
+    {
+      "id": "GF-013",
+      "name": "carryWeight_four_four",
+      "qualified": "GreenFrame.carryWeight_four_four"
+    },
+    {
+      "id": "GF-014",
+      "name": "greenMass_nonneg",
+      "qualified": "GreenFrame.greenMass_nonneg"
+    },
+    {
+      "id": "GF-015",
+      "name": "residualMass_nonneg",
+      "qualified": "GreenFrame.residualMass_nonneg"
+    },
+    {
+      "id": "GF-016",
+      "name": "green_residual_split",
+      "qualified": "GreenFrame.green_residual_split"
+    },
+    {
+      "id": "GF-017",
+      "name": "residualMass_ge_half_weight",
+      "qualified": "GreenFrame.residualMass_ge_half_weight"
+    },
+    {
+      "id": "GF-018",
+      "name": "greenMass_le_half_weight",
+      "qualified": "GreenFrame.greenMass_le_half_weight"
+    },
+    {
+      "id": "GF-019",
+      "name": "sum_three_sq_le",
+      "qualified": "GreenFrame.sum_three_sq_le"
+    },
+    {
+      "id": "GF-020",
+      "name": "greenStencil_sq_le",
+      "qualified": "GreenFrame.greenStencil_sq_le"
+    },
+    {
+      "id": "GF-021",
+      "name": "greenStencil_sq_nonneg",
+      "qualified": "GreenFrame.greenStencil_sq_nonneg"
+    },
+    {
+      "id": "GF-022",
+      "name": "greenAnalysis_norm_sq_le",
+      "qualified": "GreenFrame.greenAnalysis_norm_sq_le"
+    },
+    {
+      "id": "GF-023",
+      "name": "residual_seed_norm_sq_bounds",
+      "qualified": "GreenFrame.residual_seed_norm_sq_bounds"
+    },
+    {
+      "id": "GF-024",
+      "name": "fullEnergy_lower",
+      "qualified": "GreenFrame.fullEnergy_lower"
+    },
+    {
+      "id": "GF-025",
+      "name": "fullEnergy_upper",
+      "qualified": "GreenFrame.fullEnergy_upper"
+    },
+    {
+      "id": "GF-026",
+      "name": "allBasesGreenAnalysis_bounds",
+      "qualified": "GreenFrame.allBasesGreenAnalysis_bounds"
+    },
+    {
+      "id": "GF-027",
+      "name": "frameOperator_lower",
+      "qualified": "GreenFrame.frameOperator_lower"
+    },
+    {
+      "id": "GF-028",
+      "name": "frameOperator_upper",
+      "qualified": "GreenFrame.frameOperator_upper"
+    },
+    {
+      "id": "GF-029",
+      "name": "fullAnalysis_injective",
+      "qualified": "GreenFrame.fullAnalysis_injective"
+    },
+    {
+      "id": "GF-030",
+      "name": "normalizedAnalysis_isometry",
+      "qualified": "GreenFrame.normalizedAnalysis_isometry"
+    },
+    {
+      "id": "GF-031",
+      "name": "normalizedAnalysis_norm",
+      "qualified": "GreenFrame.normalizedAnalysis_norm"
+    },
+    {
+      "id": "GF-032",
+      "name": "external_leftInverse",
+      "qualified": "GreenFrame.PoissonData.external_leftInverse"
+    },
+    {
+      "id": "GF-033",
+      "name": "poisson_intertwining",
+      "qualified": "GreenFrame.PoissonData.poisson_intertwining"
+    },
+    {
+      "id": "GF-034",
+      "name": "poisson_apply_external",
+      "qualified": "GreenFrame.PoissonData.poisson_apply_external"
+    },
+    {
+      "id": "GF-035",
+      "name": "poisson_eq_zero_of_leftInverse_eq_zero",
+      "qualified": "GreenFrame.PoissonData.poisson_eq_zero_of_leftInverse_eq_zero"
+    },
+    {
+      "id": "GF-036",
+      "name": "coherentRange_subset_graph",
+      "qualified": "GreenFrame.PoissonData.coherentRange_subset_graph"
+    },
+    {
+      "id": "GF-037",
+      "name": "coherentRange_eq_graph",
+      "qualified": "GreenFrame.PoissonData.coherentRange_eq_graph"
+    },
+    {
+      "id": "GF-038",
+      "name": "rawBulk_nonzero",
+      "qualified": "GreenFrame.PoissonData.rawBulk_nonzero"
+    },
+    {
+      "id": "GF-039",
+      "name": "poisson_nonzero",
+      "qualified": "GreenFrame.PoissonData.poisson_nonzero"
+    },
+    {
+      "id": "GF-040",
+      "name": "uniform_section_bounds",
+      "qualified": "GreenFrame.uniform_section_bounds"
+    },
+    {
+      "id": "GF-041",
+      "name": "strong_limit_preserves_bounds",
+      "qualified": "GreenFrame.strong_limit_preserves_bounds"
+    },
+    {
+      "id": "GF-042",
+      "name": "positionalDepth_pos_iff_dvd",
+      "qualified": "GreenFrame.Concrete.positionalDepth_pos_iff_dvd"
+    },
+    {
+      "id": "GF-043",
+      "name": "positionalDepth_eq_zero_of_not_dvd",
+      "qualified": "GreenFrame.Concrete.positionalDepth_eq_zero_of_not_dvd"
+    },
+    {
+      "id": "GF-044",
+      "name": "positionalDepth_pow_dvd",
+      "qualified": "GreenFrame.Concrete.positionalDepth_pow_dvd"
+    },
+    {
+      "id": "GF-045",
+      "name": "positionalDepth_succ_pow_not_dvd",
+      "qualified": "GreenFrame.Concrete.positionalDepth_succ_pow_not_dvd"
+    },
+    {
+      "id": "GF-046",
+      "name": "positionalDepth_self",
+      "qualified": "GreenFrame.Concrete.positionalDepth_self"
+    },
+    {
+      "id": "GF-047",
+      "name": "positionalDepth_one",
+      "qualified": "GreenFrame.Concrete.positionalDepth_one"
+    },
+    {
+      "id": "GF-048",
+      "name": "active_base_le_number",
+      "qualified": "GreenFrame.Concrete.active_base_le_number"
+    },
+    {
+      "id": "GF-049",
+      "name": "allBaseActivity_nonneg",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_nonneg"
+    },
+    {
+      "id": "GF-050",
+      "name": "allBaseActivity_eq_zero_of_not_dvd",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_eq_zero_of_not_dvd"
+    },
+    {
+      "id": "GF-051",
+      "name": "allBaseActivity_self",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_self"
+    },
+    {
+      "id": "GF-052",
+      "name": "allBaseNormalizer_pos",
+      "qualified": "GreenFrame.Concrete.allBaseNormalizer_pos"
+    },
+    {
+      "id": "GF-053",
+      "name": "carryCameraWeight_nonneg",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_nonneg"
+    },
+    {
+      "id": "GF-054",
+      "name": "carryCameraWeight_eq_zero_of_not_dvd",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_eq_zero_of_not_dvd"
+    },
+    {
+      "id": "GF-055",
+      "name": "carryCameraWeight_support",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_support"
+    },
+    {
+      "id": "GF-056",
+      "name": "carryCameraWeight_sum_eq_one",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_sum_eq_one"
+    }
   ]
 }

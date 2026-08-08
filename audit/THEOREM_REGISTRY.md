@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **41** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **56** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -45,3 +45,18 @@ The registry contains exactly **41** named Lean theorems reachable from `GreenFr
 | `GF-039` | `GreenFrame.PoissonData.poisson_nonzero` | `GreenFrame/Analysis/NontrivialBulk.lean:26` |
 | `GF-040` | `GreenFrame.uniform_section_bounds` | `GreenFrame/Finite/Sections.lean:10` |
 | `GF-041` | `GreenFrame.strong_limit_preserves_bounds` | `GreenFrame/Finite/StrongLimit.lean:12` |
+| `GF-042` | `GreenFrame.Concrete.positionalDepth_pos_iff_dvd` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-043` | `GreenFrame.Concrete.positionalDepth_eq_zero_of_not_dvd` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-044` | `GreenFrame.Concrete.positionalDepth_pow_dvd` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-045` | `GreenFrame.Concrete.positionalDepth_succ_pow_not_dvd` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-046` | `GreenFrame.Concrete.positionalDepth_self` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-047` | `GreenFrame.Concrete.positionalDepth_one` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-048` | `GreenFrame.Concrete.active_base_le_number` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-049` | `GreenFrame.Concrete.allBaseActivity_nonneg` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-050` | `GreenFrame.Concrete.allBaseActivity_eq_zero_of_not_dvd` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-051` | `GreenFrame.Concrete.allBaseActivity_self` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-052` | `GreenFrame.Concrete.allBaseNormalizer_pos` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-053` | `GreenFrame.Concrete.carryCameraWeight_nonneg` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-054` | `GreenFrame.Concrete.carryCameraWeight_eq_zero_of_not_dvd` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-055` | `GreenFrame.Concrete.carryCameraWeight_support` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
+| `GF-056` | `GreenFrame.Concrete.carryCameraWeight_sum_eq_one` | `GreenFrame/Concrete/Arithmetic/PositionalDepth.lean` |
