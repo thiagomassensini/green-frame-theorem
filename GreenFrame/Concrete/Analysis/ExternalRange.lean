@@ -21,6 +21,7 @@ def inverseSqrtAntiConstant (a : ℝ) : ℝ≥0 :=
   ⟨(√a)⁻¹, inv_nonneg.mpr (Real.sqrt_nonneg a)⟩
 
 /-- A positive lower norm-square estimate gives an anti-Lipschitz map. -/
+omit [CompleteSpace H] [CompleteSpace E] in
 theorem antilipschitz_of_norm_sq_lower
     {S : H →L[ℂ] E} {a : ℝ} (ha : 0 < a)
     (h : ∀ x, a * ‖x‖ ^ 2 ≤ ‖S x‖ ^ 2) :
@@ -76,9 +77,9 @@ theorem normalizedExternalRangeInverse_apply
     (bounds : SplitComplexFrameBounds T) (x : H) :
     normalizedExternalRangeInverse bounds
       ((normalizedExternal T).rangeRestrict x) = x := by
-  simpa [normalizedExternalRangeInverse] using
-    (normalizedExternal T).equivRange_symm_apply
+  simpa only [normalizedExternalRangeInverse] using
+    ((normalizedExternal T).equivRange
       (normalizedExternal_injective bounds)
-      (normalizedExternal_range_closed bounds) x
+      (normalizedExternal_range_closed bounds)).symm_apply_apply x
 
 end GreenFrame.Concrete
