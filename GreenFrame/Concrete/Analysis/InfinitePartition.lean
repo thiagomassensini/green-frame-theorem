@@ -106,8 +106,8 @@ theorem mem_cameraCodes_iff {r : ℕ} {n : PNat} :
 
 /-- Reindex the finite code interval r by the corresponding base r + 2. -/
 theorem sum_cameraCodes_shift_two (f : ℕ → ℝ) (n : ℕ) :
-    (∑ r in Finset.range (n - 1), f (baseNat r)) =
-      ∑ b in Finset.Icc 2 n, f b := by
+    (∑ r ∈ Finset.range (n - 1), f (baseNat r)) =
+      ∑ b ∈ Finset.Icc 2 n, f b := by
   classical
   refine Finset.sum_bij (fun r _ => baseNat r) ?_ ?_ ?_ ?_
   · intro r hr
@@ -143,7 +143,7 @@ structure AdmissibleInfinitePartition where
       weight r n ≠ 0 → basePNat r ∣ n
   finite_sum_eq_one :
     ∀ {n : PNat}, n ≠ 1 →
-      ∑ r in cameraCodes n, weight r n = 1
+      ∑ r ∈ cameraCodes n, weight r n = 1
 
 namespace AdmissibleInfinitePartition
 
@@ -198,7 +198,7 @@ theorem weight_tsum_eq_one
     (∑' r : ℕ, P.weight r n) = 1 := by
   calc
     (∑' r : ℕ, P.weight r n) =
-        ∑ r in cameraCodes n, P.weight r n := by
+        ∑ r ∈ cameraCodes n, P.weight r n := by
       exact tsum_eq_sum (s := cameraCodes n)
         (fun r hr =>
           P.weight_eq_zero_of_not_mem_cameraCodes hr)
@@ -225,7 +225,7 @@ theorem weight_le_one
         P.mem_cameraCodes_of_weight_ne_zero hz
       calc
         P.weight r n ≤
-            ∑ s in cameraCodes n, P.weight s n := by
+            ∑ s ∈ cameraCodes n, P.weight s n := by
           exact Finset.single_le_sum
             (fun s _ => P.weight_nonneg s n) hr
         _ = 1 := P.finite_sum_eq_one hn
@@ -257,10 +257,10 @@ theorem carryCameraWeightByCode_support_dvd
 /-- The finite reindexed canonical weights form a partition of unity. -/
 theorem carryCameraWeightByCode_finite_sum_eq_one
     {n : PNat} (hn : n ≠ 1) :
-    ∑ r in cameraCodes n, carryCameraWeightByCode r n = 1 := by
+    ∑ r ∈ cameraCodes n, carryCameraWeightByCode r n = 1 := by
   calc
-    (∑ r in cameraCodes n, carryCameraWeightByCode r n) =
-        ∑ b in Finset.Icc 2 (n : ℕ),
+    (∑ r ∈ cameraCodes n, carryCameraWeightByCode r n) =
+        ∑ b ∈ Finset.Icc 2 (n : ℕ),
           carryCameraWeight b (n : ℕ) := by
       simpa only [cameraCodes, carryCameraWeightByCode] using
         sum_cameraCodes_shift_two
