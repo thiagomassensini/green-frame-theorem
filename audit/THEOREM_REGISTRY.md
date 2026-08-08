@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **298** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **303** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -302,3 +302,8 @@ The registry contains exactly **298** named Lean theorems reachable from `GreenF
 | `GF-296` | `GreenFrame.Concrete.canonicalAnalysis_isometry` | `GreenFrame/Concrete/Analysis/CanonicalParseval.lean:67` |
 | `GF-297` | `GreenFrame.Concrete.canonicalParseval_apply` | `GreenFrame/Concrete/Analysis/CanonicalParseval.lean:79` |
 | `GF-298` | `GreenFrame.Concrete.canonicalParseval_norm` | `GreenFrame/Concrete/Analysis/CanonicalParseval.lean:84` |
+| `GF-299` | `GreenFrame.Concrete.normalizedExternal_apply` | `GreenFrame/Concrete/Analysis/NormalizedSplit.lean:27` |
+| `GF-300` | `GreenFrame.Concrete.normalizedBulk_apply` | `GreenFrame/Concrete/Analysis/NormalizedSplit.lean:32` |
+| `GF-301` | `GreenFrame.Concrete.normalized_split_energy` | `GreenFrame/Concrete/Analysis/NormalizedSplit.lean:37` |
+| `GF-302` | `GreenFrame.Concrete.normalizedExternalLower_pos` | `GreenFrame/Concrete/Analysis/NormalizedSplit.lean:52` |
+| `GF-303` | `GreenFrame.Concrete.normalizedExternal_lower_norm_sq` | `GreenFrame/Concrete/Analysis/NormalizedSplit.lean:59` |

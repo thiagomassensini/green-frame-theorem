@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 298,
+  "count": 303,
   "theorems": [
     {
       "id": "GF-001",
@@ -1491,6 +1491,31 @@
       "id": "GF-298",
       "name": "canonicalParseval_norm",
       "qualified": "GreenFrame.Concrete.canonicalParseval_norm"
+    },
+    {
+      "id": "GF-299",
+      "name": "normalizedExternal_apply",
+      "qualified": "GreenFrame.Concrete.normalizedExternal_apply"
+    },
+    {
+      "id": "GF-300",
+      "name": "normalizedBulk_apply",
+      "qualified": "GreenFrame.Concrete.normalizedBulk_apply"
+    },
+    {
+      "id": "GF-301",
+      "name": "normalized_split_energy",
+      "qualified": "GreenFrame.Concrete.normalized_split_energy"
+    },
+    {
+      "id": "GF-302",
+      "name": "normalizedExternalLower_pos",
+      "qualified": "GreenFrame.Concrete.normalizedExternalLower_pos"
+    },
+    {
+      "id": "GF-303",
+      "name": "normalizedExternal_lower_norm_sq",
+      "qualified": "GreenFrame.Concrete.normalizedExternal_lower_norm_sq"
     }
   ]
 }

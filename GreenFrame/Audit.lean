@@ -310,3 +310,9 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.canonicalAnalysis_isometry
 #print axioms GreenFrame.Concrete.canonicalParseval_apply
 #print axioms GreenFrame.Concrete.canonicalParseval_norm
+
+#print axioms GreenFrame.Concrete.normalizedExternal_apply
+#print axioms GreenFrame.Concrete.normalizedBulk_apply
+#print axioms GreenFrame.Concrete.normalized_split_energy
+#print axioms GreenFrame.Concrete.normalizedExternalLower_pos
+#print axioms GreenFrame.Concrete.normalizedExternal_lower_norm_sq

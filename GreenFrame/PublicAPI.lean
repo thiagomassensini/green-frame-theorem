@@ -39,6 +39,7 @@ import GreenFrame.Concrete.Analysis.ConcreteSplitOperators
 import GreenFrame.Concrete.Analysis.ConcreteSplitAnalysis
 import GreenFrame.Concrete.Analysis.FrameOperator
 import GreenFrame.Concrete.Analysis.CanonicalParseval
+import GreenFrame.Concrete.Analysis.NormalizedSplit
 
 /-!
 # Public API — All-Bases Green Frame Theorem
