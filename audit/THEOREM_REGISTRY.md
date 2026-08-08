@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **100** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **126** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -104,3 +104,29 @@ The registry contains exactly **100** named Lean theorems reachable from `GreenF
 | `GF-098` | `GreenFrame.Concrete.baseNat_pos` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
 | `GF-099` | `GreenFrame.Concrete.basePNat_coe` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
 | `GF-100` | `GreenFrame.Concrete.baseReal_def` | `GreenFrame/Concrete/Analysis/InfinitePartition.lean` |
+| `GF-101` | `GreenFrame.Concrete.carryRatio_pos` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-102` | `GreenFrame.Concrete.carryRatio_nonneg` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-103` | `GreenFrame.Concrete.carryRatio_eq_rpow_neg_half` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-104` | `GreenFrame.Concrete.carryRatio_sq` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-105` | `GreenFrame.Concrete.carryRatio_sq_eq_one_div` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-106` | `GreenFrame.Concrete.hasGrandparent_iff_base_sq_dvd_event` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-107` | `GreenFrame.Concrete.base_mul_grandparentIndex` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-108` | `GreenFrame.Concrete.verticalGreenStencil_zero` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-109` | `GreenFrame.Concrete.verticalGreenStencil_add` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-110` | `GreenFrame.Concrete.verticalGreenStencil_smul` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-111` | `GreenFrame.Concrete.verticalGreenStencilLinearMap_apply` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-112` | `GreenFrame.Concrete.greenEventMass_nonneg` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-113` | `GreenFrame.Concrete.greenAmplitude_nonneg` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-114` | `GreenFrame.Concrete.greenAmplitude_sq` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-115` | `GreenFrame.Concrete.greenCoordinate_zero` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-116` | `GreenFrame.Concrete.greenCoordinate_add` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-117` | `GreenFrame.Concrete.greenCoordinate_smul` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-118` | `GreenFrame.Concrete.greenCoordinateLinearMap_apply` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-119` | `GreenFrame.Concrete.greenCoordinate_normSq_eq` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-120` | `GreenFrame.Concrete.real_sum_three_sq_le` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-121` | `GreenFrame.Concrete.complex_sum_three_normSq_le` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-122` | `GreenFrame.Concrete.parentTerm_normSq` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-123` | `GreenFrame.Concrete.grandparentTerm_normSq` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-124` | `GreenFrame.Concrete.verticalGreenStencil_normSq_le` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-125` | `GreenFrame.Concrete.greenCoordinate_normSq_le` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |
+| `GF-126` | `GreenFrame.Concrete.greenCoordinate_normSq_le_explicit` | `GreenFrame/Concrete/Analysis/GreenStencilComplex.lean` |

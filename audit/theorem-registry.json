@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 100,
+  "count": 126,
   "theorems": [
     {
       "id": "GF-001",
@@ -501,6 +501,136 @@
       "id": "GF-100",
       "name": "baseReal_def",
       "qualified": "GreenFrame.Concrete.baseReal_def"
+    },
+    {
+      "id": "GF-101",
+      "name": "carryRatio_pos",
+      "qualified": "GreenFrame.Concrete.carryRatio_pos"
+    },
+    {
+      "id": "GF-102",
+      "name": "carryRatio_nonneg",
+      "qualified": "GreenFrame.Concrete.carryRatio_nonneg"
+    },
+    {
+      "id": "GF-103",
+      "name": "carryRatio_eq_rpow_neg_half",
+      "qualified": "GreenFrame.Concrete.carryRatio_eq_rpow_neg_half"
+    },
+    {
+      "id": "GF-104",
+      "name": "carryRatio_sq",
+      "qualified": "GreenFrame.Concrete.carryRatio_sq"
+    },
+    {
+      "id": "GF-105",
+      "name": "carryRatio_sq_eq_one_div",
+      "qualified": "GreenFrame.Concrete.carryRatio_sq_eq_one_div"
+    },
+    {
+      "id": "GF-106",
+      "name": "hasGrandparent_iff_base_sq_dvd_event",
+      "qualified": "GreenFrame.Concrete.hasGrandparent_iff_base_sq_dvd_event"
+    },
+    {
+      "id": "GF-107",
+      "name": "base_mul_grandparentIndex",
+      "qualified": "GreenFrame.Concrete.base_mul_grandparentIndex"
+    },
+    {
+      "id": "GF-108",
+      "name": "verticalGreenStencil_zero",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_zero"
+    },
+    {
+      "id": "GF-109",
+      "name": "verticalGreenStencil_add",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_add"
+    },
+    {
+      "id": "GF-110",
+      "name": "verticalGreenStencil_smul",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_smul"
+    },
+    {
+      "id": "GF-111",
+      "name": "verticalGreenStencilLinearMap_apply",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencilLinearMap_apply"
+    },
+    {
+      "id": "GF-112",
+      "name": "greenEventMass_nonneg",
+      "qualified": "GreenFrame.Concrete.greenEventMass_nonneg"
+    },
+    {
+      "id": "GF-113",
+      "name": "greenAmplitude_nonneg",
+      "qualified": "GreenFrame.Concrete.greenAmplitude_nonneg"
+    },
+    {
+      "id": "GF-114",
+      "name": "greenAmplitude_sq",
+      "qualified": "GreenFrame.Concrete.greenAmplitude_sq"
+    },
+    {
+      "id": "GF-115",
+      "name": "greenCoordinate_zero",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_zero"
+    },
+    {
+      "id": "GF-116",
+      "name": "greenCoordinate_add",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_add"
+    },
+    {
+      "id": "GF-117",
+      "name": "greenCoordinate_smul",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_smul"
+    },
+    {
+      "id": "GF-118",
+      "name": "greenCoordinateLinearMap_apply",
+      "qualified": "GreenFrame.Concrete.greenCoordinateLinearMap_apply"
+    },
+    {
+      "id": "GF-119",
+      "name": "greenCoordinate_normSq_eq",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_eq"
+    },
+    {
+      "id": "GF-120",
+      "name": "real_sum_three_sq_le",
+      "qualified": "GreenFrame.Concrete.real_sum_three_sq_le"
+    },
+    {
+      "id": "GF-121",
+      "name": "complex_sum_three_normSq_le",
+      "qualified": "GreenFrame.Concrete.complex_sum_three_normSq_le"
+    },
+    {
+      "id": "GF-122",
+      "name": "parentTerm_normSq",
+      "qualified": "GreenFrame.Concrete.parentTerm_normSq"
+    },
+    {
+      "id": "GF-123",
+      "name": "grandparentTerm_normSq",
+      "qualified": "GreenFrame.Concrete.grandparentTerm_normSq"
+    },
+    {
+      "id": "GF-124",
+      "name": "verticalGreenStencil_normSq_le",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_normSq_le"
+    },
+    {
+      "id": "GF-125",
+      "name": "greenCoordinate_normSq_le",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_le"
+    },
+    {
+      "id": "GF-126",
+      "name": "greenCoordinate_normSq_le_explicit",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_le_explicit"
     }
   ]
 }
