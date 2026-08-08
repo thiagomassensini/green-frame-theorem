@@ -97,7 +97,7 @@ theorem bulkActivity_le_two_mul_depthOneActivity_of_certificate
   have hcharged :
       (∑ b ∈ bulkBases n, allBaseActivity (h.charge b) n) ≤
         depthOneActivity n := by
-    rw [depthOneActivity, ← Finset.sum_image hinj]
+    rw [depthOneActivity, ← Finset.sum_image (f := fun c => allBaseActivity c n) hinj]
     exact Finset.sum_le_sum_of_subset_of_nonneg himage fun b hb _ =>
       allBaseActivity_nonneg (mem_depthOneBases.mp hb).1
   calc
