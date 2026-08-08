@@ -54,17 +54,17 @@ theorem stateCoordinateCutoff_contracts (N : ℕ) (f : State) :
 theorem concreteCoefficientCutoff_contracts
     (N : ℕ) (y : ConcreteAnalysisSpace) :
     ‖concreteCoefficientCutoff N y‖ ≤ ‖y‖ := by
-  apply l2ProductMap_norm_le
-  · intro z
-    apply l2ProductMap_norm_le
-    · intro w
-      exact l2ProductMap_norm_le _ _
-        (fun x => le_rfl)
-        (fun x => l2CoordinateMask_norm_le _ x) w
-    · intro x
-      exact l2CoordinateMask_norm_le _ x
-  · intro x
-    exact l2CoordinateMask_norm_le _ x
+  have hres (x : ResidualSpace) : ‖residualCoordinateCutoff N x‖ ≤ ‖x‖ :=
+    l2CoordinateMask_norm_le (residualEventRetained N) x
+  have hdepth (x : DepthOneGreenSpace) : ‖depthOneCoordinateCutoff N x‖ ≤ ‖x‖ :=
+    l2CoordinateMask_norm_le (depthOneEventRetained N) x
+  have hbulk (x : BulkGreenSpace) : ‖bulkCoordinateCutoff N x‖ ≤ ‖x‖ :=
+    l2CoordinateMask_norm_le (bulkEventRetained N) x
+  have hseedResidual (w : SeedResidualSpace) : ‖seedResidualCoordinateCutoff N w‖ ≤ ‖w‖ :=
+    l2ProductMap_norm_le (ContinuousLinearMap.id ℂ ℂ) (residualCoordinateCutoff N) (fun _ => le_rfl) hres w
+  have hexternal (z : ConcreteExternalSpace) : ‖externalCoordinateCutoff N z‖ ≤ ‖z‖ :=
+    l2ProductMap_norm_le (seedResidualCoordinateCutoff N) (depthOneCoordinateCutoff N) hseedResidual hdepth z
+  exact l2ProductMap_norm_le (externalCoordinateCutoff N) (bulkCoordinateCutoff N) hexternal hbulk y
 
 theorem concreteSeedResidualProjection_contracts
     (y : ConcreteAnalysisSpace) :
