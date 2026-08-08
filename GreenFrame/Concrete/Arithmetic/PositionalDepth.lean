@@ -34,7 +34,7 @@ theorem positionalDepth_pos_iff_dvd {b n : ℕ} (hb : 2 ≤ b) (hn : 0 < n) :
     0 < positionalDepth b n ↔ b ∣ n := by
   change 0 < padicValNat b n ↔ b ∣ n
   rw [show b ∣ n ↔ b ^ 1 ∣ n by simp,
-    pow_dvd_iff_le_padicValNat (by omega) (Nat.ne_of_gt hn)]
+    Nat.pow_dvd_iff_le_padicValNat (by omega) (Nat.ne_of_gt hn)]
   omega
 
 /-- Outside a vertical event the positional depth is zero. -/
@@ -53,7 +53,7 @@ theorem positionalDepth_pow_dvd (b n : ℕ) :
 /-- The next power does not divide a positive number. -/
 theorem positionalDepth_succ_pow_not_dvd {b n : ℕ} (hb : 2 ≤ b) (hn : 0 < n) :
     ¬ b ^ (positionalDepth b n + 1) ∣ n := by
-  rw [pow_dvd_iff_le_padicValNat (by omega) (Nat.ne_of_gt hn)]
+  rw [Nat.pow_dvd_iff_le_padicValNat (by omega) (Nat.ne_of_gt hn)]
   simp [positionalDepth]
 
 /-- A base sees itself at exactly depth one. -/
@@ -162,7 +162,7 @@ theorem carryCameraWeight_sum_eq_one {n : ℕ} (hn : 1 < n) :
           rw [carryCameraWeight]
           simp [hn, (Finset.mem_Icc.mp hbmem).1, (Finset.mem_Icc.mp hbmem).2]
     _ = allBaseNormalizer n / allBaseNormalizer n := by
-          rw [Finset.sum_div]
+          rw [← Finset.sum_div]
           rfl
     _ = 1 := div_self (allBaseNormalizer_pos hn).ne'
 
