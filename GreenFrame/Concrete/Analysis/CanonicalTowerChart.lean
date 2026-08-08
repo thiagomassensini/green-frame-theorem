@@ -48,8 +48,8 @@ theorem canonicalTowerEvent_hasGrandparent (e : GreenEvent) :
   change (baseNat e.1 : ℕ) ∣ (e.2 : ℕ) ↔
     2 ≤ eventParentDepth e + 1
   constructor
-  · intro h; have := (positionalDepth_pos_iff_dvd (baseNat_ge_two e.1) e.2.property).2 h; omega
-  · intro h; apply (positionalDepth_pos_iff_dvd (baseNat_ge_two e.1) e.2.property).1; omega
+  · intro h; have hpos := (positionalDepth_pos_iff_dvd (baseNat_ge_two e.1) e.2.property).2 h; change 0 < eventParentDepth e at hpos; omega
+  · intro h; apply (positionalDepth_pos_iff_dvd (baseNat_ge_two e.1) e.2.property).1; change 0 < eventParentDepth e; omega
   -- The two directions avoid coercion-sensitive rewriting under the equivalence.
 
 /-- At depth at least two, the canonical tower and global second ancestors agree. -/
