@@ -154,3 +154,9 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.currentGreenMajorant_nonneg
 #print axioms GreenFrame.Concrete.currentGreenMajorant_summable
 #print axioms GreenFrame.Concrete.currentGreenMajorant_tsum_le
+#print axioms GreenFrame.Concrete.parentGreenMajorant_nonneg
+#print axioms GreenFrame.Concrete.parentGreenDominant_nonneg
+#print axioms GreenFrame.Concrete.parentGreenMajorant_le_dominant
+#print axioms GreenFrame.Concrete.parentGreenDominant_summable
+#print axioms GreenFrame.Concrete.parentGreenMajorant_summable
+#print axioms GreenFrame.Concrete.parentGreenMajorant_tsum_le

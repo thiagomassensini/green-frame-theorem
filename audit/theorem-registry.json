@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 152,
+  "count": 158,
   "theorems": [
     {
       "id": "GF-001",
@@ -761,6 +761,36 @@
       "id": "GF-152",
       "name": "currentGreenMajorant_tsum_le",
       "qualified": "GreenFrame.Concrete.currentGreenMajorant_tsum_le"
+    },
+    {
+      "id": "GF-153",
+      "name": "parentGreenMajorant_nonneg",
+      "qualified": "GreenFrame.Concrete.parentGreenMajorant_nonneg"
+    },
+    {
+      "id": "GF-154",
+      "name": "parentGreenDominant_nonneg",
+      "qualified": "GreenFrame.Concrete.parentGreenDominant_nonneg"
+    },
+    {
+      "id": "GF-155",
+      "name": "parentGreenMajorant_le_dominant",
+      "qualified": "GreenFrame.Concrete.parentGreenMajorant_le_dominant"
+    },
+    {
+      "id": "GF-156",
+      "name": "parentGreenDominant_summable",
+      "qualified": "GreenFrame.Concrete.parentGreenDominant_summable"
+    },
+    {
+      "id": "GF-157",
+      "name": "parentGreenMajorant_summable",
+      "qualified": "GreenFrame.Concrete.parentGreenMajorant_summable"
+    },
+    {
+      "id": "GF-158",
+      "name": "parentGreenMajorant_tsum_le",
+      "qualified": "GreenFrame.Concrete.parentGreenMajorant_tsum_le"
     }
   ]
 }
