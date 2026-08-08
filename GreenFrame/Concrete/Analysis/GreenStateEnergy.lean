@@ -26,7 +26,7 @@ theorem stateEnergy_summable (f : State) :
   apply ((lp.memℓp f).summable
     (by norm_num : 0 < (2 : ℝ≥0∞).toReal)).congr
   intro n
-  simpa only [stateEnergy, ENNReal.toReal_ofNat] using
+  simpa only [stateEnergy, ENNReal.toReal_ofNat, Real.rpow_two] using
     Complex.sq_norm (f n)
 
 /-- The total coordinate energy is the Hilbert norm squared. -/
@@ -34,13 +34,14 @@ theorem stateEnergy_tsum_eq_norm_sq (f : State) :
     (∑' n : PNat, stateEnergy f n) = ‖f‖ ^ 2 := by
   calc
     (∑' n : PNat, stateEnergy f n) =
-        ∑' n : PNat, ‖f n‖ ^ 2 := by
+        ∑' n : PNat, ‖f n‖ ^ (2 : ℕ) := by
       apply tsum_congr
       intro n
       simpa only [stateEnergy] using (Complex.sq_norm (f n)).symm
-    _ = ‖f‖ ^ 2 :=
-      (lp.norm_rpow_eq_tsum
-        (by norm_num : 0 < (2 : ℝ≥0∞).toReal) f).symm
+    _ = ‖f‖ ^ 2 := by
+      simpa only [ENNReal.toReal_ofNat, Real.rpow_two] using
+        (lp.norm_rpow_eq_tsum
+          (by norm_num : 0 < (2 : ℝ≥0∞).toReal) f).symm
 
 /-- The camera-weight sum is at most one at every state coordinate. -/
 theorem weight_tsum_le_one (omega : AdmissibleInfinitePartition) (n : PNat) :
