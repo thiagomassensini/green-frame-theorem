@@ -47,10 +47,10 @@ theorem canonicalTowerEvent_hasGrandparent (e : GreenEvent) :
     HasGrandparent e ↔ 2 ≤ (canonicalTowerEvent e).depth := by
   change (baseNat e.1 : ℕ) ∣ (e.2 : ℕ) ↔
     2 ≤ eventParentDepth e + 1
-  rw [← positionalDepth_pos_iff_dvd
-    (baseNat_ge_two e.1) e.2.property]
-  simp only [eventParentDepth]
-  omega
+  constructor
+  · intro h; have := (positionalDepth_pos_iff_dvd (baseNat_ge_two e.1) e.2.property).2 h; omega
+  · intro h; apply (positionalDepth_pos_iff_dvd (baseNat_ge_two e.1) e.2.property).1; omega
+  -- The two directions avoid coercion-sensitive rewriting under the equivalence.
 
 /-- At depth at least two, the canonical tower and global second ancestors agree. -/
 theorem canonicalTowerEvent_grandparent
@@ -145,7 +145,7 @@ theorem canonicalNormalizedTowerTFVD_depth_one
     have hpos := (canonicalTowerEvent e).depth_pos
     omega
   rw [normalizedTowerTFVD_depth_one _ hone,
-    canonicalTowerEvent_current, canonicalTowerEvent_parent]
+    canonicalTowerEvent_current, canonicalTowerEvent_parent]; rfl
 
 /-- Global two-term truncation, obtained through the canonical tower chart. -/
 theorem verticalGreenStencil_depth_one_eq_canonicalTowerTruncation
