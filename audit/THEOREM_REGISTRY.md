@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **270** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **277** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -274,3 +274,10 @@ The registry contains exactly **270** named Lean theorems reachable from `GreenF
 | `GF-268` | `GreenFrame.Concrete.greenBulkSectorAnalysisOperator_apply` | `GreenFrame/Concrete/Analysis/GreenDepthSectorOperator.lean` |
 | `GF-269` | `GreenFrame.Concrete.rawExternal_apply` | `GreenFrame/Concrete/Analysis/ComplexFrameBounds.lean` |
 | `GF-270` | `GreenFrame.Concrete.rawBulk_apply` | `GreenFrame/Concrete/Analysis/ComplexFrameBounds.lean` |
+| `GF-271` | `GreenFrame.Concrete.concreteExternalAnalysisOperator_apply` | `GreenFrame/Concrete/Analysis/ConcreteSplitOperators.lean` |
+| `GF-272` | `GreenFrame.Concrete.concreteAnalysisOperator_apply` | `GreenFrame/Concrete/Analysis/ConcreteSplitOperators.lean` |
+| `GF-273` | `GreenFrame.Concrete.rawExternal_concreteAnalysisOperator_apply` | `GreenFrame/Concrete/Analysis/ConcreteSplitOperators.lean` |
+| `GF-274` | `GreenFrame.Concrete.rawBulk_concreteAnalysisOperator_apply` | `GreenFrame/Concrete/Analysis/ConcreteSplitOperators.lean` |
+| `GF-275` | `GreenFrame.Concrete.concreteExternalAnalysisOperator_norm_sq_eq` | `GreenFrame/Concrete/Analysis/ConcreteSplitOperators.lean` |
+| `GF-276` | `GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_eq_external_add_bulk` | `GreenFrame/Concrete/Analysis/ConcreteSplitOperators.lean` |
+| `GF-277` | `GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_eq_seedResidual_add_green` | `GreenFrame/Concrete/Analysis/ConcreteSplitOperators.lean` |

@@ -278,3 +278,11 @@ import GreenFrame
 
 #print axioms GreenFrame.Concrete.rawExternal_apply
 #print axioms GreenFrame.Concrete.rawBulk_apply
+
+#print axioms GreenFrame.Concrete.concreteExternalAnalysisOperator_apply
+#print axioms GreenFrame.Concrete.concreteAnalysisOperator_apply
+#print axioms GreenFrame.Concrete.rawExternal_concreteAnalysisOperator_apply
+#print axioms GreenFrame.Concrete.rawBulk_concreteAnalysisOperator_apply
+#print axioms GreenFrame.Concrete.concreteExternalAnalysisOperator_norm_sq_eq
+#print axioms GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_eq_external_add_bulk
+#print axioms GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_eq_seedResidual_add_green

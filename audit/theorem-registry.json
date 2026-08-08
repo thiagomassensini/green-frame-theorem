@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 270,
+  "count": 277,
   "theorems": [
     {
       "id": "GF-001",
@@ -1351,6 +1351,41 @@
       "id": "GF-270",
       "name": "rawBulk_apply",
       "qualified": "GreenFrame.Concrete.rawBulk_apply"
+    },
+    {
+      "id": "GF-271",
+      "name": "concreteExternalAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.concreteExternalAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-272",
+      "name": "concreteAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.concreteAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-273",
+      "name": "rawExternal_concreteAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.rawExternal_concreteAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-274",
+      "name": "rawBulk_concreteAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.rawBulk_concreteAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-275",
+      "name": "concreteExternalAnalysisOperator_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.concreteExternalAnalysisOperator_norm_sq_eq"
+    },
+    {
+      "id": "GF-276",
+      "name": "concreteAnalysisOperator_norm_sq_eq_external_add_bulk",
+      "qualified": "GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_eq_external_add_bulk"
+    },
+    {
+      "id": "GF-277",
+      "name": "concreteAnalysisOperator_norm_sq_eq_seedResidual_add_green",
+      "qualified": "GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_eq_seedResidual_add_green"
     }
   ]
 }

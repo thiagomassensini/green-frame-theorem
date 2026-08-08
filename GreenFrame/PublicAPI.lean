@@ -35,6 +35,7 @@ import GreenFrame.Concrete.Analysis.GreenDepthSectorEnergy
 import GreenFrame.Concrete.Analysis.GreenDepthSectorOperator
 import GreenFrame.Concrete.Analysis.GreenDepthSplit
 import GreenFrame.Concrete.Analysis.ComplexFrameBounds
+import GreenFrame.Concrete.Analysis.ConcreteSplitOperators
 
 /-!
 # Public API — All-Bases Green Frame Theorem
