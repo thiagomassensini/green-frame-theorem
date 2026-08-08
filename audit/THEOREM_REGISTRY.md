@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **140** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **144** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -144,3 +144,7 @@ The registry contains exactly **140** named Lean theorems reachable from `GreenF
 | `GF-138` | `GreenFrame.Concrete.S2_nonneg` | `GreenFrame/Concrete/Analysis/GreenBesselConstants.lean` |
 | `GF-139` | `GreenFrame.Concrete.S3_nonneg` | `GreenFrame/Concrete/Analysis/GreenBesselConstants.lean` |
 | `GF-140` | `GreenFrame.Concrete.greenBesselConstant_nonneg` | `GreenFrame/Concrete/Analysis/GreenBesselConstants.lean` |
+| `GF-141` | `GreenFrame.Concrete.stateEnergy_nonneg` | `GreenFrame/Concrete/Analysis/GreenStateEnergy.lean` |
+| `GF-142` | `GreenFrame.Concrete.stateEnergy_summable` | `GreenFrame/Concrete/Analysis/GreenStateEnergy.lean` |
+| `GF-143` | `GreenFrame.Concrete.stateEnergy_tsum_eq_norm_sq` | `GreenFrame/Concrete/Analysis/GreenStateEnergy.lean` |
+| `GF-144` | `GreenFrame.Concrete.weight_tsum_le_one` | `GreenFrame/Concrete/Analysis/GreenStateEnergy.lean` |

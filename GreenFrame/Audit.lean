@@ -142,3 +142,7 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.S2_nonneg
 #print axioms GreenFrame.Concrete.S3_nonneg
 #print axioms GreenFrame.Concrete.greenBesselConstant_nonneg
+#print axioms GreenFrame.Concrete.stateEnergy_nonneg
+#print axioms GreenFrame.Concrete.stateEnergy_summable
+#print axioms GreenFrame.Concrete.stateEnergy_tsum_eq_norm_sq
+#print axioms GreenFrame.Concrete.weight_tsum_le_one

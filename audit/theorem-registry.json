@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 140,
+  "count": 144,
   "theorems": [
     {
       "id": "GF-001",
@@ -701,6 +701,26 @@
       "id": "GF-140",
       "name": "greenBesselConstant_nonneg",
       "qualified": "GreenFrame.Concrete.greenBesselConstant_nonneg"
+    },
+    {
+      "id": "GF-141",
+      "name": "stateEnergy_nonneg",
+      "qualified": "GreenFrame.Concrete.stateEnergy_nonneg"
+    },
+    {
+      "id": "GF-142",
+      "name": "stateEnergy_summable",
+      "qualified": "GreenFrame.Concrete.stateEnergy_summable"
+    },
+    {
+      "id": "GF-143",
+      "name": "stateEnergy_tsum_eq_norm_sq",
+      "qualified": "GreenFrame.Concrete.stateEnergy_tsum_eq_norm_sq"
+    },
+    {
+      "id": "GF-144",
+      "name": "weight_tsum_le_one",
+      "qualified": "GreenFrame.Concrete.weight_tsum_le_one"
     }
   ]
 }
