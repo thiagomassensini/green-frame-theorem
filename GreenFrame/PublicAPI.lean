@@ -41,6 +41,7 @@ import GreenFrame.Concrete.Analysis.FrameOperator
 import GreenFrame.Concrete.Analysis.CanonicalParseval
 import GreenFrame.Concrete.Analysis.NormalizedSplit
 import GreenFrame.Concrete.Analysis.ExternalRange
+import GreenFrame.Concrete.Analysis.StaticPoisson
 
 /-!
 # Public API — All-Bases Green Frame Theorem

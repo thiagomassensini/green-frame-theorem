@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **308** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **310** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -307,8 +307,10 @@ The registry contains exactly **308** named Lean theorems reachable from `GreenF
 | `GF-301` | `GreenFrame.Concrete.normalized_split_energy` | `GreenFrame/Concrete/Analysis/NormalizedSplit.lean:37` |
 | `GF-302` | `GreenFrame.Concrete.normalizedExternalLower_pos` | `GreenFrame/Concrete/Analysis/NormalizedSplit.lean:53` |
 | `GF-303` | `GreenFrame.Concrete.normalizedExternal_lower_norm_sq` | `GreenFrame/Concrete/Analysis/NormalizedSplit.lean:60` |
-| `GF-304` | `GreenFrame.Concrete.antilipschitz_of_norm_sq_lower` | `GreenFrame/Concrete/Analysis/ExternalRange.lean:24` |
-| `GF-305` | `GreenFrame.Concrete.normalizedExternal_antilipschitz` | `GreenFrame/Concrete/Analysis/ExternalRange.lean:39` |
-| `GF-306` | `GreenFrame.Concrete.normalizedExternal_injective` | `GreenFrame/Concrete/Analysis/ExternalRange.lean:49` |
-| `GF-307` | `GreenFrame.Concrete.normalizedExternal_range_closed` | `GreenFrame/Concrete/Analysis/ExternalRange.lean:56` |
-| `GF-308` | `GreenFrame.Concrete.normalizedExternalRangeInverse_apply` | `GreenFrame/Concrete/Analysis/ExternalRange.lean:74` |
+| `GF-304` | `GreenFrame.Concrete.antilipschitz_of_norm_sq_lower` | `GreenFrame/Concrete/Analysis/ExternalRange.lean:25` |
+| `GF-305` | `GreenFrame.Concrete.normalizedExternal_antilipschitz` | `GreenFrame/Concrete/Analysis/ExternalRange.lean:40` |
+| `GF-306` | `GreenFrame.Concrete.normalizedExternal_injective` | `GreenFrame/Concrete/Analysis/ExternalRange.lean:50` |
+| `GF-307` | `GreenFrame.Concrete.normalizedExternal_range_closed` | `GreenFrame/Concrete/Analysis/ExternalRange.lean:57` |
+| `GF-308` | `GreenFrame.Concrete.normalizedExternalRangeInverse_apply` | `GreenFrame/Concrete/Analysis/ExternalRange.lean:75` |
+| `GF-309` | `GreenFrame.Concrete.restrictedPoisson_apply_external` | `GreenFrame/Concrete/Analysis/StaticPoisson.lean:31` |
+| `GF-310` | `GreenFrame.Concrete.restrictedPoisson_intertwining` | `GreenFrame/Concrete/Analysis/StaticPoisson.lean:43` |

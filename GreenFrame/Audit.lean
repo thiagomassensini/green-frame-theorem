@@ -322,3 +322,6 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.normalizedExternal_injective
 #print axioms GreenFrame.Concrete.normalizedExternal_range_closed
 #print axioms GreenFrame.Concrete.normalizedExternalRangeInverse_apply
+
+#print axioms GreenFrame.Concrete.restrictedPoisson_apply_external
+#print axioms GreenFrame.Concrete.restrictedPoisson_intertwining

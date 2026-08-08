@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 308,
+  "count": 310,
   "theorems": [
     {
       "id": "GF-001",
@@ -1541,6 +1541,16 @@
       "id": "GF-308",
       "name": "normalizedExternalRangeInverse_apply",
       "qualified": "GreenFrame.Concrete.normalizedExternalRangeInverse_apply"
+    },
+    {
+      "id": "GF-309",
+      "name": "restrictedPoisson_apply_external",
+      "qualified": "GreenFrame.Concrete.restrictedPoisson_apply_external"
+    },
+    {
+      "id": "GF-310",
+      "name": "restrictedPoisson_intertwining",
+      "qualified": "GreenFrame.Concrete.restrictedPoisson_intertwining"
     }
   ]
 }
