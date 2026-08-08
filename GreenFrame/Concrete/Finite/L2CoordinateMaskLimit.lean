@@ -41,8 +41,8 @@ theorem l2CoordinateMask_energy_tendsto_zero
     · simp [hN, Complex.normSq_neg, abs_of_nonneg (Complex.normSq_nonneg (x i))]
   have htsum := tendsto_tsum_of_dominated_convergence
     (residualL2_normSq_summable x) hpoint hbound
-  simpa only [← residualL2_normSq_tsum_eq_norm_sq] using htsum
-
+  simpa only [← residualL2_normSq_tsum_eq_norm_sq, lp.coeFn_sub,
+    Pi.sub_apply, tsum_zero] using htsum
 theorem l2CoordinateMask_tendsto
     {iota : Type*} (keep : ℕ → iota → Prop)
     [∀ N, DecidablePred (keep N)]

@@ -57,7 +57,7 @@ theorem embeddedAnalysisSection_tendsto
     _ ≤ ‖yN - y‖ + dist (Q N y) y := by
       exact add_le_add (hQ_contracts N _) le_rfl
     _ = dist yN y + dist (Q N y) y := by
-      simpa only [dist_eq_norm]
+      rw [dist_eq_norm yN y]
     _ < ε / 2 + ε / 2 := add_lt_add hfirst hsecond
     _ = ε := by ring
 
