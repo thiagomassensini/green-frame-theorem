@@ -293,3 +293,11 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.concreteSplitFrameBounds_lower
 #print axioms GreenFrame.Concrete.concreteSplitFrameBounds_upper
 #print axioms GreenFrame.Concrete.concreteSplitFrameBounds_externalLower
+
+#print axioms GreenFrame.Concrete.frameOperator_inner
+#print axioms GreenFrame.Concrete.frameOperator_re_inner
+#print axioms GreenFrame.Concrete.frameOperator_positive
+#print axioms GreenFrame.Concrete.frameOperator_coercive
+#print axioms GreenFrame.Concrete.frameOperator_isUnit
+#print axioms GreenFrame.Concrete.frameOperator_bijective
+#print axioms GreenFrame.Concrete.frameOperator_strictlyPositive

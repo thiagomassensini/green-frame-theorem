@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 283,
+  "count": 290,
   "theorems": [
     {
       "id": "GF-001",
@@ -1416,6 +1416,41 @@
       "id": "GF-283",
       "name": "concreteSplitFrameBounds_externalLower",
       "qualified": "GreenFrame.Concrete.concreteSplitFrameBounds_externalLower"
+    },
+    {
+      "id": "GF-284",
+      "name": "frameOperator_inner",
+      "qualified": "GreenFrame.Concrete.frameOperator_inner"
+    },
+    {
+      "id": "GF-285",
+      "name": "frameOperator_re_inner",
+      "qualified": "GreenFrame.Concrete.frameOperator_re_inner"
+    },
+    {
+      "id": "GF-286",
+      "name": "frameOperator_positive",
+      "qualified": "GreenFrame.Concrete.frameOperator_positive"
+    },
+    {
+      "id": "GF-287",
+      "name": "frameOperator_coercive",
+      "qualified": "GreenFrame.Concrete.frameOperator_coercive"
+    },
+    {
+      "id": "GF-288",
+      "name": "frameOperator_isUnit",
+      "qualified": "GreenFrame.Concrete.frameOperator_isUnit"
+    },
+    {
+      "id": "GF-289",
+      "name": "frameOperator_bijective",
+      "qualified": "GreenFrame.Concrete.frameOperator_bijective"
+    },
+    {
+      "id": "GF-290",
+      "name": "frameOperator_strictlyPositive",
+      "qualified": "GreenFrame.Concrete.frameOperator_strictlyPositive"
     }
   ]
 }

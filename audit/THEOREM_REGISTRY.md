@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **283** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **290** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -287,3 +287,10 @@ The registry contains exactly **283** named Lean theorems reachable from `GreenF
 | `GF-281` | `GreenFrame.Concrete.concreteSplitFrameBounds_lower` | `GreenFrame/Concrete/Analysis/ConcreteSplitBounds.lean` |
 | `GF-282` | `GreenFrame.Concrete.concreteSplitFrameBounds_upper` | `GreenFrame/Concrete/Analysis/ConcreteSplitBounds.lean` |
 | `GF-283` | `GreenFrame.Concrete.concreteSplitFrameBounds_externalLower` | `GreenFrame/Concrete/Analysis/ConcreteSplitBounds.lean` |
+| `GF-284` | `GreenFrame.Concrete.frameOperator_inner` | `GreenFrame/Concrete/Analysis/FrameOperator.lean` |
+| `GF-285` | `GreenFrame.Concrete.frameOperator_re_inner` | `GreenFrame/Concrete/Analysis/FrameOperator.lean` |
+| `GF-286` | `GreenFrame.Concrete.frameOperator_positive` | `GreenFrame/Concrete/Analysis/FrameOperator.lean` |
+| `GF-287` | `GreenFrame.Concrete.frameOperator_coercive` | `GreenFrame/Concrete/Analysis/FrameOperator.lean` |
+| `GF-288` | `GreenFrame.Concrete.frameOperator_isUnit` | `GreenFrame/Concrete/Analysis/FrameOperator.lean` |
+| `GF-289` | `GreenFrame.Concrete.frameOperator_bijective` | `GreenFrame/Concrete/Analysis/FrameOperator.lean` |
+| `GF-290` | `GreenFrame.Concrete.frameOperator_strictlyPositive` | `GreenFrame/Concrete/Analysis/FrameOperator.lean` |
