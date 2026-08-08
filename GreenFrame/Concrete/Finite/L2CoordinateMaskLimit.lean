@@ -27,7 +27,7 @@ theorem l2CoordinateMask_energy_tendsto_zero
         (fun N => Complex.normSq
           (l2CoordinateMask (keep N) x i - x i))
         atTop (nhds 0) := by
-    intro i
+    intro i; apply tendsto_const_nhds.congr'
     filter_upwards [hkeep i] with N hN
     simp [hN]
   have hbound : ∀ᶠ N in atTop, ∀ i,
@@ -38,10 +38,10 @@ theorem l2CoordinateMask_energy_tendsto_zero
     intro i
     by_cases hN : keep N i
     · simp [hN, Complex.normSq_nonneg]
-    · simp [hN, Complex.normSq_neg, Complex.normSq_nonneg]
+    · simp [hN, Complex.normSq_neg, abs_of_nonneg (Complex.normSq_nonneg (x i))]
   have htsum := tendsto_tsum_of_dominated_convergence
     (residualL2_normSq_summable x) hpoint hbound
-  simpa only [residualL2_normSq_tsum_eq_norm_sq, tsum_zero] using htsum
+  simpa only [← residualL2_normSq_tsum_eq_norm_sq] using htsum
 
 theorem l2CoordinateMask_tendsto
     {iota : Type*} (keep : ℕ → iota → Prop)
