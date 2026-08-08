@@ -49,6 +49,7 @@ def normalizedExternalLower {T : H →L[ℂ] HilbertSum E B}
     (bounds : SplitComplexFrameBounds T) : ℝ :=
   bounds.externalLower / bounds.upper
 
+omit [CompleteSpace H] [CompleteSpace E] [CompleteSpace B] in
 theorem normalizedExternalLower_pos {T : H →L[ℂ] HilbertSum E B}
     (bounds : SplitComplexFrameBounds T) :
     0 < normalizedExternalLower bounds :=
