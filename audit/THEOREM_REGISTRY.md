@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **441** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **482** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -445,3 +445,44 @@ The registry contains exactly **441** named Lean theorems reachable from `GreenF
 | `GF-439` | `GreenFrame.Concrete.greenCoordinate_eq_canonicalNormalizedTowerTFVD` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:127` |
 | `GF-440` | `GreenFrame.Concrete.canonicalNormalizedTowerTFVD_depth_one` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:136` |
 | `GF-441` | `GreenFrame.Concrete.verticalGreenStencil_depth_one_eq_canonicalTowerTruncation` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:151` |
+| `GF-442` | `GreenFrame.Concrete.active_camera_base_le_cutoff` | `GreenFrame/Concrete/Finite/CoordinateCutoffs.lean:129` |
+| `GF-443` | `GreenFrame.Concrete.active_camera_mem_cutoff_codes` | `GreenFrame/Concrete/Finite/CoordinateCutoffs.lean:141` |
+| `GF-444` | `GreenFrame.Concrete.greenEventRetained_current` | `GreenFrame/Concrete/Finite/CoordinateCutoffs.lean:151` |
+| `GF-445` | `GreenFrame.Concrete.greenEventRetained_parent` | `GreenFrame/Concrete/Finite/CoordinateCutoffs.lean:157` |
+| `GF-446` | `GreenFrame.Concrete.greenEventRetained_grandparent` | `GreenFrame/Concrete/Finite/CoordinateCutoffs.lean:169` |
+| `GF-447` | `GreenFrame.Concrete.l2CoordinateMask_apply` | `GreenFrame/Concrete/Finite/L2CoordinateMask.lean:35` |
+| `GF-448` | `GreenFrame.Concrete.l2CoordinateMask_add` | `GreenFrame/Concrete/Finite/L2CoordinateMask.lean:41` |
+| `GF-449` | `GreenFrame.Concrete.l2CoordinateMask_smul` | `GreenFrame/Concrete/Finite/L2CoordinateMask.lean:50` |
+| `GF-450` | `GreenFrame.Concrete.l2CoordinateMask_norm_sq_le` | `GreenFrame/Concrete/Finite/L2CoordinateMask.lean:58` |
+| `GF-451` | `GreenFrame.Concrete.l2CoordinateMask_norm_le` | `GreenFrame/Concrete/Finite/L2CoordinateMask.lean:70` |
+| `GF-452` | `GreenFrame.Concrete.l2CoordinateMaskCLM_apply` | `GreenFrame/Concrete/Finite/L2CoordinateMask.lean:92` |
+| `GF-453` | `GreenFrame.Concrete.l2CoordinateMask_idempotent` | `GreenFrame/Concrete/Finite/L2CoordinateMask.lean:98` |
+| `GF-454` | `GreenFrame.Concrete.l2ProductMap_apply` | `GreenFrame/Concrete/Finite/L2ProductCutoff.lean:32` |
+| `GF-455` | `GreenFrame.Concrete.l2ProductMap_norm_le` | `GreenFrame/Concrete/Finite/L2ProductCutoff.lean:40` |
+| `GF-456` | `GreenFrame.Concrete.l2ProductMap_idempotent` | `GreenFrame/Concrete/Finite/L2ProductCutoff.lean:57` |
+| `GF-457` | `GreenFrame.Concrete.l2FirstProjection_apply` | `GreenFrame/Concrete/Finite/L2ProductCutoff.lean:68` |
+| `GF-458` | `GreenFrame.Concrete.l2FirstProjection_norm_le` | `GreenFrame/Concrete/Finite/L2ProductCutoff.lean:73` |
+| `GF-459` | `GreenFrame.Concrete.l2ProductMap_tendsto` | `GreenFrame/Concrete/Finite/L2ProductCutoff.lean:81` |
+| `GF-460` | `GreenFrame.Concrete.stateCoordinateCutoff_contracts` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffMaps.lean:50` |
+| `GF-461` | `GreenFrame.Concrete.concreteCoefficientCutoff_contracts` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffMaps.lean:54` |
+| `GF-462` | `GreenFrame.Concrete.concreteSeedResidualProjection_contracts` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffMaps.lean:69` |
+| `GF-463` | `GreenFrame.Concrete.stateCoordinateCutoff_idempotent` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffMaps.lean:77` |
+| `GF-464` | `GreenFrame.Concrete.concreteCoefficientCutoff_idempotent` | `GreenFrame/Concrete/Finite/ConcreteCoordinateCutoffMaps.lean:82` |
+| `GF-465` | `GreenFrame.Concrete.embeddedAnalysisSection_apply` | `GreenFrame/Concrete/Finite/AnalysisSection.lean:28` |
+| `GF-466` | `GreenFrame.Concrete.stateCoordinateCutoff_fixes_finite` | `GreenFrame/Concrete/Finite/FiniteCutoffRetention.lean:19` |
+| `GF-467` | `GreenFrame.Concrete.residualCoordinateCutoff_fixes_analysis` | `GreenFrame/Concrete/Finite/FiniteCutoffRetention.lean:28` |
+| `GF-468` | `GreenFrame.Concrete.seedResidualCoordinateCutoff_fixes_analysis` | `GreenFrame/Concrete/Finite/FiniteCutoffRetention.lean:51` |
+| `GF-469` | `GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_apply` | `GreenFrame/Concrete/Finite/FiniteCutoffRetention.lean:70` |
+| `GF-470` | `GreenFrame.Concrete.concreteCutoff_retains_seedResidual` | `GreenFrame/Concrete/Finite/FiniteCutoffRetention.lean:77` |
+| `GF-471` | `GreenFrame.Concrete.concreteFiniteAnalysisOperator_apply` | `GreenFrame/Concrete/Finite/FiniteCutoffRetention.lean:99` |
+| `GF-472` | `GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_upper` | `GreenFrame/Concrete/Finite/FiniteCutoffRetention.lean:106` |
+| `GF-473` | `GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_lower` | `GreenFrame/Concrete/Finite/FiniteCutoffRetention.lean:131` |
+| `GF-474` | `GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_norm_sq_bounds` | `GreenFrame/Concrete/Finite/FiniteCutoffRetention.lean:148` |
+| `GF-475` | `GreenFrame.Concrete.concreteFiniteAnalysisOperator_norm_sq_bounds` | `GreenFrame/Concrete/Finite/FiniteCutoffRetention.lean:159` |
+| `GF-476` | `GreenFrame.Concrete.stateCoordinateCutoff_range` | `GreenFrame/Concrete/Finite/ConcreteCutoffRanges.lean:19` |
+| `GF-477` | `GreenFrame.Concrete.residualCoordinateCutoff_range` | `GreenFrame/Concrete/Finite/ConcreteCutoffRanges.lean:30` |
+| `GF-478` | `GreenFrame.Concrete.depthOneCoordinateCutoff_range` | `GreenFrame/Concrete/Finite/ConcreteCutoffRanges.lean:46` |
+| `GF-479` | `GreenFrame.Concrete.bulkCoordinateCutoff_range` | `GreenFrame/Concrete/Finite/ConcreteCutoffRanges.lean:62` |
+| `GF-480` | `GreenFrame.Concrete.concreteCoefficientCutoff_residual_mem` | `GreenFrame/Concrete/Finite/ConcreteCutoffRanges.lean:79` |
+| `GF-481` | `GreenFrame.Concrete.concreteCoefficientCutoff_depthOne_mem` | `GreenFrame/Concrete/Finite/ConcreteCutoffRanges.lean:91` |
+| `GF-482` | `GreenFrame.Concrete.concreteCoefficientCutoff_bulk_mem` | `GreenFrame/Concrete/Finite/ConcreteCutoffRanges.lean:101` |

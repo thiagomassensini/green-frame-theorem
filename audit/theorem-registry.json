@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 441,
+  "count": 482,
   "theorems": [
     {
       "id": "GF-001",
@@ -2206,6 +2206,211 @@
       "id": "GF-441",
       "name": "verticalGreenStencil_depth_one_eq_canonicalTowerTruncation",
       "qualified": "GreenFrame.Concrete.verticalGreenStencil_depth_one_eq_canonicalTowerTruncation"
+    },
+    {
+      "id": "GF-442",
+      "name": "active_camera_base_le_cutoff",
+      "qualified": "GreenFrame.Concrete.active_camera_base_le_cutoff"
+    },
+    {
+      "id": "GF-443",
+      "name": "active_camera_mem_cutoff_codes",
+      "qualified": "GreenFrame.Concrete.active_camera_mem_cutoff_codes"
+    },
+    {
+      "id": "GF-444",
+      "name": "greenEventRetained_current",
+      "qualified": "GreenFrame.Concrete.greenEventRetained_current"
+    },
+    {
+      "id": "GF-445",
+      "name": "greenEventRetained_parent",
+      "qualified": "GreenFrame.Concrete.greenEventRetained_parent"
+    },
+    {
+      "id": "GF-446",
+      "name": "greenEventRetained_grandparent",
+      "qualified": "GreenFrame.Concrete.greenEventRetained_grandparent"
+    },
+    {
+      "id": "GF-447",
+      "name": "l2CoordinateMask_apply",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_apply"
+    },
+    {
+      "id": "GF-448",
+      "name": "l2CoordinateMask_add",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_add"
+    },
+    {
+      "id": "GF-449",
+      "name": "l2CoordinateMask_smul",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_smul"
+    },
+    {
+      "id": "GF-450",
+      "name": "l2CoordinateMask_norm_sq_le",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_norm_sq_le"
+    },
+    {
+      "id": "GF-451",
+      "name": "l2CoordinateMask_norm_le",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_norm_le"
+    },
+    {
+      "id": "GF-452",
+      "name": "l2CoordinateMaskCLM_apply",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMaskCLM_apply"
+    },
+    {
+      "id": "GF-453",
+      "name": "l2CoordinateMask_idempotent",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_idempotent"
+    },
+    {
+      "id": "GF-454",
+      "name": "l2ProductMap_apply",
+      "qualified": "GreenFrame.Concrete.l2ProductMap_apply"
+    },
+    {
+      "id": "GF-455",
+      "name": "l2ProductMap_norm_le",
+      "qualified": "GreenFrame.Concrete.l2ProductMap_norm_le"
+    },
+    {
+      "id": "GF-456",
+      "name": "l2ProductMap_idempotent",
+      "qualified": "GreenFrame.Concrete.l2ProductMap_idempotent"
+    },
+    {
+      "id": "GF-457",
+      "name": "l2FirstProjection_apply",
+      "qualified": "GreenFrame.Concrete.l2FirstProjection_apply"
+    },
+    {
+      "id": "GF-458",
+      "name": "l2FirstProjection_norm_le",
+      "qualified": "GreenFrame.Concrete.l2FirstProjection_norm_le"
+    },
+    {
+      "id": "GF-459",
+      "name": "l2ProductMap_tendsto",
+      "qualified": "GreenFrame.Concrete.l2ProductMap_tendsto"
+    },
+    {
+      "id": "GF-460",
+      "name": "stateCoordinateCutoff_contracts",
+      "qualified": "GreenFrame.Concrete.stateCoordinateCutoff_contracts"
+    },
+    {
+      "id": "GF-461",
+      "name": "concreteCoefficientCutoff_contracts",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_contracts"
+    },
+    {
+      "id": "GF-462",
+      "name": "concreteSeedResidualProjection_contracts",
+      "qualified": "GreenFrame.Concrete.concreteSeedResidualProjection_contracts"
+    },
+    {
+      "id": "GF-463",
+      "name": "stateCoordinateCutoff_idempotent",
+      "qualified": "GreenFrame.Concrete.stateCoordinateCutoff_idempotent"
+    },
+    {
+      "id": "GF-464",
+      "name": "concreteCoefficientCutoff_idempotent",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_idempotent"
+    },
+    {
+      "id": "GF-465",
+      "name": "embeddedAnalysisSection_apply",
+      "qualified": "GreenFrame.Concrete.embeddedAnalysisSection_apply"
+    },
+    {
+      "id": "GF-466",
+      "name": "stateCoordinateCutoff_fixes_finite",
+      "qualified": "GreenFrame.Concrete.stateCoordinateCutoff_fixes_finite"
+    },
+    {
+      "id": "GF-467",
+      "name": "residualCoordinateCutoff_fixes_analysis",
+      "qualified": "GreenFrame.Concrete.residualCoordinateCutoff_fixes_analysis"
+    },
+    {
+      "id": "GF-468",
+      "name": "seedResidualCoordinateCutoff_fixes_analysis",
+      "qualified": "GreenFrame.Concrete.seedResidualCoordinateCutoff_fixes_analysis"
+    },
+    {
+      "id": "GF-469",
+      "name": "concreteEmbeddedFiniteAnalysis_apply",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_apply"
+    },
+    {
+      "id": "GF-470",
+      "name": "concreteCutoff_retains_seedResidual",
+      "qualified": "GreenFrame.Concrete.concreteCutoff_retains_seedResidual"
+    },
+    {
+      "id": "GF-471",
+      "name": "concreteFiniteAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.concreteFiniteAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-472",
+      "name": "concreteEmbeddedFiniteAnalysis_upper",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_upper"
+    },
+    {
+      "id": "GF-473",
+      "name": "concreteEmbeddedFiniteAnalysis_lower",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_lower"
+    },
+    {
+      "id": "GF-474",
+      "name": "concreteEmbeddedFiniteAnalysis_norm_sq_bounds",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_norm_sq_bounds"
+    },
+    {
+      "id": "GF-475",
+      "name": "concreteFiniteAnalysisOperator_norm_sq_bounds",
+      "qualified": "GreenFrame.Concrete.concreteFiniteAnalysisOperator_norm_sq_bounds"
+    },
+    {
+      "id": "GF-476",
+      "name": "stateCoordinateCutoff_range",
+      "qualified": "GreenFrame.Concrete.stateCoordinateCutoff_range"
+    },
+    {
+      "id": "GF-477",
+      "name": "residualCoordinateCutoff_range",
+      "qualified": "GreenFrame.Concrete.residualCoordinateCutoff_range"
+    },
+    {
+      "id": "GF-478",
+      "name": "depthOneCoordinateCutoff_range",
+      "qualified": "GreenFrame.Concrete.depthOneCoordinateCutoff_range"
+    },
+    {
+      "id": "GF-479",
+      "name": "bulkCoordinateCutoff_range",
+      "qualified": "GreenFrame.Concrete.bulkCoordinateCutoff_range"
+    },
+    {
+      "id": "GF-480",
+      "name": "concreteCoefficientCutoff_residual_mem",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_residual_mem"
+    },
+    {
+      "id": "GF-481",
+      "name": "concreteCoefficientCutoff_depthOne_mem",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_depthOne_mem"
+    },
+    {
+      "id": "GF-482",
+      "name": "concreteCoefficientCutoff_bulk_mem",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_bulk_mem"
     }
   ]
 }
