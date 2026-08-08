@@ -62,8 +62,8 @@ The publisher has two fail-closed entry paths:
 
 - a manual dispatch from `refs/heads/main`, carrying the exact target SHA,
   first parent SHA, and successful `lean-audit.yml` run ID;
-- creation of `publish-v2.0.0-trigger` directly at the exact current `main`
-  SHA, with no marker commit.
+- creation or fast-forward update of `publish-v2.0.0-trigger` so it
+  points directly at the exact current `main` SHA, with no marker commit.
 
 For the trigger path, the read-only job derives the target's first parent and
 selects the newest successful `push/main` run of `lean-audit.yml` whose head
