@@ -123,16 +123,14 @@ theorem divisiblePullback_summable (r : ℕ) {a : PNat → ℝ}
   let f0 : PNat → ℝ := fun m => a (PNat.divExact m (basePNat r))
   have hsub : Summable
       (fun m : BaseMultiple r => f0 m.1) := by
-    rw [← (baseMultipleEquiv r).summable_iff]
-    change Summable (fun m : PNat =>
-      a (PNat.divExact (basePNat r * m) (basePNat r)))
-    simpa only [divExact_base_mul] using ha
+    apply (baseMultipleEquiv r).summable_iff.mp
+    change Summable (fun m : PNat => f0 (baseMultipleEquiv r m).1)
+    simpa only [f0, baseMultipleEquiv_apply_val, divExact_base_mul] using ha
   have hind : Summable
       (Set.indicator {m : PNat | basePNat r ∣ m} f0) := by
     apply (summable_subtype_iff_indicator
       (f := f0) (s := {m : PNat | basePNat r ∣ m})).mp
-    change Summable (fun m : BaseMultiple r => f0 m.1)
-    exact hsub
+    simpa only [BaseMultiple, Function.comp_apply, Set.mem_setOf_eq] using hsub
   exact hind.congr fun m => by
     by_cases hm : basePNat r ∣ m <;>
       simp [Set.indicator, divisiblePullback, f0, hm]
@@ -151,11 +149,8 @@ theorem tsum_divisiblePullback (r : ℕ) (a : PNat → ℝ) :
         (by
           intro m hm
           by_contra hdiv
-          have hnot : ¬ basePNat r ∣ m := by
-            intro hd
-            exact hdiv hd
-          apply hm
-          simp [divisiblePullback, hnot])
+          change ¬ basePNat r ∣ m at hdiv
+          exact hm (by simp [divisiblePullback, hdiv]))
     _ =
         ∑' m : BaseMultiple r,
           a (PNat.divExact m.1 (basePNat r)) := by
@@ -164,10 +159,13 @@ theorem tsum_divisiblePullback (r : ℕ) (a : PNat → ℝ) :
       simp [divisiblePullback, m.property]
     _ = ∑' k : PNat, a k := by
       symm
-      simpa only [Function.comp_apply, baseMultipleEquiv_apply_val,
-        divExact_base_mul] using
-        ((baseMultipleEquiv r).tsum_eq
-          (fun m : BaseMultiple r =>
-            a (PNat.divExact m.1 (basePNat r))))
+      have heq := (baseMultipleEquiv r).tsum_eq
+        (fun m : BaseMultiple r =>
+          a (PNat.divExact m.1 (basePNat r)))
+      change (∑' k : PNat,
+          a (PNat.divExact (baseMultipleEquiv r k).1 (basePNat r))) =
+        ∑' m : BaseMultiple r,
+          a (PNat.divExact m.1 (basePNat r)) at heq
+      simpa only [baseMultipleEquiv_apply_val, divExact_base_mul] using heq
 
 end GreenFrame.Concrete
