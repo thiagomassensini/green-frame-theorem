@@ -358,6 +358,7 @@ theorem seedResidualAnalysis_add
   simp only [seedResidualAnalysis, WithLp.ofLp_toLp,
     WithLp.ofLp_add, lp.coeFn_add, Pi.add_apply,
     residualAnalysis_add]
+  ext <;> simp
 
 /-- Seed-residual analysis is complex homogeneous. -/
 theorem seedResidualAnalysis_smul
@@ -368,6 +369,7 @@ theorem seedResidualAnalysis_smul
   simp only [seedResidualAnalysis, WithLp.ofLp_toLp,
     WithLp.ofLp_smul, lp.coeFn_smul, Pi.smul_apply,
     residualAnalysis_smul, smul_eq_mul]
+  ext <;> simp [smul_eq_mul]
 
 /-- Seed-residual analysis packaged as a complex linear map. -/
 noncomputable def seedResidualAnalysisLinearMap
