@@ -160,3 +160,11 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.parentGreenDominant_summable
 #print axioms GreenFrame.Concrete.parentGreenMajorant_summable
 #print axioms GreenFrame.Concrete.parentGreenMajorant_tsum_le
+#print axioms GreenFrame.Concrete.grandparentGreenMajorant_nonneg
+#print axioms GreenFrame.Concrete.grandparentGreenDominant_nonneg
+#print axioms GreenFrame.Concrete.grandparentGreenMajorant_le_dominant
+#print axioms GreenFrame.Concrete.grandparentGreenDominant_camera_summable
+#print axioms GreenFrame.Concrete.grandparentGreenDominant_camera_tsum
+#print axioms GreenFrame.Concrete.grandparentGreenDominant_summable
+#print axioms GreenFrame.Concrete.grandparentGreenMajorant_summable
+#print axioms GreenFrame.Concrete.grandparentGreenMajorant_tsum_le

@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **158** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **166** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -162,3 +162,11 @@ The registry contains exactly **158** named Lean theorems reachable from `GreenF
 | `GF-156` | `GreenFrame.Concrete.parentGreenDominant_summable` | `GreenFrame/Concrete/Analysis/GreenParentBound.lean` |
 | `GF-157` | `GreenFrame.Concrete.parentGreenMajorant_summable` | `GreenFrame/Concrete/Analysis/GreenParentBound.lean` |
 | `GF-158` | `GreenFrame.Concrete.parentGreenMajorant_tsum_le` | `GreenFrame/Concrete/Analysis/GreenParentBound.lean` |
+| `GF-159` | `GreenFrame.Concrete.grandparentGreenMajorant_nonneg` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |
+| `GF-160` | `GreenFrame.Concrete.grandparentGreenDominant_nonneg` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |
+| `GF-161` | `GreenFrame.Concrete.grandparentGreenMajorant_le_dominant` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |
+| `GF-162` | `GreenFrame.Concrete.grandparentGreenDominant_camera_summable` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |
+| `GF-163` | `GreenFrame.Concrete.grandparentGreenDominant_camera_tsum` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |
+| `GF-164` | `GreenFrame.Concrete.grandparentGreenDominant_summable` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |
+| `GF-165` | `GreenFrame.Concrete.grandparentGreenMajorant_summable` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |
+| `GF-166` | `GreenFrame.Concrete.grandparentGreenMajorant_tsum_le` | `GreenFrame/Concrete/Analysis/GreenGrandparentBound.lean` |

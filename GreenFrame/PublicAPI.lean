@@ -20,6 +20,7 @@ import GreenFrame.Concrete.Analysis.GreenStateEnergy
 import GreenFrame.Concrete.Analysis.GreenCurrentCameraBound
 import GreenFrame.Concrete.Analysis.GreenCurrentBound
 import GreenFrame.Concrete.Analysis.GreenParentBound
+import GreenFrame.Concrete.Analysis.GreenGrandparentBound
 
 /-!
 # Public API — All-Bases Green Frame Theorem
