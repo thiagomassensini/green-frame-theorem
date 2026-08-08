@@ -58,8 +58,8 @@ theorem eventTowerRootNat_eq_divMaxPow (e : GreenEvent) :
     _ = (baseNat e.1) ^ eventParentDepth e *
           Nat.divMaxPow (e.2 : ℕ) (baseNat e.1) := by
       symm
-      simpa [eventParentDepth, positionalDepth] using
-        (Nat.pow_padicValNat_mul_divMaxPow (baseNat e.1) (e.2 : ℕ))
+      change (baseNat e.1) ^ padicValNat (baseNat e.1) (e.2 : ℕ) * Nat.divMaxPow (e.2 : ℕ) (baseNat e.1) = (e.2 : ℕ)
+      exact Nat.pow_padicValNat_mul_divMaxPow (baseNat e.1) (e.2 : ℕ)
 
 /-- Positive-natural packaging of the extracted tower root. -/
 def eventTowerRootPNat (e : GreenEvent) : PNat :=
@@ -69,9 +69,9 @@ def eventTowerRootPNat (e : GreenEvent) : PNat :=
 theorem base_not_dvd_eventTowerRoot (e : GreenEvent) :
     ¬ basePNat e.1 ∣ eventTowerRootPNat e := by
   intro hdvd
-  have hdvdNat : baseNat e.1 ∣ eventTowerRootNat e := by
-    simpa only [basePNat_coe, eventTowerRootPNat] using
-      PNat.dvd_iff.mp hdvd
+  have hdvdNat := PNat.dvd_iff.mp hdvd
+  change baseNat e.1 ∣ eventTowerRootNat e at hdvdNat
+  -- Both positive-natural coercions are now exposed as their natural values.
   rw [eventTowerRootNat_eq_divMaxPow] at hdvdNat
   exact Nat.not_dvd_divMaxPow
     (by have := baseNat_ge_two e.1; omega)
@@ -90,10 +90,11 @@ theorem eventParent_decomposition_unique
   have hpair := Nat.maxPowDvdDiv_of_pow_mul_eq
     (Nat.ne_of_gt e.2.property) hfactor hroot
   have hk : eventParentDepth e = k := by
-    simpa [eventParentDepth, positionalDepth] using
-      congrArg Prod.fst hpair
+    change (Nat.maxPowDvdDiv (baseNat e.1) (e.2 : ℕ)).fst = k
+    exact congrArg Prod.fst hpair
   have hroot' : Nat.divMaxPow (e.2 : ℕ) (baseNat e.1) = root := by
-    simpa using congrArg Prod.snd hpair
+    change (Nat.maxPowDvdDiv (baseNat e.1) (e.2 : ℕ)).snd = root
+    exact congrArg Prod.snd hpair
   exact ⟨hk.symm,
     hroot'.symm.trans (eventTowerRootNat_eq_divMaxPow e).symm⟩
 
