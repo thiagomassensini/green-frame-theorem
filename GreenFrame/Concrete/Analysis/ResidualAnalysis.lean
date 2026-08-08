@@ -354,21 +354,20 @@ theorem seedResidualAnalysis_add
     (omega : AdmissibleInfinitePartition) (f g : State) :
     seedResidualAnalysis omega (f + g) =
       seedResidualAnalysis omega f + seedResidualAnalysis omega g := by
-  simpa only [seedResidualAnalysis, lp.coeFn_add, Pi.add_apply,
-    residualAnalysis_add] using
-    (WithLp.toLp_add 2
-      (f (1 : PNat), residualAnalysis omega f)
-      (g (1 : PNat), residualAnalysis omega g))
+  apply WithLp.ofLp_injective 2
+  simp only [seedResidualAnalysis, WithLp.ofLp_toLp,
+    WithLp.ofLp_add, lp.coeFn_add, Pi.add_apply,
+    residualAnalysis_add]
 
 /-- Seed-residual analysis is complex homogeneous. -/
 theorem seedResidualAnalysis_smul
     (omega : AdmissibleInfinitePartition) (c : ℂ) (f : State) :
     seedResidualAnalysis omega (c • f) =
       c • seedResidualAnalysis omega f := by
-  simpa only [seedResidualAnalysis, lp.coeFn_smul, Pi.smul_apply,
-    residualAnalysis_smul, smul_eq_mul] using
-    (WithLp.toLp_smul 2 c
-      (f (1 : PNat), residualAnalysis omega f))
+  apply WithLp.ofLp_injective 2
+  simp only [seedResidualAnalysis, WithLp.ofLp_toLp,
+    WithLp.ofLp_smul, lp.coeFn_smul, Pi.smul_apply,
+    residualAnalysis_smul, smul_eq_mul]
 
 /-- Seed-residual analysis packaged as a complex linear map. -/
 noncomputable def seedResidualAnalysisLinearMap
