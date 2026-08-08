@@ -71,7 +71,7 @@ theorem rawExternal_concreteAnalysisOperator_apply
     (omega : AdmissibleInfinitePartition) (f : State) :
     rawExternal (concreteAnalysisOperator omega) f =
       concreteExternalAnalysisOperator omega f := by
-  simpa only [rawExternal_apply, concreteAnalysisOperator_apply,
+  simp only [rawExternal_apply, concreteAnalysisOperator_apply,
     WithLp.toLp_fst]
 
 /-- The raw bulk projection is exactly `G≥2`, not the aggregate Green map. -/
@@ -80,7 +80,7 @@ theorem rawBulk_concreteAnalysisOperator_apply
     (omega : AdmissibleInfinitePartition) (f : State) :
     rawBulk (concreteAnalysisOperator omega) f =
       greenBulkSectorAnalysis omega f := by
-  simpa only [rawBulk_apply, concreteAnalysisOperator_apply,
+  simp only [rawBulk_apply, concreteAnalysisOperator_apply,
     WithLp.toLp_snd]
 
 /-- Orthogonal seed-residual/depth-one identity inside the external sector. -/
