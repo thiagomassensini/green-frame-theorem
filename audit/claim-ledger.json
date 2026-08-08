@@ -1,0 +1,245 @@
+{
+  "schema": "org.green-frame.claim-ledger/v2",
+  "release": "2.0.0",
+  "registry_count": 494,
+  "count": 23,
+  "status_counts": {
+    "KERNEL_CHECKED": 20,
+    "CONDITIONAL": 1,
+    "OPEN": 1,
+    "FUTURE_LAYER": 1
+  },
+  "coefficient_split": {
+    "external": "seed + residual + G1",
+    "bulk": "G>=2",
+    "analysis": "((seed, residual, G1), G>=2)"
+  },
+  "canonical_bulk_witness": "(base,n)=(2,4) on twoFourWitnessState=e4",
+  "claims": [
+    {
+      "id": "ABGF-AR-001",
+      "claim": "Active canonical camera support of each coordinate is finite",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-061",
+        "GF-089",
+        "GF-095"
+      ]
+    },
+    {
+      "id": "ABGF-AR-002",
+      "claim": "Canonical log-depth weights over all integer bases are nonnegative finitely supported and sum to one",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-056",
+        "GF-062",
+        "GF-096",
+        "GF-097"
+      ]
+    },
+    {
+      "id": "ABGF-AR-003",
+      "claim": "Canonical bulk activity is at most twice depth-one activity and the depth-one share is at least one third",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-374",
+        "GF-377"
+      ]
+    },
+    {
+      "id": "ABGF-AN-001",
+      "claim": "The elementary seed-plus-camera atlas is an isometry",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-399",
+        "GF-400",
+        "GF-402",
+        "GF-404"
+      ]
+    },
+    {
+      "id": "ABGF-AN-002",
+      "claim": "One base horizontal subspace is resolved exactly by the seed and the remaining vertical cameras",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-409",
+        "GF-419"
+      ]
+    },
+    {
+      "id": "ABGF-GR-001",
+      "claim": "The Green and return masses sum pointwise to the camera weight",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-063"
+      ]
+    },
+    {
+      "id": "ABGF-GR-002",
+      "claim": "For every nonseed coordinate total residual mass lies between one half and one",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-191",
+        "GF-192",
+        "GF-225"
+      ]
+    },
+    {
+      "id": "ABGF-GR-003",
+      "claim": "The global stencil equals the normalized-tower TFVD including its depth-one truncation",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-428",
+        "GF-438",
+        "GF-439",
+        "GF-441"
+      ]
+    },
+    {
+      "id": "ABGF-GR-004",
+      "claim": "The global Green analysis satisfies norm(G f)^2 at most C_G times norm(f)^2 with explicit C_G",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-171",
+        "GF-174",
+        "GF-177"
+      ]
+    },
+    {
+      "id": "ABGF-FR-001",
+      "claim": "The concrete analysis T with external seed residual G1 and bulk G_ge2 has frame bounds one half and C_F",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-280",
+        "GF-281",
+        "GF-282"
+      ]
+    },
+    {
+      "id": "ABGF-FR-002",
+      "claim": "For the concrete T the frame operator F=T* T is positive strictly positive and invertible",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-286",
+        "GF-288",
+        "GF-289",
+        "GF-290"
+      ],
+      "instantiation": "T = concreteAnalysisOperator canonicalCarryInfinitePartition; bounds = (concreteSplitFrameBounds canonicalCarryInfinitePartition).toComplexFrameBounds"
+    },
+    {
+      "id": "ABGF-FR-003",
+      "claim": "For the concrete T the canonical normalization V=T F^(-1/2) is an isometry",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-294",
+        "GF-295",
+        "GF-296",
+        "GF-298"
+      ],
+      "instantiation": "T = concreteAnalysisOperator canonicalCarryInfinitePartition; bounds = (concreteSplitFrameBounds canonicalCarryInfinitePartition).toComplexFrameBounds"
+    },
+    {
+      "id": "ABGF-PO-001",
+      "claim": "The normalized exact external component E0 has squared-norm lower bound one over two C_F",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-303",
+        "GF-282",
+        "GF-283"
+      ],
+      "instantiation": "external = seed + residual + G1; bulk = G>=2; bounds = concreteSplitFrameBounds canonicalCarryInfinitePartition"
+    },
+    {
+      "id": "ABGF-PO-002",
+      "claim": "The range of the exact normalized external component E0 is closed",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-305",
+        "GF-307"
+      ],
+      "instantiation": "bounds = concreteSplitFrameBounds canonicalCarryInfinitePartition"
+    },
+    {
+      "id": "ABGF-PO-003",
+      "claim": "The static Poisson operator satisfies M_AB E0=B0 for the exact external and bulk maps",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-310",
+        "GF-357"
+      ],
+      "instantiation": "external = seed + residual + G1; bulk = G>=2; bounds = concreteSplitFrameBounds canonicalCarryInfinitePartition"
+    },
+    {
+      "id": "ABGF-PO-004",
+      "claim": "The coherent normalized image is exactly the closed graph of M_AB over range(E0)",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-313",
+        "GF-314"
+      ],
+      "instantiation": "bounds = concreteSplitFrameBounds canonicalCarryInfinitePartition"
+    },
+    {
+      "id": "ABGF-BK-001",
+      "claim": "The canonical depth-at-least-two bulk is nonzero at the base two coordinate four witness on e4",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-328",
+        "GF-344",
+        "GF-347",
+        "GF-348"
+      ],
+      "witness": "(base,n)=(2,4) on twoFourWitnessState=e4"
+    },
+    {
+      "id": "ABGF-BK-002",
+      "claim": "The normalized canonical bulk has squared operator norm at least one over four C_F",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-349",
+        "GF-350"
+      ]
+    },
+    {
+      "id": "ABGF-FS-001",
+      "claim": "Concrete finite sections T_N have uniform frame bounds one half and C_F",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-476",
+        "GF-474",
+        "GF-475"
+      ]
+    },
+    {
+      "id": "ABGF-FS-002",
+      "claim": "The embedded concrete finite sections Q_N T P_N converge strongly to T",
+      "status": "KERNEL_CHECKED",
+      "theorem_ids": [
+        "GF-493"
+      ]
+    },
+    {
+      "id": "ABGF-FS-003",
+      "claim": "The embedded normalized finite analyses V_N converge strongly to the canonical analysis V",
+      "status": "CONDITIONAL",
+      "theorem_ids": [
+        "GF-494"
+      ],
+      "conditions": "For every state f, the common-space CFC inverse square roots extendedFiniteInverseSqrt omega N converge strongly to inverseSqrtFrame (concreteAnalysisOperator omega) on f. The finite extension extendedFiniteFrameOperator omega N is frameOperator (concreteEmbeddedFiniteAnalysis omega N) + (1 - stateCoordinateCutoff N). In this row V_N denotes the common-space map concreteEmbeddedFiniteAnalysis omega N composed with extendedFiniteInverseSqrt omega N; no separate bundled finite-domain identification is asserted."
+    },
+    {
+      "id": "ABGF-FS-004",
+      "claim": "Finite Poisson operators converge strongly to M_AB",
+      "status": "OPEN",
+      "theorem_ids": [],
+      "reason": "No finite normalized external pseudoinverse or finite Poisson convergence theorem is constructed in v2; the primary source defers this step until after FS-003."
+    },
+    {
+      "id": "ABGF-WEYL-001",
+      "claim": "A Weyl family is obtained from the Schur complement of the log n generator",
+      "status": "FUTURE_LAYER",
+      "theorem_ids": []
+    }
+  ]
+}

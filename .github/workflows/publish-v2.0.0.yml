@@ -1,0 +1,720 @@
+name: Publish Green Frame v2.0.0
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_sha:
+        description: Exact 40-hex main commit to audit, tag, and release
+        required: true
+        type: string
+      expected_parent_sha:
+        description: Exact 40-hex first parent of target_sha
+        required: true
+        type: string
+      audit_run_id:
+        description: Successful lean-audit run ID whose head SHA is target_sha
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: publish-green-frame-v2.0.0
+  cancel-in-progress: false
+
+env:
+  GH_TOKEN: ${{ github.token }}
+  AUDITED_SHA: ${{ inputs.target_sha }}
+  TARGET_SHA: ${{ inputs.target_sha }}
+  EXPECTED_PARENT_SHA: ${{ inputs.expected_parent_sha }}
+  UPSTREAM_AUDIT_RUN_ID: ${{ inputs.audit_run_id }}
+  WORKFLOW_DEFINITION_SHA: ${{ github.workflow_sha }}
+  TAG: v2.0.0
+  VERSION: 2.0.0
+  NOTES_PATH: .release/v2.0.0.md
+  PUBLISH_WORKFLOW_PATH: .github/workflows/publish-v2.0.0.yml
+  TAGGER_NAME: github-actions[bot]
+  TAGGER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+  TAGGER_DATE_SOURCE: target_committer_timestamp
+
+jobs:
+  audit:
+    name: Read-only exact-parent audit and packaging
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      already_published: ${{ steps.release_state.outputs.already_published }}
+      bound_draft: ${{ steps.release_state.outputs.bound_draft }}
+      release_id: ${{ steps.release_state.outputs.release_id }}
+    steps:
+      - name: Check out only the supplied publication target
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ inputs.target_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Verify exact target, main head, first parent, and upstream audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$TARGET_SHA" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$EXPECTED_PARENT_SHA" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$UPSTREAM_AUDIT_RUN_ID" =~ ^[0-9]+$ ]]
+          test "$GITHUB_EVENT_NAME" = workflow_dispatch
+          test "$GITHUB_REF" = refs/heads/main
+          test "$GITHUB_SHA" = "$TARGET_SHA"
+          test "$WORKFLOW_DEFINITION_SHA" = "$TARGET_SHA"
+          test "$GITHUB_WORKFLOW_REF" = \
+            "$GITHUB_REPOSITORY/$PUBLISH_WORKFLOW_PATH@refs/heads/main"
+          test "$(git rev-parse HEAD)" = "$TARGET_SHA"
+          test -z "$(git status --porcelain --untracked-files=all)"
+          main_sha="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
+          test "$main_sha" = "$TARGET_SHA"
+          first_parent="$(git rev-parse HEAD^1)"
+          test "$first_parent" = "$EXPECTED_PARENT_SHA"
+
+          run_json="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$UPSTREAM_AUDIT_RUN_ID")"
+          run_head_sha="$(jq -r .head_sha <<<"$run_json")"
+          run_status="$(jq -r .status <<<"$run_json")"
+          run_conclusion="$(jq -r .conclusion <<<"$run_json")"
+          run_event="$(jq -r .event <<<"$run_json")"
+          run_head_branch="$(jq -r .head_branch <<<"$run_json")"
+          run_attempt="$(jq -r .run_attempt <<<"$run_json")"
+          run_workflow_id="$(jq -r .workflow_id <<<"$run_json")"
+          run_created_at="$(jq -r .created_at <<<"$run_json")"
+          run_updated_at="$(jq -r .updated_at <<<"$run_json")"
+          run_url="$(jq -r .html_url <<<"$run_json")"
+          test "$run_head_sha" = "$TARGET_SHA"
+          test "$run_status" = completed
+          test "$run_conclusion" = success
+          test "$run_event" = push
+          test "$run_head_branch" = main
+          workflow_path="$(jq -r '.path // ""' <<<"$run_json")"
+          workflow_path="${workflow_path%%@*}"
+          test "$workflow_path" = ".github/workflows/lean-audit.yml"
+          {
+            echo "UPSTREAM_AUDIT_HEAD_SHA=$run_head_sha"
+            echo "UPSTREAM_AUDIT_STATUS=$run_status"
+            echo "UPSTREAM_AUDIT_CONCLUSION=$run_conclusion"
+            echo "UPSTREAM_AUDIT_EVENT=$run_event"
+            echo "UPSTREAM_AUDIT_HEAD_BRANCH=$run_head_branch"
+            echo "UPSTREAM_AUDIT_WORKFLOW_PATH=$workflow_path"
+            echo "UPSTREAM_AUDIT_RUN_ATTEMPT=$run_attempt"
+            echo "UPSTREAM_AUDIT_WORKFLOW_ID=$run_workflow_id"
+            echo "UPSTREAM_AUDIT_CREATED_AT=$run_created_at"
+            echo "UPSTREAM_AUDIT_UPDATED_AT=$run_updated_at"
+            echo "UPSTREAM_AUDIT_URL=$run_url"
+          } >> "$GITHUB_ENV"
+
+          if ref="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" 2>/dev/null)"; then
+            test "$(jq -r .object.type <<<"$ref")" = tag
+            tag_object="$(gh api "repos/$GITHUB_REPOSITORY/git/tags/$(jq -r .object.sha <<<"$ref")")"
+            test "$(jq -r .object.type <<<"$tag_object")" = commit
+            test "$(jq -r .object.sha <<<"$tag_object")" = "$TARGET_SHA"
+            test "$(jq -r .tag <<<"$tag_object")" = "$TAG"
+          fi
+
+          contract_tag="$(jq -r .release.tag audit/release-contract.json)"
+          contract_version="$(jq -r .release.version audit/release-contract.json)"
+          contract_notes="$(jq -r .release.notes audit/release-contract.json)"
+          test "$contract_tag" = "$TAG"
+          test "$contract_version" = "$VERSION"
+          test "$contract_notes" = "$NOTES_PATH"
+          test "$(jq -r .release.tagger.name audit/release-contract.json)" = "$TAGGER_NAME"
+          test "$(jq -r .release.tagger.email audit/release-contract.json)" = "$TAGGER_EMAIL"
+          test "$(jq -r .release.tagger.date_source audit/release-contract.json)" = "$TAGGER_DATE_SOURCE"
+
+      - name: Resolve and verify any tag-bound release state read-only
+        id: release_state
+        shell: bash
+        run: |
+          set -euo pipefail
+          releases="$(
+            gh api --paginate --slurp \
+              "repos/$GITHUB_REPOSITORY/releases?per_page=100" | jq 'add // []'
+          )"
+          matches="$(jq --arg tag "$TAG" '[.[] | select(.tag_name == $tag)]' <<<"$releases")"
+          count="$(jq length <<<"$matches")"
+          test "$count" -le 1
+          already_published=false
+          bound_draft=false
+          if test "$count" -eq 1; then
+            release="$(jq '.[0]' <<<"$matches")"
+            echo "release_id=$(jq -r .id <<<"$release")" >> "$GITHUB_OUTPUT"
+            release_is_draft="$(jq -r .draft <<<"$release")"
+            test "$release_is_draft" = true || test "$release_is_draft" = false
+            tag_exists=false
+            if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" > /dev/null 2>&1; then
+              tag_exists=true
+            fi
+            if test "$release_is_draft" != true || test "$tag_exists" = true; then
+              notes="$(cat "$NOTES_PATH")"
+              test "$(jq -r .prerelease <<<"$release")" = false
+              test "$(jq -r .target_commitish <<<"$release")" = "$TARGET_SHA"
+              test "$(jq -r .name <<<"$release")" = "Green Frame Theorem $TAG"
+              test "$(jq -r .body <<<"$release")" = "$notes"
+
+              ref="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG")"
+              test "$(jq -r .object.type <<<"$ref")" = tag
+              tag_object="$(gh api "repos/$GITHUB_REPOSITORY/git/tags/$(jq -r .object.sha <<<"$ref")")"
+              test "$(jq -r .object.type <<<"$tag_object")" = commit
+              test "$(jq -r .object.sha <<<"$tag_object")" = "$TARGET_SHA"
+              test "$(jq -r .tag <<<"$tag_object")" = "$TAG"
+              test "$(jq -r .tagger.name <<<"$tag_object")" = "$TAGGER_NAME"
+              test "$(jq -r .tagger.email <<<"$tag_object")" = "$TAGGER_EMAIL"
+              tagger_epoch="$(date -d "$(jq -r .tagger.date <<<"$tag_object")" +%s)"
+              test "$tagger_epoch" = "$(git show -s --format=%ct "$TARGET_SHA")"
+
+              primary="$(
+                jq -er '.research.primary | select(
+                  type == "string" and
+                  test("^[A-Za-z0-9._-]+$") and
+                  . != "." and . != ".."
+                )' audit/release-contract.json
+              )"
+              expected="$(
+                printf '%s\n' \
+                  "green-frame-theorem-v$VERSION.tar.gz" \
+                  "green-frame-theorem-v$VERSION-audit.tar.gz" \
+                  "$primary" \
+                  audit-manifest.json axiom-report.json SHA256SUMS.txt | sort
+              )"
+              assets="$(
+                gh api --paginate --slurp \
+                  "repos/$GITHUB_REPOSITORY/releases/$(jq -r .id <<<"$release")/assets?per_page=100" \
+                  | jq 'add // []'
+              )"
+              observed="$(jq -r '.[].name' <<<"$assets" | sort)"
+              test "$observed" = "$expected"
+              verified="$(mktemp -d)"
+              while IFS=$'\t' read -r asset_id asset_name; do
+                gh api -H 'Accept: application/octet-stream' \
+                  "repos/$GITHUB_REPOSITORY/releases/assets/$asset_id" \
+                  > "$verified/$asset_name"
+              done < <(jq -r '.[] | [.id,.name] | @tsv' <<<"$assets")
+              expected="$(
+                printf '%s\n' \
+                  "green-frame-theorem-v$VERSION.tar.gz" \
+                  "green-frame-theorem-v$VERSION-audit.tar.gz" \
+                  "$primary" audit-manifest.json axiom-report.json SHA256SUMS.txt | sort
+              )"
+              observed="$(find "$verified" -mindepth 1 -maxdepth 1 -type f -printf '%f\n' | sort)"
+              test "$observed" = "$expected"
+              test "$(find "$verified" -mindepth 1 -maxdepth 1 | wc -l)" -eq 6
+              test "$(wc -l < "$verified/SHA256SUMS.txt")" -eq 5
+              test "$(grep -Ec '^[0-9a-f]{64}  [A-Za-z0-9._-]+$' "$verified/SHA256SUMS.txt")" -eq 5
+              expected_payload="$(printf '%s\n' \
+                "green-frame-theorem-v$VERSION.tar.gz" \
+                "green-frame-theorem-v$VERSION-audit.tar.gz" \
+                "$primary" audit-manifest.json axiom-report.json | sort)"
+              checksum_payload="$(cut -c67- "$verified/SHA256SUMS.txt" | sort)"
+              test "$checksum_payload" = "$expected_payload"
+              (cd "$verified" && sha256sum --strict --check SHA256SUMS.txt)
+              test "$(jq -S .release "$verified/audit-manifest.json")" = \
+                "$(jq -S .release audit/release-contract.json)"
+              claim_ledger_sha="$(sha256sum audit/claim-ledger.json | cut -d ' ' -f 1)"
+              theorem_registry_sha="$(sha256sum audit/theorem-registry.json | cut -d ' ' -f 1)"
+              source_manifest_sha="$(sha256sum research/source-manifest.json | cut -d ' ' -f 1)"
+              ledger_registry_count="$(jq -er '.registry_count | select(type == "number")' audit/claim-ledger.json)"
+              jq -e \
+                --arg target "$TARGET_SHA" \
+                --arg tree "$(git rev-parse HEAD^{tree})" \
+                --arg parent "$EXPECTED_PARENT_SHA" \
+                --arg upstream "$UPSTREAM_AUDIT_RUN_ID" \
+                --arg repository "$GITHUB_REPOSITORY" \
+                --arg workflow_path "$PUBLISH_WORKFLOW_PATH" \
+                --arg claim_ledger_sha "$claim_ledger_sha" \
+                --arg theorem_registry_sha "$theorem_registry_sha" \
+                --arg source_manifest_sha "$source_manifest_sha" \
+                --argjson ledger_registry_count "$ledger_registry_count" \
+                '
+                  .git.commit == $target and
+                  .git.tree == $tree and
+                  .git.parents[0] == $parent and
+                  .execution.github_sha == $target and
+                  .execution.workflow_sha == $target and
+                  .execution.event_name == "workflow_dispatch" and
+                  .execution.ref == "refs/heads/main" and
+                  .execution.repository == $repository and
+                  .execution.job == "audit" and
+                  .execution.workflow_ref == ($repository + "/" + $workflow_path + "@refs/heads/main") and
+                  .execution.expected_parent_sha == $parent and
+                  .execution.upstream_audit_run_id == $upstream and
+                  .execution.upstream_audit.head_sha == $target and
+                  .execution.upstream_audit.status == "completed" and
+                  .execution.upstream_audit.conclusion == "success" and
+                  .execution.upstream_audit.event == "push" and
+                  .execution.upstream_audit.head_branch == "main" and
+                  .execution.upstream_audit.workflow_path == ".github/workflows/lean-audit.yml" and
+                  [.gates[].id] == ["G1","G2","G3","G4","G5","G6","G7"] and
+                  all(.gates[]; .status == "PASS") and
+                  .counts.gates == 7 and
+                  .counts.research_inputs == 16 and
+                  .counts.paper_claims == 23 and
+                  .counts.kernel_claims == 20 and
+                  .counts.conditional_claims == 1 and
+                  .counts.open_claims == 1 and
+                  .counts.future_claims == 1 and
+                  .counts.public_theorems == $ledger_registry_count and
+                  .identity_sha256.claim_ledger == $claim_ledger_sha and
+                  .identity_sha256.theorem_registry == $theorem_registry_sha and
+                  .identity_sha256.source_manifest == $source_manifest_sha
+                ' "$verified/audit-manifest.json" > /dev/null
+              theorem_count="$(jq -r .counts.public_theorems "$verified/audit-manifest.json")"
+              jq -e --argjson theorem_count "$theorem_count" '
+                .count == (.reports | length) and
+                .count == $theorem_count and
+                ([.reports[].qualified] | unique | length) == .count and
+                ((.used_axioms - .allowed_axioms) | length) == 0
+              ' "$verified/axiom-report.json" > /dev/null
+              checksum_digest="$(sha256sum "$verified/SHA256SUMS.txt" | cut -d ' ' -f 1)"
+              expected_tag_message="$(cat "$NOTES_PATH")"$'\n\n'\
+          "SHA256SUMS.txt SHA-256: $checksum_digest"
+              test "$(jq -r .message <<<"$tag_object")" = "$expected_tag_message"
+              if test "$release_is_draft" = true; then
+                bound_draft=true
+                echo "Tag-bound draft is exact; preserving its run-bound assets for resume."
+              else
+                latest="$(gh api "repos/$GITHUB_REPOSITORY/releases/latest")"
+                test "$(jq -r .id <<<"$latest")" = "$(jq -r .id <<<"$release")"
+                already_published=true
+                echo "Published release already matches the exact contract; no mutation needed."
+              fi
+            fi
+          fi
+          echo "already_published=$already_published" >> "$GITHUB_OUTPUT"
+          echo "bound_draft=$bound_draft" >> "$GITHUB_OUTPUT"
+
+      - name: Set up pinned Lean and Mathlib cache
+        if: >-
+          steps.release_state.outputs.already_published != 'true' &&
+          steps.release_state.outputs.bound_draft != 'true'
+        uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9 # v1.5.0
+        with:
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: true
+
+      - name: Re-run all seven gates and build exact-target assets
+        if: >-
+          steps.release_state.outputs.already_published != 'true' &&
+          steps.release_state.outputs.bound_draft != 'true'
+        shell: bash
+        run: bash scripts/run_audits.sh
+
+      - name: Transfer exact-target assets to the write-isolated job
+        if: >-
+          steps.release_state.outputs.already_published != 'true' &&
+          steps.release_state.outputs.bound_draft != 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: green-frame-publisher-${{ inputs.target_sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    name: Draft-first exact-asset publication
+    needs: audit
+    if: needs.audit.outputs.already_published != 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - name: Check out metadata at the exact publication target
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ inputs.target_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Download the read-only audit job's exact assets
+        if: needs.audit.outputs.bound_draft != 'true'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: green-frame-publisher-${{ inputs.target_sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/
+
+      - name: Recover the immutable tag-bound draft assets read-only
+        if: needs.audit.outputs.bound_draft == 'true'
+        env:
+          RELEASE_ID: ${{ needs.audit.outputs.release_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          assets="$(
+            gh api --paginate --slurp \
+              "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID/assets?per_page=100" \
+              | jq 'add // []'
+          )"
+          primary="$(jq -er '.research.primary | select(
+            type == "string" and test("^[A-Za-z0-9._-]+$") and
+            . != "." and . != ".."
+          )' audit/release-contract.json)"
+          expected="$(printf '%s\n' \
+            "green-frame-theorem-v$VERSION.tar.gz" \
+            "green-frame-theorem-v$VERSION-audit.tar.gz" \
+            "$primary" audit-manifest.json axiom-report.json SHA256SUMS.txt | sort)"
+          observed="$(jq -r '.[].name' <<<"$assets" | sort)"
+          test "$observed" = "$expected"
+          while IFS=$'\t' read -r asset_id asset_name; do
+            gh api -H 'Accept: application/octet-stream' \
+              "repos/$GITHUB_REPOSITORY/releases/assets/$asset_id" > "dist/$asset_name"
+          done < <(jq -r '.[] | [.id,.name] | @tsv' <<<"$assets")
+
+      - name: Verify the write phase still targets the exact main head
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_EVENT_NAME" = workflow_dispatch
+          test "$GITHUB_REF" = refs/heads/main
+          test "$GITHUB_SHA" = "$TARGET_SHA"
+          test "$WORKFLOW_DEFINITION_SHA" = "$TARGET_SHA"
+          test "$GITHUB_WORKFLOW_REF" = \
+            "$GITHUB_REPOSITORY/$PUBLISH_WORKFLOW_PATH@refs/heads/main"
+          test "$(git rev-parse HEAD)" = "$TARGET_SHA"
+          test -z "$(git status --porcelain --untracked-files=all)"
+          test "$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)" = "$TARGET_SHA"
+          primary="$(
+            jq -er '.research.primary | select(
+              type == "string" and
+              test("^[A-Za-z0-9._-]+$") and
+              . != "." and . != ".."
+            )' audit/release-contract.json
+          )"
+          expected="$(printf '%s\n' \
+            "green-frame-theorem-v$VERSION.tar.gz" \
+            "green-frame-theorem-v$VERSION-audit.tar.gz" \
+            "$primary" audit-manifest.json axiom-report.json SHA256SUMS.txt | sort)"
+          observed="$(find dist -mindepth 1 -maxdepth 1 -type f -printf '%f\n' | sort)"
+          test "$observed" = "$expected"
+          test "$(find dist -mindepth 1 -maxdepth 1 | wc -l)" -eq 6
+          test "$(wc -l < dist/SHA256SUMS.txt)" -eq 5
+          test "$(grep -Ec '^[0-9a-f]{64}  [A-Za-z0-9._-]+$' dist/SHA256SUMS.txt)" -eq 5
+          expected_payload="$(printf '%s\n' \
+            "green-frame-theorem-v$VERSION.tar.gz" \
+            "green-frame-theorem-v$VERSION-audit.tar.gz" \
+            "$primary" audit-manifest.json axiom-report.json | sort)"
+          checksum_payload="$(cut -c67- dist/SHA256SUMS.txt | sort)"
+          test "$checksum_payload" = "$expected_payload"
+          (cd dist && sha256sum --strict --check SHA256SUMS.txt)
+          test "$(jq -S .release dist/audit-manifest.json)" = \
+            "$(jq -S .release audit/release-contract.json)"
+          claim_ledger_sha="$(sha256sum audit/claim-ledger.json | cut -d ' ' -f 1)"
+          theorem_registry_sha="$(sha256sum audit/theorem-registry.json | cut -d ' ' -f 1)"
+          source_manifest_sha="$(sha256sum research/source-manifest.json | cut -d ' ' -f 1)"
+          ledger_registry_count="$(jq -er '.registry_count | select(type == "number")' audit/claim-ledger.json)"
+          jq -e \
+            --arg target "$TARGET_SHA" \
+            --arg tree "$(git rev-parse HEAD^{tree})" \
+            --arg parent "$EXPECTED_PARENT_SHA" \
+            --arg upstream "$UPSTREAM_AUDIT_RUN_ID" \
+            --arg run_id "$GITHUB_RUN_ID" \
+            --arg run_attempt "$GITHUB_RUN_ATTEMPT" \
+            --arg bound_draft "${{ needs.audit.outputs.bound_draft }}" \
+            --arg repository "$GITHUB_REPOSITORY" \
+            --arg workflow_path "$PUBLISH_WORKFLOW_PATH" \
+            --arg claim_ledger_sha "$claim_ledger_sha" \
+            --arg theorem_registry_sha "$theorem_registry_sha" \
+            --arg source_manifest_sha "$source_manifest_sha" \
+            --argjson ledger_registry_count "$ledger_registry_count" \
+            '
+              .git.commit == $target and
+              .git.tree == $tree and
+              .git.parents[0] == $parent and
+              .execution.github_sha == $target and
+              .execution.workflow_sha == $target and
+              .execution.event_name == "workflow_dispatch" and
+              .execution.ref == "refs/heads/main" and
+              .execution.repository == $repository and
+              .execution.job == "audit" and
+              .execution.workflow_ref == ($repository + "/" + $workflow_path + "@refs/heads/main") and
+              ($bound_draft == "true" or (
+                .execution.run_id == $run_id and
+                .execution.run_attempt == $run_attempt
+              )) and
+              .execution.expected_parent_sha == $parent and
+              .execution.upstream_audit_run_id == $upstream and
+              .execution.upstream_audit.head_sha == $target and
+              .execution.upstream_audit.status == "completed" and
+              .execution.upstream_audit.conclusion == "success" and
+              .execution.upstream_audit.event == "push" and
+              .execution.upstream_audit.head_branch == "main" and
+              .execution.upstream_audit.workflow_path == ".github/workflows/lean-audit.yml" and
+              [.gates[].id] == ["G1","G2","G3","G4","G5","G6","G7"] and
+              all(.gates[]; .status == "PASS") and
+              .counts.gates == 7 and
+              .counts.research_inputs == 16 and
+              .counts.paper_claims == 23 and
+              .counts.kernel_claims == 20 and
+              .counts.conditional_claims == 1 and
+              .counts.open_claims == 1 and
+              .counts.future_claims == 1 and
+              .counts.public_theorems == $ledger_registry_count and
+              .identity_sha256.claim_ledger == $claim_ledger_sha and
+              .identity_sha256.theorem_registry == $theorem_registry_sha and
+              .identity_sha256.source_manifest == $source_manifest_sha
+            ' dist/audit-manifest.json > /dev/null
+          theorem_count="$(jq -r .counts.public_theorems dist/audit-manifest.json)"
+          jq -e --argjson theorem_count "$theorem_count" '
+            .count == (.reports | length) and
+            .count == $theorem_count and
+            ([.reports[].qualified] | unique | length) == .count and
+            ((.used_axioms - .allowed_axioms) | length) == 0
+          ' dist/axiom-report.json > /dev/null
+
+      - name: Create or resume the release draft before creating any tag
+        if: needs.audit.outputs.bound_draft != 'true'
+        id: draft
+        shell: bash
+        run: |
+          set -euo pipefail
+          releases="$(
+            gh api --paginate --slurp \
+              "repos/$GITHUB_REPOSITORY/releases?per_page=100" | jq 'add // []'
+          )"
+          matches="$(jq --arg tag "$TAG" '[.[] | select(.tag_name == $tag)]' <<<"$releases")"
+          count="$(jq length <<<"$matches")"
+          test "$count" -le 1
+          notes="$(cat "$NOTES_PATH")"
+          expected_name="Green Frame Theorem $TAG"
+          tag_preexisting=false
+          if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" > /dev/null 2>&1; then
+            tag_preexisting=true
+          fi
+          if test "$count" -eq 1; then
+            release="$(jq '.[0]' <<<"$matches")"
+            test "$(jq -r .draft <<<"$release")" = true
+            test "$(jq -r .prerelease <<<"$release")" = false
+            test "$(jq -r .target_commitish <<<"$release")" = "$TARGET_SHA"
+            test "$(jq -r .name <<<"$release")" = "$expected_name"
+            test "$(jq -r .body <<<"$release")" = "$notes"
+          else
+            release="$({
+              jq -n \
+                --arg tag "$TAG" \
+                --arg target "$TARGET_SHA" \
+                --arg name "$expected_name" \
+                --arg body "$notes" \
+                '{tag_name:$tag,target_commitish:$target,name:$name,body:$body,draft:true,prerelease:false,make_latest:"true"}'
+            } | gh api --method POST "repos/$GITHUB_REPOSITORY/releases" --input -)"
+          fi
+          if test "$tag_preexisting" = false; then
+            if gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" > /dev/null 2>&1; then
+              echo "Creating/resuming the draft unexpectedly created $TAG." >&2
+              exit 1
+            fi
+          fi
+          release_id="$(jq -r .id <<<"$release")"
+          upload_url="$(jq -r .upload_url <<<"$release")"
+          test -n "$release_id"
+          test -n "$upload_url"
+          echo "release_id=$release_id" >> "$GITHUB_OUTPUT"
+          echo "upload_url=$upload_url" >> "$GITHUB_OUTPUT"
+
+      - name: Upload the exact asset set to the draft
+        if: needs.audit.outputs.bound_draft != 'true'
+        env:
+          RELEASE_ID: ${{ steps.draft.outputs.release_id }}
+          UPLOAD_URL: ${{ steps.draft.outputs.upload_url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          primary="$(jq -er '.research.primary | select(
+            type == "string" and test("^[A-Za-z0-9._-]+$") and
+            . != "." and . != ".."
+          )' audit/release-contract.json)"
+          expected="$(printf '%s\n' \
+            "green-frame-theorem-v$VERSION.tar.gz" \
+            "green-frame-theorem-v$VERSION-audit.tar.gz" \
+            "$primary" audit-manifest.json axiom-report.json SHA256SUMS.txt | sort)"
+          observed_dist="$(find dist -mindepth 1 -maxdepth 1 -type f -printf '%f\n' | sort)"
+          test "$observed_dist" = "$expected"
+          existing="$(
+            gh api --paginate --slurp \
+              "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID/assets?per_page=100" \
+              | jq 'add // []'
+          )"
+          observed="$(jq -r '.[].name' <<<"$existing" | sort)"
+          unexpected="$(comm -23 <(printf '%s\n' "$observed") <(printf '%s\n' "$expected"))"
+          if test -n "$unexpected"; then
+            echo "Unexpected pre-existing draft assets:" >&2
+            printf '%s\n' "$unexpected" >&2
+            exit 1
+          fi
+          while IFS=$'\t' read -r asset_id asset_name; do
+            test -n "$asset_id" || continue
+            gh api --method DELETE "repos/$GITHUB_REPOSITORY/releases/assets/$asset_id"
+          done < <(jq -r '.[] | [.id,.name] | @tsv' <<<"$existing")
+
+          upload_base="${UPLOAD_URL%%\{*}"
+          while IFS= read -r name; do
+            gh api --method POST \
+              -H 'Content-Type: application/octet-stream' \
+              "$upload_base?name=$name" \
+              --input "dist/$name" > /dev/null
+          done <<<"$expected"
+
+      - name: Download and verify every draft asset before tagging
+        if: needs.audit.outputs.already_published != 'true'
+        env:
+          RELEASE_ID: ${{ steps.draft.outputs.release_id || needs.audit.outputs.release_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          verified="$(mktemp -d)"
+          primary="$(jq -er '.research.primary | select(
+            type == "string" and test("^[A-Za-z0-9._-]+$") and
+            . != "." and . != ".."
+          )' audit/release-contract.json)"
+          expected="$(printf '%s\n' \
+            "green-frame-theorem-v$VERSION.tar.gz" \
+            "green-frame-theorem-v$VERSION-audit.tar.gz" \
+            "$primary" audit-manifest.json axiom-report.json SHA256SUMS.txt | sort)"
+          assets="$(
+            gh api --paginate --slurp \
+              "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID/assets?per_page=100" \
+              | jq 'add // []'
+          )"
+          observed="$(jq -r '.[].name' <<<"$assets" | sort)"
+          test "$observed" = "$expected"
+          while IFS=$'\t' read -r asset_id asset_name; do
+            gh api \
+              -H 'Accept: application/octet-stream' \
+              "repos/$GITHUB_REPOSITORY/releases/assets/$asset_id" > "$verified/$asset_name"
+          done < <(jq -r '.[] | [.id,.name] | @tsv' <<<"$assets")
+          cmp dist/SHA256SUMS.txt "$verified/SHA256SUMS.txt"
+          (cd "$verified" && sha256sum --strict --check SHA256SUMS.txt)
+
+      - name: Create or verify the annotated exact-target tag
+        if: needs.audit.outputs.already_published != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          main_sha="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)"
+          test "$main_sha" = "$TARGET_SHA"
+          checksum_digest="$(sha256sum dist/SHA256SUMS.txt | cut -d ' ' -f 1)"
+          expected_message="$(cat "$NOTES_PATH")"$'\n\n'\
+          "SHA256SUMS.txt SHA-256: $checksum_digest"
+          if ref="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG" 2>/dev/null)"; then
+            test "$(jq -r .object.type <<<"$ref")" = tag
+            tag_object_sha="$(jq -r .object.sha <<<"$ref")"
+            tag_object="$(gh api "repos/$GITHUB_REPOSITORY/git/tags/$tag_object_sha")"
+            test "$(jq -r .object.type <<<"$tag_object")" = commit
+            test "$(jq -r .object.sha <<<"$tag_object")" = "$TARGET_SHA"
+            test "$(jq -r .tag <<<"$tag_object")" = "$TAG"
+            test "$(jq -r .message <<<"$tag_object")" = "$expected_message"
+          else
+            tag_date="$(git show -s --format=%cI "$TARGET_SHA")"
+            tag_object="$({
+              jq -n \
+                --arg tag "$TAG" \
+                --arg message "$expected_message" \
+                --arg object "$TARGET_SHA" \
+                --arg date "$tag_date" \
+                --arg tagger_name "$TAGGER_NAME" \
+                --arg tagger_email "$TAGGER_EMAIL" \
+                '{tag:$tag,message:$message,object:$object,type:"commit",tagger:{name:$tagger_name,email:$tagger_email,date:$date}}'
+            } | gh api --method POST "repos/$GITHUB_REPOSITORY/git/tags" --input -)"
+            tag_object_sha="$(jq -r .sha <<<"$tag_object")"
+            jq -n \
+              --arg ref "refs/tags/$TAG" \
+              --arg sha "$tag_object_sha" \
+              '{ref:$ref,sha:$sha}' \
+              | gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" --input - > /dev/null
+          fi
+          ref="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG")"
+          test "$(jq -r .object.type <<<"$ref")" = tag
+          tag_object="$(gh api "repos/$GITHUB_REPOSITORY/git/tags/$(jq -r .object.sha <<<"$ref")")"
+          test "$(jq -r .object.type <<<"$tag_object")" = commit
+          test "$(jq -r .object.sha <<<"$tag_object")" = "$TARGET_SHA"
+          test "$(jq -r .tag <<<"$tag_object")" = "$TAG"
+          test "$(jq -r .message <<<"$tag_object")" = "$expected_message"
+          test "$(jq -r .tagger.name <<<"$tag_object")" = "$TAGGER_NAME"
+          test "$(jq -r .tagger.email <<<"$tag_object")" = "$TAGGER_EMAIL"
+          tagger_epoch="$(date -d "$(jq -r .tagger.date <<<"$tag_object")" +%s)"
+          test "$tagger_epoch" = "$(git show -s --format=%ct "$TARGET_SHA")"
+
+      - name: Publish the verified draft
+        if: needs.audit.outputs.already_published != 'true'
+        env:
+          RELEASE_ID: ${{ steps.draft.outputs.release_id || needs.audit.outputs.release_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)" = "$TARGET_SHA"
+          release="$(gh api "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID")"
+          test "$(jq -r .draft <<<"$release")" = true
+          test "$(jq -r .prerelease <<<"$release")" = false
+          test "$(jq -r .tag_name <<<"$release")" = "$TAG"
+          test "$(jq -r .target_commitish <<<"$release")" = "$TARGET_SHA"
+          test "$(jq -r .name <<<"$release")" = "Green Frame Theorem $TAG"
+          test "$(jq -r .body <<<"$release")" = "$(cat "$NOTES_PATH")"
+          jq -n '{draft:false,prerelease:false,make_latest:"true"}' \
+            | gh api --method PATCH "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID" --input - > /dev/null
+
+      - name: Verify the permanent release, exact tag, and assets
+        env:
+          RELEASE_ID: ${{ steps.draft.outputs.release_id || needs.audit.outputs.release_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          release="$(gh api "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID")"
+          test "$(jq -r .draft <<<"$release")" = false
+          test "$(jq -r .prerelease <<<"$release")" = false
+          test "$(jq -r .tag_name <<<"$release")" = "$TAG"
+          test "$(jq -r .target_commitish <<<"$release")" = "$TARGET_SHA"
+          test "$(jq -r .name <<<"$release")" = "Green Frame Theorem $TAG"
+          test "$(jq -r .body <<<"$release")" = "$(cat "$NOTES_PATH")"
+          latest="$(gh api "repos/$GITHUB_REPOSITORY/releases/latest")"
+          test "$(jq -r .id <<<"$latest")" = "$RELEASE_ID"
+          assets="$(
+            gh api --paginate --slurp \
+              "repos/$GITHUB_REPOSITORY/releases/$RELEASE_ID/assets?per_page=100" \
+              | jq 'add // []'
+          )"
+          expected="$(
+            printf '%s\n' \
+              "green-frame-theorem-v$VERSION.tar.gz" \
+              "green-frame-theorem-v$VERSION-audit.tar.gz" \
+              "$(jq -r .research.primary audit/release-contract.json)" \
+              audit-manifest.json axiom-report.json SHA256SUMS.txt | sort
+          )"
+          observed="$(jq -r '.[].name' <<<"$assets" | sort)"
+          test "$observed" = "$expected"
+          verified="$(mktemp -d)"
+          while IFS=$'\t' read -r asset_id asset_name; do
+            gh api -H 'Accept: application/octet-stream' \
+              "repos/$GITHUB_REPOSITORY/releases/assets/$asset_id" \
+              > "$verified/$asset_name"
+          done < <(jq -r '.[] | [.id,.name] | @tsv' <<<"$assets")
+          (cd "$verified" && sha256sum --strict --check SHA256SUMS.txt)
+          if test -f dist/SHA256SUMS.txt; then
+            cmp dist/SHA256SUMS.txt "$verified/SHA256SUMS.txt"
+          fi
+          ref="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$TAG")"
+          test "$(jq -r .object.type <<<"$ref")" = tag
+          tag_object="$(gh api "repos/$GITHUB_REPOSITORY/git/tags/$(jq -r .object.sha <<<"$ref")")"
+          test "$(jq -r .object.type <<<"$tag_object")" = commit
+          test "$(jq -r .object.sha <<<"$tag_object")" = "$TARGET_SHA"
+          test "$(jq -r .tag <<<"$tag_object")" = "$TAG"
+          checksum_digest="$(sha256sum "$verified/SHA256SUMS.txt" | cut -d ' ' -f 1)"
+          expected_tag_message="$(cat "$NOTES_PATH")"$'\n\n'\
+          "SHA256SUMS.txt SHA-256: $checksum_digest"
+          test "$(jq -r .message <<<"$tag_object")" = "$expected_tag_message"
+          test "$(jq -r .tagger.name <<<"$tag_object")" = "$TAGGER_NAME"
+          test "$(jq -r .tagger.email <<<"$tag_object")" = "$TAGGER_EMAIL"
+          tagger_epoch="$(date -d "$(jq -r .tagger.date <<<"$tag_object")" +%s)"
+          test "$tagger_epoch" = "$(git show -s --format=%ct "$TARGET_SHA")"
+          echo "Published $(jq -r .html_url <<<"$release") at exact commit $TARGET_SHA"

@@ -11,12 +11,68 @@ import GreenFrame.Analysis.GraphRange
 import GreenFrame.Analysis.NontrivialBulk
 import GreenFrame.Finite.Sections
 import GreenFrame.Finite.StrongLimit
+import GreenFrame.Concrete.Arithmetic.PositionalDepth
+import GreenFrame.Concrete.Analysis.InfinitePartition
+import GreenFrame.Concrete.Analysis.GreenStencilComplex
+import GreenFrame.Concrete.Analysis.GreenReindexing
+import GreenFrame.Concrete.Analysis.GreenBesselConstants
+import GreenFrame.Concrete.Analysis.GreenStateEnergy
+import GreenFrame.Concrete.Analysis.GreenCurrentCameraBound
+import GreenFrame.Concrete.Analysis.GreenCurrentBound
+import GreenFrame.Concrete.Analysis.GreenParentBound
+import GreenFrame.Concrete.Analysis.GreenGrandparentBound
+import GreenFrame.Concrete.Analysis.GreenCoordinateMajorant
+
+import GreenFrame.Concrete.Analysis.GreenBesselAssembly
+import GreenFrame.Concrete.Analysis.GreenAnalysisVector
+import GreenFrame.Concrete.Analysis.GreenAnalysisOperator
+import GreenFrame.Concrete.Analysis.ResidualCoordinates
+import GreenFrame.Concrete.Analysis.ResidualAnalysis
+import GreenFrame.Concrete.Analysis.GreenDepthCoordinates
+import GreenFrame.Concrete.Analysis.GreenDepthMaskedEnergy
+import GreenFrame.Concrete.Analysis.GreenDepthMaskedOperator
+import GreenFrame.Concrete.Analysis.GreenDepthSectorEnergy
+import GreenFrame.Concrete.Analysis.GreenDepthSectorOperator
+import GreenFrame.Concrete.Analysis.GreenDepthSplit
+import GreenFrame.Concrete.Analysis.ComplexFrameBounds
+import GreenFrame.Concrete.Analysis.ConcreteSplitOperators
+import GreenFrame.Concrete.Analysis.ConcreteSplitAnalysis
+import GreenFrame.Concrete.Analysis.FrameOperator
+import GreenFrame.Concrete.Analysis.CanonicalParseval
+import GreenFrame.Concrete.Analysis.NormalizedSplit
+import GreenFrame.Concrete.Analysis.ExternalRange
+import GreenFrame.Concrete.Analysis.StaticPoisson
+import GreenFrame.Concrete.Analysis.RestrictedGraph
+import GreenFrame.Concrete.Analysis.NontrivialPoissonQualitative
+
+import GreenFrame.Concrete.Analysis.NontrivialPoissonQuantitative
+
+import GreenFrame.Concrete.Analysis.NontrivialPoisson
+import GreenFrame.Concrete.Analysis.ConcreteBulkWitnessArithmetic
+
+import GreenFrame.Concrete.Analysis.ConcreteBulkWitnessCoordinates
+
+import GreenFrame.Concrete.Analysis.ConcreteBulkWitnessRaw
+
+import GreenFrame.Concrete.Analysis.ConcreteBulkWitness
+
+import GreenFrame.Concrete.Analysis.AmbientPoisson
+
+import GreenFrame.Concrete.Arithmetic.DepthOneActivity
+
+import GreenFrame.Concrete.Analysis.ElementaryAtlas
+
+import GreenFrame.Concrete.Analysis.HorizontalResolution
+
+import GreenFrame.Concrete.Analysis.NormalizedTowerTFVD
+
+import GreenFrame.Concrete.Finite.FiniteSections
+import GreenFrame.Concrete.Finite.ConditionalParsevalLimit
 
 /-!
 # Public API — All-Bases Green Frame Theorem
 
-The public root exports the arithmetic partition, Pythagorean Green-return
-split, finite Green Bessel estimate, frame ledger, Parseval interface, exact
-Poisson completion, graph theorem, nontrivial-bulk criterion, and uniform
-finite-section/strong-limit transport.
+The public root currently exports the historical abstract layer and the new
+remote-first concrete reconstruction. Concrete modules are added only after
+their exact GitHub Actions SHA passes the pinned Lean audit.
 -/

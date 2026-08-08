@@ -1,0 +1,8 @@
+{
+  "schema": "org.green-frame.axiom-allowlist/v1",
+  "allowed": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}

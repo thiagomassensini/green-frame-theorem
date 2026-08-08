@@ -1,24 +1,46 @@
 # Source provenance
 
-## Primary mathematical source
+## Preserved research corpus
 
-- Preserved path: `docs/90_PAPER_SPECIFICATION.md`
-- Original supplied name: `TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md`
-- SHA-256: `366dfa007002c1d3dbf2eb7c283c13c1b35233647163753ee39e45dd0645c3f4`
-- Size: 50,630 bytes
-- Role: theorem statement, paper proof, formal API proposal, repository architecture, claim ledger, and publication plan.
+The 16 user-supplied mathematical notes and computational laboratories are
+preserved byte-for-byte under `research/inputs/`.  The authoritative filenames
+and SHA-256 digests are versioned in `research/source-manifest.json`; the human
+table is `research/SOURCE_MANIFEST.md`.
 
-The source is copied byte-for-byte. `scripts/check_source_provenance.py` rejects changes to it.
+Gate G3 requires all of the following:
 
-## Computational provenance
+- the contract, JSON manifest, and actual directory contain the same count;
+- the directory has exactly the manifested filenames, with no extra or missing
+  regular file and no symlink;
+- every byte digest matches its manifest entry;
+- the human manifest contains every filename and digest exactly once;
+- the legacy materialized paper is byte-identical to the primary input.
 
-The paper records the following independent laboratories as evidence, not proof dependencies:
+The primary mathematical source is
+`TEOREMA_FRAME_GREEN_TODAS_AS_BASES.md`, SHA-256
+`366dfa007002c1d3dbf2eb7c283c13c1b35233647163753ee39e45dd0645c3f4`.
 
-- `native_carry_pythagorean_green_measure_lab.py`
-- `native_carry_camera_completeness_audit.py`
-- `native_carry_quadratic_weighted_green_atlas_lab.py`
-- related finite Poisson, boundary, and strong-resolvent laboratories in `carry-lab`.
+## Trust boundary
+
+Markdown proofs are the mathematical specification.  Python laboratories are
+finite or numerical evidence.  Neither is a Lean proof dependency.  Only
+registered declarations in the public import closure that pass the pinned
+kernel build and named axiom audit may back the 20 unconditional
+`KERNEL_CHECKED` claims.  The `CONDITIONAL` FS-003 row cites a kernel-audited
+implication but leaves its stated CFC hypothesis open; it is not counted among
+the 20 unconditional claims.  FS-004 remains `OPEN`, and Weyl remains
+`FUTURE_LAYER`, both without theorem evidence.
+
+## Generated evidence
+
+`audit/evidence/source-provenance.json` records the verified source set and
+digests for the exact audit run.  The audit manifest hashes that report.  Both
+are included in the checksummed, permanent v2 release bundle.
 
 ## Recovery provenance
 
-The previously reported local SHA `3ca1c5394f7f6ff38064496e67750efacc0c70fb` was not present in the remote Git object database. This repository therefore records the recovered source, a newly reconstructed Lean tree, and the exact new publication SHA rather than pretending the lost SHA was recovered.
+The formerly reported local SHA
+`3ca1c5394f7f6ff38064496e67750efacc0c70fb` was not available in the remote Git
+object database.  The v2 release therefore identifies only the newly
+reconstructed remote commit/tree and its exact GitHub Actions runs; it does not
+represent the unavailable object as recovered.

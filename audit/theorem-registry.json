@@ -1,47 +1,2476 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 41,
+  "count": 494,
   "theorems": [
-    {"id":"GF-001","name":"admissible_weight_nonneg","qualified":"GreenFrame.AdmissibleCameraPartition.admissible_weight_nonneg"},
-    {"id":"GF-002","name":"admissible_weight_sum_eq_one","qualified":"GreenFrame.AdmissibleCameraPartition.admissible_weight_sum_eq_one"},
-    {"id":"GF-003","name":"admissible_weight_le_one","qualified":"GreenFrame.AdmissibleCameraPartition.admissible_weight_le_one"},
-    {"id":"GF-004","name":"mem_support_iff","qualified":"GreenFrame.AdmissibleCameraPartition.mem_support_iff"},
-    {"id":"GF-005","name":"admissible_weight_eq_zero_of_not_mem_support","qualified":"GreenFrame.AdmissibleCameraPartition.admissible_weight_eq_zero_of_not_mem_support"},
-    {"id":"GF-006","name":"activityNormalizer_nonneg","qualified":"GreenFrame.activityNormalizer_nonneg"},
-    {"id":"GF-007","name":"normalizedWeight_nonneg","qualified":"GreenFrame.normalizedWeight_nonneg"},
-    {"id":"GF-008","name":"normalizedWeight_eq_zero_of_not_mem","qualified":"GreenFrame.normalizedWeight_eq_zero_of_not_mem"},
-    {"id":"GF-009","name":"normalizedWeight_sum_eq_one","qualified":"GreenFrame.normalizedWeight_sum_eq_one"},
-    {"id":"GF-010","name":"normalizedWeight_le_one","qualified":"GreenFrame.normalizedWeight_le_one"},
-    {"id":"GF-011","name":"carryActivity_four_normalizer","qualified":"GreenFrame.carryActivity_four_normalizer"},
-    {"id":"GF-012","name":"carryWeight_two_four","qualified":"GreenFrame.carryWeight_two_four"},
-    {"id":"GF-013","name":"carryWeight_four_four","qualified":"GreenFrame.carryWeight_four_four"},
-    {"id":"GF-014","name":"greenMass_nonneg","qualified":"GreenFrame.greenMass_nonneg"},
-    {"id":"GF-015","name":"residualMass_nonneg","qualified":"GreenFrame.residualMass_nonneg"},
-    {"id":"GF-016","name":"green_residual_split","qualified":"GreenFrame.green_residual_split"},
-    {"id":"GF-017","name":"residualMass_ge_half_weight","qualified":"GreenFrame.residualMass_ge_half_weight"},
-    {"id":"GF-018","name":"greenMass_le_half_weight","qualified":"GreenFrame.greenMass_le_half_weight"},
-    {"id":"GF-019","name":"sum_three_sq_le","qualified":"GreenFrame.sum_three_sq_le"},
-    {"id":"GF-020","name":"greenStencil_sq_le","qualified":"GreenFrame.greenStencil_sq_le"},
-    {"id":"GF-021","name":"greenStencil_sq_nonneg","qualified":"GreenFrame.greenStencil_sq_nonneg"},
-    {"id":"GF-022","name":"greenAnalysis_norm_sq_le","qualified":"GreenFrame.greenAnalysis_norm_sq_le"},
-    {"id":"GF-023","name":"residual_seed_norm_sq_bounds","qualified":"GreenFrame.residual_seed_norm_sq_bounds"},
-    {"id":"GF-024","name":"fullEnergy_lower","qualified":"GreenFrame.fullEnergy_lower"},
-    {"id":"GF-025","name":"fullEnergy_upper","qualified":"GreenFrame.fullEnergy_upper"},
-    {"id":"GF-026","name":"allBasesGreenAnalysis_bounds","qualified":"GreenFrame.allBasesGreenAnalysis_bounds"},
-    {"id":"GF-027","name":"frameOperator_lower","qualified":"GreenFrame.frameOperator_lower"},
-    {"id":"GF-028","name":"frameOperator_upper","qualified":"GreenFrame.frameOperator_upper"},
-    {"id":"GF-029","name":"fullAnalysis_injective","qualified":"GreenFrame.fullAnalysis_injective"},
-    {"id":"GF-030","name":"normalizedAnalysis_isometry","qualified":"GreenFrame.normalizedAnalysis_isometry"},
-    {"id":"GF-031","name":"normalizedAnalysis_norm","qualified":"GreenFrame.normalizedAnalysis_norm"},
-    {"id":"GF-032","name":"external_leftInverse","qualified":"GreenFrame.PoissonData.external_leftInverse"},
-    {"id":"GF-033","name":"poisson_intertwining","qualified":"GreenFrame.PoissonData.poisson_intertwining"},
-    {"id":"GF-034","name":"poisson_apply_external","qualified":"GreenFrame.PoissonData.poisson_apply_external"},
-    {"id":"GF-035","name":"poisson_eq_zero_of_leftInverse_eq_zero","qualified":"GreenFrame.PoissonData.poisson_eq_zero_of_leftInverse_eq_zero"},
-    {"id":"GF-036","name":"coherentRange_subset_graph","qualified":"GreenFrame.PoissonData.coherentRange_subset_graph"},
-    {"id":"GF-037","name":"coherentRange_eq_graph","qualified":"GreenFrame.PoissonData.coherentRange_eq_graph"},
-    {"id":"GF-038","name":"rawBulk_nonzero","qualified":"GreenFrame.PoissonData.rawBulk_nonzero"},
-    {"id":"GF-039","name":"poisson_nonzero","qualified":"GreenFrame.PoissonData.poisson_nonzero"},
-    {"id":"GF-040","name":"uniform_section_bounds","qualified":"GreenFrame.uniform_section_bounds"},
-    {"id":"GF-041","name":"strong_limit_preserves_bounds","qualified":"GreenFrame.strong_limit_preserves_bounds"}
+    {
+      "id": "GF-001",
+      "name": "admissible_weight_nonneg",
+      "qualified": "GreenFrame.AdmissibleCameraPartition.admissible_weight_nonneg"
+    },
+    {
+      "id": "GF-002",
+      "name": "admissible_weight_sum_eq_one",
+      "qualified": "GreenFrame.AdmissibleCameraPartition.admissible_weight_sum_eq_one"
+    },
+    {
+      "id": "GF-003",
+      "name": "admissible_weight_le_one",
+      "qualified": "GreenFrame.AdmissibleCameraPartition.admissible_weight_le_one"
+    },
+    {
+      "id": "GF-004",
+      "name": "mem_support_iff",
+      "qualified": "GreenFrame.AdmissibleCameraPartition.mem_support_iff"
+    },
+    {
+      "id": "GF-005",
+      "name": "admissible_weight_eq_zero_of_not_mem_support",
+      "qualified": "GreenFrame.AdmissibleCameraPartition.admissible_weight_eq_zero_of_not_mem_support"
+    },
+    {
+      "id": "GF-006",
+      "name": "activityNormalizer_nonneg",
+      "qualified": "GreenFrame.activityNormalizer_nonneg"
+    },
+    {
+      "id": "GF-007",
+      "name": "normalizedWeight_nonneg",
+      "qualified": "GreenFrame.normalizedWeight_nonneg"
+    },
+    {
+      "id": "GF-008",
+      "name": "normalizedWeight_eq_zero_of_not_mem",
+      "qualified": "GreenFrame.normalizedWeight_eq_zero_of_not_mem"
+    },
+    {
+      "id": "GF-009",
+      "name": "normalizedWeight_sum_eq_one",
+      "qualified": "GreenFrame.normalizedWeight_sum_eq_one"
+    },
+    {
+      "id": "GF-010",
+      "name": "normalizedWeight_le_one",
+      "qualified": "GreenFrame.normalizedWeight_le_one"
+    },
+    {
+      "id": "GF-011",
+      "name": "carryActivity_four_normalizer",
+      "qualified": "GreenFrame.carryActivity_four_normalizer"
+    },
+    {
+      "id": "GF-012",
+      "name": "carryWeight_two_four",
+      "qualified": "GreenFrame.carryWeight_two_four"
+    },
+    {
+      "id": "GF-013",
+      "name": "carryWeight_four_four",
+      "qualified": "GreenFrame.carryWeight_four_four"
+    },
+    {
+      "id": "GF-014",
+      "name": "greenMass_nonneg",
+      "qualified": "GreenFrame.greenMass_nonneg"
+    },
+    {
+      "id": "GF-015",
+      "name": "residualMass_nonneg",
+      "qualified": "GreenFrame.residualMass_nonneg"
+    },
+    {
+      "id": "GF-016",
+      "name": "green_residual_split",
+      "qualified": "GreenFrame.green_residual_split"
+    },
+    {
+      "id": "GF-017",
+      "name": "residualMass_ge_half_weight",
+      "qualified": "GreenFrame.residualMass_ge_half_weight"
+    },
+    {
+      "id": "GF-018",
+      "name": "greenMass_le_half_weight",
+      "qualified": "GreenFrame.greenMass_le_half_weight"
+    },
+    {
+      "id": "GF-019",
+      "name": "sum_three_sq_le",
+      "qualified": "GreenFrame.sum_three_sq_le"
+    },
+    {
+      "id": "GF-020",
+      "name": "greenStencil_sq_le",
+      "qualified": "GreenFrame.greenStencil_sq_le"
+    },
+    {
+      "id": "GF-021",
+      "name": "greenStencil_sq_nonneg",
+      "qualified": "GreenFrame.greenStencil_sq_nonneg"
+    },
+    {
+      "id": "GF-022",
+      "name": "greenAnalysis_norm_sq_le",
+      "qualified": "GreenFrame.greenAnalysis_norm_sq_le"
+    },
+    {
+      "id": "GF-023",
+      "name": "residual_seed_norm_sq_bounds",
+      "qualified": "GreenFrame.residual_seed_norm_sq_bounds"
+    },
+    {
+      "id": "GF-024",
+      "name": "fullEnergy_lower",
+      "qualified": "GreenFrame.fullEnergy_lower"
+    },
+    {
+      "id": "GF-025",
+      "name": "fullEnergy_upper",
+      "qualified": "GreenFrame.fullEnergy_upper"
+    },
+    {
+      "id": "GF-026",
+      "name": "allBasesGreenAnalysis_bounds",
+      "qualified": "GreenFrame.allBasesGreenAnalysis_bounds"
+    },
+    {
+      "id": "GF-027",
+      "name": "frameOperator_lower",
+      "qualified": "GreenFrame.frameOperator_lower"
+    },
+    {
+      "id": "GF-028",
+      "name": "frameOperator_upper",
+      "qualified": "GreenFrame.frameOperator_upper"
+    },
+    {
+      "id": "GF-029",
+      "name": "fullAnalysis_injective",
+      "qualified": "GreenFrame.fullAnalysis_injective"
+    },
+    {
+      "id": "GF-030",
+      "name": "normalizedAnalysis_isometry",
+      "qualified": "GreenFrame.normalizedAnalysis_isometry"
+    },
+    {
+      "id": "GF-031",
+      "name": "normalizedAnalysis_norm",
+      "qualified": "GreenFrame.normalizedAnalysis_norm"
+    },
+    {
+      "id": "GF-032",
+      "name": "external_leftInverse",
+      "qualified": "GreenFrame.PoissonData.external_leftInverse"
+    },
+    {
+      "id": "GF-033",
+      "name": "poisson_intertwining",
+      "qualified": "GreenFrame.PoissonData.poisson_intertwining"
+    },
+    {
+      "id": "GF-034",
+      "name": "poisson_apply_external",
+      "qualified": "GreenFrame.PoissonData.poisson_apply_external"
+    },
+    {
+      "id": "GF-035",
+      "name": "poisson_eq_zero_of_leftInverse_eq_zero",
+      "qualified": "GreenFrame.PoissonData.poisson_eq_zero_of_leftInverse_eq_zero"
+    },
+    {
+      "id": "GF-036",
+      "name": "coherentRange_subset_graph",
+      "qualified": "GreenFrame.PoissonData.coherentRange_subset_graph"
+    },
+    {
+      "id": "GF-037",
+      "name": "coherentRange_eq_graph",
+      "qualified": "GreenFrame.PoissonData.coherentRange_eq_graph"
+    },
+    {
+      "id": "GF-038",
+      "name": "rawBulk_nonzero",
+      "qualified": "GreenFrame.PoissonData.rawBulk_nonzero"
+    },
+    {
+      "id": "GF-039",
+      "name": "poisson_nonzero",
+      "qualified": "GreenFrame.PoissonData.poisson_nonzero"
+    },
+    {
+      "id": "GF-040",
+      "name": "uniform_section_bounds",
+      "qualified": "GreenFrame.uniform_section_bounds"
+    },
+    {
+      "id": "GF-041",
+      "name": "strong_limit_preserves_bounds",
+      "qualified": "GreenFrame.strong_limit_preserves_bounds"
+    },
+    {
+      "id": "GF-042",
+      "name": "positionalDepth_pos_iff_dvd",
+      "qualified": "GreenFrame.Concrete.positionalDepth_pos_iff_dvd"
+    },
+    {
+      "id": "GF-043",
+      "name": "positionalDepth_eq_zero_of_not_dvd",
+      "qualified": "GreenFrame.Concrete.positionalDepth_eq_zero_of_not_dvd"
+    },
+    {
+      "id": "GF-044",
+      "name": "positionalDepth_pow_dvd",
+      "qualified": "GreenFrame.Concrete.positionalDepth_pow_dvd"
+    },
+    {
+      "id": "GF-045",
+      "name": "positionalDepth_succ_pow_not_dvd",
+      "qualified": "GreenFrame.Concrete.positionalDepth_succ_pow_not_dvd"
+    },
+    {
+      "id": "GF-046",
+      "name": "positionalDepth_self",
+      "qualified": "GreenFrame.Concrete.positionalDepth_self"
+    },
+    {
+      "id": "GF-047",
+      "name": "positionalDepth_one",
+      "qualified": "GreenFrame.Concrete.positionalDepth_one"
+    },
+    {
+      "id": "GF-048",
+      "name": "active_base_le_number",
+      "qualified": "GreenFrame.Concrete.active_base_le_number"
+    },
+    {
+      "id": "GF-049",
+      "name": "allBaseActivity_nonneg",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_nonneg"
+    },
+    {
+      "id": "GF-050",
+      "name": "allBaseActivity_eq_zero_of_not_dvd",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_eq_zero_of_not_dvd"
+    },
+    {
+      "id": "GF-051",
+      "name": "allBaseActivity_self",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_self"
+    },
+    {
+      "id": "GF-052",
+      "name": "allBaseNormalizer_pos",
+      "qualified": "GreenFrame.Concrete.allBaseNormalizer_pos"
+    },
+    {
+      "id": "GF-053",
+      "name": "carryCameraWeight_nonneg",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_nonneg"
+    },
+    {
+      "id": "GF-054",
+      "name": "carryCameraWeight_eq_zero_of_not_dvd",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_eq_zero_of_not_dvd"
+    },
+    {
+      "id": "GF-055",
+      "name": "carryCameraWeight_support",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_support"
+    },
+    {
+      "id": "GF-056",
+      "name": "carryCameraWeight_sum_eq_one",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_sum_eq_one"
+    },
+    {
+      "id": "GF-057",
+      "name": "support_subset_Icc",
+      "qualified": "GreenFrame.Concrete.AdmissiblePartition.support_subset_Icc"
+    },
+    {
+      "id": "GF-058",
+      "name": "support_finite",
+      "qualified": "GreenFrame.Concrete.AdmissiblePartition.support_finite"
+    },
+    {
+      "id": "GF-059",
+      "name": "weight_le_one",
+      "qualified": "GreenFrame.Concrete.AdmissiblePartition.weight_le_one"
+    },
+    {
+      "id": "GF-060",
+      "name": "finsum_eq_one",
+      "qualified": "GreenFrame.Concrete.AdmissiblePartition.finsum_eq_one"
+    },
+    {
+      "id": "GF-061",
+      "name": "carryCameraWeight_support_finite",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_support_finite"
+    },
+    {
+      "id": "GF-062",
+      "name": "carryCameraWeight_finsum_eq_one",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_finsum_eq_one"
+    },
+    {
+      "id": "GF-063",
+      "name": "greenMass_add_residualMass",
+      "qualified": "GreenFrame.Concrete.greenMass_add_residualMass"
+    },
+    {
+      "id": "GF-064",
+      "name": "positionalDepth_four_sixtyFour",
+      "qualified": "GreenFrame.Concrete.positionalDepth_four_sixtyFour"
+    },
+    {
+      "id": "GF-065",
+      "name": "positionalDepth_two_four",
+      "qualified": "GreenFrame.Concrete.positionalDepth_two_four"
+    },
+    {
+      "id": "GF-066",
+      "name": "positionalDepth_three_four",
+      "qualified": "GreenFrame.Concrete.positionalDepth_three_four"
+    },
+    {
+      "id": "GF-067",
+      "name": "positionalDepth_four_four",
+      "qualified": "GreenFrame.Concrete.positionalDepth_four_four"
+    },
+    {
+      "id": "GF-068",
+      "name": "allBaseActivity_two_four",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_two_four"
+    },
+    {
+      "id": "GF-069",
+      "name": "allBaseActivity_three_four",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_three_four"
+    },
+    {
+      "id": "GF-070",
+      "name": "allBaseActivity_four_four",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_four_four"
+    },
+    {
+      "id": "GF-071",
+      "name": "allBaseNormalizer_four",
+      "qualified": "GreenFrame.Concrete.allBaseNormalizer_four"
+    },
+    {
+      "id": "GF-072",
+      "name": "carryCameraWeight_two_four",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_two_four"
+    },
+    {
+      "id": "GF-073",
+      "name": "carryCameraWeight_three_four",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_three_four"
+    },
+    {
+      "id": "GF-074",
+      "name": "carryCameraWeight_four_four",
+      "qualified": "GreenFrame.Concrete.carryCameraWeight_four_four"
+    },
+    {
+      "id": "GF-075",
+      "name": "greenMass_two_four",
+      "qualified": "GreenFrame.Concrete.greenMass_two_four"
+    },
+    {
+      "id": "GF-076",
+      "name": "residualMass_two_four",
+      "qualified": "GreenFrame.Concrete.residualMass_two_four"
+    },
+    {
+      "id": "GF-077",
+      "name": "twoFourCarryWitness",
+      "qualified": "GreenFrame.Concrete.twoFourCarryWitness"
+    },
+    {
+      "id": "GF-078",
+      "name": "baseNat_ge_two",
+      "qualified": "GreenFrame.Concrete.baseNat_ge_two"
+    },
+    {
+      "id": "GF-079",
+      "name": "baseReal_pos",
+      "qualified": "GreenFrame.Concrete.baseReal_pos"
+    },
+    {
+      "id": "GF-080",
+      "name": "baseReal_nonneg",
+      "qualified": "GreenFrame.Concrete.baseReal_nonneg"
+    },
+    {
+      "id": "GF-081",
+      "name": "eventNumber_eq",
+      "qualified": "GreenFrame.Concrete.eventNumber_eq"
+    },
+    {
+      "id": "GF-082",
+      "name": "eventNumber_coe",
+      "qualified": "GreenFrame.Concrete.eventNumber_coe"
+    },
+    {
+      "id": "GF-083",
+      "name": "pnat_one_lt_iff_ne_one",
+      "qualified": "GreenFrame.Concrete.pnat_one_lt_iff_ne_one"
+    },
+    {
+      "id": "GF-084",
+      "name": "mem_cameraCodes_iff",
+      "qualified": "GreenFrame.Concrete.mem_cameraCodes_iff"
+    },
+    {
+      "id": "GF-085",
+      "name": "sum_cameraCodes_shift_two",
+      "qualified": "GreenFrame.Concrete.sum_cameraCodes_shift_two"
+    },
+    {
+      "id": "GF-086",
+      "name": "mem_cameraCodes_of_weight_ne_zero",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.mem_cameraCodes_of_weight_ne_zero"
+    },
+    {
+      "id": "GF-087",
+      "name": "weight_eq_zero_of_not_mem_cameraCodes",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_eq_zero_of_not_mem_cameraCodes"
+    },
+    {
+      "id": "GF-088",
+      "name": "weight_support_subset_cameraCodes",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_support_subset_cameraCodes"
+    },
+    {
+      "id": "GF-089",
+      "name": "weight_hasFiniteSupport",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_hasFiniteSupport"
+    },
+    {
+      "id": "GF-090",
+      "name": "weight_summable",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_summable"
+    },
+    {
+      "id": "GF-091",
+      "name": "weight_tsum_eq_one",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_tsum_eq_one"
+    },
+    {
+      "id": "GF-092",
+      "name": "weight_one_eq_zero",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_one_eq_zero"
+    },
+    {
+      "id": "GF-093",
+      "name": "weight_le_one",
+      "qualified": "GreenFrame.Concrete.AdmissibleInfinitePartition.weight_le_one"
+    },
+    {
+      "id": "GF-094",
+      "name": "carryCameraWeightByCode_nonneg",
+      "qualified": "GreenFrame.Concrete.carryCameraWeightByCode_nonneg"
+    },
+    {
+      "id": "GF-095",
+      "name": "carryCameraWeightByCode_support_dvd",
+      "qualified": "GreenFrame.Concrete.carryCameraWeightByCode_support_dvd"
+    },
+    {
+      "id": "GF-096",
+      "name": "carryCameraWeightByCode_finite_sum_eq_one",
+      "qualified": "GreenFrame.Concrete.carryCameraWeightByCode_finite_sum_eq_one"
+    },
+    {
+      "id": "GF-097",
+      "name": "canonicalCarryInfinitePartition_weight",
+      "qualified": "GreenFrame.Concrete.canonicalCarryInfinitePartition_weight"
+    },
+    {
+      "id": "GF-098",
+      "name": "baseNat_pos",
+      "qualified": "GreenFrame.Concrete.baseNat_pos"
+    },
+    {
+      "id": "GF-099",
+      "name": "basePNat_coe",
+      "qualified": "GreenFrame.Concrete.basePNat_coe"
+    },
+    {
+      "id": "GF-100",
+      "name": "baseReal_def",
+      "qualified": "GreenFrame.Concrete.baseReal_def"
+    },
+    {
+      "id": "GF-101",
+      "name": "carryRatio_pos",
+      "qualified": "GreenFrame.Concrete.carryRatio_pos"
+    },
+    {
+      "id": "GF-102",
+      "name": "carryRatio_nonneg",
+      "qualified": "GreenFrame.Concrete.carryRatio_nonneg"
+    },
+    {
+      "id": "GF-103",
+      "name": "carryRatio_eq_rpow_neg_half",
+      "qualified": "GreenFrame.Concrete.carryRatio_eq_rpow_neg_half"
+    },
+    {
+      "id": "GF-104",
+      "name": "carryRatio_sq",
+      "qualified": "GreenFrame.Concrete.carryRatio_sq"
+    },
+    {
+      "id": "GF-105",
+      "name": "carryRatio_sq_eq_one_div",
+      "qualified": "GreenFrame.Concrete.carryRatio_sq_eq_one_div"
+    },
+    {
+      "id": "GF-106",
+      "name": "hasGrandparent_iff_base_sq_dvd_event",
+      "qualified": "GreenFrame.Concrete.hasGrandparent_iff_base_sq_dvd_event"
+    },
+    {
+      "id": "GF-107",
+      "name": "base_mul_grandparentIndex",
+      "qualified": "GreenFrame.Concrete.base_mul_grandparentIndex"
+    },
+    {
+      "id": "GF-108",
+      "name": "verticalGreenStencil_zero",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_zero"
+    },
+    {
+      "id": "GF-109",
+      "name": "verticalGreenStencil_add",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_add"
+    },
+    {
+      "id": "GF-110",
+      "name": "verticalGreenStencil_smul",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_smul"
+    },
+    {
+      "id": "GF-111",
+      "name": "verticalGreenStencilLinearMap_apply",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencilLinearMap_apply"
+    },
+    {
+      "id": "GF-112",
+      "name": "greenEventMass_nonneg",
+      "qualified": "GreenFrame.Concrete.greenEventMass_nonneg"
+    },
+    {
+      "id": "GF-113",
+      "name": "greenAmplitude_nonneg",
+      "qualified": "GreenFrame.Concrete.greenAmplitude_nonneg"
+    },
+    {
+      "id": "GF-114",
+      "name": "greenAmplitude_sq",
+      "qualified": "GreenFrame.Concrete.greenAmplitude_sq"
+    },
+    {
+      "id": "GF-115",
+      "name": "greenCoordinate_zero",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_zero"
+    },
+    {
+      "id": "GF-116",
+      "name": "greenCoordinate_add",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_add"
+    },
+    {
+      "id": "GF-117",
+      "name": "greenCoordinate_smul",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_smul"
+    },
+    {
+      "id": "GF-118",
+      "name": "greenCoordinateLinearMap_apply",
+      "qualified": "GreenFrame.Concrete.greenCoordinateLinearMap_apply"
+    },
+    {
+      "id": "GF-119",
+      "name": "greenCoordinate_normSq_eq",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_eq"
+    },
+    {
+      "id": "GF-120",
+      "name": "real_sum_three_sq_le",
+      "qualified": "GreenFrame.Concrete.real_sum_three_sq_le"
+    },
+    {
+      "id": "GF-121",
+      "name": "complex_sum_three_normSq_le",
+      "qualified": "GreenFrame.Concrete.complex_sum_three_normSq_le"
+    },
+    {
+      "id": "GF-122",
+      "name": "parentTerm_normSq",
+      "qualified": "GreenFrame.Concrete.parentTerm_normSq"
+    },
+    {
+      "id": "GF-123",
+      "name": "grandparentTerm_normSq",
+      "qualified": "GreenFrame.Concrete.grandparentTerm_normSq"
+    },
+    {
+      "id": "GF-124",
+      "name": "verticalGreenStencil_normSq_le",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_normSq_le"
+    },
+    {
+      "id": "GF-125",
+      "name": "greenCoordinate_normSq_le",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_le"
+    },
+    {
+      "id": "GF-126",
+      "name": "greenCoordinate_normSq_le_explicit",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_le_explicit"
+    },
+    {
+      "id": "GF-127",
+      "name": "divExact_eventNumber",
+      "qualified": "GreenFrame.Concrete.divExact_eventNumber"
+    },
+    {
+      "id": "GF-128",
+      "name": "eventDivisibilityEquiv_apply_val",
+      "qualified": "GreenFrame.Concrete.eventDivisibilityEquiv_apply_val"
+    },
+    {
+      "id": "GF-129",
+      "name": "tsum_greenEvent_reindex",
+      "qualified": "GreenFrame.Concrete.tsum_greenEvent_reindex"
+    },
+    {
+      "id": "GF-130",
+      "name": "divExact_base_mul",
+      "qualified": "GreenFrame.Concrete.divExact_base_mul"
+    },
+    {
+      "id": "GF-131",
+      "name": "baseMultipleEquiv_apply_val",
+      "qualified": "GreenFrame.Concrete.baseMultipleEquiv_apply_val"
+    },
+    {
+      "id": "GF-132",
+      "name": "divisiblePullback_summable",
+      "qualified": "GreenFrame.Concrete.divisiblePullback_summable"
+    },
+    {
+      "id": "GF-133",
+      "name": "tsum_divisiblePullback",
+      "qualified": "GreenFrame.Concrete.tsum_divisiblePullback"
+    },
+    {
+      "id": "GF-134",
+      "name": "greenBesselConstant_eq",
+      "qualified": "GreenFrame.Concrete.greenBesselConstant_eq"
+    },
+    {
+      "id": "GF-135",
+      "name": "inverseBasePower_summable",
+      "qualified": "GreenFrame.Concrete.inverseBasePower_summable"
+    },
+    {
+      "id": "GF-136",
+      "name": "inverseBaseSquare_summable",
+      "qualified": "GreenFrame.Concrete.inverseBaseSquare_summable"
+    },
+    {
+      "id": "GF-137",
+      "name": "inverseBaseCube_summable",
+      "qualified": "GreenFrame.Concrete.inverseBaseCube_summable"
+    },
+    {
+      "id": "GF-138",
+      "name": "S2_nonneg",
+      "qualified": "GreenFrame.Concrete.S2_nonneg"
+    },
+    {
+      "id": "GF-139",
+      "name": "S3_nonneg",
+      "qualified": "GreenFrame.Concrete.S3_nonneg"
+    },
+    {
+      "id": "GF-140",
+      "name": "greenBesselConstant_nonneg",
+      "qualified": "GreenFrame.Concrete.greenBesselConstant_nonneg"
+    },
+    {
+      "id": "GF-141",
+      "name": "stateEnergy_nonneg",
+      "qualified": "GreenFrame.Concrete.stateEnergy_nonneg"
+    },
+    {
+      "id": "GF-142",
+      "name": "stateEnergy_summable",
+      "qualified": "GreenFrame.Concrete.stateEnergy_summable"
+    },
+    {
+      "id": "GF-143",
+      "name": "stateEnergy_tsum_eq_norm_sq",
+      "qualified": "GreenFrame.Concrete.stateEnergy_tsum_eq_norm_sq"
+    },
+    {
+      "id": "GF-144",
+      "name": "weight_tsum_le_one",
+      "qualified": "GreenFrame.Concrete.weight_tsum_le_one"
+    },
+    {
+      "id": "GF-145",
+      "name": "currentCameraMajorant_nonneg",
+      "qualified": "GreenFrame.Concrete.currentCameraMajorant_nonneg"
+    },
+    {
+      "id": "GF-146",
+      "name": "currentCameraMajorant_le",
+      "qualified": "GreenFrame.Concrete.currentCameraMajorant_le"
+    },
+    {
+      "id": "GF-147",
+      "name": "currentCameraMajorant_summable",
+      "qualified": "GreenFrame.Concrete.currentCameraMajorant_summable"
+    },
+    {
+      "id": "GF-148",
+      "name": "currentCameraMajorant_tsum_le",
+      "qualified": "GreenFrame.Concrete.currentCameraMajorant_tsum_le"
+    },
+    {
+      "id": "GF-149",
+      "name": "currentCameraMajorant_prod_summable",
+      "qualified": "GreenFrame.Concrete.currentCameraMajorant_prod_summable"
+    },
+    {
+      "id": "GF-150",
+      "name": "currentGreenMajorant_nonneg",
+      "qualified": "GreenFrame.Concrete.currentGreenMajorant_nonneg"
+    },
+    {
+      "id": "GF-151",
+      "name": "currentGreenMajorant_summable",
+      "qualified": "GreenFrame.Concrete.currentGreenMajorant_summable"
+    },
+    {
+      "id": "GF-152",
+      "name": "currentGreenMajorant_tsum_le",
+      "qualified": "GreenFrame.Concrete.currentGreenMajorant_tsum_le"
+    },
+    {
+      "id": "GF-153",
+      "name": "parentGreenMajorant_nonneg",
+      "qualified": "GreenFrame.Concrete.parentGreenMajorant_nonneg"
+    },
+    {
+      "id": "GF-154",
+      "name": "parentGreenDominant_nonneg",
+      "qualified": "GreenFrame.Concrete.parentGreenDominant_nonneg"
+    },
+    {
+      "id": "GF-155",
+      "name": "parentGreenMajorant_le_dominant",
+      "qualified": "GreenFrame.Concrete.parentGreenMajorant_le_dominant"
+    },
+    {
+      "id": "GF-156",
+      "name": "parentGreenDominant_summable",
+      "qualified": "GreenFrame.Concrete.parentGreenDominant_summable"
+    },
+    {
+      "id": "GF-157",
+      "name": "parentGreenMajorant_summable",
+      "qualified": "GreenFrame.Concrete.parentGreenMajorant_summable"
+    },
+    {
+      "id": "GF-158",
+      "name": "parentGreenMajorant_tsum_le",
+      "qualified": "GreenFrame.Concrete.parentGreenMajorant_tsum_le"
+    },
+    {
+      "id": "GF-159",
+      "name": "grandparentGreenMajorant_nonneg",
+      "qualified": "GreenFrame.Concrete.grandparentGreenMajorant_nonneg"
+    },
+    {
+      "id": "GF-160",
+      "name": "grandparentGreenDominant_nonneg",
+      "qualified": "GreenFrame.Concrete.grandparentGreenDominant_nonneg"
+    },
+    {
+      "id": "GF-161",
+      "name": "grandparentGreenMajorant_le_dominant",
+      "qualified": "GreenFrame.Concrete.grandparentGreenMajorant_le_dominant"
+    },
+    {
+      "id": "GF-162",
+      "name": "grandparentGreenDominant_camera_summable",
+      "qualified": "GreenFrame.Concrete.grandparentGreenDominant_camera_summable"
+    },
+    {
+      "id": "GF-163",
+      "name": "grandparentGreenDominant_camera_tsum",
+      "qualified": "GreenFrame.Concrete.grandparentGreenDominant_camera_tsum"
+    },
+    {
+      "id": "GF-164",
+      "name": "grandparentGreenDominant_summable",
+      "qualified": "GreenFrame.Concrete.grandparentGreenDominant_summable"
+    },
+    {
+      "id": "GF-165",
+      "name": "grandparentGreenMajorant_summable",
+      "qualified": "GreenFrame.Concrete.grandparentGreenMajorant_summable"
+    },
+    {
+      "id": "GF-166",
+      "name": "grandparentGreenMajorant_tsum_le",
+      "qualified": "GreenFrame.Concrete.grandparentGreenMajorant_tsum_le"
+    },
+    {
+      "id": "GF-167",
+      "name": "greenCoordinateMajorant_nonneg",
+      "qualified": "GreenFrame.Concrete.greenCoordinateMajorant_nonneg"
+    },
+    {
+      "id": "GF-168",
+      "name": "greenCoordinate_normSq_le_majorant",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_le_majorant"
+    },
+    {
+      "id": "GF-169",
+      "name": "greenCoordinateMajorant_summable",
+      "qualified": "GreenFrame.Concrete.greenCoordinateMajorant_summable"
+    },
+    {
+      "id": "GF-170",
+      "name": "greenCoordinate_normSq_summable",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_summable"
+    },
+    {
+      "id": "GF-171",
+      "name": "greenCoordinate_tsum_normSq_le",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_tsum_normSq_le"
+    },
+    {
+      "id": "GF-172",
+      "name": "greenAnalysis_apply",
+      "qualified": "GreenFrame.Concrete.greenAnalysis_apply"
+    },
+    {
+      "id": "GF-173",
+      "name": "greenAnalysis_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.greenAnalysis_norm_sq_eq"
+    },
+    {
+      "id": "GF-174",
+      "name": "greenAnalysis_norm_sq_le",
+      "qualified": "GreenFrame.Concrete.greenAnalysis_norm_sq_le"
+    },
+    {
+      "id": "GF-175",
+      "name": "greenAnalysis_norm_le",
+      "qualified": "GreenFrame.Concrete.greenAnalysis_norm_le"
+    },
+    {
+      "id": "GF-176",
+      "name": "greenAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.greenAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-177",
+      "name": "greenAnalysisOperator_norm_le",
+      "qualified": "GreenFrame.Concrete.greenAnalysisOperator_norm_le"
+    },
+    {
+      "id": "GF-178",
+      "name": "baseReciprocal_pos",
+      "qualified": "GreenFrame.Concrete.baseReciprocal_pos"
+    },
+    {
+      "id": "GF-179",
+      "name": "baseReciprocal_nonneg",
+      "qualified": "GreenFrame.Concrete.baseReciprocal_nonneg"
+    },
+    {
+      "id": "GF-180",
+      "name": "baseReciprocal_le_half",
+      "qualified": "GreenFrame.Concrete.baseReciprocal_le_half"
+    },
+    {
+      "id": "GF-181",
+      "name": "residualFactor_nonneg",
+      "qualified": "GreenFrame.Concrete.residualFactor_nonneg"
+    },
+    {
+      "id": "GF-182",
+      "name": "residualFactor_half_le",
+      "qualified": "GreenFrame.Concrete.residualFactor_half_le"
+    },
+    {
+      "id": "GF-183",
+      "name": "residualFactor_le_one",
+      "qualified": "GreenFrame.Concrete.residualFactor_le_one"
+    },
+    {
+      "id": "GF-184",
+      "name": "residualEventMass_nonneg",
+      "qualified": "GreenFrame.Concrete.residualEventMass_nonneg"
+    },
+    {
+      "id": "GF-185",
+      "name": "residualEventMass_half_weight_le",
+      "qualified": "GreenFrame.Concrete.residualEventMass_half_weight_le"
+    },
+    {
+      "id": "GF-186",
+      "name": "residualEventMass_le_weight",
+      "qualified": "GreenFrame.Concrete.residualEventMass_le_weight"
+    },
+    {
+      "id": "GF-187",
+      "name": "residualEventMass_one",
+      "qualified": "GreenFrame.Concrete.residualEventMass_one"
+    },
+    {
+      "id": "GF-188",
+      "name": "residualEventMass_summable",
+      "qualified": "GreenFrame.Concrete.residualEventMass_summable"
+    },
+    {
+      "id": "GF-189",
+      "name": "residualCameraMass_nonneg",
+      "qualified": "GreenFrame.Concrete.residualCameraMass_nonneg"
+    },
+    {
+      "id": "GF-190",
+      "name": "residualCameraMass_one",
+      "qualified": "GreenFrame.Concrete.residualCameraMass_one"
+    },
+    {
+      "id": "GF-191",
+      "name": "residualCameraMass_half_le",
+      "qualified": "GreenFrame.Concrete.residualCameraMass_half_le"
+    },
+    {
+      "id": "GF-192",
+      "name": "residualCameraMass_le_one",
+      "qualified": "GreenFrame.Concrete.residualCameraMass_le_one"
+    },
+    {
+      "id": "GF-193",
+      "name": "residualAmplitude_nonneg",
+      "qualified": "GreenFrame.Concrete.residualAmplitude_nonneg"
+    },
+    {
+      "id": "GF-194",
+      "name": "residualAmplitude_sq",
+      "qualified": "GreenFrame.Concrete.residualAmplitude_sq"
+    },
+    {
+      "id": "GF-195",
+      "name": "residualCoordinate_zero",
+      "qualified": "GreenFrame.Concrete.residualCoordinate_zero"
+    },
+    {
+      "id": "GF-196",
+      "name": "residualCoordinate_add",
+      "qualified": "GreenFrame.Concrete.residualCoordinate_add"
+    },
+    {
+      "id": "GF-197",
+      "name": "residualCoordinate_smul",
+      "qualified": "GreenFrame.Concrete.residualCoordinate_smul"
+    },
+    {
+      "id": "GF-198",
+      "name": "residualCoordinate_normSq_eq",
+      "qualified": "GreenFrame.Concrete.residualCoordinate_normSq_eq"
+    },
+    {
+      "id": "GF-199",
+      "name": "residualL2_normSq_summable",
+      "qualified": "GreenFrame.Concrete.residualL2_normSq_summable"
+    },
+    {
+      "id": "GF-200",
+      "name": "residualL2_normSq_tsum_eq_norm_sq",
+      "qualified": "GreenFrame.Concrete.residualL2_normSq_tsum_eq_norm_sq"
+    },
+    {
+      "id": "GF-201",
+      "name": "residualEnergyTerm_nonneg",
+      "qualified": "GreenFrame.Concrete.residualEnergyTerm_nonneg"
+    },
+    {
+      "id": "GF-202",
+      "name": "residualEnergyDensity_nonneg",
+      "qualified": "GreenFrame.Concrete.residualEnergyDensity_nonneg"
+    },
+    {
+      "id": "GF-203",
+      "name": "residualEnergyDensity_le",
+      "qualified": "GreenFrame.Concrete.residualEnergyDensity_le"
+    },
+    {
+      "id": "GF-204",
+      "name": "residualEnergyDensity_summable",
+      "qualified": "GreenFrame.Concrete.residualEnergyDensity_summable"
+    },
+    {
+      "id": "GF-205",
+      "name": "residualEnergyTerm_summable",
+      "qualified": "GreenFrame.Concrete.residualEnergyTerm_summable"
+    },
+    {
+      "id": "GF-206",
+      "name": "residualCoordinate_normSq_summable",
+      "qualified": "GreenFrame.Concrete.residualCoordinate_normSq_summable"
+    },
+    {
+      "id": "GF-207",
+      "name": "residualAnalysis_apply",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_apply"
+    },
+    {
+      "id": "GF-208",
+      "name": "residualAnalysis_add",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_add"
+    },
+    {
+      "id": "GF-209",
+      "name": "residualAnalysis_smul",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_smul"
+    },
+    {
+      "id": "GF-210",
+      "name": "residualAnalysis_norm_sq_eq_camera_tsum",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_norm_sq_eq_camera_tsum"
+    },
+    {
+      "id": "GF-211",
+      "name": "residualAnalysis_norm_sq_le",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_norm_sq_le"
+    },
+    {
+      "id": "GF-212",
+      "name": "residualAnalysis_norm_le",
+      "qualified": "GreenFrame.Concrete.residualAnalysis_norm_le"
+    },
+    {
+      "id": "GF-213",
+      "name": "seedEnergyDensity_summable",
+      "qualified": "GreenFrame.Concrete.seedEnergyDensity_summable"
+    },
+    {
+      "id": "GF-214",
+      "name": "seedEnergyDensity_tsum_eq",
+      "qualified": "GreenFrame.Concrete.seedEnergyDensity_tsum_eq"
+    },
+    {
+      "id": "GF-215",
+      "name": "seedResidualEnergyDensity_summable",
+      "qualified": "GreenFrame.Concrete.seedResidualEnergyDensity_summable"
+    },
+    {
+      "id": "GF-216",
+      "name": "seedResidualEnergy_eq_seed_add_residual_norm_sq",
+      "qualified": "GreenFrame.Concrete.seedResidualEnergy_eq_seed_add_residual_norm_sq"
+    },
+    {
+      "id": "GF-217",
+      "name": "half_state_density_le_seedResidual_density",
+      "qualified": "GreenFrame.Concrete.half_state_density_le_seedResidual_density"
+    },
+    {
+      "id": "GF-218",
+      "name": "seedResidual_density_le_state_density",
+      "qualified": "GreenFrame.Concrete.seedResidual_density_le_state_density"
+    },
+    {
+      "id": "GF-219",
+      "name": "seedResidualEnergy_lower",
+      "qualified": "GreenFrame.Concrete.seedResidualEnergy_lower"
+    },
+    {
+      "id": "GF-220",
+      "name": "seedResidualEnergy_upper",
+      "qualified": "GreenFrame.Concrete.seedResidualEnergy_upper"
+    },
+    {
+      "id": "GF-221",
+      "name": "residual_seed_norm_sq_bounds_concrete",
+      "qualified": "GreenFrame.Concrete.residual_seed_norm_sq_bounds_concrete"
+    },
+    {
+      "id": "GF-222",
+      "name": "seedResidualAnalysis_add",
+      "qualified": "GreenFrame.Concrete.seedResidualAnalysis_add"
+    },
+    {
+      "id": "GF-223",
+      "name": "seedResidualAnalysis_smul",
+      "qualified": "GreenFrame.Concrete.seedResidualAnalysis_smul"
+    },
+    {
+      "id": "GF-224",
+      "name": "seedResidualAnalysis_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.seedResidualAnalysis_norm_sq_eq"
+    },
+    {
+      "id": "GF-225",
+      "name": "seedResidualAnalysis_norm_sq_bounds",
+      "qualified": "GreenFrame.Concrete.seedResidualAnalysis_norm_sq_bounds"
+    },
+    {
+      "id": "GF-226",
+      "name": "seedResidualAnalysis_norm_le",
+      "qualified": "GreenFrame.Concrete.seedResidualAnalysis_norm_le"
+    },
+    {
+      "id": "GF-227",
+      "name": "greenDepthOneCoordinate_eq_zero_of_hasGrandparent",
+      "qualified": "GreenFrame.Concrete.greenDepthOneCoordinate_eq_zero_of_hasGrandparent"
+    },
+    {
+      "id": "GF-228",
+      "name": "greenBulkCoordinate_eq_zero_of_not_hasGrandparent",
+      "qualified": "GreenFrame.Concrete.greenBulkCoordinate_eq_zero_of_not_hasGrandparent"
+    },
+    {
+      "id": "GF-229",
+      "name": "greenDepthOneCoordinate_add_greenBulkCoordinate",
+      "qualified": "GreenFrame.Concrete.greenDepthOneCoordinate_add_greenBulkCoordinate"
+    },
+    {
+      "id": "GF-230",
+      "name": "greenCoordinate_normSq_eq_depthOne_add_bulk",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_eq_depthOne_add_bulk"
+    },
+    {
+      "id": "GF-231",
+      "name": "greenDepthOneCoordinate_normSq_le",
+      "qualified": "GreenFrame.Concrete.greenDepthOneCoordinate_normSq_le"
+    },
+    {
+      "id": "GF-232",
+      "name": "greenBulkCoordinate_normSq_le",
+      "qualified": "GreenFrame.Concrete.greenBulkCoordinate_normSq_le"
+    },
+    {
+      "id": "GF-233",
+      "name": "greenDepthOneCoordinate_normSq_summable",
+      "qualified": "GreenFrame.Concrete.greenDepthOneCoordinate_normSq_summable"
+    },
+    {
+      "id": "GF-234",
+      "name": "greenBulkCoordinate_normSq_summable",
+      "qualified": "GreenFrame.Concrete.greenBulkCoordinate_normSq_summable"
+    },
+    {
+      "id": "GF-235",
+      "name": "greenDepthOneAnalysis_apply",
+      "qualified": "GreenFrame.Concrete.greenDepthOneAnalysis_apply"
+    },
+    {
+      "id": "GF-236",
+      "name": "greenBulkAnalysis_apply",
+      "qualified": "GreenFrame.Concrete.greenBulkAnalysis_apply"
+    },
+    {
+      "id": "GF-237",
+      "name": "greenDepthOneAnalysis_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.greenDepthOneAnalysis_norm_sq_eq"
+    },
+    {
+      "id": "GF-238",
+      "name": "greenBulkAnalysis_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.greenBulkAnalysis_norm_sq_eq"
+    },
+    {
+      "id": "GF-239",
+      "name": "greenAnalysis_norm_sq_eq_depthOne_add_bulk",
+      "qualified": "GreenFrame.Concrete.greenAnalysis_norm_sq_eq_depthOne_add_bulk"
+    },
+    {
+      "id": "GF-240",
+      "name": "greenDepthOneAnalysis_norm_sq_le_green",
+      "qualified": "GreenFrame.Concrete.greenDepthOneAnalysis_norm_sq_le_green"
+    },
+    {
+      "id": "GF-241",
+      "name": "greenBulkAnalysis_norm_sq_le_green",
+      "qualified": "GreenFrame.Concrete.greenBulkAnalysis_norm_sq_le_green"
+    },
+    {
+      "id": "GF-242",
+      "name": "greenDepthOneAnalysis_norm_sq_le",
+      "qualified": "GreenFrame.Concrete.greenDepthOneAnalysis_norm_sq_le"
+    },
+    {
+      "id": "GF-243",
+      "name": "greenBulkAnalysis_norm_sq_le",
+      "qualified": "GreenFrame.Concrete.greenBulkAnalysis_norm_sq_le"
+    },
+    {
+      "id": "GF-244",
+      "name": "greenDepthOneAnalysis_add",
+      "qualified": "GreenFrame.Concrete.greenDepthOneAnalysis_add"
+    },
+    {
+      "id": "GF-245",
+      "name": "greenDepthOneAnalysis_smul",
+      "qualified": "GreenFrame.Concrete.greenDepthOneAnalysis_smul"
+    },
+    {
+      "id": "GF-246",
+      "name": "greenBulkAnalysis_add",
+      "qualified": "GreenFrame.Concrete.greenBulkAnalysis_add"
+    },
+    {
+      "id": "GF-247",
+      "name": "greenBulkAnalysis_smul",
+      "qualified": "GreenFrame.Concrete.greenBulkAnalysis_smul"
+    },
+    {
+      "id": "GF-248",
+      "name": "greenDepthOneAnalysis_norm_le",
+      "qualified": "GreenFrame.Concrete.greenDepthOneAnalysis_norm_le"
+    },
+    {
+      "id": "GF-249",
+      "name": "greenBulkAnalysis_norm_le",
+      "qualified": "GreenFrame.Concrete.greenBulkAnalysis_norm_le"
+    },
+    {
+      "id": "GF-250",
+      "name": "greenDepthOneAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.greenDepthOneAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-251",
+      "name": "greenBulkAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.greenBulkAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-252",
+      "name": "greenDepthOneAnalysisOperator_norm_le",
+      "qualified": "GreenFrame.Concrete.greenDepthOneAnalysisOperator_norm_le"
+    },
+    {
+      "id": "GF-253",
+      "name": "greenBulkAnalysisOperator_norm_le",
+      "qualified": "GreenFrame.Concrete.greenBulkAnalysisOperator_norm_le"
+    },
+    {
+      "id": "GF-254",
+      "name": "greenDepthOneSectorAnalysis_apply",
+      "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysis_apply"
+    },
+    {
+      "id": "GF-255",
+      "name": "greenBulkSectorAnalysis_apply",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysis_apply"
+    },
+    {
+      "id": "GF-256",
+      "name": "greenDepthOneSectorAnalysis_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysis_norm_sq_eq"
+    },
+    {
+      "id": "GF-257",
+      "name": "greenBulkSectorAnalysis_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysis_norm_sq_eq"
+    },
+    {
+      "id": "GF-258",
+      "name": "greenAnalysis_norm_sq_eq_depthOneSector_add_bulkSector",
+      "qualified": "GreenFrame.Concrete.greenAnalysis_norm_sq_eq_depthOneSector_add_bulkSector"
+    },
+    {
+      "id": "GF-259",
+      "name": "greenDepthOneSectorAnalysis_norm_sq_le",
+      "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysis_norm_sq_le"
+    },
+    {
+      "id": "GF-260",
+      "name": "greenBulkSectorAnalysis_norm_sq_le",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysis_norm_sq_le"
+    },
+    {
+      "id": "GF-261",
+      "name": "greenDepthOneSectorAnalysis_add",
+      "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysis_add"
+    },
+    {
+      "id": "GF-262",
+      "name": "greenDepthOneSectorAnalysis_smul",
+      "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysis_smul"
+    },
+    {
+      "id": "GF-263",
+      "name": "greenBulkSectorAnalysis_add",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysis_add"
+    },
+    {
+      "id": "GF-264",
+      "name": "greenBulkSectorAnalysis_smul",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysis_smul"
+    },
+    {
+      "id": "GF-265",
+      "name": "greenDepthOneSectorAnalysis_norm_le",
+      "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysis_norm_le"
+    },
+    {
+      "id": "GF-266",
+      "name": "greenBulkSectorAnalysis_norm_le",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysis_norm_le"
+    },
+    {
+      "id": "GF-267",
+      "name": "greenDepthOneSectorAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.greenDepthOneSectorAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-268",
+      "name": "greenBulkSectorAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.greenBulkSectorAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-269",
+      "name": "rawExternal_apply",
+      "qualified": "GreenFrame.Concrete.rawExternal_apply"
+    },
+    {
+      "id": "GF-270",
+      "name": "rawBulk_apply",
+      "qualified": "GreenFrame.Concrete.rawBulk_apply"
+    },
+    {
+      "id": "GF-271",
+      "name": "concreteExternalAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.concreteExternalAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-272",
+      "name": "concreteAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.concreteAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-273",
+      "name": "rawExternal_concreteAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.rawExternal_concreteAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-274",
+      "name": "rawBulk_concreteAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.rawBulk_concreteAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-275",
+      "name": "concreteExternalAnalysisOperator_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.concreteExternalAnalysisOperator_norm_sq_eq"
+    },
+    {
+      "id": "GF-276",
+      "name": "concreteAnalysisOperator_norm_sq_eq_external_add_bulk",
+      "qualified": "GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_eq_external_add_bulk"
+    },
+    {
+      "id": "GF-277",
+      "name": "concreteAnalysisOperator_norm_sq_eq_seedResidual_add_green",
+      "qualified": "GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_eq_seedResidual_add_green"
+    },
+    {
+      "id": "GF-278",
+      "name": "concreteExternalAnalysisOperator_lower",
+      "qualified": "GreenFrame.Concrete.concreteExternalAnalysisOperator_lower"
+    },
+    {
+      "id": "GF-279",
+      "name": "concreteBulkAnalysisOperator_upper",
+      "qualified": "GreenFrame.Concrete.concreteBulkAnalysisOperator_upper"
+    },
+    {
+      "id": "GF-280",
+      "name": "concreteAnalysisOperator_norm_sq_bounds",
+      "qualified": "GreenFrame.Concrete.concreteAnalysisOperator_norm_sq_bounds"
+    },
+    {
+      "id": "GF-281",
+      "name": "concreteSplitFrameBounds_lower",
+      "qualified": "GreenFrame.Concrete.concreteSplitFrameBounds_lower"
+    },
+    {
+      "id": "GF-282",
+      "name": "concreteSplitFrameBounds_upper",
+      "qualified": "GreenFrame.Concrete.concreteSplitFrameBounds_upper"
+    },
+    {
+      "id": "GF-283",
+      "name": "concreteSplitFrameBounds_externalLower",
+      "qualified": "GreenFrame.Concrete.concreteSplitFrameBounds_externalLower"
+    },
+    {
+      "id": "GF-284",
+      "name": "frameOperator_inner",
+      "qualified": "GreenFrame.Concrete.frameOperator_inner"
+    },
+    {
+      "id": "GF-285",
+      "name": "frameOperator_re_inner",
+      "qualified": "GreenFrame.Concrete.frameOperator_re_inner"
+    },
+    {
+      "id": "GF-286",
+      "name": "frameOperator_positive",
+      "qualified": "GreenFrame.Concrete.frameOperator_positive"
+    },
+    {
+      "id": "GF-287",
+      "name": "frameOperator_coercive",
+      "qualified": "GreenFrame.Concrete.frameOperator_coercive"
+    },
+    {
+      "id": "GF-288",
+      "name": "frameOperator_isUnit",
+      "qualified": "GreenFrame.Concrete.frameOperator_isUnit"
+    },
+    {
+      "id": "GF-289",
+      "name": "frameOperator_bijective",
+      "qualified": "GreenFrame.Concrete.frameOperator_bijective"
+    },
+    {
+      "id": "GF-290",
+      "name": "frameOperator_strictlyPositive",
+      "qualified": "GreenFrame.Concrete.frameOperator_strictlyPositive"
+    },
+    {
+      "id": "GF-291",
+      "name": "inverseSqrtFrame_nonneg",
+      "qualified": "GreenFrame.Concrete.inverseSqrtFrame_nonneg"
+    },
+    {
+      "id": "GF-292",
+      "name": "inverseSqrtFrame_isSelfAdjoint",
+      "qualified": "GreenFrame.Concrete.inverseSqrtFrame_isSelfAdjoint"
+    },
+    {
+      "id": "GF-293",
+      "name": "inverseSqrtFrame_adjoint",
+      "qualified": "GreenFrame.Concrete.inverseSqrtFrame_adjoint"
+    },
+    {
+      "id": "GF-294",
+      "name": "inverseSqrt_frameOperator_inverseSqrt",
+      "qualified": "GreenFrame.Concrete.inverseSqrt_frameOperator_inverseSqrt"
+    },
+    {
+      "id": "GF-295",
+      "name": "canonicalAnalysis_adjoint_comp_self",
+      "qualified": "GreenFrame.Concrete.canonicalAnalysis_adjoint_comp_self"
+    },
+    {
+      "id": "GF-296",
+      "name": "canonicalAnalysis_isometry",
+      "qualified": "GreenFrame.Concrete.canonicalAnalysis_isometry"
+    },
+    {
+      "id": "GF-297",
+      "name": "canonicalParseval_apply",
+      "qualified": "GreenFrame.Concrete.canonicalParseval_apply"
+    },
+    {
+      "id": "GF-298",
+      "name": "canonicalParseval_norm",
+      "qualified": "GreenFrame.Concrete.canonicalParseval_norm"
+    },
+    {
+      "id": "GF-299",
+      "name": "normalizedExternal_apply",
+      "qualified": "GreenFrame.Concrete.normalizedExternal_apply"
+    },
+    {
+      "id": "GF-300",
+      "name": "normalizedBulk_apply",
+      "qualified": "GreenFrame.Concrete.normalizedBulk_apply"
+    },
+    {
+      "id": "GF-301",
+      "name": "normalized_split_energy",
+      "qualified": "GreenFrame.Concrete.normalized_split_energy"
+    },
+    {
+      "id": "GF-302",
+      "name": "normalizedExternalLower_pos",
+      "qualified": "GreenFrame.Concrete.normalizedExternalLower_pos"
+    },
+    {
+      "id": "GF-303",
+      "name": "normalizedExternal_lower_norm_sq",
+      "qualified": "GreenFrame.Concrete.normalizedExternal_lower_norm_sq"
+    },
+    {
+      "id": "GF-304",
+      "name": "antilipschitz_of_norm_sq_lower",
+      "qualified": "GreenFrame.Concrete.antilipschitz_of_norm_sq_lower"
+    },
+    {
+      "id": "GF-305",
+      "name": "normalizedExternal_antilipschitz",
+      "qualified": "GreenFrame.Concrete.normalizedExternal_antilipschitz"
+    },
+    {
+      "id": "GF-306",
+      "name": "normalizedExternal_injective",
+      "qualified": "GreenFrame.Concrete.normalizedExternal_injective"
+    },
+    {
+      "id": "GF-307",
+      "name": "normalizedExternal_range_closed",
+      "qualified": "GreenFrame.Concrete.normalizedExternal_range_closed"
+    },
+    {
+      "id": "GF-308",
+      "name": "normalizedExternalRangeInverse_apply",
+      "qualified": "GreenFrame.Concrete.normalizedExternalRangeInverse_apply"
+    },
+    {
+      "id": "GF-309",
+      "name": "restrictedPoisson_apply_external",
+      "qualified": "GreenFrame.Concrete.restrictedPoisson_apply_external"
+    },
+    {
+      "id": "GF-310",
+      "name": "restrictedPoisson_intertwining",
+      "qualified": "GreenFrame.Concrete.restrictedPoisson_intertwining"
+    },
+    {
+      "id": "GF-311",
+      "name": "coherentPair_range_subset_graph",
+      "qualified": "GreenFrame.Concrete.coherentPair_range_subset_graph"
+    },
+    {
+      "id": "GF-312",
+      "name": "graph_subset_coherentPair_range",
+      "qualified": "GreenFrame.Concrete.graph_subset_coherentPair_range"
+    },
+    {
+      "id": "GF-313",
+      "name": "coherentPair_range_eq_graph",
+      "qualified": "GreenFrame.Concrete.coherentPair_range_eq_graph"
+    },
+    {
+      "id": "GF-314",
+      "name": "restrictedPoissonGraph_isClosed",
+      "qualified": "GreenFrame.Concrete.restrictedPoissonGraph_isClosed"
+    },
+    {
+      "id": "GF-315",
+      "name": "inverseSqrtFrame_comp_sqrtFrame",
+      "qualified": "GreenFrame.Concrete.inverseSqrtFrame_comp_sqrtFrame"
+    },
+    {
+      "id": "GF-316",
+      "name": "inverseSqrtFrame_sqrtFrame_apply",
+      "qualified": "GreenFrame.Concrete.inverseSqrtFrame_sqrtFrame_apply"
+    },
+    {
+      "id": "GF-317",
+      "name": "normalizedBulk_sqrtFrame_apply",
+      "qualified": "GreenFrame.Concrete.normalizedBulk_sqrtFrame_apply"
+    },
+    {
+      "id": "GF-318",
+      "name": "normalizedBulk_nonzero_of_rawBulk_witness",
+      "qualified": "GreenFrame.Concrete.normalizedBulk_nonzero_of_rawBulk_witness"
+    },
+    {
+      "id": "GF-319",
+      "name": "restrictedPoisson_ne_zero",
+      "qualified": "GreenFrame.Concrete.restrictedPoisson_ne_zero"
+    },
+    {
+      "id": "GF-320",
+      "name": "restrictedPoisson_ne_zero_of_rawBulk_witness",
+      "qualified": "GreenFrame.Concrete.restrictedPoisson_ne_zero_of_rawBulk_witness"
+    },
+    {
+      "id": "GF-321",
+      "name": "sqrtFrame_nonneg",
+      "qualified": "GreenFrame.Concrete.sqrtFrame_nonneg"
+    },
+    {
+      "id": "GF-322",
+      "name": "sqrtFrame_isSelfAdjoint",
+      "qualified": "GreenFrame.Concrete.sqrtFrame_isSelfAdjoint"
+    },
+    {
+      "id": "GF-323",
+      "name": "sqrtFrame_adjoint",
+      "qualified": "GreenFrame.Concrete.sqrtFrame_adjoint"
+    },
+    {
+      "id": "GF-324",
+      "name": "sqrtFrame_comp_self",
+      "qualified": "GreenFrame.Concrete.sqrtFrame_comp_self"
+    },
+    {
+      "id": "GF-325",
+      "name": "sqrtFrame_norm_sq_eq_analysis_norm_sq",
+      "qualified": "GreenFrame.Concrete.sqrtFrame_norm_sq_eq_analysis_norm_sq"
+    },
+    {
+      "id": "GF-326",
+      "name": "normalizedBulk_opNorm_sq_lower_of_raw_witness",
+      "qualified": "GreenFrame.Concrete.normalizedBulk_opNorm_sq_lower_of_raw_witness"
+    },
+    {
+      "id": "GF-327",
+      "name": "twoFourGreenEvent_eventNumber",
+      "qualified": "GreenFrame.Concrete.twoFourGreenEvent_eventNumber"
+    },
+    {
+      "id": "GF-328",
+      "name": "twoFourGreenEvent_hasGrandparent",
+      "qualified": "GreenFrame.Concrete.twoFourGreenEvent_hasGrandparent"
+    },
+    {
+      "id": "GF-329",
+      "name": "twoFourBulkEvent_val",
+      "qualified": "GreenFrame.Concrete.twoFourBulkEvent_val"
+    },
+    {
+      "id": "GF-330",
+      "name": "twoFourGreenEvent_grandparentIndex",
+      "qualified": "GreenFrame.Concrete.twoFourGreenEvent_grandparentIndex"
+    },
+    {
+      "id": "GF-331",
+      "name": "twoFourWitnessState_at_four",
+      "qualified": "GreenFrame.Concrete.twoFourWitnessState_at_four"
+    },
+    {
+      "id": "GF-332",
+      "name": "twoFourWitnessState_at_two",
+      "qualified": "GreenFrame.Concrete.twoFourWitnessState_at_two"
+    },
+    {
+      "id": "GF-333",
+      "name": "twoFourWitnessState_at_one",
+      "qualified": "GreenFrame.Concrete.twoFourWitnessState_at_one"
+    },
+    {
+      "id": "GF-334",
+      "name": "twoFourWitnessState_norm",
+      "qualified": "GreenFrame.Concrete.twoFourWitnessState_norm"
+    },
+    {
+      "id": "GF-335",
+      "name": "currentTerm_twoFourWitness",
+      "qualified": "GreenFrame.Concrete.currentTerm_twoFourWitness"
+    },
+    {
+      "id": "GF-336",
+      "name": "parentTerm_twoFourWitness",
+      "qualified": "GreenFrame.Concrete.parentTerm_twoFourWitness"
+    },
+    {
+      "id": "GF-337",
+      "name": "grandparentTerm_twoFourWitness",
+      "qualified": "GreenFrame.Concrete.grandparentTerm_twoFourWitness"
+    },
+    {
+      "id": "GF-338",
+      "name": "verticalGreenStencil_twoFourWitness",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_twoFourWitness"
+    },
+    {
+      "id": "GF-339",
+      "name": "canonicalCarry_twoFour_weight",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_twoFour_weight"
+    },
+    {
+      "id": "GF-340",
+      "name": "canonicalCarry_twoFour_greenEventMass",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_twoFour_greenEventMass"
+    },
+    {
+      "id": "GF-341",
+      "name": "canonicalCarry_twoFour_greenAmplitude",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_twoFour_greenAmplitude"
+    },
+    {
+      "id": "GF-342",
+      "name": "canonicalCarry_twoFour_greenCoordinate",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_twoFour_greenCoordinate"
+    },
+    {
+      "id": "GF-343",
+      "name": "canonicalCarry_twoFour_bulkCoordinate",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_twoFour_bulkCoordinate"
+    },
+    {
+      "id": "GF-344",
+      "name": "canonicalCarry_twoFour_bulkCoordinate_normSq",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_twoFour_bulkCoordinate_normSq"
+    },
+    {
+      "id": "GF-345",
+      "name": "canonicalCarry_greenBulkAnalysis_norm_sq_lower",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_greenBulkAnalysis_norm_sq_lower"
+    },
+    {
+      "id": "GF-346",
+      "name": "canonicalCarry_rawBulk_twoFour_norm_sq_lower",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_rawBulk_twoFour_norm_sq_lower"
+    },
+    {
+      "id": "GF-347",
+      "name": "canonicalCarry_rawBulk_twoFour_ne_zero",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_rawBulk_twoFour_ne_zero"
+    },
+    {
+      "id": "GF-348",
+      "name": "canonicalCarry_rawBulk_ne_zero",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_rawBulk_ne_zero"
+    },
+    {
+      "id": "GF-349",
+      "name": "canonicalCarry_normalizedBulk_twoFour_norm_sq_lower",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_normalizedBulk_twoFour_norm_sq_lower"
+    },
+    {
+      "id": "GF-350",
+      "name": "canonicalCarry_normalizedBulk_operator_norm_sq_lower",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_normalizedBulk_operator_norm_sq_lower"
+    },
+    {
+      "id": "GF-351",
+      "name": "canonicalCarry_normalizedBulk_ne_zero",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_normalizedBulk_ne_zero"
+    },
+    {
+      "id": "GF-352",
+      "name": "canonicalCarry_restrictedPoisson_ne_zero",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_restrictedPoisson_ne_zero"
+    },
+    {
+      "id": "GF-353",
+      "name": "externalGram_inner",
+      "qualified": "GreenFrame.Concrete.externalGram_inner"
+    },
+    {
+      "id": "GF-354",
+      "name": "externalGram_isUnit",
+      "qualified": "GreenFrame.Concrete.externalGram_isUnit"
+    },
+    {
+      "id": "GF-355",
+      "name": "externalGram_strictlyPositive",
+      "qualified": "GreenFrame.Concrete.externalGram_strictlyPositive"
+    },
+    {
+      "id": "GF-356",
+      "name": "ambientExternalSynthesis_comp_external",
+      "qualified": "GreenFrame.Concrete.ambientExternalSynthesis_comp_external"
+    },
+    {
+      "id": "GF-357",
+      "name": "ambientPoisson_intertwining",
+      "qualified": "GreenFrame.Concrete.ambientPoisson_intertwining"
+    },
+    {
+      "id": "GF-358",
+      "name": "mem_depthOneBases",
+      "qualified": "GreenFrame.Concrete.mem_depthOneBases"
+    },
+    {
+      "id": "GF-359",
+      "name": "mem_bulkBases",
+      "qualified": "GreenFrame.Concrete.mem_bulkBases"
+    },
+    {
+      "id": "GF-360",
+      "name": "depthOneActivity_nonneg",
+      "qualified": "GreenFrame.Concrete.depthOneActivity_nonneg"
+    },
+    {
+      "id": "GF-361",
+      "name": "bulkActivity_nonneg",
+      "qualified": "GreenFrame.Concrete.bulkActivity_nonneg"
+    },
+    {
+      "id": "GF-362",
+      "name": "endpointCharge_of_square",
+      "qualified": "GreenFrame.Concrete.endpointCharge_of_square"
+    },
+    {
+      "id": "GF-363",
+      "name": "endpointCharge_of_not_square",
+      "qualified": "GreenFrame.Concrete.endpointCharge_of_not_square"
+    },
+    {
+      "id": "GF-364",
+      "name": "bulkActivity_le_two_mul_depthOneActivity_of_certificate",
+      "qualified": "GreenFrame.Concrete.bulkActivity_le_two_mul_depthOneActivity_of_certificate"
+    },
+    {
+      "id": "GF-365",
+      "name": "bulkActivity_le_two_mul_depthOneActivity_of_charge_exists",
+      "qualified": "GreenFrame.Concrete.bulkActivity_le_two_mul_depthOneActivity_of_charge_exists"
+    },
+    {
+      "id": "GF-366",
+      "name": "bulk_base_sq_dvd",
+      "qualified": "GreenFrame.Concrete.bulk_base_sq_dvd"
+    },
+    {
+      "id": "GF-367",
+      "name": "bulk_base_sq_le",
+      "qualified": "GreenFrame.Concrete.bulk_base_sq_le"
+    },
+    {
+      "id": "GF-368",
+      "name": "endpointCharge_mem_depthOneBases",
+      "qualified": "GreenFrame.Concrete.endpointCharge_mem_depthOneBases"
+    },
+    {
+      "id": "GF-369",
+      "name": "endpointCharge_injectiveOn_bulkBases",
+      "qualified": "GreenFrame.Concrete.endpointCharge_injectiveOn_bulkBases"
+    },
+    {
+      "id": "GF-370",
+      "name": "allBaseActivity_le_log_number",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_le_log_number"
+    },
+    {
+      "id": "GF-371",
+      "name": "log_number_le_two_endpointActivity",
+      "qualified": "GreenFrame.Concrete.log_number_le_two_endpointActivity"
+    },
+    {
+      "id": "GF-372",
+      "name": "allBaseActivity_le_two_chargedActivity",
+      "qualified": "GreenFrame.Concrete.allBaseActivity_le_two_chargedActivity"
+    },
+    {
+      "id": "GF-373",
+      "name": "canonicalDepthOneChargeExists",
+      "qualified": "GreenFrame.Concrete.canonicalDepthOneChargeExists"
+    },
+    {
+      "id": "GF-374",
+      "name": "canonical_bulkActivity_le_two_mul_depthOneActivity",
+      "qualified": "GreenFrame.Concrete.canonical_bulkActivity_le_two_mul_depthOneActivity"
+    },
+    {
+      "id": "GF-375",
+      "name": "allBaseNormalizer_eq_depthOneActivity_add_bulkActivity",
+      "qualified": "GreenFrame.Concrete.allBaseNormalizer_eq_depthOneActivity_add_bulkActivity"
+    },
+    {
+      "id": "GF-376",
+      "name": "one_third_le_depthOneActivity_div_normalizer_of_bulk_bound",
+      "qualified": "GreenFrame.Concrete.one_third_le_depthOneActivity_div_normalizer_of_bulk_bound"
+    },
+    {
+      "id": "GF-377",
+      "name": "canonical_one_third_le_depthOneActivity_div_normalizer",
+      "qualified": "GreenFrame.Concrete.canonical_one_third_le_depthOneActivity_div_normalizer"
+    },
+    {
+      "id": "GF-378",
+      "name": "elementaryAtlasAmplitude_nonneg",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasAmplitude_nonneg"
+    },
+    {
+      "id": "GF-379",
+      "name": "elementaryAtlasAmplitude_sq",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasAmplitude_sq"
+    },
+    {
+      "id": "GF-380",
+      "name": "elementaryAtlasCoordinate_zero",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCoordinate_zero"
+    },
+    {
+      "id": "GF-381",
+      "name": "elementaryAtlasCoordinate_add",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCoordinate_add"
+    },
+    {
+      "id": "GF-382",
+      "name": "elementaryAtlasCoordinate_smul",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCoordinate_smul"
+    },
+    {
+      "id": "GF-383",
+      "name": "elementaryAtlasCoordinate_normSq_eq",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCoordinate_normSq_eq"
+    },
+    {
+      "id": "GF-384",
+      "name": "elementaryAtlasEnergyTerm_nonneg",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasEnergyTerm_nonneg"
+    },
+    {
+      "id": "GF-385",
+      "name": "elementaryAtlasCameraDensity_eq",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCameraDensity_eq"
+    },
+    {
+      "id": "GF-386",
+      "name": "elementaryAtlasCameraDensity_nonneg",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCameraDensity_nonneg"
+    },
+    {
+      "id": "GF-387",
+      "name": "elementaryAtlasCameraDensity_le",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCameraDensity_le"
+    },
+    {
+      "id": "GF-388",
+      "name": "elementaryAtlasCameraDensity_summable",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCameraDensity_summable"
+    },
+    {
+      "id": "GF-389",
+      "name": "elementaryAtlasEnergyTerm_summable",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasEnergyTerm_summable"
+    },
+    {
+      "id": "GF-390",
+      "name": "elementaryAtlasCoordinate_normSq_summable",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCoordinate_normSq_summable"
+    },
+    {
+      "id": "GF-391",
+      "name": "elementaryAtlasCamera_apply",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCamera_apply"
+    },
+    {
+      "id": "GF-392",
+      "name": "elementaryAtlasCamera_add",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCamera_add"
+    },
+    {
+      "id": "GF-393",
+      "name": "elementaryAtlasCamera_smul",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCamera_smul"
+    },
+    {
+      "id": "GF-394",
+      "name": "elementaryAtlasCamera_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasCamera_norm_sq_eq"
+    },
+    {
+      "id": "GF-395",
+      "name": "elementaryAtlas_add",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_add"
+    },
+    {
+      "id": "GF-396",
+      "name": "elementaryAtlas_smul",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_smul"
+    },
+    {
+      "id": "GF-397",
+      "name": "seed_add_elementaryAtlasCameraDensity",
+      "qualified": "GreenFrame.Concrete.seed_add_elementaryAtlasCameraDensity"
+    },
+    {
+      "id": "GF-398",
+      "name": "elementaryAtlas_norm_sq_eq_components",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_norm_sq_eq_components"
+    },
+    {
+      "id": "GF-399",
+      "name": "elementaryAtlas_norm_sq_eq",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_norm_sq_eq"
+    },
+    {
+      "id": "GF-400",
+      "name": "elementaryAtlas_isometry",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_isometry"
+    },
+    {
+      "id": "GF-401",
+      "name": "elementaryAtlasLinearIsometry_apply",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasLinearIsometry_apply"
+    },
+    {
+      "id": "GF-402",
+      "name": "elementaryAtlas_isometryMap",
+      "qualified": "GreenFrame.Concrete.elementaryAtlas_isometryMap"
+    },
+    {
+      "id": "GF-403",
+      "name": "canonicalCarryElementaryAtlas_apply",
+      "qualified": "GreenFrame.Concrete.canonicalCarryElementaryAtlas_apply"
+    },
+    {
+      "id": "GF-404",
+      "name": "canonicalCarryElementaryAtlas_isometry",
+      "qualified": "GreenFrame.Concrete.canonicalCarryElementaryAtlas_isometry"
+    },
+    {
+      "id": "GF-405",
+      "name": "mem_horizontalStateAtBase_iff",
+      "qualified": "GreenFrame.Concrete.mem_horizontalStateAtBase_iff"
+    },
+    {
+      "id": "GF-406",
+      "name": "mem_horizontalState_iff",
+      "qualified": "GreenFrame.Concrete.mem_horizontalState_iff"
+    },
+    {
+      "id": "GF-407",
+      "name": "horizontalState_vanishes_on_base",
+      "qualified": "GreenFrame.Concrete.horizontalState_vanishes_on_base"
+    },
+    {
+      "id": "GF-408",
+      "name": "horizontalState_own_base_eq_zero",
+      "qualified": "GreenFrame.Concrete.horizontalState_own_base_eq_zero"
+    },
+    {
+      "id": "GF-409",
+      "name": "ownCamera_coordinate_eq_zero_on_horizontal",
+      "qualified": "GreenFrame.Concrete.ownCamera_coordinate_eq_zero_on_horizontal"
+    },
+    {
+      "id": "GF-410",
+      "name": "offBaseAtlasEnergyTerm_nonneg",
+      "qualified": "GreenFrame.Concrete.offBaseAtlasEnergyTerm_nonneg"
+    },
+    {
+      "id": "GF-411",
+      "name": "offBaseAtlasEnergyTerm_le",
+      "qualified": "GreenFrame.Concrete.offBaseAtlasEnergyTerm_le"
+    },
+    {
+      "id": "GF-412",
+      "name": "offBaseAtlasEnergyTerm_summable",
+      "qualified": "GreenFrame.Concrete.offBaseAtlasEnergyTerm_summable"
+    },
+    {
+      "id": "GF-413",
+      "name": "offBaseAtlasEnergyTerm_ownCamera_eq_zero",
+      "qualified": "GreenFrame.Concrete.offBaseAtlasEnergyTerm_ownCamera_eq_zero"
+    },
+    {
+      "id": "GF-414",
+      "name": "offBaseAtlasEnergyTerm_seed_eq_zero",
+      "qualified": "GreenFrame.Concrete.offBaseAtlasEnergyTerm_seed_eq_zero"
+    },
+    {
+      "id": "GF-415",
+      "name": "elementaryAtlasEnergyTerm_eq_offBase_on_horizontal",
+      "qualified": "GreenFrame.Concrete.elementaryAtlasEnergyTerm_eq_offBase_on_horizontal"
+    },
+    {
+      "id": "GF-416",
+      "name": "horizontal_offBase_resolution_event",
+      "qualified": "GreenFrame.Concrete.horizontal_offBase_resolution_event"
+    },
+    {
+      "id": "GF-417",
+      "name": "horizontal_offBase_resolution_allPNat",
+      "qualified": "GreenFrame.Concrete.horizontal_offBase_resolution_allPNat"
+    },
+    {
+      "id": "GF-418",
+      "name": "horizontal_offBase_resolution",
+      "qualified": "GreenFrame.Concrete.horizontal_offBase_resolution"
+    },
+    {
+      "id": "GF-419",
+      "name": "canonicalCarry_horizontal_offBase_resolution",
+      "qualified": "GreenFrame.Concrete.canonicalCarry_horizontal_offBase_resolution"
+    },
+    {
+      "id": "GF-420",
+      "name": "normalizedTowerTFVD_depth_one",
+      "qualified": "GreenFrame.Concrete.normalizedTowerTFVD_depth_one"
+    },
+    {
+      "id": "GF-421",
+      "name": "normalizedTowerTFVD_depth_ge_two",
+      "qualified": "GreenFrame.Concrete.normalizedTowerTFVD_depth_ge_two"
+    },
+    {
+      "id": "GF-422",
+      "name": "eventParentDepth_eq_padicValNat",
+      "qualified": "GreenFrame.Concrete.eventParentDepth_eq_padicValNat"
+    },
+    {
+      "id": "GF-423",
+      "name": "eventParentPower_dvd",
+      "qualified": "GreenFrame.Concrete.eventParentPower_dvd"
+    },
+    {
+      "id": "GF-424",
+      "name": "eventParent_factorization",
+      "qualified": "GreenFrame.Concrete.eventParent_factorization"
+    },
+    {
+      "id": "GF-425",
+      "name": "eventTowerRootNat_pos",
+      "qualified": "GreenFrame.Concrete.eventTowerRootNat_pos"
+    },
+    {
+      "id": "GF-426",
+      "name": "eventTowerRootNat_eq_divMaxPow",
+      "qualified": "GreenFrame.Concrete.eventTowerRootNat_eq_divMaxPow"
+    },
+    {
+      "id": "GF-427",
+      "name": "base_not_dvd_eventTowerRoot",
+      "qualified": "GreenFrame.Concrete.base_not_dvd_eventTowerRoot"
+    },
+    {
+      "id": "GF-428",
+      "name": "eventParent_decomposition_unique",
+      "qualified": "GreenFrame.Concrete.eventParent_decomposition_unique"
+    },
+    {
+      "id": "GF-429",
+      "name": "hasGrandparent",
+      "qualified": "GreenFrame.Concrete.TowerChart.hasGrandparent"
+    },
+    {
+      "id": "GF-430",
+      "name": "verticalGreenStencil_eq_normalizedTowerTFVD_of_chart",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_eq_normalizedTowerTFVD_of_chart"
+    },
+    {
+      "id": "GF-431",
+      "name": "greenCoordinate_eq_normalizedTowerTFVD_of_chart",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_eq_normalizedTowerTFVD_of_chart"
+    },
+    {
+      "id": "GF-432",
+      "name": "canonicalTowerEvent_parent",
+      "qualified": "GreenFrame.Concrete.canonicalTowerEvent_parent"
+    },
+    {
+      "id": "GF-433",
+      "name": "canonicalTowerEvent_current",
+      "qualified": "GreenFrame.Concrete.canonicalTowerEvent_current"
+    },
+    {
+      "id": "GF-434",
+      "name": "canonicalTowerEvent_hasGrandparent",
+      "qualified": "GreenFrame.Concrete.canonicalTowerEvent_hasGrandparent"
+    },
+    {
+      "id": "GF-435",
+      "name": "canonicalTowerEvent_grandparent",
+      "qualified": "GreenFrame.Concrete.canonicalTowerEvent_grandparent"
+    },
+    {
+      "id": "GF-436",
+      "name": "canonicalNormalizedTowerAtlasComplete",
+      "qualified": "GreenFrame.Concrete.canonicalNormalizedTowerAtlasComplete"
+    },
+    {
+      "id": "GF-437",
+      "name": "globalStencil_has_normalizedTowerTFVD",
+      "qualified": "GreenFrame.Concrete.globalStencil_has_normalizedTowerTFVD"
+    },
+    {
+      "id": "GF-438",
+      "name": "verticalGreenStencil_eq_canonicalNormalizedTowerTFVD",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_eq_canonicalNormalizedTowerTFVD"
+    },
+    {
+      "id": "GF-439",
+      "name": "greenCoordinate_eq_canonicalNormalizedTowerTFVD",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_eq_canonicalNormalizedTowerTFVD"
+    },
+    {
+      "id": "GF-440",
+      "name": "canonicalNormalizedTowerTFVD_depth_one",
+      "qualified": "GreenFrame.Concrete.canonicalNormalizedTowerTFVD_depth_one"
+    },
+    {
+      "id": "GF-441",
+      "name": "verticalGreenStencil_depth_one_eq_canonicalTowerTruncation",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_depth_one_eq_canonicalTowerTruncation"
+    },
+    {
+      "id": "GF-442",
+      "name": "active_camera_base_le_cutoff",
+      "qualified": "GreenFrame.Concrete.active_camera_base_le_cutoff"
+    },
+    {
+      "id": "GF-443",
+      "name": "active_camera_mem_cutoff_codes",
+      "qualified": "GreenFrame.Concrete.active_camera_mem_cutoff_codes"
+    },
+    {
+      "id": "GF-444",
+      "name": "greenEventRetained_current",
+      "qualified": "GreenFrame.Concrete.greenEventRetained_current"
+    },
+    {
+      "id": "GF-445",
+      "name": "greenEventRetained_parent",
+      "qualified": "GreenFrame.Concrete.greenEventRetained_parent"
+    },
+    {
+      "id": "GF-446",
+      "name": "greenEventRetained_grandparent",
+      "qualified": "GreenFrame.Concrete.greenEventRetained_grandparent"
+    },
+    {
+      "id": "GF-447",
+      "name": "l2CoordinateMask_apply",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_apply"
+    },
+    {
+      "id": "GF-448",
+      "name": "l2CoordinateMask_add",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_add"
+    },
+    {
+      "id": "GF-449",
+      "name": "l2CoordinateMask_smul",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_smul"
+    },
+    {
+      "id": "GF-450",
+      "name": "l2CoordinateMask_norm_sq_le",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_norm_sq_le"
+    },
+    {
+      "id": "GF-451",
+      "name": "l2CoordinateMask_norm_le",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_norm_le"
+    },
+    {
+      "id": "GF-452",
+      "name": "l2CoordinateMaskCLM_apply",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMaskCLM_apply"
+    },
+    {
+      "id": "GF-453",
+      "name": "l2CoordinateMask_idempotent",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_idempotent"
+    },
+    {
+      "id": "GF-454",
+      "name": "l2ProductMap_apply",
+      "qualified": "GreenFrame.Concrete.l2ProductMap_apply"
+    },
+    {
+      "id": "GF-455",
+      "name": "l2ProductMap_norm_le",
+      "qualified": "GreenFrame.Concrete.l2ProductMap_norm_le"
+    },
+    {
+      "id": "GF-456",
+      "name": "l2ProductMap_idempotent",
+      "qualified": "GreenFrame.Concrete.l2ProductMap_idempotent"
+    },
+    {
+      "id": "GF-457",
+      "name": "l2FirstProjection_apply",
+      "qualified": "GreenFrame.Concrete.l2FirstProjection_apply"
+    },
+    {
+      "id": "GF-458",
+      "name": "l2FirstProjection_norm_le",
+      "qualified": "GreenFrame.Concrete.l2FirstProjection_norm_le"
+    },
+    {
+      "id": "GF-459",
+      "name": "l2ProductMap_tendsto",
+      "qualified": "GreenFrame.Concrete.l2ProductMap_tendsto"
+    },
+    {
+      "id": "GF-460",
+      "name": "stateCoordinateCutoff_contracts",
+      "qualified": "GreenFrame.Concrete.stateCoordinateCutoff_contracts"
+    },
+    {
+      "id": "GF-461",
+      "name": "concreteCoefficientCutoff_contracts",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_contracts"
+    },
+    {
+      "id": "GF-462",
+      "name": "concreteSeedResidualProjection_contracts",
+      "qualified": "GreenFrame.Concrete.concreteSeedResidualProjection_contracts"
+    },
+    {
+      "id": "GF-463",
+      "name": "stateCoordinateCutoff_idempotent",
+      "qualified": "GreenFrame.Concrete.stateCoordinateCutoff_idempotent"
+    },
+    {
+      "id": "GF-464",
+      "name": "concreteCoefficientCutoff_idempotent",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_idempotent"
+    },
+    {
+      "id": "GF-465",
+      "name": "embeddedAnalysisSection_apply",
+      "qualified": "GreenFrame.Concrete.embeddedAnalysisSection_apply"
+    },
+    {
+      "id": "GF-466",
+      "name": "stateCoordinateCutoff_fixes_finite",
+      "qualified": "GreenFrame.Concrete.stateCoordinateCutoff_fixes_finite"
+    },
+    {
+      "id": "GF-467",
+      "name": "residualCoordinateCutoff_fixes_analysis",
+      "qualified": "GreenFrame.Concrete.residualCoordinateCutoff_fixes_analysis"
+    },
+    {
+      "id": "GF-468",
+      "name": "seedResidualCoordinateCutoff_fixes_analysis",
+      "qualified": "GreenFrame.Concrete.seedResidualCoordinateCutoff_fixes_analysis"
+    },
+    {
+      "id": "GF-469",
+      "name": "concreteEmbeddedFiniteAnalysis_apply",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_apply"
+    },
+    {
+      "id": "GF-470",
+      "name": "concreteCutoff_retains_seedResidual",
+      "qualified": "GreenFrame.Concrete.concreteCutoff_retains_seedResidual"
+    },
+    {
+      "id": "GF-471",
+      "name": "concreteFiniteAnalysisOperator_apply",
+      "qualified": "GreenFrame.Concrete.concreteFiniteAnalysisOperator_apply"
+    },
+    {
+      "id": "GF-472",
+      "name": "concreteEmbeddedFiniteAnalysis_upper",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_upper"
+    },
+    {
+      "id": "GF-473",
+      "name": "concreteEmbeddedFiniteAnalysis_lower",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_lower"
+    },
+    {
+      "id": "GF-474",
+      "name": "concreteEmbeddedFiniteAnalysis_norm_sq_bounds",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_norm_sq_bounds"
+    },
+    {
+      "id": "GF-475",
+      "name": "concreteFiniteAnalysisOperator_norm_sq_bounds",
+      "qualified": "GreenFrame.Concrete.concreteFiniteAnalysisOperator_norm_sq_bounds"
+    },
+    {
+      "id": "GF-476",
+      "name": "stateCoordinateCutoff_range",
+      "qualified": "GreenFrame.Concrete.stateCoordinateCutoff_range"
+    },
+    {
+      "id": "GF-477",
+      "name": "residualCoordinateCutoff_range",
+      "qualified": "GreenFrame.Concrete.residualCoordinateCutoff_range"
+    },
+    {
+      "id": "GF-478",
+      "name": "depthOneCoordinateCutoff_range",
+      "qualified": "GreenFrame.Concrete.depthOneCoordinateCutoff_range"
+    },
+    {
+      "id": "GF-479",
+      "name": "bulkCoordinateCutoff_range",
+      "qualified": "GreenFrame.Concrete.bulkCoordinateCutoff_range"
+    },
+    {
+      "id": "GF-480",
+      "name": "concreteCoefficientCutoff_residual_mem",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_residual_mem"
+    },
+    {
+      "id": "GF-481",
+      "name": "concreteCoefficientCutoff_depthOne_mem",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_depthOne_mem"
+    },
+    {
+      "id": "GF-482",
+      "name": "concreteCoefficientCutoff_bulk_mem",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_bulk_mem"
+    },
+    {
+      "id": "GF-483",
+      "name": "l2CoordinateMask_energy_tendsto_zero",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_energy_tendsto_zero"
+    },
+    {
+      "id": "GF-484",
+      "name": "l2CoordinateMask_tendsto",
+      "qualified": "GreenFrame.Concrete.l2CoordinateMask_tendsto"
+    },
+    {
+      "id": "GF-485",
+      "name": "stateCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.stateCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-486",
+      "name": "residualCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.residualCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-487",
+      "name": "depthOneCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.depthOneCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-488",
+      "name": "bulkCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.bulkCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-489",
+      "name": "seedResidualCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.seedResidualCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-490",
+      "name": "externalCoordinateCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.externalCoordinateCutoff_tendsto"
+    },
+    {
+      "id": "GF-491",
+      "name": "concreteCoefficientCutoff_tendsto",
+      "qualified": "GreenFrame.Concrete.concreteCoefficientCutoff_tendsto"
+    },
+    {
+      "id": "GF-492",
+      "name": "embeddedAnalysisSection_tendsto",
+      "qualified": "GreenFrame.Concrete.embeddedAnalysisSection_tendsto"
+    },
+    {
+      "id": "GF-493",
+      "name": "concreteEmbeddedFiniteAnalysis_tendsto",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedFiniteAnalysis_tendsto"
+    },
+    {
+      "id": "GF-494",
+      "name": "concreteEmbeddedCanonicalAnalysis_tendsto_of_extendedInverseSqrt_tendsto",
+      "qualified": "GreenFrame.Concrete.concreteEmbeddedCanonicalAnalysis_tendsto_of_extendedInverseSqrt_tendsto"
+    }
   ]
 }
