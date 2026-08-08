@@ -90,8 +90,10 @@ theorem l2ProductMap_tendsto
   rw [← nhds_prod_eq] at hpair
   have hmap := (WithLp.prodContinuousLinearEquiv 2 ℂ E B).symm.continuous.continuousAt.tendsto.comp
     hpair
-  simpa only [l2ProductMap_apply, Function.comp_apply,
-    WithLp.prodContinuousLinearEquiv_symm_apply, Prod.eta,
-    WithLp.toLp_ofLp] using hmap
+  change Filter.Tendsto
+    (fun N => WithLp.toLp 2
+      (A N (WithLp.ofLp y).1, C N (WithLp.ofLp y).2))
+    Filter.atTop (nhds y) at hmap
+  exact hmap
 
 end GreenFrame.Concrete
