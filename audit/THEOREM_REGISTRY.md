@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **419** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **441** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -423,3 +423,25 @@ The registry contains exactly **419** named Lean theorems reachable from `GreenF
 | `GF-417` | `GreenFrame.Concrete.horizontal_offBase_resolution_allPNat` | `GreenFrame/Concrete/Analysis/HorizontalResolution.lean:55` |
 | `GF-418` | `GreenFrame.Concrete.horizontal_offBase_resolution` | `GreenFrame/Concrete/Analysis/HorizontalResolution.lean:82` |
 | `GF-419` | `GreenFrame.Concrete.canonicalCarry_horizontal_offBase_resolution` | `GreenFrame/Concrete/Analysis/HorizontalResolution.lean:110` |
+| `GF-420` | `GreenFrame.Concrete.normalizedTowerTFVD_depth_one` | `GreenFrame/Concrete/Analysis/TowerTFVDCoordinates.lean:58` |
+| `GF-421` | `GreenFrame.Concrete.normalizedTowerTFVD_depth_ge_two` | `GreenFrame/Concrete/Analysis/TowerTFVDCoordinates.lean:66` |
+| `GF-422` | `GreenFrame.Concrete.eventParentDepth_eq_padicValNat` | `GreenFrame/Concrete/Analysis/TowerRootExtraction.lean:28` |
+| `GF-423` | `GreenFrame.Concrete.eventParentPower_dvd` | `GreenFrame/Concrete/Analysis/TowerRootExtraction.lean:33` |
+| `GF-424` | `GreenFrame.Concrete.eventParent_factorization` | `GreenFrame/Concrete/Analysis/TowerRootExtraction.lean:38` |
+| `GF-425` | `GreenFrame.Concrete.eventTowerRootNat_pos` | `GreenFrame/Concrete/Analysis/TowerRootExtraction.lean:44` |
+| `GF-426` | `GreenFrame.Concrete.eventTowerRootNat_eq_divMaxPow` | `GreenFrame/Concrete/Analysis/TowerRootExtraction.lean:51` |
+| `GF-427` | `GreenFrame.Concrete.base_not_dvd_eventTowerRoot` | `GreenFrame/Concrete/Analysis/TowerRootExtraction.lean:69` |
+| `GF-428` | `GreenFrame.Concrete.eventParent_decomposition_unique` | `GreenFrame/Concrete/Analysis/TowerRootExtraction.lean:85` |
+| `GF-429` | `GreenFrame.Concrete.TowerChart.hasGrandparent` | `GreenFrame/Concrete/Analysis/TowerTFVDIntertwining.lean:35` |
+| `GF-430` | `GreenFrame.Concrete.verticalGreenStencil_eq_normalizedTowerTFVD_of_chart` | `GreenFrame/Concrete/Analysis/TowerTFVDIntertwining.lean:41` |
+| `GF-431` | `GreenFrame.Concrete.greenCoordinate_eq_normalizedTowerTFVD_of_chart` | `GreenFrame/Concrete/Analysis/TowerTFVDIntertwining.lean:59` |
+| `GF-432` | `GreenFrame.Concrete.canonicalTowerEvent_parent` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:24` |
+| `GF-433` | `GreenFrame.Concrete.canonicalTowerEvent_current` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:31` |
+| `GF-434` | `GreenFrame.Concrete.canonicalTowerEvent_hasGrandparent` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:46` |
+| `GF-435` | `GreenFrame.Concrete.canonicalTowerEvent_grandparent` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:56` |
+| `GF-436` | `GreenFrame.Concrete.canonicalNormalizedTowerAtlasComplete` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:104` |
+| `GF-437` | `GreenFrame.Concrete.globalStencil_has_normalizedTowerTFVD` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:110` |
+| `GF-438` | `GreenFrame.Concrete.verticalGreenStencil_eq_canonicalNormalizedTowerTFVD` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:119` |
+| `GF-439` | `GreenFrame.Concrete.greenCoordinate_eq_canonicalNormalizedTowerTFVD` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:127` |
+| `GF-440` | `GreenFrame.Concrete.canonicalNormalizedTowerTFVD_depth_one` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:136` |
+| `GF-441` | `GreenFrame.Concrete.verticalGreenStencil_depth_one_eq_canonicalTowerTruncation` | `GreenFrame/Concrete/Analysis/CanonicalTowerChart.lean:151` |

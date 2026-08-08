@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 419,
+  "count": 441,
   "theorems": [
     {
       "id": "GF-001",
@@ -2096,6 +2096,116 @@
       "id": "GF-419",
       "name": "canonicalCarry_horizontal_offBase_resolution",
       "qualified": "GreenFrame.Concrete.canonicalCarry_horizontal_offBase_resolution"
+    },
+    {
+      "id": "GF-420",
+      "name": "normalizedTowerTFVD_depth_one",
+      "qualified": "GreenFrame.Concrete.normalizedTowerTFVD_depth_one"
+    },
+    {
+      "id": "GF-421",
+      "name": "normalizedTowerTFVD_depth_ge_two",
+      "qualified": "GreenFrame.Concrete.normalizedTowerTFVD_depth_ge_two"
+    },
+    {
+      "id": "GF-422",
+      "name": "eventParentDepth_eq_padicValNat",
+      "qualified": "GreenFrame.Concrete.eventParentDepth_eq_padicValNat"
+    },
+    {
+      "id": "GF-423",
+      "name": "eventParentPower_dvd",
+      "qualified": "GreenFrame.Concrete.eventParentPower_dvd"
+    },
+    {
+      "id": "GF-424",
+      "name": "eventParent_factorization",
+      "qualified": "GreenFrame.Concrete.eventParent_factorization"
+    },
+    {
+      "id": "GF-425",
+      "name": "eventTowerRootNat_pos",
+      "qualified": "GreenFrame.Concrete.eventTowerRootNat_pos"
+    },
+    {
+      "id": "GF-426",
+      "name": "eventTowerRootNat_eq_divMaxPow",
+      "qualified": "GreenFrame.Concrete.eventTowerRootNat_eq_divMaxPow"
+    },
+    {
+      "id": "GF-427",
+      "name": "base_not_dvd_eventTowerRoot",
+      "qualified": "GreenFrame.Concrete.base_not_dvd_eventTowerRoot"
+    },
+    {
+      "id": "GF-428",
+      "name": "eventParent_decomposition_unique",
+      "qualified": "GreenFrame.Concrete.eventParent_decomposition_unique"
+    },
+    {
+      "id": "GF-429",
+      "name": "hasGrandparent",
+      "qualified": "GreenFrame.Concrete.TowerChart.hasGrandparent"
+    },
+    {
+      "id": "GF-430",
+      "name": "verticalGreenStencil_eq_normalizedTowerTFVD_of_chart",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_eq_normalizedTowerTFVD_of_chart"
+    },
+    {
+      "id": "GF-431",
+      "name": "greenCoordinate_eq_normalizedTowerTFVD_of_chart",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_eq_normalizedTowerTFVD_of_chart"
+    },
+    {
+      "id": "GF-432",
+      "name": "canonicalTowerEvent_parent",
+      "qualified": "GreenFrame.Concrete.canonicalTowerEvent_parent"
+    },
+    {
+      "id": "GF-433",
+      "name": "canonicalTowerEvent_current",
+      "qualified": "GreenFrame.Concrete.canonicalTowerEvent_current"
+    },
+    {
+      "id": "GF-434",
+      "name": "canonicalTowerEvent_hasGrandparent",
+      "qualified": "GreenFrame.Concrete.canonicalTowerEvent_hasGrandparent"
+    },
+    {
+      "id": "GF-435",
+      "name": "canonicalTowerEvent_grandparent",
+      "qualified": "GreenFrame.Concrete.canonicalTowerEvent_grandparent"
+    },
+    {
+      "id": "GF-436",
+      "name": "canonicalNormalizedTowerAtlasComplete",
+      "qualified": "GreenFrame.Concrete.canonicalNormalizedTowerAtlasComplete"
+    },
+    {
+      "id": "GF-437",
+      "name": "globalStencil_has_normalizedTowerTFVD",
+      "qualified": "GreenFrame.Concrete.globalStencil_has_normalizedTowerTFVD"
+    },
+    {
+      "id": "GF-438",
+      "name": "verticalGreenStencil_eq_canonicalNormalizedTowerTFVD",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_eq_canonicalNormalizedTowerTFVD"
+    },
+    {
+      "id": "GF-439",
+      "name": "greenCoordinate_eq_canonicalNormalizedTowerTFVD",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_eq_canonicalNormalizedTowerTFVD"
+    },
+    {
+      "id": "GF-440",
+      "name": "canonicalNormalizedTowerTFVD_depth_one",
+      "qualified": "GreenFrame.Concrete.canonicalNormalizedTowerTFVD_depth_one"
+    },
+    {
+      "id": "GF-441",
+      "name": "verticalGreenStencil_depth_one_eq_canonicalTowerTruncation",
+      "qualified": "GreenFrame.Concrete.verticalGreenStencil_depth_one_eq_canonicalTowerTruncation"
     }
   ]
 }

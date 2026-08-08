@@ -64,6 +64,8 @@ import GreenFrame.Concrete.Analysis.ElementaryAtlas
 
 import GreenFrame.Concrete.Analysis.HorizontalResolution
 
+import GreenFrame.Concrete.Analysis.NormalizedTowerTFVD
+
 /-!
 # Public API — All-Bases Green Frame Theorem
 

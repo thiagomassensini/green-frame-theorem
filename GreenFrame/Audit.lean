@@ -445,3 +445,26 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.horizontal_offBase_resolution_allPNat
 #print axioms GreenFrame.Concrete.horizontal_offBase_resolution
 #print axioms GreenFrame.Concrete.canonicalCarry_horizontal_offBase_resolution
+
+#print axioms GreenFrame.Concrete.normalizedTowerTFVD_depth_one
+#print axioms GreenFrame.Concrete.normalizedTowerTFVD_depth_ge_two
+#print axioms GreenFrame.Concrete.eventParentDepth_eq_padicValNat
+#print axioms GreenFrame.Concrete.eventParentPower_dvd
+#print axioms GreenFrame.Concrete.eventParent_factorization
+#print axioms GreenFrame.Concrete.eventTowerRootNat_pos
+#print axioms GreenFrame.Concrete.eventTowerRootNat_eq_divMaxPow
+#print axioms GreenFrame.Concrete.base_not_dvd_eventTowerRoot
+#print axioms GreenFrame.Concrete.eventParent_decomposition_unique
+#print axioms GreenFrame.Concrete.TowerChart.hasGrandparent
+#print axioms GreenFrame.Concrete.verticalGreenStencil_eq_normalizedTowerTFVD_of_chart
+#print axioms GreenFrame.Concrete.greenCoordinate_eq_normalizedTowerTFVD_of_chart
+#print axioms GreenFrame.Concrete.canonicalTowerEvent_parent
+#print axioms GreenFrame.Concrete.canonicalTowerEvent_current
+#print axioms GreenFrame.Concrete.canonicalTowerEvent_hasGrandparent
+#print axioms GreenFrame.Concrete.canonicalTowerEvent_grandparent
+#print axioms GreenFrame.Concrete.canonicalNormalizedTowerAtlasComplete
+#print axioms GreenFrame.Concrete.globalStencil_has_normalizedTowerTFVD
+#print axioms GreenFrame.Concrete.verticalGreenStencil_eq_canonicalNormalizedTowerTFVD
+#print axioms GreenFrame.Concrete.greenCoordinate_eq_canonicalNormalizedTowerTFVD
+#print axioms GreenFrame.Concrete.canonicalNormalizedTowerTFVD_depth_one
+#print axioms GreenFrame.Concrete.verticalGreenStencil_depth_one_eq_canonicalTowerTruncation
