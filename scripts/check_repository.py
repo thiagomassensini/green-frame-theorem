@@ -63,7 +63,11 @@ def main() -> int:
         if path.name == "Audit.lean":
             continue
         declarations.extend(
-            re.findall(r"^theorem\s+([A-Za-z0-9_]+)", path.read_text(), re.MULTILINE)
+            re.findall(
+                r"^theorem\s+(?:[A-Za-z0-9_]+\.)*([A-Za-z0-9_]+)",
+                path.read_text(),
+                re.MULTILINE,
+            )
         )
     expected_ids = [f"GF-{i:03d}" for i in range(1, len(entries) + 1)]
     if ids != expected_ids:
