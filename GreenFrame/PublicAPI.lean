@@ -28,6 +28,7 @@ import GreenFrame.Concrete.Analysis.GreenAnalysisVector
 import GreenFrame.Concrete.Analysis.GreenAnalysisOperator
 import GreenFrame.Concrete.Analysis.ResidualCoordinates
 import GreenFrame.Concrete.Analysis.ResidualAnalysis
+import GreenFrame.Concrete.Analysis.GreenDepthCoordinates
 
 /-!
 # Public API — All-Bases Green Frame Theorem

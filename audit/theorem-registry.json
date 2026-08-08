@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 226,
+  "count": 234,
   "theorems": [
     {
       "id": "GF-001",
@@ -1131,6 +1131,46 @@
       "id": "GF-226",
       "name": "seedResidualAnalysis_norm_le",
       "qualified": "GreenFrame.Concrete.seedResidualAnalysis_norm_le"
+    },
+    {
+      "id": "GF-227",
+      "name": "greenDepthOneCoordinate_eq_zero_of_hasGrandparent",
+      "qualified": "GreenFrame.Concrete.greenDepthOneCoordinate_eq_zero_of_hasGrandparent"
+    },
+    {
+      "id": "GF-228",
+      "name": "greenBulkCoordinate_eq_zero_of_not_hasGrandparent",
+      "qualified": "GreenFrame.Concrete.greenBulkCoordinate_eq_zero_of_not_hasGrandparent"
+    },
+    {
+      "id": "GF-229",
+      "name": "greenDepthOneCoordinate_add_greenBulkCoordinate",
+      "qualified": "GreenFrame.Concrete.greenDepthOneCoordinate_add_greenBulkCoordinate"
+    },
+    {
+      "id": "GF-230",
+      "name": "greenCoordinate_normSq_eq_depthOne_add_bulk",
+      "qualified": "GreenFrame.Concrete.greenCoordinate_normSq_eq_depthOne_add_bulk"
+    },
+    {
+      "id": "GF-231",
+      "name": "greenDepthOneCoordinate_normSq_le",
+      "qualified": "GreenFrame.Concrete.greenDepthOneCoordinate_normSq_le"
+    },
+    {
+      "id": "GF-232",
+      "name": "greenBulkCoordinate_normSq_le",
+      "qualified": "GreenFrame.Concrete.greenBulkCoordinate_normSq_le"
+    },
+    {
+      "id": "GF-233",
+      "name": "greenDepthOneCoordinate_normSq_summable",
+      "qualified": "GreenFrame.Concrete.greenDepthOneCoordinate_normSq_summable"
+    },
+    {
+      "id": "GF-234",
+      "name": "greenBulkCoordinate_normSq_summable",
+      "qualified": "GreenFrame.Concrete.greenBulkCoordinate_normSq_summable"
     }
   ]
 }

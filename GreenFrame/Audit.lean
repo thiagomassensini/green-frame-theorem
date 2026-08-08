@@ -228,3 +228,12 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.seedResidualAnalysis_norm_sq_eq
 #print axioms GreenFrame.Concrete.seedResidualAnalysis_norm_sq_bounds
 #print axioms GreenFrame.Concrete.seedResidualAnalysis_norm_le
+
+#print axioms GreenFrame.Concrete.greenDepthOneCoordinate_eq_zero_of_hasGrandparent
+#print axioms GreenFrame.Concrete.greenBulkCoordinate_eq_zero_of_not_hasGrandparent
+#print axioms GreenFrame.Concrete.greenDepthOneCoordinate_add_greenBulkCoordinate
+#print axioms GreenFrame.Concrete.greenCoordinate_normSq_eq_depthOne_add_bulk
+#print axioms GreenFrame.Concrete.greenDepthOneCoordinate_normSq_le
+#print axioms GreenFrame.Concrete.greenBulkCoordinate_normSq_le
+#print axioms GreenFrame.Concrete.greenDepthOneCoordinate_normSq_summable
+#print axioms GreenFrame.Concrete.greenBulkCoordinate_normSq_summable

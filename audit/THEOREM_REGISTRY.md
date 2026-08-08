@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **168** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **234** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -230,3 +230,11 @@ The registry contains exactly **168** named Lean theorems reachable from `GreenF
 | `GF-224` | `GreenFrame.Concrete.seedResidualAnalysis_norm_sq_eq` | `GreenFrame/Concrete/Analysis/ResidualAnalysis.lean` |
 | `GF-225` | `GreenFrame.Concrete.seedResidualAnalysis_norm_sq_bounds` | `GreenFrame/Concrete/Analysis/ResidualAnalysis.lean` |
 | `GF-226` | `GreenFrame.Concrete.seedResidualAnalysis_norm_le` | `GreenFrame/Concrete/Analysis/ResidualAnalysis.lean` |
+| `GF-227` | `GreenFrame.Concrete.greenDepthOneCoordinate_eq_zero_of_hasGrandparent` | `GreenFrame/Concrete/Analysis/GreenDepthCoordinates.lean` |
+| `GF-228` | `GreenFrame.Concrete.greenBulkCoordinate_eq_zero_of_not_hasGrandparent` | `GreenFrame/Concrete/Analysis/GreenDepthCoordinates.lean` |
+| `GF-229` | `GreenFrame.Concrete.greenDepthOneCoordinate_add_greenBulkCoordinate` | `GreenFrame/Concrete/Analysis/GreenDepthCoordinates.lean` |
+| `GF-230` | `GreenFrame.Concrete.greenCoordinate_normSq_eq_depthOne_add_bulk` | `GreenFrame/Concrete/Analysis/GreenDepthCoordinates.lean` |
+| `GF-231` | `GreenFrame.Concrete.greenDepthOneCoordinate_normSq_le` | `GreenFrame/Concrete/Analysis/GreenDepthCoordinates.lean` |
+| `GF-232` | `GreenFrame.Concrete.greenBulkCoordinate_normSq_le` | `GreenFrame/Concrete/Analysis/GreenDepthCoordinates.lean` |
+| `GF-233` | `GreenFrame.Concrete.greenDepthOneCoordinate_normSq_summable` | `GreenFrame/Concrete/Analysis/GreenDepthCoordinates.lean` |
+| `GF-234` | `GreenFrame.Concrete.greenBulkCoordinate_normSq_summable` | `GreenFrame/Concrete/Analysis/GreenDepthCoordinates.lean` |
