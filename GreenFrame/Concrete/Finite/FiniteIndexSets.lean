@@ -64,7 +64,7 @@ instance retainedDepthOneEventFinite (N : ℕ) :
   intro a b h
   apply Subtype.ext
   apply Subtype.ext
-  exact congrArg Subtype.val h
+  exact congrArg (fun z : RetainedGreenEvent N => z.1) h
 
 instance retainedBulkEventFinite (N : ℕ) :
     Finite (RetainedBulkEvent N) := by
@@ -74,6 +74,6 @@ instance retainedBulkEventFinite (N : ℕ) :
   intro a b h
   apply Subtype.ext
   apply Subtype.ext
-  exact congrArg Subtype.val h
+  exact congrArg (fun z : RetainedGreenEvent N => z.1) h
 
 end GreenFrame.Concrete
