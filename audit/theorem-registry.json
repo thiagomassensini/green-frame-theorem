@@ -1,6 +1,6 @@
 {
   "schema": "org.green-frame.theorem-registry/v1",
-  "count": 352,
+  "count": 357,
   "theorems": [
     {
       "id": "GF-001",
@@ -1761,6 +1761,31 @@
       "id": "GF-352",
       "name": "canonicalCarry_restrictedPoisson_ne_zero",
       "qualified": "GreenFrame.Concrete.canonicalCarry_restrictedPoisson_ne_zero"
+    },
+    {
+      "id": "GF-353",
+      "name": "externalGram_inner",
+      "qualified": "GreenFrame.Concrete.externalGram_inner"
+    },
+    {
+      "id": "GF-354",
+      "name": "externalGram_isUnit",
+      "qualified": "GreenFrame.Concrete.externalGram_isUnit"
+    },
+    {
+      "id": "GF-355",
+      "name": "externalGram_strictlyPositive",
+      "qualified": "GreenFrame.Concrete.externalGram_strictlyPositive"
+    },
+    {
+      "id": "GF-356",
+      "name": "ambientExternalSynthesis_comp_external",
+      "qualified": "GreenFrame.Concrete.ambientExternalSynthesis_comp_external"
+    },
+    {
+      "id": "GF-357",
+      "name": "ambientPoisson_intertwining",
+      "qualified": "GreenFrame.Concrete.ambientPoisson_intertwining"
     }
   ]
 }

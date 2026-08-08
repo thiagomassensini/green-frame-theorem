@@ -56,6 +56,8 @@ import GreenFrame.Concrete.Analysis.ConcreteBulkWitnessRaw
 
 import GreenFrame.Concrete.Analysis.ConcreteBulkWitness
 
+import GreenFrame.Concrete.Analysis.AmbientPoisson
+
 /-!
 # Public API — All-Bases Green Frame Theorem
 

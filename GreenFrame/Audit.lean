@@ -374,3 +374,9 @@ import GreenFrame
 #print axioms GreenFrame.Concrete.canonicalCarry_normalizedBulk_operator_norm_sq_lower
 #print axioms GreenFrame.Concrete.canonicalCarry_normalizedBulk_ne_zero
 #print axioms GreenFrame.Concrete.canonicalCarry_restrictedPoisson_ne_zero
+
+#print axioms GreenFrame.Concrete.externalGram_inner
+#print axioms GreenFrame.Concrete.externalGram_isUnit
+#print axioms GreenFrame.Concrete.externalGram_strictlyPositive
+#print axioms GreenFrame.Concrete.ambientExternalSynthesis_comp_external
+#print axioms GreenFrame.Concrete.ambientPoisson_intertwining

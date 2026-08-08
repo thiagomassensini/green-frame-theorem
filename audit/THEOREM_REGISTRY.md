@@ -1,6 +1,6 @@
 # Theorem Registry
 
-The registry contains exactly **352** named Lean theorems reachable from `GreenFrame.lean`.
+The registry contains exactly **357** named Lean theorems reachable from `GreenFrame.lean`.
 
 | ID | Declaration | Source |
 |---|---|---|
@@ -356,3 +356,8 @@ The registry contains exactly **352** named Lean theorems reachable from `GreenF
 | `GF-350` | `GreenFrame.Concrete.canonicalCarry_normalizedBulk_operator_norm_sq_lower` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessTransfer.lean:42` |
 | `GF-351` | `GreenFrame.Concrete.canonicalCarry_normalizedBulk_ne_zero` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessTransfer.lean:62` |
 | `GF-352` | `GreenFrame.Concrete.canonicalCarry_restrictedPoisson_ne_zero` | `GreenFrame/Concrete/Analysis/ConcreteBulkWitnessTransfer.lean:75` |
+| `GF-353` | `GreenFrame.Concrete.externalGram_inner` | `GreenFrame/Concrete/Analysis/AmbientPoisson.lean:27` |
+| `GF-354` | `GreenFrame.Concrete.externalGram_isUnit` | `GreenFrame/Concrete/Analysis/AmbientPoisson.lean:34` |
+| `GF-355` | `GreenFrame.Concrete.externalGram_strictlyPositive` | `GreenFrame/Concrete/Analysis/AmbientPoisson.lean:55` |
+| `GF-356` | `GreenFrame.Concrete.ambientExternalSynthesis_comp_external` | `GreenFrame/Concrete/Analysis/AmbientPoisson.lean:72` |
+| `GF-357` | `GreenFrame.Concrete.ambientPoisson_intertwining` | `GreenFrame/Concrete/Analysis/AmbientPoisson.lean:93` |
