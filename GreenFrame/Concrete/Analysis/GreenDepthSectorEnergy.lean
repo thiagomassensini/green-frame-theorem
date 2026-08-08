@@ -156,6 +156,12 @@ theorem greenAnalysis_norm_sq_eq_depthOneSector_add_bulkSector
   have hsplit :=
     (greenCoordinate_normSq_summable omega f).tsum_subtype_add_tsum_subtype_compl
         {e : GreenEvent | HasGrandparent e}
+  have hcompl :
+      ({e : GreenEvent | HasGrandparent e} : Set GreenEvent)ᶜ =
+        {e : GreenEvent | ¬ HasGrandparent e} := by
+    ext e
+    simp only [Set.mem_compl_iff, Set.mem_setOf_eq]
+  rw [hcompl] at hsplit
   simpa only [Set.mem_setOf_eq, add_comm] using hsplit.symm
 
 /-- The literal depth-one restriction inherits the global Green bound. -/
