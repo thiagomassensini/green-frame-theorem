@@ -139,34 +139,30 @@ theorem divisiblePullback_summable (r : ℕ) {a : PNat → ℝ}
 theorem tsum_divisiblePullback (r : ℕ) (a : PNat → ℝ) :
     (∑' m : PNat, divisiblePullback r a m) = ∑' k : PNat, a k := by
   classical
-  calc
-    (∑' m : PNat, divisiblePullback r a m) =
-        ∑' m : BaseMultiple r, divisiblePullback r a m.1 := by
-      symm
-      exact tsum_subtype_eq_of_support_subset
-        (f := divisiblePullback r a)
-        (s := {m : PNat | basePNat r ∣ m})
-        (by
-          intro m hm
-          by_contra hdiv
-          change ¬ basePNat r ∣ m at hdiv
-          exact hm (by simp [divisiblePullback, hdiv]))
-    _ =
-        ∑' m : BaseMultiple r,
-          a (PNat.divExact m.1 (basePNat r)) := by
-      apply tsum_congr
-      intro m
-      have hm : basePNat r ∣ (m.1 : PNat) := m.property
-      simp [divisiblePullback, hm]
-    _ = ∑' k : PNat, a k := by
-      symm
-      have heq := (baseMultipleEquiv r).tsum_eq
-        (fun m : BaseMultiple r =>
-          a (PNat.divExact m.1 (basePNat r)))
-      change (∑' k : PNat,
-          a (PNat.divExact (baseMultipleEquiv r k).1 (basePNat r))) =
-        ∑' m : BaseMultiple r,
-          a (PNat.divExact m.1 (basePNat r)) at heq
-      simpa only [baseMultipleEquiv_apply_val, divExact_base_mul] using heq
+  let g : PNat → PNat := fun k => basePNat r * k
+  have hg : Function.Injective g := by
+    intro x y hxy
+    exact mul_left_cancel hxy
+  have hzero : ∀ m ∉ Set.range g, divisiblePullback r a m = 0 := by
+    intro m hm
+    by_cases hdiv : basePNat r ∣ m
+    · exfalso
+      apply hm
+      rcases hdiv with ⟨k, hk⟩
+      exact ⟨k, hk.symm⟩
+    · simp [divisiblePullback, hdiv]
+  by_cases ha : Summable a
+  · have hcomp : HasSum ((divisiblePullback r a) ∘ g) (∑' k, a k) := by
+      apply ha.hasSum.congr_fun
+      intro k
+      simp [Function.comp_apply, g, divisiblePullback]
+    exact ((hg.hasSum_iff hzero).mp hcomp).tsum_eq
+  · have hpull : ¬Summable (divisiblePullback r a) := by
+      intro h
+      apply ha
+      have hcomp := (hg.summable_iff hzero).mpr h
+      simpa [Function.comp_apply, g, divisiblePullback] using hcomp
+    rw [tsum_eq_zero_of_not_summable hpull,
+      tsum_eq_zero_of_not_summable ha]
 
 end GreenFrame.Concrete
