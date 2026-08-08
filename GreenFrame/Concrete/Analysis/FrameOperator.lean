@@ -11,7 +11,7 @@ construct a functional-calculus square root.
 
 noncomputable section
 
-open scoped InnerProductSpace NNReal
+open scoped InnerProduct InnerProductSpace NNReal
 
 namespace GreenFrame.Concrete
 
